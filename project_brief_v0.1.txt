@@ -1,0 +1,89 @@
+  
+    
+    Project Brief (Main):
+
+    Shogi using Self Play and Reinforcement Learning / MCTS:
+
+    A Shogi A.I. intended to be capable of challenging human 
+    masters at the game, through leverging method such as self-play, 
+    reinforcement learning and menote carlo tree search. Allowing the A.I. 
+    to improve continuously, autonomously, ultimately not only mastering 
+    existing stratergies but building uniquely generated tactics. 
+
+    
+    Goals:
+
+    1. Build a program to represent shogi board states, evluate positions, and select optimal moves. 
+    2. Implement slef play and run thousands of iterations of this. 
+    3. Use reinforcement learning algorithms on the self play data and improve autonomously.
+    4. Potentially implement Monte Carlo Tree Search to improve decision making and estimation of the value of the position. 
+
+    Ways to measure sucess:
+
+    Elo rating, Win rate against human players. 
+
+    Real life uses: 
+
+    (Was included in the notes, as something to consider for higher marks)
+
+    A training partner for human players, perhaps can make it simulate other high ranking players (supervised learning on 
+    style of specific player? might be stretching the brief too much)
+
+    Some useful sources I found for this:
+
+    https://arxiv.org/abs/1712.01815
+
+    https://discovery.ucl.ac.uk/id/eprint/10045895/1/agz_unformatted_nature.pdf
+
+    https://www.nature.com/articles/nature16961
+
+    https://arxiv.org/abs/1712.01815
+
+    https://lishogi.org/
+
+    https://universe.roboflow.com/sona-college-of-technology-e8ouw/shogi-board-detection-1
+
+    python-soghi API 
+
+
+    Some potential problems and considerations:
+
+    1. Computationally expensive, it takes a lot of computational resources to make the self-play gain enough experience. 
+    2. allocating time for the mcts at each turn, increases training time. (Parallel computing?)
+    
+
+    Maybe write some of the computationally expensive parts in C++ and then use python as a higher level interface for data processing?
+
+
+
+    Project Brief (Backup:)
+
+    This is a project on automatically discovering scientific laws (like Kepler's Law) and invariants (like Boyle's Law) from data.  
+
+This may involve building a model or Bayesian model and/or probabilistic programming model of infection dynamics (like a SIR model) or an intra-cellular regulatory network [5]. This would apply a probabilistic programming model to infection data from different sources.  
+
+Other models include phsyics simulators like pymunk:
+
+http://www.pymunk.org/en/latest/examples.html#planet-py
+
+You would simulate physics based simulations (like pymunk) or other models (like the SIR model above) and develop a machine learning approach to automatically generate insights from this model.
+
+This would be an explainable AI model for a complex model of a physical system.
+
+The project would involve building a model that would generate insights from these complex systems (an artificial model of human creativity).
+
+
+  Source of idea: https://github.com/complexsystemslab/project_ideas/blob/main/project_ideas_part2.rmd
+
+
+
+  Backup 2:
+
+  Algorithmize Trojan Source Attacks - Trojan Source attacks are a method of hiding adversarial logic within source code's encoding. Such attacks are "visible" to compilers but "invisible" to human developers. To date, research into Trojan Source attacks has taken the form of general patterns described anecdotally. In practice, this makes crafting Trojan Source attacks more of an art than a science. This project would be desiged to change that. The idea is to algorithmize these attacks. Done successfully, this project would produce two primary artifacts: (1) a theoretical algorithm that, given input source code, could produce well-crafted Trojan Source attacks that appears visually identical to that code, and (2) an implementation of this algorithm that demonstrates its efficacy against example programs. This project woud likely be a good fit for Part III or MPhil, or in a partial form as a Part II project.
+
+  Source of idea: https://www.cl.cam.ac.uk/~ndb40/students.html
+
+
+
+
+

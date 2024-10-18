@@ -1,0 +1,19 @@
+
+
+	PyTorch 
+	NLP projects, LLM networks.
+
+	Generative models, diffusion models. 
+
+	Multi Modal learning, look at both images and text. 
+
+	Go onto Kaggle, and look at their datasets and their competitions. 
+
+	Cyber supervised learning 
+
+	need ethical clearencce if scraping the web 
+
+	exai, explaninable ai, segementation/semantics, learning to solve problem, 
+	getting deep learning machine to reason. 
+
+
