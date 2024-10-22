@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  18 OCT 2024 16:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  20 OCT 2024 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -623,71 +623,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--139
 \openout4 = `Intermin.toc'.
 
  [5]
-Overfull \hbox (61.1169pt too wide) in paragraph at lines 178--186
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
+
+ []
+
+
+Overfull \hbox (61.1169pt too wide) in paragraph at lines 194--202
  [][] 
  []
 
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [6]
-Runaway argument?
-{ x unit=0.1cm, y unit title=0.1cm, y unit chart=0.1cm, vgrid, hgrid,\ETC.
-! Paragraph ended before \ganttset was complete.
-<to be read again> 
-                   \par 
-l.204 ]{1}{30}
-              
-? 
-! Extra }, or forgotten \endgroup.
-\\ganttchart [#1]#2#3->\ganttset {#1}
-                                     \gtt@tsstojulian {#2}{\gtt@startjulian ...
-l.204 ]{1}{30}
-              
-? 
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
-! Package pgfkeys Error: I do not know the key '/tikz/width', to which you pass
-ed '2cm', and I am going to ignore it. Perhaps you misspelled it.
+ []
 
-See the pgfkeys package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.206 ...e/.append style={width=2cm}]{October}{10}
-                                                  
-? 
 
-! Package pgfkeys Error: I do not know the key '/tikz/width', to which you pass
-ed '2cm', and I am going to ignore it. Perhaps you misspelled it.
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
 
-See the pgfkeys package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.207 .../.append style={width=2cm}]{November}{10}
-                                                  
-? 
+ []
 
-Overfull \hbox (87.33412pt too wide) in paragraph at lines 218--219
+[7]
+<Gannt_Chart_Tasks.png, id=33, 1510.64375pt x 838.13126pt>
+File: Gannt_Chart_Tasks.png Graphic file (type png)
+<use Gannt_Chart_Tasks.png>
+Package pdftex.def Info: Gannt_Chart_Tasks.png  used on input line 219.
+(pdftex.def)             Requested size: 455.24408pt x 252.57951pt.
+
+Overfull \hbox (11.6656pt too wide) in paragraph at lines 219--220
 [] 
  []
 
-[7] (./Intermin.aux) ) 
+<Gantt_Chart.png, id=34, 1538.74875pt x 774.895pt>
+File: Gantt_Chart.png Graphic file (type png)
+<use Gantt_Chart.png>
+Package pdftex.def Info: Gantt_Chart.png  used on input line 222.
+(pdftex.def)             Requested size: 426.79134pt x 214.92358pt.
+[8 <./Gannt_Chart_Tasks.png> <./Gantt_Chart.png>] (./Intermin.aux) ) 
 Here is how much of TeX's memory you used:
- 14545 strings out of 476091
- 314289 string characters out of 5794081
+ 14283 strings out of 476091
+ 308187 string characters out of 5794081
  1861330 words of memory out of 5000000
- 34705 multiletter control sequences out of 15000+600000
- 515056 words of font info for 41 fonts, out of 8000000 for 9000
+ 34443 multiletter control sequences out of 15000+600000
+ 514757 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,94p,425b,746s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Intermin.pdf (7 pages, 101434 bytes).
+ 99i,14n,94p,557b,320s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Intermin.pdf (8 pages, 275384 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

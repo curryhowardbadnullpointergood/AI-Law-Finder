@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Part3Project" company="" webLink="http://" view-date="2024-10-11" view-index="0" gantt-divider-location="418" resource-divider-location="300" version="3.3.3312" locale="en_GB">
+<?xml version="1.0" encoding="UTF-8"?><project name="Part3Project" company="" webLink="http://" view-date="2024-10-14" view-index="0" gantt-divider-location="418" resource-divider-location="300" version="3.3.3312" locale="en_GB">
     <description><![CDATA[Gantt Chart as part of project management for Part3 project. ]]></description>
-    <view zooming-state="default:2" id="gantt-chart">
+    <view zooming-state="default:7" id="gantt-chart">
         <field id="tpd3" name="Name" width="238" order="0"/>
         <field id="tpd4" name="Begin date" width="89" order="1"/>
         <field id="tpd5" name="End date" width="90" order="2"/>

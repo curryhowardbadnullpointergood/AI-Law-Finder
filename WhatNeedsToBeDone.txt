@@ -9,8 +9,12 @@ need to have a look at the titles of the sections again, and make it appropriate
 
 Need to optimise the colours of the Gantt Chart as well as the wording, takes around 20 minutes
 
+Need to reqrite the introduction/project brief section of the Intermin report, for the sake of speeed this has been kept the same as the previous low effort submission. Est time: 30 minutes 
 
-time needed: 55 minutes
+
+Gantt chart section,  tasks and chart need to be displayed horizontally, for the sake of time/agile skipping for now. Est time: 15 minutes 
+
+time needed: 1 hr 45 minutes
 
 
 
