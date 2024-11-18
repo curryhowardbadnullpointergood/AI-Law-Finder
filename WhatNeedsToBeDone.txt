@@ -14,6 +14,24 @@ Need to reqrite the introduction/project brief section of the Intermin report, f
 
 Gantt chart section,  tasks and chart need to be displayed horizontally, for the sake of time/agile skipping for now. Est time: 15 minutes 
 
+So talk to some physics profeessor, maybe that's also a part of ECS, and ask them for advice on the project. 
+
+Adam doesn't mind reading through the whole thing. Adam reads 5 pages, omg this is perfectttt. 
+Adam won't read through the whole thing, and if he does he is harsh with himself, so the second time he marks it, he will be harsh. He does say he is harsh on himself, and won't bother over Christmas. 
+
+Make your abstract and introduction different. Else it will be like, rereading the same thing twice. 
+
+"Deep learning is good at things it's not supposed to be good at? 
+I have a black box that understands physics""
+- Adam lol 
+
+
+So taking a bunch of someone's implementation, then implementing it in my own way is probably good enough as long as I cite them. Nice to highlight where you have done things differntly, and look into the mechanics of how it works. Have a little statement of this bit is me, this is my original contribution. 
+
+Deep learning network is a pain to get to work. 
+
+
+
 time needed: 1 hr 45 minutes
 
 
