@@ -178,24 +178,128 @@ One of the core challenges of physics and artificial intelligence, is finding an
 
 \subsection{Symbolic Regression: }
 
-Symbolic regression, is a technique that analyses and searches over the space of traceable mathematical expressions to find the best fit for a data set. By not requiruing prior information about the model, it is unbiased. There are a plethora of various stratergies that have been implemented in solving for various physical laws.\\
+Symbolic regression, is a technique that analyses and searches over the space of traceable mathematical expressions to find the best fit for a data set. By not requiruing prior information about the model, it is unbiased. There are a plethora of various stratergies that have been implemented in solving for emphirical laws [5], we will explore some of them below. It is also worth mentioning, that unlike other well-known techniques for regression, (eg: neural networks), that are essentially black boxes, symbolic regression, aims to extract white-box models and is easy to analyse.\\
 
-There are brute force methods, that leverage the computational power available to \\
-brute force\\
-some sort of analytical search method- “Distilling Free-Form Natural Laws from Experimental Data\\
+\begin{center} 
+  {\Large Brute Force:}
+\end{center}
+
+Symbolic Regression (SR), is interpretable [6], unlike Neural Networks (NN), which are often considered more explanable. The difference is interpretability allows us to comprehend how the model works, like observing how gears move in a glass box, while explanable means you get an overview of why a certain output was achieved, even without knowing the full nuances of it's inner workings.\\ 
+
+There however, are some challenges associated with SR, in comparison to function fitting (NN). SR, starts with nothing, a blank slate, and it has to learn the entire expression [7], unlike function fitting which just tweaks an already existing function. The exponential search space [8] , causes it to be extreamly computationally expensive to explore all possibilities. This combined with the face that, most optimisation algorithms expect a smooth search space [9], however SR lack's smooth interpolation, small changes in the potential solutions (expression), ie $x^3 and x^3+0.1$ can significantly alter the the output. Finally, if the nature of the problem is badly posed [10], there might potentially be multiple solutions to the same data. Imagine trying to find a single stright line equation with only two points of data, the need to balance findinf accurate expressions with finding the most simplistic and generalisable fit, is sometimes troublesome.\\
+
+The brute force approach of simply trying all possible combinations of symbolic expressions within some defined space. The model will subsequently increase the complexity over time, and will stop when either the fitting erros lowers below some defined limit or exceeds the upper limit of runtime. While in theory can solve all of our problems, in practise takes longer than the age of our universe to finish. In essence it's like searching for a singular drop in the ocean. Thankfully, there are some ways of pruning the search space, and drastically reducing the time taken to solve for the most accurate expression. \\ 
+
+\begin{center} 
+  {\Large Partial Derivatives:}
+\end{center}
+
+Partial derivatives, of some function f, with multiple variables such as x and y, is it's dervative with respect to one of those two variables, while the other variables in the function are kept constant. Formally, given a function with two or more variables, $f(x_1, x_2, \ldots, x_n) $, the partial derivative of $f$ with respect to $x_i$, where $x_i$ is some value $x$ in $(x_1, x_2, \ldots, x_i, \ldots, x_n)$, gives the rate of change of $f$ with respect to $x_i$. It is calculated by taking the ith derivative of $f$ with respect to $x_i$, whilst holding the other variables fixed. [11] \\
+
+The partial derivative of a function $f(x,y)$ with respect to $x$ is denoted $\frac{\partial f}{\partial x}$ [12] and is defined: \\ 
+
+\begin{center}
+
+  $\frac{\partial f}{\partial x} = \lim_{h \to 0} \left[ \frac{f(x+h, y) - f(x,y)}{h} \right]$
+\end{center}
+
+Once you pass in the experimental data, you can pre-process the data, using calculated partial derivatives, for every pair of exisitng variables. Many physical laws, involve rates of change, and partial derivatives help us represent them. Furthermore it also guides the search process, as the algorithm can use the derivative to accurately represent the underlying laws involved. Through comparing how well the partial derivatives derived through the experimental data compared to the potential expression, the algorthm can assess the accuracy and feasibility of the expressions involved. This stratergy can even be extended to prune the search space further, this could be achieved through incorporating knowlede of physics into the constraints for the partial derivatives. These concepts will be illustrated with an example below.\\
+
+Consider a iron rod, that has been heated up, such that it is hotter on one side than the other. Now it is intuitive to say that closer to the heat source, the temperature will be higher than further along the rod, where it will be colder. We can illustrate this temperaturedistribution with a function:  \\
+
+\begin{center}
+$T(x,y,z)$
+\end{center}
+
+where T is the temperature at a point in the rod, and (x,y,z) are the coordinates along the axis in 3 dimensions. This leads to these 3 partial derivatives: \\ 
+
+\begin{center}
+ $\frac{\partial T}{\partial x}, \  \frac{\partial T}{\partial y}, \  \frac{\partial T}{\partial z}$
+\end{center}
+
+These partial derivatives, gives us information about the direction and magnitude of heat flow at various points on the rod. The algorithm then searches for an equation T(x,y,z), that sufficiently predicts the observed temperature distriution and it's partial derivatives, deriving laws such as the heat transfer equations, or elasticity relationships.\\ 
+
+\begin{center}
+$\frac{\partial T}{\partial t} = \alpha \nabla^2 T$
+\end{center}
+
+
+
+Through using partial derivatives, we have in essence redefined the search criteria for the algorithm, through it's measure of the accuracy in comparison of potential solutions over the invariants represented in the experimental data. This also leads to the pleasent finding, that it can additionally capture relationships that represent other identities of the system, beyond invariants and heat transfer equations. \\ 
+
+You can subtly guide the type of laws that such an algorithm finds, by selectively picking the variables to input into the algorith,. For example providing velocities and force to find laws of motion. \\ 
+
+THIS IS VERY BADLY WRITTEN! DOES NOT FLOW AT ALL\\ 
+
+
+% some sort of analytical search method- “Distilling Free-Form Natural Laws from Experimental Data\\
+
 narrowing search space through explanable ai - From Kepler to Newton: Explainable AI for Science Discovery\\
-various other methods as mentioned here - AI Feynman: a Physics-Inspired Method for Symbolic Regression\\ 
+
+\begin{center} 
+  {\Large Dimensional Analysis:}
+\end{center}
+
+Dimensional Analysis is a method of solving problems usually in maths and physics, where we analyse the relationships between different physical quantities, by comapring their "units." It is a poweful method of reducing the complexity of systems, enabling engineers and scientists to analyse probelms that we can't even pose, much less solve the equations of [13]. \\
+
+Using the fact that numerous questions in science can be simplified by requiring the dimensions/units of the right and left hand side of the expression to be equal, we can transform the question into a smaller numer of variables, which all have no dimention. It has been automated to find the integer powers of expressions and has proven to be useful especially when the power is an irrational number.\\ 
+
+Here is a general stratergy that showcases how dimensional analysis can be used:\\
+
+Let's say we have a variable in an equation that can be broken down into it's fundemental units, such as (second, kilograms, ampere ...) to various powers. We can then take this, and represent each of the units as vectors, such that each of the fundemental units, is assigned a dimension, and it's important to note, this then allows us to represent any physical quantity as a product of these units, so let us construt a vector $v$, with $3$ integers, where each corresponding integer represents the power of each of the fundemental units.\\ 
+
+Given that we want to derive an expression, such as $y = f(x_1, \dots, x_n)$  we can then create some matrix $M$. Each of the colums of the given matrix, is the unit vector $v$ of the corresponding variable $x_i$. We then need to define another vector to represent the units of y, which will be called $z$. If we let the solution be some vector $s$, soving $Ms = z$, this then lets us raise the powers on both sides, to elevate the independent variables, to make this equation dimensionlly consistent.\\ 
+
+Taking the null space of the matrix $M$, where $MV = 0$, allows us a basis to create a dimensionless group, allows for a simplification of the problem.\\
+
+This is also more intuitive to understand physical phenomena, the nature of physics comprehension, making this vital in further understanding derivied laws, making the process easier to explain and understand [14,15]. Therefore, this is a crutial tool, for cultivating a deeper understanding of physics effectively [16]. \\
+
+
+
+
+
+
+\begin{center} 
+  {\Large Genetic Programming:}
+\end{center}
+
+
+Genetic programming (GP), is a special evolutionary algorithmic technique, where the individuals are seen as programs that evolve, starting for a population, is iteratively "evolved," transforming the populations of individual programs, intro other populations. This new generation of programs are created using some genetic operations or survival criteria, mimicng natural evolutionary condition on earth.\\ 
+
+A very baics overview, shows that genetic programming algorithms, consistes of initializing the population, then evalution of the said population through some predefined metrics and functions, followed by selection of the fittest programs based on the score given by the metric, and "genetic operation," such as reproduction, mutation and cross-over. The algorithm then iterates these steps thousands of times, through many generations, and finally terminates once the desired result has been achieved.\\
+
+We can use genetic programming, and tweak the algorithm, and combine it with symbolic regression, to help derive laws. \\
+
+
+
+
+
+
+
+
+
+\begin{center} 
+  {\Large Neural Networks:}
+\end{center}
+
+
+\begin{center} 
+  {\Large Transformers:}
+\end{center}
+
+
+PPPP
+
 Deep symbolic regression for physics guided by units constraints:
 toward the automated discovery of physical laws\\ 
 
 
 at this point time to move onto more interesting methods: \\
 
-\subsection{Neural Networks: }
 
 NN- Discovering physical concepts with neural networks\\ 
 
-\subsection{ Deep Learning: }
+
 Discovering Symbolic Models from Deep Learning
 with Inductive Biases\\ 
 
@@ -207,7 +311,7 @@ RECOVERING MATHEMATICAL EXPRESSIONS FROM
 DATA VIA RISK-SEEKING POLICY GRADIENTS\\ 
 
 Maybe talk a bit about the three body problem here: \\ 
-\subsection{Transformers: }
+
 
 SymbolicGPT: A Generative Transformer Model for
 Symbolic Regression\\ 
@@ -217,15 +321,14 @@ Symbolic Regression\\
 \subsection{ Conclusion: }
 
 
-\subsection{Symbolic Regression: }
 
-\subsection{Neural Networks: }
 
-\subsection{Symbolic Neural Networks: }
 
-\subsection{Linear Systems: }
 
-\subsection{Double Pendulum, Chaotic System: }
+
+
+
+
 
 \section{Progress: }
 
@@ -285,5 +388,37 @@ blah blah\\
 Kepler-Borelli (Routledge, 2013).\\ 
 
 [4] A Computational Inflection for Scientific Discovery by Hope, Tom and Downey, Doug and Weld, Daniel S. and Etzioni, Oren and Horvitz, Eric\\
+
+[5] Schmidt M, Lipson H (2009) Distilling free-form natural laws from experimental data. Science
+324(5923):81–85. \\
+
+[6] Interpretability in symbolic regression: a benchmark of explanatory methods using the Feynman data set, Aldeia, Guilherme Seidyo Imai and de França, Fabrício Olivetti, 2022 \\ 
+
+[7] "Discovering Symbolic Models from Deep Learning with Inductive Biases" by Miles Cranmer et al. (2020)\\ 
+
+[8] "Scaling Up Symbolic Regression with Operator Grammars" by Michael O'Neill et al. (2020)\\ 
+
+[9] "A Survey of Symbolic Regression Methods" by Bogdan Burlacu et al. (2020)\\ 
+
+[10] "Regularized Evolution for Symbolic Regression" by Nguyen Quang Uy et al. (2011) \\ 
+
+[11] Calculus: Early Transcendentals" by James Stewart\\ 
+
+[12] Partial Differential Equations for Scientists and Engineers" by Stanley J. Farlow:\\ 
+
+[13] A first course in Dimensional Analysis by Juan G Santiago\\ 
+
+[14] W. Blasiak, M. Godlewska, R. Rosiek, and D. Wcislo, “Spectrum of
+physics comprehension,” European Journal of Physics, vol. 33, p. 565,
+2012. [Online]. Available: https://www.researchgate.net/publication/
+254496494 Spectrum of physics comprehension\\
+
+[15] K. S. Taber, “Maths should be the last thing we teach,” Physics
+Education, vol. 44, no. 4, p. 336, jul 2009. [Online]. Available:
+https://dx.doi.org/10.1088/0031-9120/44/4/F01\\ 
+
+[16] Y. Zhu, Z. -Y. Khoo, J. S. Choong Low and S. Bressan, "A Personalised Learning Tool for Physics Undergraduate Students Built On a Large Language Model for Symbolic Regression," 2024 IEEE Conference on Artificial Intelligence (CAI), Singapore, Singapore, 2024, pp. 38-43, doi: 10.1109/CAI59869.2024.00017. keywords: {Knowledge engineering;Systematics;Large language models;Learning (artificial intelligence);Mathematical models;Physics education;Problem-solving;AI and Education;Symbolic Regression;Large Language Models;Physics Education;Prompt Engineering;Undergraduate Learning},\\
+
+
 
 \end{document}
