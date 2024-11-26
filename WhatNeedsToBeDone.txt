@@ -31,6 +31,12 @@ So taking a bunch of someone's implementation, then implementing it in my own wa
 Deep learning network is a pain to get to work. 
 
 
+Do not worry about better performance, explanability is nice but again there is a time constraint, again potentially look at 3 body problem, but submitting on time, is the most useful thing possible.
+
+
+For referencing, less is more, and implementation is key. Implementation seems to matter more than actual report, though good versions of both will get 90%. 
+
+
 
 time needed: 1 hr 45 minutes
 

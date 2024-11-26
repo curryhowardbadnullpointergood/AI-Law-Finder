@@ -1,13 +1,27 @@
-Genetic programming (GP), is a special evolutionary algorithmic technique, where the individuals are seen as programs that evolve, starting for a population, is iteratively "evolved," transforming the populations of individual programs, intro other populations. This new generation of programs are created using some genetic operations or survival criteria, mimicng natural evolutionary condition on earth.\\ 
+1Introduction:
+1.1Goals:
+It took humans centuries to derivie physical laws, can this process be sped up through AI, by feeding it
+data and letting the model derive complex laws for us. I aim to derive physical laws, from experimental
+data. I will explore deriving simpler physical laws such as acceleration without air resistance, and move
+onto to complex chaotic systems such as pendulums, and explore how an unbiased AI views the physical
+world, compared to humans who’s views of physical systems are naturally biased through systematic
+learning.
+Can this lead to perhaps different prespectives of viewing the physical world around us, allowing for
+further progress?
+1.2
+Scope:
+- Aim to derive simple laws of motions (ie acceleration) through AI frameworks.
+- Move onto more complex systems such as pendulums, and initially explore smaller initial values,
+moving onto larger initial values, thereby increasing the chaos, and difficulty of spotting patterns.
+- To explore using various AI techniques, (Graph Neural Networks, Deep learning, Neural Networks) in
+combination with no prior knowledge and observe how and in what form the physical laws are derived.
+- Simulate physical data required using pymunk, and perhaps use real world data from physics labs.
 
-A very baics overview, shows that genetic programming algorithms, consistes of initializing the population, then evalution of the said population through some predefined metrics and functions, followed by selection of the fittest programs based on the score given by the metric, and "genetic operation," such as reproduction, mutation and cross-over. The algorithm then iterates these steps thousands of times, through many generations, and finally terminates once the desired result has been achieved.\\
-
-We can use genetic programming, and tweak the algorithm, and combine it with symbolic regression, to help derive laws. \\
+:w
 
 
 
-
-
+2
 2.1
 Literature Review:
 Introduction:
@@ -140,5 +154,34 @@ This is also more intuitive to understand physical phenomena, the nature of phys
 making this vital in further understanding derivied laws, making the process easier to explain and
 understand [14,15]. Therefore, this is a crutial tool, for cultivating a deeper understanding of physics
 effectively [16].
-various other methods as mentioned here - AI Feynman: a Physics-Inspired Method for Symbolic
-Regression
+Genetic Programming:
+Genetic programming (GP), is a special evolutionary algorithmic technique, where the individuals are
+seen as programs that evolve, starting for a population, is iteratively ”evolved,” transforming the pop-
+ulations of individual programs, intro other populations. This new generation of programs are created
+using some genetic operations or survival criteria, mimicng natural evolutionary condition on earth.
+A very baics overview, shows that genetic programming algorithms, consistes of initializing the popu-
+lation, then evalution of the said population through some predefined metrics and functions, followed
+by selection of the fittest programs based on the score given by the metric, and ”genetic operation,”
+such as reproduction, mutation and cross-over. The algorithm then iterates these steps thousands of
+times, through many generations, and finally terminates once the desired result has been achieved.
+We can use genetic programming, and tweak the algorithm, and combine it with symbolic regression,
+to help us derive laws.
+Consider modelling the various potential formulas as a tree, which is composed of various functions in
+the nodes. These functions can vary from arithmetic operations, mathematical functions, or defined
+unique operators. Then we can program the fitness function, and use it to measure how well the given
+potential expression in the population compares with the given databases, and given the nature of
+genetic programming, the better performing functions are more likely to be passed down into the next
+generation. Then after many iterations, we can give the solution with the best performance.
+There are various ways to implement the fitness function, and for example we can use a criteria like
+this, alog with mean squared error:
+9V = 2X + N · ln(M/N )
+Here M is the mean squared error, and N is the number of data points, X is the number of parameters
+used on the genetic programming algorithm. The lower the value of V is, the better the model performs.
+2.3
+Conclusion:
+These are some of the methods, that can be utilised to reduce the search space, and an algorithm, that
+comines these stratergies is theoretically efficient at solving for dervied laws, while maintaing some
+generality. In the following section, the aim is to explore various ways, to design and fine tune these
+methods, along with blax box models, such as neural networks, and potentially transformers, to derive
+laws.:wq
+
