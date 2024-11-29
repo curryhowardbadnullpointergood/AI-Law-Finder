@@ -383,9 +383,32 @@ These are some of the methods, that can be utilised to reduce the search space, 
 
 
 
-\section{Progress: }
+\section{Technical Progress: }
 
-placeholder 
+This section describes the relevent implementations that are completed as of 10 December 2024.\\ 
+
+\subsection{Dataset Generation: }
+
+I generate the data through numpy, and use the random integer function, to generate 100 data points, with 2 dimensions. I do this for 2 different variables, M (Mass) and a (Acceleration). Then equating F (Force), as the multiple of these two variables to generate my data. Finally, I concatenate the variables M and a, to the same axis using numpy. \\ 
+
+I then leverage PySR, a library for symbolic regression, and use the PySRRegressor model, to find a suitable expression to describe the above generated dataset. After setting up the model, the number of iterations, and possible operators involved, running it, produced a list of formulae, and then I hand picked the correct one. \\ 
+
+\begin{center}
+\includegraphics[width=10cm]{F_MA}
+\end{center}
+
+As you can see, y0 = x0 * x2, as expected, produces the formula F = M.A\\ 
+
+
+
+%\subsection{Optimising the Symbolic Regression Algorithm: }
+
+%\subsection{Neural Networks: }
+
+%\subsection{ White Box models: }
+
+
+ 
 
 \section{Project Planning: }
 

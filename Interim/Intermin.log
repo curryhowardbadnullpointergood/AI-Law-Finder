@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  22 NOV 2024 14:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  28 NOV 2024 12:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -783,133 +783,89 @@ Underfull \hbox (badness 10000) in paragraph at lines 380--381
  []
 
 
-Overfull \hbox (61.1169pt too wide) in paragraph at lines 403--411
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 394--395
+
+ []
+
+<F_MA.png, id=44, 1037.8775pt x 607.26875pt>
+File: F_MA.png Graphic file (type png)
+<use F_MA.png>
+Package pdftex.def Info: F_MA.png  used on input line 397.
+(pdftex.def)             Requested size: 284.52756pt x 166.47588pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
+
+ []
+
+[10 <./F_MA.png>]
+Overfull \hbox (61.1169pt too wide) in paragraph at lines 426--434
  [][] 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
-
- []
-
 [11]
-<Gannt_Chart_Tasks.png, id=51, 1510.64375pt x 838.13126pt>
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
+
+ []
+
+[12]
+<Gannt_Chart_Tasks.png, id=55, 1510.64375pt x 838.13126pt>
 File: Gannt_Chart_Tasks.png Graphic file (type png)
 <use Gannt_Chart_Tasks.png>
-Package pdftex.def Info: Gannt_Chart_Tasks.png  used on input line 428.
+Package pdftex.def Info: Gannt_Chart_Tasks.png  used on input line 451.
 (pdftex.def)             Requested size: 455.24408pt x 252.57951pt.
 
-Overfull \hbox (11.6656pt too wide) in paragraph at lines 428--429
+Overfull \hbox (11.6656pt too wide) in paragraph at lines 451--452
 [] 
  []
 
-<Gantt_Chart.png, id=52, 1538.74875pt x 774.895pt>
+<Gantt_Chart.png, id=56, 1538.74875pt x 774.895pt>
 File: Gantt_Chart.png Graphic file (type png)
 <use Gantt_Chart.png>
-Package pdftex.def Info: Gantt_Chart.png  used on input line 431.
+Package pdftex.def Info: Gantt_Chart.png  used on input line 454.
 (pdftex.def)             Requested size: 426.79134pt x 214.92358pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 437--439
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--442
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
-
- []
-
-[12 <./Gannt_Chart_Tasks.png> <./Gantt_Chart.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 445--447
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 450--451
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 452--453
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 460--462
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
+Underfull \hbox (badness 10000) in paragraph at lines 463--465
 
  []
 
 
-Overfull \hbox (34.52444pt too wide) in paragraph at lines 464--468
-\OT1/cmr/m/n/10 pean Jour-nal of Physics, vol. 33, p. 565, 2012. [On-line]. Ava
-il-able: https://www.researchgate.net/publication/
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 464--468
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 469--472
+[13 <./Gannt_Chart_Tasks.png> <./Gantt_Chart.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 468--470
 
  []
 
 
-Overfull \hbox (48.16336pt too wide) in paragraph at lines 473--474
-\OT1/cmr/m/n/10 fer-ence on Ar-ti-fi-cial In-tel-li-gence (CAI), Sin-ga-pore, S
-in-ga-pore, 2024, pp. 38-43, doi: 10.1109/CAI59869.2024.00017.
- []
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
 
-
-Overfull \hbox (58.45032pt too wide) in paragraph at lines 473--474
-\OT1/cmr/m/n/10 key-words: Knowl-edge en-gi-neer-ing;Systematics;Large lan-guag
-e mod-els;Learning (ar-ti-fi-cial in-tel-li-gence);Mathematical
- []
-
-
-Overfull \hbox (6.83804pt too wide) in paragraph at lines 473--474
-\OT1/cmr/m/n/10 mod-els;Physics education;Problem-solving;AI and Ed-u-ca-tion;S
-ymbolic Re-gres-sion;Large Lan-guage Mod-
  []
 
 
@@ -917,31 +873,130 @@ Underfull \hbox (badness 10000) in paragraph at lines 473--474
 
  []
 
-[13] (./Intermin.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
+
+ []
+
+
+Overfull \hbox (34.52444pt too wide) in paragraph at lines 487--491
+\OT1/cmr/m/n/10 pean Jour-nal of Physics, vol. 33, p. 565, 2012. [On-line]. Ava
+il-able: https://www.researchgate.net/publication/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--491
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--495
+
+ []
+
+
+Overfull \hbox (48.16336pt too wide) in paragraph at lines 496--497
+\OT1/cmr/m/n/10 fer-ence on Ar-ti-fi-cial In-tel-li-gence (CAI), Sin-ga-pore, S
+in-ga-pore, 2024, pp. 38-43, doi: 10.1109/CAI59869.2024.00017.
+ []
+
+
+Overfull \hbox (58.45032pt too wide) in paragraph at lines 496--497
+\OT1/cmr/m/n/10 key-words: Knowl-edge en-gi-neer-ing;Systematics;Large lan-guag
+e mod-els;Learning (ar-ti-fi-cial in-tel-li-gence);Mathematical
+ []
+
+
+Overfull \hbox (6.83804pt too wide) in paragraph at lines 496--497
+\OT1/cmr/m/n/10 mod-els;Physics education;Problem-solving;AI and Ed-u-ca-tion;S
+ymbolic Re-gres-sion;Large Lan-guage Mod-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--509
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
+
+ []
+
+[14] [15] (./Intermin.aux) ) 
 Here is how much of TeX's memory you used:
- 14288 strings out of 476091
- 308244 string characters out of 5794081
+ 14298 strings out of 476091
+ 308375 string characters out of 5794081
  1862330 words of memory out of 5000000
- 34447 multiletter control sequences out of 15000+600000
+ 34457 multiletter control sequences out of 15000+600000
  515092 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,94p,655b,320s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.
-enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Intermin.pdf (13 pages, 354423 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super
+-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Intermin.pdf (15 pages, 397008 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 120 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

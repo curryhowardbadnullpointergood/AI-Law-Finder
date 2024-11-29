@@ -37,6 +37,18 @@ Do not worry about better performance, explanability is nice but again there is 
 For referencing, less is more, and implementation is key. Implementation seems to matter more than actual report, though good versions of both will get 90%. 
 
 
+SO implementaiton is key, in this order do:
+readin pysr library documentation 
+read the gplearn librry documentation 
+come up with a very simple implementation with pysr and numpy, get a graph of time etc, as data set numeber is changed, and as noise is varied, 
+have a look at simple neural network models, and try implement those, a quick one if possible, and this is pretty much as far as it goes for now 
+
+Now for the future planning section, talk about A.I. feyman, and various optimisations you plan on making, and that this may possibly improve performane. 
+And that is it for the report. 
+
+Oh and btw, adding diagrams is also a great idea. 
+
+Add finished paper to the pysr showcase page. 
 
 time needed: 1 hr 45 minutes
 
