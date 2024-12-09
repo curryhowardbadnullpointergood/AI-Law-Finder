@@ -1,0 +1,12 @@
+old abstract: 
+
+Physical laws are generalisation established through empirical observations of the physical world. It
+has taken humans centuries to discover, requires huge amounts of research, repeated experiments and
+plenty of scientists to produce an universally accepted law in the scientific community. Thanks to
+recent advances in neural networks and increased computational power, we can now train models to
+replicate and fasten our discovery of physical laws such as the laws of motion,also including chaotic
+systems such as the double pendulum, drastically shortening the time required to find new physical
+laws. Furthermore human’s have a cognitive bias when looking at data, find it difficult to spot patterns
+in chaotic systems. This report explores how an AI without any bias or prior knowledge views the
+physical world, how it is capable of spotting chaotic patterns and how it is a tool that can reduce the
+time taken to make new discoveries.

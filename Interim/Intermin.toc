@@ -1,15 +1,15 @@
 \contentsline {section}{\numberline {1}Introduction: }{6}{}%
 \contentsline {subsection}{\numberline {1.1}Goals: }{6}{}%
 \contentsline {subsection}{\numberline {1.2}Scope: }{6}{}%
-\contentsline {section}{\numberline {2}Literature Review: }{6}{}%
-\contentsline {subsection}{\numberline {2.1} Introduction: }{6}{}%
+\contentsline {section}{\numberline {2}Literature Review: }{7}{}%
+\contentsline {subsection}{\numberline {2.1} Introduction: }{7}{}%
 \contentsline {subsection}{\numberline {2.2}Symbolic Regression: }{7}{}%
 \contentsline {subsection}{\numberline {2.3} Conclusion: }{10}{}%
 \contentsline {section}{\numberline {3}Technical Progress: }{10}{}%
-\contentsline {subsection}{\numberline {3.1}Dataset Generation: }{10}{}%
-\contentsline {section}{\numberline {4}Project Planning: }{11}{}%
-\contentsline {section}{\numberline {5} Project Management: }{11}{}%
-\contentsline {subsection}{\numberline {5.1}Risk Assessment: }{11}{}%
-\contentsline {subsection}{\numberline {5.2}Project Planning: }{12}{}%
-\contentsline {subsection}{\numberline {5.3}Gantt Chart: }{13}{}%
-\contentsline {section}{\numberline {6}Bibliography: }{13}{}%
+\contentsline {subsection}{\numberline {3.1}Momentum Laws: }{10}{}%
+\contentsline {subsection}{\numberline {3.2}Pendulum Laws:}{11}{}%
+\contentsline {section}{\numberline {4}Future Plans: }{12}{}%
+\contentsline {section}{\numberline {5} Project Management: }{12}{}%
+\contentsline {subsection}{\numberline {5.1}Risk Assessment: }{12}{}%
+\contentsline {subsection}{\numberline {5.2}Project Planning: }{13}{}%
+\contentsline {subsection}{\numberline {5.3}Gantt Chart: }{14}{}%

@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  9 DEC 2024 18:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  9 DEC 2024 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Intermin.tex
-(./Intermin.tex
+**short_Interim.tex
+(./short_Interim.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-01-16>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -592,8 +592,8 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count327
 \l__pdf_internal_box=\box74
 )
-(./Intermin.aux)
-\openout1 = `Intermin.aux'.
+(./short_Interim.aux)
+\openout1 = `short_Interim.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
@@ -666,320 +666,247 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
-
- []
+LaTeX Warning: Citation `Wood2022' on page 1 undefined on input line 25.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
-
- []
+LaTeX Warning: Citation `Schmidt2009' on page 1 undefined on input line 25.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-[2]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
-
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 52--54
+Underfull \hbox (badness 10000) in paragraph at lines 21--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--57
+LaTeX Warning: Citation `kepler' on page 1 undefined on input line 29.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--61
+LaTeX Warning: Citation `Hope2023' on page 1 undefined on input line 38.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--41
 
  []
+
+<Sun_Mars_Orbit.png, id=4, 852.18375pt x 511.9125pt>
+File: Sun_Mars_Orbit.png Graphic file (type png)
+<use Sun_Mars_Orbit.png>
+Package pdftex.def Info: Sun_Mars_Orbit.png  used on input line 44.
+(pdftex.def)             Requested size: 199.16928pt x 119.64331pt.
+
+LaTeX Warning: Citation `Schmidt22009' on page 1 undefined on input line 55.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--58
+
+ []
+
+
+LaTeX Warning: Citation `Aldeia2022' on page 1 undefined on input line 62.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 62--65
 
  []
 
+[1
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Sun_Mars_Orbit.png>]
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--75
-
- []
+LaTeX Warning: Citation `Cranmer2020' on page 2 undefined on input line 67.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
-
- []
+LaTeX Warning: Citation `Worm2014' on page 2 undefined on input line 68.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--84
+LaTeX Warning: Citation `Makke2024' on page 2 undefined on input line 70.
 
- []
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--97
-
- []
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--102
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: Citation `Rivero2022' on page 2 undefined on input line 71.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--108
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--113
+LaTeX Warning: Citation `Stewart2012' on page 2 undefined on input line 82.
+
+
+LaTeX Warning: Citation `Smith2012' on page 2 undefined on input line 82.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--117
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 120--122
-
- []
+LaTeX Warning: Citation `Kelly2021' on page 2 undefined on input line 84.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--127
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--132
+Underfull \hbox (badness 10000) in paragraph at lines 92--100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
-[4] (./Intermin.toc)
-\tf@toc=\write4
-\openout4 = `Intermin.toc'.
 
- [5]
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+LaTeX Warning: Citation `Kelly2021' on page 3 undefined on input line 122.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
+
+ []
+
+
+LaTeX Warning: Citation `Longo2021' on page 3 undefined on input line 137.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--138
+
+ []
+
+
+LaTeX Warning: Citation `Blasiak2012' on page 3 undefined on input line 141.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--142
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 149--150
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+LaTeX Warning: Citation `Taber2009' on page 3 undefined on input line 151.
+
+
+LaTeX Warning: Citation `Tenachi2023' on page 3 undefined on input line 151.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 168--173
-
- []
+LaTeX Warning: Citation `Angeline1994' on page 4 undefined on input line 169.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--182
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--188
+LaTeX Warning: Citation `Liddle2009' on page 4 undefined on input line 171.
 
- []
 
-<Sun_Mars_Orbit.png, id=26, 852.18375pt x 511.9125pt>
-File: Sun_Mars_Orbit.png Graphic file (type png)
-<use Sun_Mars_Orbit.png>
-Package pdftex.def Info: Sun_Mars_Orbit.png  used on input line 191.
-(pdftex.def)             Requested size: 199.16928pt x 119.64331pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--205
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--212
-
- []
-
-[7 <./Sun_Mars_Orbit.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 213--222
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--247
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 255--256
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 281--285
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--289
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 292--293
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 294--295
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 298--299
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 312--313
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--315
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 318--319
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--325
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 377--378
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 388--389
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 390--391
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
@@ -990,7 +917,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.431 \\
+l.245 \\
         
 ? 
 
@@ -1000,105 +927,85 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.432 
+l.246 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--435
+Underfull \hbox (badness 10000) in paragraph at lines 247--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--435
+Underfull \hbox (badness 10000) in paragraph at lines 247--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 463--464
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.473 ... displacement is within the range of [\pi
+l.287 ... displacement is within the range of [\pi
                                                   , -\pi] radians.\\
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.474 
+l.288 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--474
+Underfull \hbox (badness 10000) in paragraph at lines 287--288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
 
  []
 
+[6] (./short_Interim.aux)
 
-Overfull \hbox (20.93747pt too wide) in paragraph at lines 488--496
- [][] 
- []
+LaTeX Warning: There were undefined references.
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
 
- []
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-[13]
-<Gannt_Chart_Tasks.png, id=62, 1510.64375pt x 838.13126pt>
-File: Gannt_Chart_Tasks.png Graphic file (type png)
-<use Gannt_Chart_Tasks.png>
-Package pdftex.def Info: Gannt_Chart_Tasks.png  used on input line 513.
-(pdftex.def)             Requested size: 455.24408pt x 252.57951pt.
-
-Overfull \hbox (11.6656pt too wide) in paragraph at lines 513--514
-[] 
- []
-
-<Gantt_Chart.png, id=63, 1538.74875pt x 774.895pt>
-File: Gantt_Chart.png Graphic file (type png)
-<use Gantt_Chart.png>
-Package pdftex.def Info: Gantt_Chart.png  used on input line 516.
-(pdftex.def)             Requested size: 426.79134pt x 214.92358pt.
-(./Intermin.bbl [14 <./Gannt_Chart_Tasks.png> <./Gantt_Chart.png>]) [15]
-(./Intermin.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 16913 strings out of 476091
- 347065 string characters out of 5794081
+ 16856 strings out of 476091
+ 346227 string characters out of 5794081
  1864330 words of memory out of 5000000
- 36992 multiletter control sequences out of 15000+600000
- 530129 words of font info for 67 fonts, out of 8000000 for 9000
+ 36943 multiletter control sequences out of 15000+600000
+ 526918 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,94p,807b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Intermin.pdf (15 pages, 413319 bytes).
+ 99i,12n,94p,674b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on short_Interim.pdf (6 pages, 207887 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

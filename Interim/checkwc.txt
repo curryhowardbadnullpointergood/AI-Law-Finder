@@ -1,187 +1,200 @@
-1Introduction:
-1.1Goals:
-It took humans centuries to derivie physical laws, can this process be sped up through AI, by feeding it
-data and letting the model derive complex laws for us. I aim to derive physical laws, from experimental
-data. I will explore deriving simpler physical laws such as acceleration without air resistance, and move
-onto to complex chaotic systems such as pendulums, and explore how an unbiased AI views the physical
-world, compared to humans who’s views of physical systems are naturally biased through systematic
-learning.
-Can this lead to perhaps different prespectives of viewing the physical world around us, allowing for
-further progress?
+
+This report explores the capabilities and potential of using A.I. to derive physical laws from data sets. Involving
+simple and complex laws, ranging from basic acceleration to more chaotic systems such as the double pendu-
+lum. Furthermore, I want to evaluate the limitations of different models in deriving laws of various complexities.
 1.2
 Scope:
-- Aim to derive simple laws of motions (ie acceleration) through AI frameworks.
-- Move onto more complex systems such as pendulums, and initially explore smaller initial values,
-moving onto larger initial values, thereby increasing the chaos, and difficulty of spotting patterns.
-- To explore using various AI techniques, (Graph Neural Networks, Deep learning, Neural Networks) in
-combination with no prior knowledge and observe how and in what form the physical laws are derived.
-- Simulate physical data required using pymunk, and perhaps use real world data from physics labs.
+- Use A.I. libraries and data generation through tools such as numpy, to derive the fundemantal laws of motion
+such as acceleration.
+- Inspect the limitations of A.I. to derive chaotic laws that govern complex physical systems, such as pendulums,
+by strategically varying initial conditions moderate chaos.
+- Investigate the efficiency and capability of different methods of approach, such as Symbolic Regression, Ge-
+netic Programming and Neural Networks, analysing the interpretability and robustness of the results.
+- Generate simulated physical data, through tools such as pymunk, numpy and perhaps use real world data from
+physics laboratories to enhance the generalisability of the models..
 
-:w
+Humanity has spent millennia observing the world, creating concepts that describe the variables, such as mass
+and force, to derive laws. In physics, like with all human endeavours, new discoveries and ways of thought
+are based upon previous works, creating a natural bias in the way new problems are approached. All existing
+theories, are therefore somewhat biased, this combined with our pre-existing bias in our biological brains, can
+introduce some hurdles to our future progress [18] [12].
+In the 17th Century, Kepler had gotten his hands on the word’s most precise data tables on the orbits on planets,
+using this he spent close to half a decade, and after numerous unsuccessful attempts, he had began a scientific
+revolution at the time, describing Mar’s orbit to be an ellipse [7]. In essence, scientists throughout history,
+much like Kepler, have spent a great deal of time, discovering the right expressions to match the relevant data
+they have, this at it’s core is symbolic regression. Now, a few centuries later, even with exponential increases
+in orders of magnitude in our capability to perform calculations through computers, the process of discovering
+natural laws and the way to express them, has to some extent resisted automation.
+One of the core challenges of physics and artificial intelligence, is finding analytical relations automatically,
+discovering a symbolic expression that accurately matches the data from an unknown function. This problem,
+due to it’s nature, is NP-hard [5] in principle. The vastness of the space of mathematical constants, adds to the
+difficulty. This literatire review aims to present the recent advances in discovery of emphirical laws through
+data powered by artificial intelligence. It focuses on methodoogies that dimish human bias through seeking
+solutions without assumptions. We will explore various techniques employed to achieve these goals, which
+includes reducing the search space, and analyse the effectivness of these methods.
 
+Symbolic regression, is a technique that analyses and searches over the space of traceable mathematical expres-
+sions to find the best fit for a data set. By not requiring prior information about the model, it is unbiased. There
+are a plethora of various strategies that have been implemented in solving for empirical laws [13], we will ex-
+plore some of them below. It is also worth mentioning, that unlike other well-known techniques for regression,
+(eg: neural networks), that are essentially black boxes, symbolic regression, aims to extract white-box models
+and is easy to analyse.
 
+Symbolic Regression (SR), is interpretable [1], unlike Neural Networks (NN), which are often considered more
+explainable. The difference is interpretability allows us to comprehend how the model works, like observing
+how gears move in a glass box, while explainable means you get an overview of why a certain output was
+achieved, even without knowing the full nuances of it’s inner workings.
+There however, are some challenges associated with SR, in comparison to function fitting (NN). SR, starts with
+nothing, a blank slate, and it has to learn the entire expression [4], unlike function fitting which just tweaks
+an already existing function. The exponential search space [19] , causes it to be extremely computationally
+expensive to explore all possibilities. This combined with the face that, most optimisation algorithms expect
+a smooth search space [10], however SR lack’s smooth interpolation, small changes in the potential solutions
+(expression), ie: x3andx3 + 0.1 can significantly alter the the output. Finally, if the nature of the problem is
+badly posed [11], there might potentially be multiple solutions to the same data. Imagine trying to find a single
+polynomial equation with only two points of data, the need to balance finding accurate expressions with finding
+the most simplistic and generalisable fit, is sometimes troublesome.
+The brute force approach of simply trying all possible combinations of symbolic expressions within some de-
+fined space. The model will subsequently increase the complexity over time, and will stop when either the
+fitting errors lowers below some defined limit or exceeds the upper limit of runtime. While in theory can solve
+all of our problems, in practise takes longer than the age of our universe to finish. In essence it’s like searching
+for a singular drop in the ocean. Thankfully, there are some ways of pruning the search space, and drastically
+reducing the time taken to solve for the most accurate expression.
 
-2
-2.1
-Literature Review:
-Introduction:
-Humans have spent millennia observing the world around us, creating concepts that describe the vari-
-ables in the physical world, such as mass and force, to derive the laws of motion. In physics, like with
-all human endevaours, new discoveries and ways of thought are based upon previous works, creating
-a natural bias in the way we humans approach new problems. All exisiting theories, are therefore
-somewhat biased, this combined with our pre-existing bias in our biological brains, can introduce some
-hurdles in our future progress [1,2].
-In the 17th Century, Kepler had gotten his hands on the word’s most precise data tables on the orbits
-on planets, using this and his intellect, he spent close to half a decade, and after numerous unsucessful
-attempts, he had began a scientific revolution at the time, describing Mar’s orbit to be an ellipse [3].
-In essence, scientists throughout history, much like Kepler, have spent a great deal of time, discovering
-the right expressions to match the relevent data they have, this at it’s core is symbolic regression. Now,
-a few centuries later, with exponential increases in orders of magnitude in our capability to perform
-calculations through computers, the process of discovering natural laws and the way to express them,
-has to some extent resisted automation.
-One of the core challenges of physics and artificial intelligence, is finding analytical relations automat-
-ically, discovering a symbolic expression that accurately matches the data from an unknown function.
-This problem, due to it’s nature, is most certainly NP-hard [4] in principle. The vastness of the space
-of mathematical constants, further adds to the difficulty. This literature review aims to present the re-
-cent advances in deriving expressions and laws through data, how we can avoid human bias by seeking
-solutions without prior assumptions and describing the various tools and techniques used to achieve
-this. Then it will introduce the 3-body problem and explore how artificial intelligence is being used to
-6find faster and more efficient solutions.
-2.2
-Symbolic Regression:
-Symbolic regression, is a technique that analyses and searches over the space of traceable mathematical
-expressions to find the best fit for a data set. By not requiruing prior information about the model,
-it is unbiased. There are a plethora of various stratergies that have been implemented in solving for
-emphirical laws [5], we will explore some of them below. It is also worth mentioning, that unlike other
-well-known techniques for regression, (eg: neural networks), that are essentially black boxes, symbolic
-regression, aims to extract white-box models and is easy to analyse.
-Brute Force:
-Symbolic Regression (SR), is interpretable [6], unlike Neural Networks (NN), which are often consid-
-ered more explanable. The difference is interpretability allows us to comprehend how the model works,
-like observing how gears move in a glass box, while explanable means you get an overview of why a
-certain output was achieved, even without knowing the full nuances of it’s inner workings.
-There however, are some challenges associated with SR, in comparison to function fitting (NN). SR,
-starts with nothing, a blank slate, and it has to learn the entire expression [7], unlike function fitting
-which just tweaks an already existing function. The exponential search space [8] , causes it to be
-extreamly computationally expensive to explore all possibilities. This combined with the face that,
-most optimisation algorithms expect a smooth search space [9], however SR lack’s smooth interpo-
-lation, small changes in the potential solutions (expression), ie x3 andx3 + 0.1 can significantly alter
-the the output. Finally, if the nature of the problem is badly posed [10], there might potentially be
-multiple solutions to the same data. Imagine trying to find a single stright line equation with only two
-points of data, the need to balance findinf accurate expressions with finding the most simplistic and
-generalisable fit, is sometimes troublesome.
-The brute force approach of simply trying all possible combinations of symbolic expressions within
-some defined space. The model will subsequently increase the complexity over time, and will stop
-when either the fitting erros lowers below some defined limit or exceeds the upper limit of runtime.
-While in theory can solve all of our problems, in practise takes longer than the age of our universe to
-finish. In essence it’s like searching for a singular drop in the ocean. Thankfully, there are some ways
-of pruning the search space, and drastically reducing the time taken to solve for the most accurate
-expression.
-Partial Derivatives:
-Partial derivatives, of some function f, with multiple variables such as x and y, is it’s dervative with
-respect to one of those two variables, while the other variables in the function are kept constant. For-
-mally, given a function with two or more variables, f (x1 , x2 , . . . , xn ), the partial derivative of f with
-respect to xi , where xi is some value x in (x1 , x2 , . . . , xi , . . . , xn ), gives the rate of change of f with
-respect to xi . It is calculated by taking the ith derivative of f with respect to xi , whilst holding the
-other variables fixed. [11]
+Partial derivatives, of some function f, with multiple variables such as x and y, is it’s dervative with respect to
+one of those two variables, while the other variables in the function are kept constant. Formally, given a function
+with two or more variables, f (x1 , x2 , . . . , xn ), the partial derivative of f with respect to xi , where xi is some
+value x in (x1 , x2 , . . . , xi , . . . , xn ), gives the rate of change of f with respect to xi . It is calculated by taking
+the ith derivative of f with respect to xi , whilst holding the other variables fixed. [15] [14]
 The partial derivative of a function f (x, y) with respect to x is denoted ∂f
-∂x [12] and is defined:
+∂x [6] and is defined:
 ∂f
 ∂x = limh→0
 h
 f (x+h,y)−f (x,y)
 h
-7
-iOnce you pass in the experimental data, you can pre-process the data, using calculated partial deriva-
-tives, for every pair of exisitng variables. Many physical laws, involve rates of change, and partial
-derivatives help us represent them. Furthermore it also guides the search process, as the algorithm can
-use the derivative to accurately represent the underlying laws involved. Through comparing how well
-the partial derivatives derived through the experimental data compared to the potential expression,
-the algorthm can assess the accuracy and feasibility of the expressions involved. This stratergy can
-even be extended to prune the search space further, this could be achieved through incorporating
-knowlede of physics into the constraints for the partial derivatives. These concepts will be illustrated
-with an example below.
-Consider a iron rod, that has been heated up, such that it is hotter on one side than the other. Now
-it is intuitive to say that closer to the heat source, the temperature will be higher than further along
-the rod, where it will be colder. We can illustrate this temperaturedistribution with a function:
+i
+Once you pass in the experimental data, you can pre-process the data, using calculated partial derivatives, for
+every pair of existing variables. Many physical laws, involve rates of change, and partial derivatives help us rep-
+resent them. Furthermore it also guides the search process, as the algorithm can use the derivative to accurately
+represent the underlying laws involved. Through comparing how well the partial derivatives derived through the
+experimental data compared to the potential expression, the algorithm can assess the accuracy and feasibility
+of the expressions involved. This strategy can even be extended to prune the search space further, this could
+be achieved through incorporating knowledge of physics into the constraints for the partial derivatives. These
+concepts will be illustrated with an example below.
+Consider a iron rod, that has been heated up, such that it is hotter on one side than the other. Now it is intuitive
+to say that closer to the heat source, the temperature will be higher than further along the rod, where it will be
+colder. We can illustrate this temperature distribution with a function:
 T (x, y, z)
-where T is the temperature at a point in the rod, and (x,y,z) are the coordinates along the axis in 3
-dimensions. This leads to these 3 partial derivatives:
-∂T
-∂T
-∂T
-∂x , ∂y , ∂z
-These partial derivatives, gives us information about the direction and magnitude of heat flow at vari-
-ous points on the rod. The algorithm then searches for an equation T(x,y,z), that sufficiently predicts
-the observed temperature distriution and it’s partial derivatives, deriving laws such as the heat transfer
-equations, or elasticity relationships.
+where T is the temperature at a point in the rod, and (x,y,z) are the coordinates along the axis in 3 dimensions.
+This leads to these 3 partial derivatives:
+
+These partial derivatives, gives us information about the direction and magnitude of heat flow at various points
+on the rod. The algorithm then searches for an equation T(x,y,z), that sufficiently predicts the observed tem-
+perature distribution and it’s partial derivatives, deriving laws such as the heat transfer equations, or elasticity
+relationships.
 ∂T
 ∂t
 = α∇2 T
-Through using partial derivatives, we have in essence redefined the search criteria for the algorithm,
-through it’s measure of the accuracy in comparison of potential solutions over the invariants represented
-in the experimental data. This also leads to the pleasent finding, that it can additionally capture re-
-lationships that represent other identities of the system, beyond invariants and heat transfer equations.
-You can subtly guide the type of laws that such an algorithm finds, by selectively picking the variables
-to input into the algorith,. For example providing velocities and force to find laws of motion.
-THIS IS VERY BADLY WRITTEN! DOES NOT FLOW AT ALL
-narrowing search space through explanable ai - From Kepler to Newton: Explainable AI for Science
-Discovery
+Through using partial derivatives, we have in essence redefined the search criteria for the algorithm, through it’s
+measure of the accuracy in comparison of potential solutions over the invariants represented in the experimental
+data [6] . This also leads to the pleasant finding, that it can additionally capture relationships that represent other
+identities of the system, beyond invariants and heat transfer equations.
+You can subtly guide the type of laws that such an algorithm finds, by selectively picking the variables to input
+into the algorithm,. For example providing velocities and force to find laws of motion.
 Dimensional Analysis:
-Dimensional Analysis is a method of solving problems usually in maths and physics, where we analyse
-the relationships between different physical quantities, by comapring their ”units.” It is a poweful
-method of reducing the complexity of systems, enabling engineers and scientists to analyse probelms
-that we can’t even pose, much less solve the equations of [13].
-Using the fact that numerous questions in science can be simplified by requiring the dimensions/units
-of the right and left hand side of the expression to be equal, we can transform the question into
-8a smaller numer of variables, which all have no dimention. It has been automated to find the inte-
-ger powers of expressions and has proven to be useful especially when the power is an irrational number.
-Here is a general stratergy that showcases how dimensional analysis can be used:
-Let’s say we have a variable in an equation that can be broken down into it’s fundemental units, such
-as (second, kilograms, ampere ...) to various powers. We can then take this, and represent each of the
-units as vectors, such that each of the fundemental units, is assigned a dimension, and it’s important
-to note, this then allows us to represent any physical quantity as a product of these units, so let us
-construt a vector v, with 3 integers, where each corresponding integer represents the power of each of
-the fundemental units.
-Given that we want to derive an expression, such as y = f (x1 , . . . , xn ) we can then create some matrix
-M . Each of the colums of the given matrix, is the unit vector v of the corresponding variable xi . We
-then need to define another vector to represent the units of y, which will be called z. If we let the
-solution be some vector s, soving M s = z, this then lets us raise the powers on both sides, to elevate
-the independent variables, to make this equation dimensionlly consistent.
-Taking the null space of the matrix M , where M V = 0, allows us a basis to create a dimensionless
-group, allows for a simplification of the problem.
-This is also more intuitive to understand physical phenomena, the nature of physics comprehension,
-making this vital in further understanding derivied laws, making the process easier to explain and
-understand [14,15]. Therefore, this is a crutial tool, for cultivating a deeper understanding of physics
-effectively [16].
+Dimensional Analysis is a method of solving problems usually in maths and physics, where we analyse the rela-
+tionships between different physical quantities, by comparing their ”units.” It is a powerful method of reducing
+the complexity of systems, enabling engineers and scientists to analyse problems that we can’t even pose, much
+less solve the equations of [9].
+Using the fact that numerous questions in science can be simplified by requiring the dimensions/units of the
+right and left hand side of the expression to be equal, we can transform the question into a smaller number of
+variables, which all have no dimension [3]. It has been automated to find the integer powers of expressions and
+has proven to be useful especially when the power is an irrational number.
+Here is a general strategy that showcases how dimensional analysis can be used:
+Let’s say we have a variable in an equation that can be broken down into it’s fundamental units, such as (second,
+kilograms, ampere ...) to various powers. We can then take this, and represent each of the units as vectors, such
+that each of the fundamental units, is assigned a dimension, and it’s important to note, this then allows us to
+represent any physical quantity as a product of these units, so let us construct a vector v, with 3 integers, where
+each corresponding integer represents the power of each of the fundamental units.
+Given that we want to derive an expression, such as y = f (x1 , . . . , xn ) we can then create some matrix M .
+Each of the columns of the given matrix, is the unit vector v of the corresponding variable xi . We then need to
+define another vector to represent the units of y, which will be called z. If we let the solution be some vector s,
+solving M s = z, this then lets us raise the powers on both sides, to elevate the independent variables, to make
+this equation dimensionally consistent.
+Taking the null space of the matrix M , where M V = 0, allows us a basis to create a dimensionless group,
+allows for a simplification of the problem.
+This is also more intuitive to understand physical phenomena, the nature of physics comprehension, making this
+vital in further understanding derived laws, making the process easier to explain and understand [16]. Therefore,
+this is a crucial tool, for cultivating a deeper understanding of physics effectively [17].
 Genetic Programming:
-Genetic programming (GP), is a special evolutionary algorithmic technique, where the individuals are
-seen as programs that evolve, starting for a population, is iteratively ”evolved,” transforming the pop-
-ulations of individual programs, intro other populations. This new generation of programs are created
-using some genetic operations or survival criteria, mimicng natural evolutionary condition on earth.
-A very baics overview, shows that genetic programming algorithms, consistes of initializing the popu-
-lation, then evalution of the said population through some predefined metrics and functions, followed
-by selection of the fittest programs based on the score given by the metric, and ”genetic operation,”
-such as reproduction, mutation and cross-over. The algorithm then iterates these steps thousands of
-times, through many generations, and finally terminates once the desired result has been achieved.
-We can use genetic programming, and tweak the algorithm, and combine it with symbolic regression,
-to help us derive laws.
-Consider modelling the various potential formulas as a tree, which is composed of various functions in
-the nodes. These functions can vary from arithmetic operations, mathematical functions, or defined
-unique operators. Then we can program the fitness function, and use it to measure how well the given
-potential expression in the population compares with the given databases, and given the nature of
-genetic programming, the better performing functions are more likely to be passed down into the next
-generation. Then after many iterations, we can give the solution with the best performance.
-There are various ways to implement the fitness function, and for example we can use a criteria like
-this, alog with mean squared error:
-9V = 2X + N · ln(M/N )
-Here M is the mean squared error, and N is the number of data points, X is the number of parameters
-used on the genetic programming algorithm. The lower the value of V is, the better the model performs.
+9Genetic programming (GP), is a special evolutionary algorithmic technique, where the individuals are seen as
+programs that evolve, starting for a population, is iteratively ”evolved,” transforming the populations of indi-
+vidual programs, intro other populations. This new generation of programs are created using some genetic
+operations or survival criteria, mimicking natural evolutionary condition on earth.
+A very basic overview, shows that genetic programming algorithms, consists of initializing the population, then
+evaluation of the said population through some predefined metrics and functions, followed by selection of the
+fittest programs based on the score given by the metric, and ”genetic operation,” such as reproduction, mutation
+and cross-over. The algorithm then iterates these steps thousands of times, through many generations, and fi-
+nally terminates once the desired result has been achieved.
+We can use genetic programming, and tweak the algorithm, and combine it with symbolic regression, to help us
+derive laws.
+Consider modelling the various potential formulas as a tree, which is composed of various functions in the
+nodes. These functions can vary from arithmetic operations , mathematical functions, or defined unique opera-
+tors. Then we can program the fitness function [2], and use it to measure how well the given potential expression
+in the population compares with the given databases, and given the nature of genetic programming, the better
+performing functions are more likely to be passed down into the next generation. Then after many iterations,
+we can give the solution with the best performance.
+There are various ways to implement the fitness function, and for example we can use a criteria like this, along
+with mean squared error [8]:
+V = 2X + N · ln(M/N )
+Here M is the mean squared error, and N is the number of data points, X is the number of parameters used on the
+genetic programming algorithm. The lower the value of V is, the better the model performs. The performance
+of this stratergy can then be evaluated with various other metrics, to judge how well the algorithm performs.
 2.3
 Conclusion:
-These are some of the methods, that can be utilised to reduce the search space, and an algorithm, that
-comines these stratergies is theoretically efficient at solving for dervied laws, while maintaing some
-generality. In the following section, the aim is to explore various ways, to design and fine tune these
-methods, along with blax box models, such as neural networks, and potentially transformers, to derive
-laws.:wq
+To efficiently traverse the search space, these are some of the various techniqies that could be utilised to reduce
+its dimensionality. An algorithm combining these stratergies offers a optimised approach to deriving emphirical
+laws while maintaining generality. This review explored diverse methods for designing and refining the search
+space.
+3
+Technical Progress:
+This section describes the relevent implementations that are completed as of 10 December 2024.
+3.1
+Momentum Laws:
+To generate the dataset, I chose 100 data points, and created two variables mass (M) and acceleration (a), each
+represented in two dimensions. Then the data points were generated using numpy.random.randn function.
+The force (F), was then calculated to be the produce of these two data sets. Mass and acceleration were concate-
+nated along the same axis using numpy.concatenate, resulting in a combined dataset. This is partially because
+the model used here, P ySRRegressor expects a single array as input, and this helps highlight the relationship
+10between these variables to the symbolic regression algorithm.
+Then model performed symbolic regression, configured with 40 iterations along with a customer loss function,
+taken to be the squred diffrence between the prediction and the target variable.
+L(x̂, x) = (x̂ − x)2
+The model was trained on this dataset, upon termination, it produced a list of potential candidate formulae, from
+which I manually identified the correct expression, F = mȧ.
+
+The data is generated using numpy. The simulation involves, Euler’s method to solve the pendulum’s equation
+of motion. Through taking small and discrete steps, the method approximates the solution. The equation for a
+simple pendulum is given by:
+α=−
+g
+sin(θ)
+L
+α angular acceleration (rad/s2 )
+11
+(3)g acceleration due to gravity (m/s2 )
+L length of the pendulum (m)
+θ angular displacement (rad)
+The Euler technique approximates the changes in angular velocity and displacement over some small step in
+time, as follows:
+ωi+1 = ωi + αi ∆t(4)
+θi+1 = θi + ωi+1 ∆t(5)
+The function iterates through a few hundred time steps, updating the angular velocity and displacement at each
+time step. To prevent errors accumulating due to numerical drift, which are small errors that accumulate and
+become significant due to the inherent nature of approximation methods like Eulers. To keep the values coher-
+ent, a wrap around operation is used to ensure the angular displacement is within the range of [π, −π]radians.
+4
+Future Plans:
+I plan to continue with the single pendulum model, and use symbolic regression in combination with genetic
+programming to dervie the single pendulum laws.
 
