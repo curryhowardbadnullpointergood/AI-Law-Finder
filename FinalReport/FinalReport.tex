@@ -24,14 +24,14 @@
 
     \textcolor{red}{\textbf{\large Ashwinkrishna Azhagesh} \\[0.5cm]}
 
-    \textbf{10/02/2024} \\[1cm] 
+    \textbf{25/03/2025} \\[1cm] 
 
     \textbf{\large An AI Approach to Chaotic Physical Systems: } \\[1cm]
 
     \vspace{0.5cm}
 
-    Project supervisor: \textbf{Adam peugeot} \\[0.3cm] 
-    Second examiner: \textbf{TBD} \\[1cm]
+    Project supervisor: \textbf{Adam Peugeot} \\[0.3cm] 
+    Second examiner: \textbf{David Millard} \\[1cm]
 
     Progress report submitted for the award of \\[0.1cm]
 
@@ -139,7 +139,8 @@ ECS Statement of Originality Template, updated August 2018, Alex Weddell aioffic
 {\Huge \textbf{Abstract}}\\[1cm]
 
 
-I would like to thank my parents and my supervisor. 
+I would like to thank my supervisors, Professor Adam Peugeot and Professor David Millard, for all the help and advise I received throughout this project. \\
+
 
 \newpage
 
@@ -149,13 +150,55 @@ I would like to thank my parents and my supervisor.
 
 \section{Introduction: }
 
-\subsection{Background Reading: }
+\subsection{Motivation: }
+
 
 \subsection{Previous Work: }
 
-\section{Genetic Programming: }
+\section{Noise: }
 
-\section{Making exisitng model more maintainable: }
+In this section, I aimed to explore how noise affects the model, and potential ways to mitigate it. Continuing onwards from the previous model, in the data generation step, noise was artificially added, and the results were observed.\\
+
+\subsection{How noise affects the model: }
+
+So in order to add noise to the generated data set, I imported in random, and used the randn.int function. In order to vary the inputs, another function was created that incrememntally passes in higher numbers as parameters to the random function, allowing each set of generated data to incrememntally become more and more noisy. Then the symbolic regression model is run on these new data sets, and the resulting equations levels of noise are then plotted in a graph. Furthermore using the Time library to measure the amount of time it takes to run the model as the amount of random error increases. \\ 
+
+
+\subsection{How to mitigate noise in data: }
+
+Ways to mitigate the noise and it's affects on the model were explored. Functions such as "denoise," in the symbolic regression library helped to some extent. However after a certain point, such methods do not seem to offer much assistance.\\
+
+
+
+\section{Predicting future states using initial conditions: }
+
+One of the use cases of such AI models, is to infact predict the future states and values of chaotic systems. This has been applied to find approximate solutions for various initial states for complex problems such as the 3 body problem(check this!). It will be applied here on the simplest chaotic system, which is a double pendulum. Using a neural network and training data, we will explore how the prediction works with varying levels of initial force and conditions.\\
+
+
+\subsection{ Modelling the noise: }
+
+\subsection{ Using Neural Netwroks to approximate the functions: }
+
+\subsection{ SciNet: }
+
+\subsection{ Prediction of future states: }
+
+\subsection{ Varying Initial Conditions: }
+
+
+\section{Neural networks to solve the Feyman Equations: }
+
+
+\subsection{ Modelling the Network: }
+
+\subsection{ Generating the data: }
+
+
+\section{ Applying the model to Biological Data: }
+
+
+\section{Broder Use Cases: }
+
 
 \section{Conclusion:}
 
