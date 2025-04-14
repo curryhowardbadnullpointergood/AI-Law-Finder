@@ -16,4 +16,4 @@ code/venv/bin/activate
 code/venv/julia_env/Manifest.toml
 code/venv/julia_env/Project.toml
 code/venv/julia_env/pyjuliapkg/install/bin/julia
-/code/venv
+/Code/venv
