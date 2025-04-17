@@ -45,15 +45,15 @@ v2_initial = 2 * np.random.randn(n_samples,2)  # Initial velocity 2
 
 
 
-def noisy_conservation(x): 
+def noisy_conservation(ran): 
     
     #  Simulate a perfectly elastic collision for simplicity (momentum is conserved)
-    v1_final = ((m1 - m2) / (m1 + m2)) * v1_initial + ((2 * m2) / (m1 + m2)) * v2_initial + (5* random.uniform(0, x))
-    v2_final = ((2 * m1) / (m1 + m2)) * v1_initial + ((m2 - m1) / (m1 + m2)) * v2_initial+ (5* random.uniform(0, x))
+    v1_final = ((m1 - m2) / (m1 + m2)) * v1_initial + ((2 * m2) / (m1 + m2)) * v2_initial + (5* ran)
+    v2_final = ((2 * m1) / (m1 + m2)) * v1_initial + ((m2 - m1) / (m1 + m2)) * v2_initial+ (5* ran)
 
 
     #Target Variable
-    y = m1 * v1_initial + m2 * v2_initial + (5* random.uniform(0, x))
+    y = m1 * v1_initial + m2 * v2_initial + (5* ran) 
 
     X = np.concatenate([m1, m2, v1_initial, v2_initial, v1_final, v2_final], axis=1)
 
@@ -64,7 +64,7 @@ def noisy_conservation(x):
         unary_operators=[],
         extra_sympy_mappings={},
         elementwise_loss="loss(prediction, target) = (prediction - target)^2",
-        denoise=True
+        
     )
 
     model.fit(X, y)
@@ -105,7 +105,7 @@ y = force
 
 def noisy_fma(x):
 
-    force = mass * acceleration + ( 5*random.uniform(0,x))
+    force = mass * acceleration + ( 5*x)
     X = np.column_stack((mass, acceleration))
     y = force
     
@@ -164,9 +164,9 @@ def varyingnoiserandomNewtonFirstLaw():
 
 
 
-def noisy_fma(x):
+def noisy_fma(ran):
 
-    x = v * t + x0 + (5*random.uniform(0,x))
+    x = v * t + x0 + (5*ran)
     X = np.column_stack((v,t,x0))
     y = x 
 
@@ -219,10 +219,10 @@ def varyingnoiserandomNewtonThirdLaw():
 
 
 
-def noisy_third_law(x):
+def noisy_third_law(ran):
 
-    X = F2.reshape(-1, 1) + (5*random.uniform(0,x))
-    y = F1 + (5*random.uniform(0,x))
+    X = F2.reshape(-1, 1) + (5*ran)
+    y = F1 + (5*ran)
 
 
 
@@ -274,7 +274,7 @@ def varyingnoiserandomSimpleHarmoicMotion():
 
 def noisy_simple_harmonic_motion(ran):
 
-    X = t.reshape(-1, 1) + (5*random.uniform(0,ran))
+    X = t.reshape(-1, 1) + (5*ran)
     y = x + (5*random.uniform(0,ran))
 
     model = PySRRegressor(
@@ -288,7 +288,7 @@ def noisy_simple_harmonic_motion(ran):
     )
 
     model.fit(X, y)
-
+    return model 
     
 varyingnoiserandomSimpleHarmoicMotion()
 
@@ -324,7 +324,7 @@ def varyingnoiserandomRutherford():
 
 def noisy_rutherford(ran):
 
-    y = k / (np.sin(theta / 2) ** 4) + (5*random.uniform(0,ran))
+    y = k / (np.sin(theta / 2) ** 4) + (5*ran)
     X = theta.reshape(-1, 1) + (5*random.uniform(0,ran))
 
     model = PySRRegressor(
@@ -338,19 +338,7 @@ def noisy_rutherford(ran):
     )
 
     model.fit(X, y)
-
+    return model 
     
 varyingnoiserandomRutherford()
-
-
-
-
-
-
-
-
-
-
-
-
 

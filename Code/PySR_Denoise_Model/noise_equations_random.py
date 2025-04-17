@@ -117,6 +117,7 @@ def noisy_fma(x):
         populations=10,
         progress=True,
         model_selection="best",  # Simplest model that fits best
+        denoise=True,
         variable_names=["m", "a"]
     )
 
@@ -178,6 +179,7 @@ def noisy_fma(x):
         populations=10,
         progress=True,
         model_selection="best",
+        denoise=True,
         variable_names=["v", "t", "x0"]
     )
 
@@ -233,6 +235,7 @@ def noisy_third_law(x):
         populations=10,
         progress=True,
         model_selection="best",
+        denoise=True,
         variable_names=["F2"]
     )
 
@@ -284,10 +287,12 @@ def noisy_simple_harmonic_motion(ran):
         populations=10,
         progress=True,
         model_selection="best",
+        denoise=True,
         variable_names=["t"]
     )
 
     model.fit(X, y)
+    return model 
 
     
 varyingnoiserandomSimpleHarmoicMotion()
@@ -333,12 +338,13 @@ def noisy_rutherford(ran):
         unary_operators=["sin", "cos"],
         populations=10,
         progress=True,
+        denoise=True,
         model_selection="best",
         variable_names=["theta"]
     )
 
     model.fit(X, y)
-
+    return model 
     
 varyingnoiserandomRutherford()
 

@@ -17,3 +17,4 @@ code/venv/julia_env/Manifest.toml
 code/venv/julia_env/Project.toml
 code/venv/julia_env/pyjuliapkg/install/bin/julia
 /Code/venv
+/Code/aifeynman-2.0.7
