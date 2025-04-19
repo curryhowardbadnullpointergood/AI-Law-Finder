@@ -1,0 +1,14 @@
+=== RUN   TestGetIdList
+--- PASS: TestGetIdList (0.00s)
+=== RUN   TestToXYArray
+--- PASS: TestToXYArray (0.00s)
+=== RUN   TestGetParetoPoints
+--- PASS: TestGetParetoPoints (0.00s)
+=== RUN   TestPlot
+    pareto_test.go:94: Plot saved at: /home/fish/Documents/University/Part3_Project/Part3/Code/SR_NN/test.png
+--- PASS: TestPlot (0.01s)
+=== RUN   TestLoggingToFile
+    pareto_test.go:116: TestLoggingToFile ran successfully
+--- PASS: TestLoggingToFile (0.00s)
+PASS
+ok  	SymbolicRegressor	0.014s
