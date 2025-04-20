@@ -1,30 +1,44 @@
-
+from coordinates import Coordinate
 
 class Point:
-    def __init__(self, x, y, data=None, id=None):
-        self._x = x 
-        self._y = y 
+    def __init__(self, coordinate, data=None, id=None):
+
+        if not isinstance(coordinate, Coordinate):
+            raise TypeError("must be an coordinate")
+
+        self._coordinate = coordinate
         self._data = data 
         self._id = id 
 
 
-    # Getter and Setter for x
+    @property
+    def coordinates(self):
+        return self._coordinate
+
+    @coordinates.setter
+    def coordinates(self, value):
+        if not isinstance(value, Coordinate):
+            raise TypeError("Must be a Coordinates object")
+        self._coordinate = value
+
+    # Access x directly via Point
     @property
     def x(self):
-        return self._x
+        return self._coordinate.x
 
     @x.setter
     def x(self, value):
-        self._x = value
+        self._coordinate.x = value
 
-    # Getter and Setter for y
+    # Access y directly via Point
     @property
     def y(self):
-        return self._y
+        return self._coordinate.y
 
     @y.setter
     def y(self, value):
-        self._y = value
+        self._coordinate.y = value
+    
 
     # Getter and Setter for data
     @property
