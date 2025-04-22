@@ -171,6 +171,12 @@ Talk a little about the way this is used outside of this niche use case, and in 
 
 In this section, I aimed to explore how noise affects the model, and potential ways to mitigate it. Continuing onwards from the previous model, in the data generation step, noise was artificially added, and the results were observed.\\
 
+
+So in order to model the noise, I used the python random library, and generated random numbers between 0 and an ever increasing amount of randomness, in oder to guage the accuracy as noise increased for the model. I was also part
+
+
+
+
 \subsection{How noise affects the model: }
 
 So in order to add noise to the generated data set, I imported in random, and used the randn.int function. In order to vary the inputs, another function was created that incrememntally passes in higher numbers as parameters to the random function, allowing each set of generated data to incrememntally become more and more noisy. Then the symbolic regression model is run on these new data sets, and the resulting equations levels of noise are then plotted in a graph. Furthermore using the Time library to measure the amount of time it takes to run the model as the amount of random error increases. \\ 
@@ -180,16 +186,17 @@ So in order to add noise to the generated data set, I imported in random, and us
 
 Ways to mitigate the noise and it's affects on the model were explored. Functions such as "denoise," in the symbolic regression library helped to some extent. However after a certain point, such methods do not seem to offer much assistance.\\
 
+I also made my own denoise algorithm. I implemented various different denoise algorithms to see what effects they had. Firstly I implemented a simple moving avergae as a way to mitigate the noise in the dataset. reword this -> "
+Simple and fast, smooths data well by averaging neighbors. However, it blurs sharp changes and is sensitive to extreme outlier values, pulling the average significantly and distorting the signal."\\
 
+These were my results, this is the pseudo code, explain the alogrithm.\\ 
 
-\section{Predicting future states using initial conditions: }
+The second denoise algoirthm I implemented is a median filter, and this is what effects it has, and this is how i implemented it. Insert Pseudo code. reword: "Excellent at removing spikes and preserving edges better than averaging. Less affected by outliers. Can sometimes slightly distort the overall shape of the signal, especially with large window sizes."\\
 
-One of the use cases of such AI models, is to infact predict the future states and values of chaotic systems. This has been applied to find approximate solutions for various initial states for complex problems such as the 3 body problem(check this!). It will be applied here on the simplest chaotic system, which is a double pendulum. Using a neural network and training data, we will explore how the prediction works with varying levels of initial force and conditions.\\
+Finally this is the third algorithm that I had implemented for denoising. Wavelet Denoising, this is the effects, and this is the pesudo code. Reword this -> "Transforms data to isolate noise, preserving both smooth and sharp signal features effectively. More complex to understand and requires careful selection of wavelet type and parameters for optimal results, which can be tricky."\\
 
 
 \subsection{ Modelling the noise: }
-
-So in order to model the noise, I used the python random library, and generated random numbers between 0 and an ever increasing amount of randomness, in oder to guage the accuracy as noise increased for the model. I was also part
 
 
 %\subsection{ Using Neural Netwroks to approximate the functions: }
@@ -201,7 +208,70 @@ So in order to model the noise, I used the python random library, and generated 
 %\subsection{ Varying Initial Conditions: }
 
 
-\section{Neural networks to solve the Feyman Equations: }
+\section{Writing my own symbolic regressor from scratch: }
+
+\subsection{The core;}
+
+The core and essential part of any symbolic regression model, lies in the way it at the simplest level, generates and traverses the search tree of possible equations and expressions that may fit the data presented to it. \\ 
+
+In order to save time, and to test if my expression generation was working as intended, i have started with simple 2 variable equaitons, and also pass in the speific operations used in the equation. Furthermore this is also extended to handle constants and more later on.\\ 
+
+enter in the pseudo code here.\\ 
+
+Then I further improved this, by designing a resursive way to generate these expressions, to allow to generate more robust equations from the given variables. Also this is dynamic, so it can \\
+
+enter in pseudo code\\
+
+\subsection{exploiting physical properties}
+
+The next step is to then start to truncate these generated expressions as much as possible to prune the search tree. One of the ways you can do this is through exploiting the symmertrical property of physical equations and how they are mathematically equivalent. Such as removing duplicate expressions.\\ 
+
+This is how I achieved that.\\
+Give pseudo code here. \\ 
+
+\subsection{ Dealing with constants: }
+
+Another way i further pruned the amount of expression, is through filtering all the expressions generated through the newer recursive generator, by removing all the expressions that did not contain all the specified variables. This is in order to save further time later on during the evaluation seciton.\\ 
+
+Insert in pseudo code:\\
+
+Then later on i designed it next to work with nested expressions and i wanted it to work with more than one constant.\\
+
+insert in some code that has changed.\\
+
+I had then filtered out any of the expressions generated that did not have both of the constants. \\ 
+
+
+\subsection{ Loading data: }
+Next I needed a way to load the data I has typed up. At this point I was focused on testing as quick as possible and in order to proceed in a prompt manner I made up some dummy data values. Afterwards I made the decision to keep the data as a numpy array, because this will be faster then a text file,  there are some various reasons for this, such as numpy arrays being stored in memory, the efficiency of the nderlying data format it is stored in (binary), and finally numpy uses c, and so it vectorises operations, making it far faster.\\ 
+
+Insert in pseudo code.\\
+
+As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the input data, and y being the target data, as in the final result. Ie x contains the mass and acceleration values, and y is the array of the result of the equation f = ma, so it only contains the value of f in it. This is a basic check to make sure the number of columns all have a corresponding variable.\\ 
+
+\subsection{ Evaluating expressions: }
+
+Next I evaluate the expressions that I had generated, and i assign the variables to a column of the data, in increasing order. Then this is substituted into the equation, and the expressions are run, and there is an array of outputs of the expression. This essentially evaluates every generated expressions that has been pruned, and returns a np arrya of the results of those expressions based on the input data.\\ 
+
+insert in pseudo code here.\\
+
+Then like the paper suggested, insert in paper here, I used a medium error description length loss function, and have implemented it in the same way as in the paper. Using error squared, making all the errors positive, and added 1 as a constant to ensure that all the errors are greater than the value, when taking the log. \\
+
+Insert in pseudo code. \\
+
+Then furthermore I also implemented 2 other loss algorithms, specifically root mean squared loss as well as mean absolute error.\\
+
+insert in pseudo code.\\
+
+This was to help bridge and improve upon the loss algorithm used in the paper, as these two have their own advantages, and a combined hybrid approach seemed smarter.\\ 
+Explain why later.\\
+
+
+
+
+
+
+
 
 
 \subsection{ Modelling the Network: }
@@ -216,6 +286,8 @@ So in order to model the noise, I used the python random library, and generated 
 
 \section{Broder Use Cases: }
 
+\section{Project Management: }
+
 
 \section{Conclusion:}
 
@@ -228,5 +300,5 @@ So in order to model the noise, I used the python random library, and generated 
 
 \section{Project Planning: }
 
-
+  
 \end{document}

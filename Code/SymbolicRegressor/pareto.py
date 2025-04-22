@@ -1,10 +1,14 @@
+
 import numpy as np 
 from points import Point
+from coordinates import Coordinate
+from sortedcontainers import SortedKeyList
 
-class paretoList:
+class paretoList(SortedKeyList):
 
     def __init__(self):
         self.points = [] 
+        super().__init__(key=lambda p: p.x)
     
     def __iter__(self):
         return iter(self.points)
@@ -22,6 +26,11 @@ class paretoList:
     # get the values of the points 
     def get_points(self):
         return [[p.x, p.y, p.data] for p in self.points]
+    
+    
+    def get_coord(self):
+        return [[p.x, p.y] for p in self.points]
+        
 
 
     def has_point(self, p):
@@ -42,18 +51,18 @@ class paretoList:
             raise TypeError("Input is not a Point!")
 
         coord = np.array([p.coordinate.x, p.coordinate.y]) 
-        dominant = self.dominant_point(p)
+        dom = self.dominant_point(p)
 
         if not len(dom):
             return 0.0
 
         candidates = [np.maximum(dom[i], dom[i + 1]) for i in range(len(dom) - 1)]
-        candidates.append([p.coordinate.x, np.min(dom[:, 1])])
-        candidates.append([np.min(dom[:, 0]), p.coordinate.y])
+        candidates.append([p.x, np.min(dom[:, 1])])
+        candidates.append([np.min(dom[:, 0]), p.y])
 
         candidates = np.array(candidates)
 
-        return np.min(np.sqrt(np.sum((candidates - point) ** 2, axis=1)))
+        return np.min(np.sqrt(np.sum((candidates - coord) ** 2, axis=1)))
 
 
     
@@ -79,92 +88,303 @@ class paretoList:
         return np.array([self[i][0:2] for i in range(low, -1, -1) if self[i][1] < p[1]])
 
 
-
-
     def insert_points(self, p):
         if not isinstance(p, Point):
             raise TypeError("Input is not a Point!")
+
         
-        idx_left = self.bisect_right(p) - 1
-        idx_right = self.bisect_left(p)
+        is_pareto = False
+        
+        right = self.bisect_left(p)
 
-        # Remove dominated points to the right
-        self.points = [
-            pt for i, pt in enumerate(self.points)
-            if not (i >= idx_right and pt.y >= p.y and not (pt.x == p.x and pt.y == p.y))
-        ]
+        while len(self) > right and self[right].y >= p.y and not (self[right].x == p.x and self[right].y == p.y):
+            self.pop(right)
+            is_pareto = True
 
-        # Recompute left index after removal
-        idx_left = self.bisect_right(p) - 1
+       
+        left = self.bisect_right(p) - 1
 
-            # Check if point is Pareto-optimal (not dominated)
-        if len(self.points) == 0 or idx_left < 0 or self.points[idx_left].y > p.y:
-            insert_pos = self.bisect_left(p)
-            self.points.insert(insert_pos, p)
-            return True
+        if left == -1 or self[left][1] > p[1]:
+            is_pareto = True
 
-        return False
+        
+        if len(self) == 0:
+            is_pareto = True
 
+        if is_pareto:
+            print("working!!!")
+            super().add(p)
 
+        return is_pareto
+    
+    
+    
+    
+    def bisect_left1(self, value):
+        _maxes = self.get_coord()
+
+        if not _maxes:
+            return 0
+
+        pos = bisect_left(_maxes, value)
+
+        if pos == len(_maxes):
+            return self._len
+
+        idx = bisect_left(self._lists[pos], value)
+        return self._loc(pos, idx)
     
 
 
-    def left_search(self, p):
-        x = p.x
-        low, high = 0, len(self.points)
+    def bisect_right1(self, value):
+        _maxes = self.get_coord()
 
-        while low < high:
-            mid = (low + high) // 2
-            if self.points[mid].x < x:
-                low = mid + 1
-            else:
-                high = mid
-        return low
+        if not _maxes:
+            return 0
 
-    def right_search(self, p):
-        x = p.x
-        low, high = 0, len(self.points)
+        pos = bisect_right(_maxes, value)
 
-        while low < high:
-            mid = (low + high) // 2
-            if self.points[mid].x <= x:
-                low = mid + 1
-            else:
-                high = mid
-        return low
+        if pos == len(_maxes):
+            return self._len
+
+        idx = bisect_right(self._lists[pos], value)
+        return self._loc(pos, idx)
 
 
 
-    # this inserts the valid points onto the list 
-    def inser_points(self, p):
 
-        if not isinstance(p, Point):
-            raise TypeError("Input is not a Point! ")
+
+
+
+    def mergePareto(self, p):
+        [self.insert_points(item) for item in p]
+        return self
+
+    def pointToList(self, p):
+        [self.insert_points(a) for a in p]
+
+
+
+
+def add():
+    x= 1
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
+    x= x+ x 
     
-        # sorts out the points based on x valye 
-        self.points.sort(key=lambda pt: pt.x)
 
-        # Find the insert position 
-        i = 0
-        while i < len(self.points) and self.points[i].x < p.x:
-            i += 1
 
-        # Removes all the dominated points to the right
-        self.points = [
-            pt for j, pt in enumerate(self.points)
-            if not (j >= i and pt.y >= p.y and not (pt.x == p.x and pt.y == p.y))
-        ]
 
-        # Recalculate the insert position 
-        i = 0
-        while i < len(self.points) and self.points[i].x < p.x:
-            i += 1
+def main():
 
-        
-        if i > 0 and self.points[i - 1].y <= p.y:
-            return False
+    PL = paretoList()
 
-        # If there is no dominating point insert it 
-        self.points.insert(i, p)
-        
-        return True
+    # A = np.random.rand(30, 2)
+    
+    # A = np.array([
+    #     [0.33808567, 0.71078249],
+    #     [0.53230935, 0.59861609],
+    #     [0.14323923, 0.47040819],
+    #     [0.81952712, 0.18329565],
+    #     [0.32554314, 0.87905565],
+    #     [0.837702, 0.03594707],
+    #     [0.1555251, 0.61746657],
+    #     [0.98466255, 0.24328891],
+    #     [0.03506797, 0.72585188],
+    #     [0.79812042, 0.12123644],
+    #     [0.19997897, 0.83034173],
+    #     [0.58609006, 0.27569143],
+    #     [0.74290196, 0.85328874],
+    #     [0.39965015, 0.2417549],
+    #     [0.42588738, 0.57296336],
+    #     [0.41389509, 0.99475464],
+    #     [0.60322994, 0.64352742],
+    #     [0.29886826, 0.05768122],
+    #     [0.22382844, 0.81081495],
+    #     [0.55465334, 0.22880699],
+    #     [0.19405967, 0.65398404],
+    #     [0.86381059, 0.23313568],
+    #     [0.63044668, 0.01319088],
+    #     [0.50990191, 0.27314109],
+    #     [0.4934025, 0.79724437],
+    #     [0.95615977, 0.29072778],
+    #     [0.58282988, 0.13413821],
+    #     [0.90627228, 0.24103038],
+    #     [0.41002558, 0.32865168],
+    #     [0.82831987, 0.88281003]
+    # ])
+    
+    
+    # #print(A)
+    # print("#############")
+    # [PL.insert_points(Point(Coordinate(x=a[0], y=a[1]))) for a in A]
+
+    # paretoA = PL.np_array()
+    # print(paretoA)
+    
+    PL.insert_points(Point(Coordinate(x=1, y=1)))
+    PL.insert_points(Point(Coordinate(x=2, y=2)))
+    
+    print(PL.get_points())
+    
+    idx = PL.bisect_left(Point(Coordinate(0.1,5)))
+    print(idx)
+    PL.insert_points(Point(Coordinate(x=0.1, y=5), data=None))
+    
+    print(PL.get_points())
+    
+
+
+
+
+
+
+# Entry point of the program
+if __name__ == "__main__":
+    main()
