@@ -1,4 +1,287 @@
-1Introduction:
+:
+
+def load_data(x: np.ndarray, y: np.ndarray, var_names):
+    assert x.shape[1] == len(var_names)
+    return x, y, [sp.Symbol(v) for v in var_names]
+
+
+# generates the expression 
+def generate_expressions(variables, constants, operators, max_depth):
+    
+    
+    symbols = [sp.Symbol(v) for v in variables] + [sp.Integer(c) for c in constants]
+    expressions = []
+    
+    for a, b in permutations(symbols, 2):
+        for op in operators:
+            try:
+                if op == '+':
+                    expressions.append(a + b)
+                elif op == '-':
+                    expressions.append(a - b)
+                elif op == '*':
+                    expressions.append(a * b)
+                elif op == '/':
+                    expressions.append(a / b)
+                elif op == '**':
+                    expressions.append(a ** b)
+            except:
+                continue
+    return expressions
+
+
+
+
+def recursive_expressions(operators, variables, constants, max_depth=2):
+    symbols = [sp.Symbol(v) for v in variables]
+
+    def build_expressions(current_depth):
+        if current_depth == 0:
+            return symbols.copy()
+
+        new_expressions = []
+        prev_expressions = build_expressions(current_depth - 1)
+
+        for a in prev_expressions:
+            for b in prev_expressions:
+                for op in operators:
+                    try:
+                        if op == '+':
+                            new_expressions.append(a + b)
+                        elif op == '-':
+                            new_expressions.append(a - b)
+                        elif op == '*':
+                            new_expressions.append(a * b)
+                        elif op == '/':
+                            new_expressions.append(a / b)
+                        elif op == '**':
+                            new_expressions.append(a ** b)
+                    except:
+                        continue
+
+        return new_expressions
+
+    all_exprs = build_expressions(max_depth)
+    return all_exprs
+
+
+# this evaluates a single expression that you pass to it 
+def evaluate_expression(expression, variables, X): 
+    
+    symbols = [sp.Symbol(v) for v in variables]
+    func = sp.lambdify(symbols, expression, modules='numpy')
+    try:
+        inputs = [X[:, i] for i in range(X.shape[1])]
+        return func(*inputs)
+    except Exception as e:
+        return np.full(X.shape[0], np.nan)
+    
+    
+
+# this evaluated the loss. 
+def evaluate_loss(result, original):
+
+    # mean error description length first 
+    print("Calculating Mean Error Description Length: ")
+    mean_error_descripton_length(result, original)
+
+
+    
+
+
+def mean_error_descripton_length(result, original):
+    result = np.array(result).flatten()
+    original = np.array(original).flatten()
+
+    total_log_error = 0.0
+    n = len(result)
+
+    for i in range(n):
+        error = abs(original[i] - result[i])
+        log_error = np.log2(1 + error ** 2)
+        total_log_error += log_error
+        print(f"Index {i}: true={original[i]}, pred={result[i]}, error={error}, log_error={log_error:.4f}")
+
+    return (total_log_error / n)
+
+
+
+
+
+    
+    
+
+
+
+# exploits the symmertrical properties of physical equations in oder to even half the search space 
+def symmetrical_property(expression):
+    # removes duplicate expressions 
+    expList = list(set(expression))
+    return expList
+    
+# so further pruning the search space through remove all the expression if it does not contain all the variables given to it. 
+# must always call the getvars method before this else it won't work 
+def variable_check(expressions, variables):
+    temp_vars = [sp.Symbol(v) for v in variables] 
+    temp_vars = set(temp_vars)
+    return [expr for expr in expressions if temp_vars.issubset(expr.free_symbols)]
+    
+
+def generate_recursive_constant_nesting(expr, constants, max_depth):
+    results = set()
+    if max_depth == 0:
+        return {expr}
+
+    # Apply each constant to current expression
+    for const in constants:
+        applied = const(expr)
+        results.add(applied)
+
+        # Recursively apply other constants to the result
+        deeper = generate_recursive_constant_nesting(applied, constants, max_depth - 1)
+        results.update(deeper)
+
+    return results
+
+
+def apply_constants_fully_symmetric(expressions, constants, max_depth=2):
+    """
+    Applies all permutations and nested combinations of constant functions to expressions.
+    Includes sin(cos(expr)), cos(sin(expr)), etc.
+    """
+    final_results = set()
+
+    for expr in expressions:
+        # Include base expr
+        final_results.add(expr)
+
+        # Fully nested const combinations
+        for const in constants:
+            final_results.update(generate_recursive_constant_nesting(expr, constants, max_depth))
+
+        # Add argument-level permutations (like sin(a) * cos(b))
+        if not expr.is_Atom:
+            args = expr.args
+            combos = product(constants, repeat=len(args))
+            for const_combo in combos:
+                new_args = [f(arg) for f, arg in zip(const_combo, args)]
+                try:
+                    new_expr = expr.func(*new_args)
+                    final_results.add(new_expr)
+                except:
+                    continue
+
+    return list(final_results)
+
+
+
+
+def apply_constants_verion3(expr_list, constants, max_depth=2):
+    all_variants = set()
+    for expr in expr_list:
+        all_variants.update(apply_constants(expr, constants, max_depth))
+    return all_variants
+
+
+
+def apply_constants_helper_v3(expr, constants, max_depth=2):
+    if max_depth == 0:
+        return {expr}
+
+    variants = set()
+
+    
+        
+    for const in constants:
+           
+        applied = const(expr)
+        variants.add(applied)
+        variants.update(apply_constants_helper(applied, constants, max_depth - 1))
+
+    
+    if expr.is_Atom:
+        return variants | {expr}
+
+    
+    args = expr.args
+    arg_variants = [apply_constants_helper(arg, constants, max_depth) for arg in args]
+
+    
+    for combo in product(*arg_variants):
+        try:
+            rebuilt = expr.func(*combo)
+            variants.add(rebuilt)
+            variants.update(apply_constants_helper(rebuilt, constants, max_depth - 1))
+        except:
+            pass
+
+    return variants | {expr}
+
+
+
+def apply_constants_v2(expressions, constants, max_depth=2):
+    def recursive_const(expr, depth):
+        results = set()
+        if depth == 0:
+            return results
+
+    
+        for const in constants:
+            direct = const(expr)
+            results.add(direct)
+    
+            nested = recursive_const(direct, depth - 1)
+            results.update(nested)
+
+    
+        if not expr.is_Atom:
+            args = expr.args
+            combos = product([False, True], repeat=len(args))
+            for const in constants:
+                for mask in combos:
+                    new_args = [
+                        const(arg) if use else arg
+                        for use, arg in zip(mask, args)
+                    ]
+                    try:
+                        new_expr = expr.func(*new_args)
+                        results.add(new_expr)
+    
+                        results.update(recursive_const(new_expr, depth - 1))
+                    except:
+                        continue
+
+        return results
+
+    final_results = set()
+
+    for expr in expressions:
+    
+        final_results.add(expr)
+
+    
+        for const in constants:
+            const_expr = const(expr)
+            final_results.add(const_expr)
+            final_results.add(const_expr * expr)
+
+    
+        final_results.update(recursive_const(expr, max_depth))
+
+    
+        if expr.is_Mul:
+            factors = expr.args
+            for const in constants:
+                for r in range(1, len(factors) + 1):
+                    for combo in combinations(factors, r):
+                        applied = [const(x) for x in combo]
+                        untouched = [x for x in factors if x not in combo]
+                        combined = sp.Mul(*(applied + untouched))
+                        final_results.add(combined)
+
+    return list(final_results)
+
+
 1.1Motivation:
 As there is more data being generated than ever before and new experiments, we need a systematic and au-
 tomatic way to deduce various mathematical patterns and laws in these data. Through the use of symbolic
@@ -56,14 +339,14 @@ enter in the pseudo code here.
 Then I further improved this, by designing a resursive way to generate these expressions, to allow to generate
 more robust equations from the given variables. Also this is dynamic, so it can
 enter in pseudo code
-4.2
+4.1.1
 exploiting physical properties
 The next step is to then start to truncate these generated expressions as much as possible to prune the search
 tree. One of the ways you can do this is through exploiting the symmertrical property of physical equations and
 how they are mathematically equivalent. Such as removing duplicate expressions.
 This is how I achieved that.
 Give pseudo code here.
-4.3
+4.1.2
 Dealing with constants:
 Another way i further pruned the amount of expression, is through filtering all the expressions generated through
 the newer recursive generator, by removing all the expressions that did not contain all the specified variables.
@@ -72,8 +355,31 @@ Insert in pseudo code:
 8Then later on i designed it next to work with nested expressions and i wanted it to work with more than one
 constant.
 insert in some code that has changed.
-I had then filtered out any of the expressions generated that did not have both of the constants.
-4.4
+I had then filtered out any of the expressions generated that did not have both of the constants. This is mainy to
+save on some computation time in evaluating some of the redundant expressions. This is how I managed to do
+that.
+Insert in pseudo code.
+4.1.3
+Dealing with powers:
+So appling powers to expressions, I applied the power to the expression. This also allows you to prune the
+search tree further by not needed to generate redundant expressions with powers.
+This is the pseudo code.
+Then I filtered based on if the expression contained the power, this allows me to further prune the tree. In a more
+robust model, this is dervied from scratch, however for the sake of computation time, and flexibility, I decided
+to proceed with this approach as it saves some time.
+this is the pseudo code.
+4.1.4
+Chaining powers and constants:
+The next step is to chain together powers and constants, such that both are applied to the expressions. It can
+already be chained as with the design it already has. However it needs to be filtered poperly in order to maintain
+the least amount of expressions possible.
+Te constants filter can be used, but the powers are inside the constants, and therefore the older power filter does
+not work as intended. Therefore i needed to redesign it such that it will function recursively.
+This is the code.
+However, sometimes this gives off constants that are chained, such as sin(sin()), and so to filter this futher, I
+want to filter out expressions with more than one instant of the constant that is chained.
+this is the code - filter single constant
+4.1.5
 Loading data:
 Next I needed a way to load the data I has typed up. At this point I was focused on testing as quick as possible
 and in order to proceed in a prompt manner I made up some dummy data values. Afterwards I made the decision
@@ -81,11 +387,11 @@ to keep the data as a numpy array, because this will be faster then a text file,
 this, such as numpy arrays being stored in memory, the efficiency of the nderlying data format it is stored in
 (binary), and finally numpy uses c, and so it vectorises operations, making it far faster.
 Insert in pseudo code.
-As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the
+9As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the
 input data, and y being the target data, as in the final result. Ie x contains the mass and acceleration values, and
 y is the array of the result of the equation f = ma, so it only contains the value of f in it. This is a basic check to
 make sure the number of columns all have a corresponding variable.
-4.5
+4.1.6
 Evaluating expressions:
 Next I evaluate the expressions that I had generated, and i assign the variables to a column of the data, in in-
 creasing order. Then this is substituted into the equation, and the expressions are run, and there is an array
@@ -102,3 +408,79 @@ insert in pseudo code.
 This was to help bridge and improve upon the loss algorithm used in the paper, as these two have their own
 advantages, and a combined hybrid approach seemed smarter.
 Explain why later.
+4.2
+Polynomial Fit module:
+Now that the simple, core of the algorithm works, and is adapted to take care of contants, powers, variables,
+generate expressions, and filter out the redundancy using physical properties of the world such as symmtery,
+I now aimed to futher extend the program by writing a polynomial fit module. The aim of the polynomial fit
+technique is to.
+Why: Many functions in physics (or parts of them) are low-order polynomials.
+Why: It’s a computationally very cheap method for this specific function class.
+How: It attempts to fit the given data to a sum of polynomial terms.
+How: It generates all possible polynomial terms up to a specified low degree (e.g., degree 4).
+How: For each data point, this creates a linear equation where the unknowns are the polynomial coefficients.
+How: It solves the resulting system of linear equations using standard methods like least squares.
+How: The Root Mean Squared Error (RMSE) of the fit is calculated.
+10How: If the RMSE is below a predefined tolerance (p ol), thepolynomialisacceptedasasolution.
+Effect: It acts as a fast base case in the recursive algorithm, quickly solving problems that are simple polynomi-
+als.
+Effect: It can also solve sub-problems that are transformed into polynomials by other modules (e.g., dimen-
+sional analysis, inverting the function).
+4.2.1
+Data Loading:
+So to start, I began by creating the data loading function. The aim was to take in a numpy array, with the data,
+along with a list of variables. Then comparing the shape of the data column and the number of variables in order
+to make sure the input is sufficient.
+This is the pseudo code.
+4.2.2
+Generating polynomial expressions:
+Then the next step is to generate polynomaial expressions, and then it will return a list of polynomial expres-
+sions on the list.
+Pseudo code.
+This function, generatep olynomiale xpressions, createsallpossiblesymbolicpolynomialexpressionsbycombiningalistof coef f
+4.2.3
+Filtering the Polynomial expressions:
+The filtere xpressionsf unctionprogrammaticallyf ilterssymbolicexpressionsusingstructuralandsemanticconstraints.Lev
+suitedf orlarge − scalesymbolicf ilteringtaskswherestrictmathematicalstructuremustbeenf orced.
+insert in pseudo code.
+This initial version only worked for symblic constants, ie sin, cos etc, and didn’t work for numbers, or nteger
+coefficients, i caught this error during testing and I rewrote the function so that it works for integer coefficients.
+insert code:
+4.2.4
+Evaluating expressions:
+Now I need to take the filtered expressions, and try fit the model to the dataset np array. The model fitting
+logic function fits polynomial expressions to input data by finding the best set of coefficients that minimize the
+error between the predicted and actual output values. It tests multiple polynomial degrees (up to a specified
+maximum) and selects the one that provides the lowest error, ensuring an optimal balance between accuracy
+and complexity.
+I use root mean squared error to calculate the loss, and the funciton returns a list of loss, per expression.
+11So i take an expression, then I substitute in the variables using the input data, calculate the predicted y value of
+the said equation, then take it away from the true value of y the target and then use that to calculate the rmse.
+pseudo code.
+Best polynomial fit:
+Now that I have the list of expressions and the corresponding rmse values, i pick the lowest rmse as the most
+accurate polynomial fit for the data.
+insert in pseudo code
+4.3
+Dimensional Analysis:
+Physics Constraint: Physical equations must be dimensionally consistent (units on both sides must match).
+Strong Simplification: This dimensional constraint severely limits the possible forms of the unknown function.
+First Step: AI Feynman applies dimensional analysis as the very first attempt to simplify the problem.
+Unit Representation: Units of variables (like mass, length, time) are represented as vectors of integer powers.
+Linear System: A linear system is set up based on the unit vectors of the input variables and the target variable.
+Dimensionless Combinations: Solving this system and finding the null space reveals combinations of variables
+that are dimensionless.
+Problem Transformation: The original problem is transformed into finding a function of these new, dimension-
+less variables.
+Reduced Variables: This process typically reduces the number of independent variables the algorithm needs to
+search over.
+Search Space Reduction: A smaller number of variables drastically shrinks the combinatorial search space for
+subsequent steps.
+Efficiency Boost: It makes Polynomial Fit, Brute Force, and Neural Network-guided searches significantly
+faster and more likely to succeed.
+4.4
+Testing:
+Every module, function and file, were thoroughly tested using dedicated tests. The boundary conditions and
+inserted tests to make sure the function behaved as envisioned. There was also significant robust testing func-
+tions written when chaining together various techniques and models, in order to ensure everything was working
+smoothly.

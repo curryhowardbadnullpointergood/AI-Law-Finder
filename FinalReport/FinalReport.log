@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  22 APR 2025 09:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  24 APR 2025 04:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -904,12 +904,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 242--243
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--247
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
@@ -919,12 +914,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 250--251
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--257
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 
  []
 
@@ -949,27 +944,314 @@ Underfull \hbox (badness 10000) in paragraph at lines 264--265
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--268
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--271
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--292
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--298
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+
+ []
+
+
+! LaTeX Error: Unicode character ε (U+03B5)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.311 ... RMSE is below a predefined tolerance (ε
+                                                  _pol), the polynomial is a...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.311 ...RMSE is below a predefined tolerance (ε_
+                                                  pol), the polynomial is ac...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.312 
+      
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.329 This function, generate_
+                              polynomial_expressions, creates all possible s...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.330 
+      
+? 
+
+Overfull \hbox (1875.24477pt too wide) in paragraph at lines 329--330
+[]\OT1/ptm/m/n/10 This func-tion, generate$[]\OML/cmm/m/it/10 olynomial[]xpress
+ions; createsallpossiblesymbolicpolynomialexpressionsbycombiningalistofcoeffici
+entsandvariableswithspecifiedmathematicaloperators\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 like\OT1/cmr/m/n/10 +\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/
+10 ; \OMS/cmsy/m/n/10 ^^C\OML/cmm/m/it/10 ; =\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 
+andvaryingthepowerofeachvariableuptoagivenmaximumdegree:Itrecursivelyexploresal
+lpermutationsofoperatorplacementsanddegreeassignments; returningalistofsimplifi
+edSymPyexpressions:Thisallowsforflexibleconstructionofpolynomialformsusefulinsy
+mbolicregression; equationgeneration; oralgebraicexplorationtasks:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--330
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.333 The filter_
+                 expressions function programmatically filters symbolic expr...
+
+? 
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 333.
+
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 333.
+
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 333.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.334 
+      
+? 
+
+Overfull \hbox (2529.11028pt too wide) in paragraph at lines 333--334
+\OT1/ptm/m/n/10 The filter$[]\OML/cmm/m/it/10 xpressionsfunctionprogrammaticall
+yfilterssymbolicexpressionsusingstructuralandsemanticconstraints:LeveragingSymP
+y[]ssymbolicmanipulationcapabilities\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 particul
+arlySymbol; Pow; andpreorder[]raversal\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 itensu
+resexpressionscontainallspecifiedvariables; constants\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 e:g:; trigonometricfunctions\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; andatle
+astoneinstanceofarequiredpower:Theuseoffree[]ymbolsenablesefficientvariablepres
+encechecks; whilerecursivetraversalallowsdetectionofdeeplynestedconstructs:This
+methodsupportsalgebraicexpressionpruninginsymbolicregressionorautomateddiscover
+ypipelines:Itscomposability; precision; andrelianceonSymPy[]soptimizedtraversal
+makeitwell \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
+
+ []
+
+! Undefined control sequence.
+l.351 \subsubsectio
+                   {Best polynomial fit: }
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 
  []
 
 No file FinalReport.bbl.
-[9] [10] (./FinalReport.aux) ) 
+[12] (./FinalReport.aux) ) 
 Here is how much of TeX's memory you used:
- 16833 strings out of 476091
- 345876 string characters out of 5794081
+ 16834 strings out of 476091
+ 345881 string characters out of 5794081
  1861330 words of memory out of 5000000
- 36926 multiletter control sequences out of 15000+600000
+ 36927 multiletter control sequences out of 15000+600000
  524674 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,94p,810b,200s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
-se/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on FinalReport.pdf (10 pages, 51391 bytes).
+ 99i,6n,94p,850b,200s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8
+r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/times/utmr8a.pfb>
+Output written on FinalReport.pdf (12 pages, 106099 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

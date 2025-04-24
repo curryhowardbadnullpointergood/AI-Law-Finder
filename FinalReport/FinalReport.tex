@@ -222,14 +222,14 @@ Then I further improved this, by designing a resursive way to generate these exp
 
 enter in pseudo code\\
 
-\subsection{exploiting physical properties}
+\subsubsection{exploiting physical properties}
 
 The next step is to then start to truncate these generated expressions as much as possible to prune the search tree. One of the ways you can do this is through exploiting the symmertrical property of physical equations and how they are mathematically equivalent. Such as removing duplicate expressions.\\ 
 
 This is how I achieved that.\\
 Give pseudo code here. \\ 
 
-\subsection{ Dealing with constants: }
+\subsubsection{ Dealing with constants: }
 
 Another way i further pruned the amount of expression, is through filtering all the expressions generated through the newer recursive generator, by removing all the expressions that did not contain all the specified variables. This is in order to save further time later on during the evaluation seciton.\\ 
 
@@ -239,17 +239,41 @@ Then later on i designed it next to work with nested expressions and i wanted it
 
 insert in some code that has changed.\\
 
-I had then filtered out any of the expressions generated that did not have both of the constants. \\ 
+I had then filtered out any of the expressions generated that did not have both of the constants. This is mainy to save on some computation time in evaluating some of the redundant expressions. This is how I managed to do that. \\
+
+Insert in pseudo code. \\ 
+
+\subsubsection{ Dealing with powers: }
+
+So appling powers to expressions, I applied the power to the expression. This also allows you to prune the search tree further by not needed to generate redundant expressions with powers. 
+
+This is the pseudo code.\\
+
+Then I filtered based on if the expression contained the power, this allows me to further prune the tree. In a more robust model, this is dervied from scratch, however for the sake of computation time, and flexibility, I decided to proceed with this approach as it saves some time.\\ 
+
+this is the pseudo code.\\ 
+
+\subsubsection{Chaining powers and constants: }
+
+The next step is to chain together powers and constants, such that both are applied to the expressions. It can already be chained as with the design it already has. However it needs to be filtered poperly in order to maintain the least amount of expressions possible.\\
+
+Te constants filter can be used, but the powers are inside the constants, and therefore the older power filter does not work as intended. Therefore i needed to redesign it such that it will function recursively.\\
+
+This is the code.\\
+
+However, sometimes this gives off constants that are chained, such as sin(sin()), and so to filter this futher, I want to filter out expressions with more than one instant of the constant that is chained.\\
+
+this is the code - filter single constant\\
 
 
-\subsection{ Loading data: }
+\subsubsection{ Loading data: }
 Next I needed a way to load the data I has typed up. At this point I was focused on testing as quick as possible and in order to proceed in a prompt manner I made up some dummy data values. Afterwards I made the decision to keep the data as a numpy array, because this will be faster then a text file,  there are some various reasons for this, such as numpy arrays being stored in memory, the efficiency of the nderlying data format it is stored in (binary), and finally numpy uses c, and so it vectorises operations, making it far faster.\\ 
 
 Insert in pseudo code.\\
 
 As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the input data, and y being the target data, as in the final result. Ie x contains the mass and acceleration values, and y is the array of the result of the equation f = ma, so it only contains the value of f in it. This is a basic check to make sure the number of columns all have a corresponding variable.\\ 
 
-\subsection{ Evaluating expressions: }
+\subsubsection{ Evaluating expressions: }
 
 Next I evaluate the expressions that I had generated, and i assign the variables to a column of the data, in increasing order. Then this is substituted into the equation, and the expressions are run, and there is an array of outputs of the expression. This essentially evaluates every generated expressions that has been pruned, and returns a np arrya of the results of those expressions based on the input data.\\ 
 
@@ -266,6 +290,96 @@ insert in pseudo code.\\
 This was to help bridge and improve upon the loss algorithm used in the paper, as these two have their own advantages, and a combined hybrid approach seemed smarter.\\ 
 Explain why later.\\
 
+\subsection{Polynomial Fit module: }
+
+Now that the simple, core of the algorithm works, and is adapted to take care of contants, powers, variables, generate expressions, and filter out the redundancy using physical properties of the world such as symmtery, I now aimed to futher extend the program by writing a polynomial fit module. The aim of the polynomial fit technique is to.\\
+
+    Why: Many functions in physics (or parts of them) are low-order polynomials.\\
+
+    Why: It's a computationally very cheap method for this specific function class.\\
+
+    How: It attempts to fit the given data to a sum of polynomial terms.\\
+
+    How: It generates all possible polynomial terms up to a specified low degree (e.g., degree 4).\\
+
+    How: For each data point, this creates a linear equation where the unknowns are the polynomial coefficients.\\
+
+    How: It solves the resulting system of linear equations using standard methods like least squares.\\
+
+    How: The Root Mean Squared Error (RMSE) of the fit is calculated.\\
+
+    How: If the RMSE is below a predefined tolerance (ε_pol), the polynomial is accepted as a solution.\\
+
+    Effect: It acts as a fast base case in the recursive algorithm, quickly solving problems that are simple polynomials.\\
+
+    Effect: It can also solve sub-problems that are transformed into polynomials by other modules (e.g., dimensional analysis, inverting the function).\\
+
+\subsubsection{Data Loading:}
+
+So to start, I began by creating the data loading function. The aim was to take in a numpy array, with the data, along with a list of variables. Then comparing the shape of the data column and the number of variables in order to make sure the input is sufficient. \\
+
+This is the pseudo code.\\
+
+\subsubsection{Generating polynomial expressions: }
+
+Then the next step is to generate polynomaial expressions, and then it will return a list of polynomial expressions on the list. \\ 
+
+Pseudo code.\\ 
+
+This function, generate_polynomial_expressions, creates all possible symbolic polynomial expressions by combining a list of coefficients and variables with specified mathematical operators (like +, -, *, /) and varying the power of each variable up to a given maximum degree. It recursively explores all permutations of operator placements and degree assignments, returning a list of simplified SymPy expressions. This allows for flexible construction of polynomial forms useful in symbolic regression, equation generation, or algebraic exploration tasks.\\
+
+\subsubsection{Filtering the Polynomial expressions: }
+
+The filter_expressions function programmatically filters symbolic expressions using structural and semantic constraints. Leveraging SymPy’s symbolic manipulation capabilities—particularly Symbol, Pow, and preorder_traversal—it ensures expressions contain all specified variables, constants (e.g., trigonometric functions), and at least one instance of a required power. The use of free_symbols enables efficient variable presence checks, while recursive traversal allows detection of deeply nested constructs. This method supports algebraic expression pruning in symbolic regression or automated discovery pipelines. Its composability, precision, and reliance on SymPy's optimized traversal make it well-suited for large-scale symbolic filtering tasks where strict mathematical structure must be enforced.\\
+
+insert in pseudo code.\\
+
+This initial version only worked for symblic constants, ie sin, cos etc, and didn't work for numbers, or nteger coefficients, i caught this error during testing and I rewrote the function so that it works for integer coefficients.\\ 
+
+insert code:\\
+
+\subsubsection{Evaluating expressions: }
+
+Now I need to take the filtered expressions, and try fit the model to the dataset np array. The model fitting logic function fits polynomial expressions to input data by finding the best set of coefficients that minimize the error between the predicted and actual output values. It tests multiple polynomial degrees (up to a specified maximum) and selects the one that provides the lowest error, ensuring an optimal balance between accuracy and complexity.\\
+
+I use root mean squared error to calculate the loss, and the funciton returns a list of loss, per expression.\\ 
+
+So i take an expression, then I substitute in the variables using the input data, calculate the predicted y value of the said equation, then take it away from the true value of y the target and then use that to calculate the rmse.\\
+
+pseudo code. \\
+
+\subsubsectio{Best polynomial fit: }
+
+Now that I have the list of expressions and the corresponding rmse values, i pick the lowest rmse as the most accurate polynomial fit for the data. \\
+
+insert in pseudo code\\
+
+\subsection{Dimensional Analysis: }
+
+    Physics Constraint: Physical equations must be dimensionally consistent (units on both sides must match).
+
+    Strong Simplification: This dimensional constraint severely limits the possible forms of the unknown function.
+
+    First Step: AI Feynman applies dimensional analysis as the very first attempt to simplify the problem.
+
+    Unit Representation: Units of variables (like mass, length, time) are represented as vectors of integer powers.
+
+    Linear System: A linear system is set up based on the unit vectors of the input variables and the target variable.
+
+    Dimensionless Combinations: Solving this system and finding the null space reveals combinations of variables that are dimensionless.
+
+    Problem Transformation: The original problem is transformed into finding a function of these new, dimensionless variables.
+
+    Reduced Variables: This process typically reduces the number of independent variables the algorithm needs to search over.
+
+    Search Space Reduction: A smaller number of variables drastically shrinks the combinatorial search space for subsequent steps.
+
+    Efficiency Boost: It makes Polynomial Fit, Brute Force, and Neural Network-guided searches significantly faster and more likely to succeed.\\
+
+
+
+\subsection{Testing: }
+Every module, function and file, were thoroughly tested using dedicated tests. The boundary conditions and inserted tests to make sure the function behaved as envisioned. There was also significant robust testing functions written when chaining together various techniques and models, in order to ensure everything was working smoothly.\\ 
 
 
 
@@ -274,11 +388,9 @@ Explain why later.\\
 
 
 
-\subsection{ Modelling the Network: }
 
-\subsection{ Generating the data: }
 
-\subsection{ Using C to Brute Force Solutions: }
+
 
 
 \section{ Applying the model to Biological Data: }

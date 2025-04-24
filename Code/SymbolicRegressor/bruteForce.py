@@ -139,21 +139,113 @@ def variable_check(expressions, variables):
     return [expr for expr in expressions if temp_vars.issubset(expr.free_symbols)]
     
 
-def apply_constants(expressions, constants, max_depth=2):
+def generate_recursive_constant_nesting(expr, constants, max_depth):
+    results = set()
+    if max_depth == 0:
+        return {expr}
+
+    # Apply each constant to current expression
+    for const in constants:
+        applied = const(expr)
+        results.add(applied)
+
+        # Recursively apply other constants to the result
+        deeper = generate_recursive_constant_nesting(applied, constants, max_depth - 1)
+        results.update(deeper)
+
+    return results
+
+
+def apply_constants_fully_symmetric(expressions, constants, max_depth=2):
+    """
+    Applies all permutations and nested combinations of constant functions to expressions.
+    Includes sin(cos(expr)), cos(sin(expr)), etc.
+    """
+    final_results = set()
+
+    for expr in expressions:
+        # Include base expr
+        final_results.add(expr)
+
+        # Fully nested const combinations
+        for const in constants:
+            final_results.update(generate_recursive_constant_nesting(expr, constants, max_depth))
+
+        # Add argument-level permutations (like sin(a) * cos(b))
+        if not expr.is_Atom:
+            args = expr.args
+            combos = product(constants, repeat=len(args))
+            for const_combo in combos:
+                new_args = [f(arg) for f, arg in zip(const_combo, args)]
+                try:
+                    new_expr = expr.func(*new_args)
+                    final_results.add(new_expr)
+                except:
+                    continue
+
+    return list(final_results)
+
+
+
+
+def apply_constants_verion3(expr_list, constants, max_depth=2):
+    all_variants = set()
+    for expr in expr_list:
+        all_variants.update(apply_constants(expr, constants, max_depth))
+    return all_variants
+
+
+
+def apply_constants_helper_v3(expr, constants, max_depth=2):
+    if max_depth == 0:
+        return {expr}
+
+    variants = set()
+
+    
+        
+    for const in constants:
+           
+        applied = const(expr)
+        variants.add(applied)
+        variants.update(apply_constants_helper(applied, constants, max_depth - 1))
+
+    
+    if expr.is_Atom:
+        return variants | {expr}
+
+    
+    args = expr.args
+    arg_variants = [apply_constants_helper(arg, constants, max_depth) for arg in args]
+
+    
+    for combo in product(*arg_variants):
+        try:
+            rebuilt = expr.func(*combo)
+            variants.add(rebuilt)
+            variants.update(apply_constants_helper(rebuilt, constants, max_depth - 1))
+        except:
+            pass
+
+    return variants | {expr}
+
+
+
+def apply_constants_v2(expressions, constants, max_depth=2):
     def recursive_const(expr, depth):
         results = set()
         if depth == 0:
             return results
 
-        # Apply each constant directly to the full expr
+    
         for const in constants:
             direct = const(expr)
             results.add(direct)
-            # Nest further
+    
             nested = recursive_const(direct, depth - 1)
             results.update(nested)
 
-        # If it's compound, try applying constants to subparts
+    
         if not expr.is_Atom:
             args = expr.args
             combos = product([False, True], repeat=len(args))
@@ -166,7 +258,7 @@ def apply_constants(expressions, constants, max_depth=2):
                     try:
                         new_expr = expr.func(*new_args)
                         results.add(new_expr)
-                        # Recurse deeper on this new expression
+    
                         results.update(recursive_const(new_expr, depth - 1))
                     except:
                         continue
@@ -176,19 +268,19 @@ def apply_constants(expressions, constants, max_depth=2):
     final_results = set()
 
     for expr in expressions:
-        # Always include base expr
+    
         final_results.add(expr)
 
-        # Apply each constant multiplicatively
+    
         for const in constants:
             const_expr = const(expr)
             final_results.add(const_expr)
             final_results.add(const_expr * expr)
 
-        # Apply recursively to generate all permutations and nested
+    
         final_results.update(recursive_const(expr, max_depth))
 
-        # Special: handle multiplicative subparts like a * m -> sin(a)*sin(m)
+    
         if expr.is_Mul:
             factors = expr.args
             for const in constants:
@@ -206,7 +298,7 @@ def apply_constants_version2(expressions, constants, depth=1):
     def recurse(expr, current_depth):
         results = set()
 
-        # Base: apply each constant to the full expression
+    
         for const in constants:
             results.add(const(expr))
 
@@ -223,7 +315,7 @@ def apply_constants_version2(expressions, constants, depth=1):
                     for const in constants:
                         new_args.append(const(arg))
                 else:
-                    # Recurse into subexpressions
+    
                     sub_exprs = recurse(arg, current_depth - 1)
                     new_args.append(arg)
                     new_args.extend(sub_exprs)
@@ -274,6 +366,32 @@ def apply_constants_version_1(expressions, constants):
 
     return list(results)
 
+# powers, so apply powers to expressions
+def apply_powers(expressions, powers, max_depth=2):
+    def recursive_powers(expr, depth):
+        results = set()
+        if depth == 0:
+            return {expr}
+        
+        for power in powers:
+            powered = expr ** power
+            results.add(powered)
+
+            # Recurse: apply powers to the new powered expr
+            deeper = recursive_powers(powered, depth - 1)
+            results.update(deeper)
+
+        return results
+
+    all_results = set()
+    for expr in expressions:
+        all_results.add(expr)
+        all_results.update(recursive_powers(expr, max_depth))
+
+    return list(all_results)
+
+
+
 
 # filters expressions such that only those will all inputted constants are left from a list of expressions 
 
@@ -289,6 +407,54 @@ def get_vars(variables):
     symbols = [sp.Symbol(v) for v in variables]
     return
 
+
+# filters powers from expressions
+def filter_powers(expressions, target_powers):
+    filtered = []
+
+    for expr in expressions:
+        found = any(
+            sub.is_Pow and sub.args[1] in target_powers
+            for sub in sp.preorder_traversal(expr)
+        )
+        if found:
+            filtered.append(expr)
+
+    return filtered
+
+
+
+def filter_powers_old(expressions, target_powers):
+    filtered = []
+
+    for expr in expressions:
+        # If it's a power expression
+        if expr.is_Pow:
+            base, exp = expr.args
+            if exp in target_powers:
+                filtered.append(expr)
+        # Optionally, include expr**1 if you want 1 treated as a "power"
+        elif 1 in target_powers:
+            filtered.append(expr)
+
+    return filtered
+
+# filter so that only one constant appears once 
+def filter_single_constant(expressions, constants):
+    filtered = []
+
+    for expr in expressions:
+        counts = {const: 0 for const in constants}
+        
+        for sub in sp.preorder_traversal(expr):
+            for const in constants:
+                if sub.func == const:
+                    counts[const] += 1
+
+        if all(c <= 1 for c in counts.values()):
+            filtered.append(expr)
+
+    return filtered
 
 if __name__ == "__main__":
     ops = ['*']
@@ -339,14 +505,52 @@ if __name__ == "__main__":
     #consts = ['sin']
     # well this does not work 
     consts = [sp.sin]
-    print(apply_constants(result_list3, consts,1))
+    #print(apply_constants_helper(result_list3, consts,1))
     consts = [sp.sin, sp.cos]
-    result = apply_constants(result_list3, consts, 2)
+    #result = apply_constants_helper(result_list3, consts, 2)
     print(result)
+
+    #print("########################################")
+    #print("Testing filter constants: ")
+    #print(filterConstant(result, consts))
+
+    a, m = sp.symbols("a m")
+    exprs = [a * m]
+
+    result = apply_constants_fully_symmetric(exprs, [sp.sin, sp.cos], max_depth=2)
+
+    for i, r in enumerate(result, 1):
+        print(f"{i}: {r}")
 
     print("########################################")
     print("Testing filter constants: ")
     print(filterConstant(result, consts))
+
+    print("#########################################")
+    print("Testing powers ")
+    result = apply_powers(exprs, [0.5])
+    print(result )
+
+
+    print("##########################################")
+    print("Testing filtered powers")
+    result = filter_powers(result, [0.5])
+    print(result)
+
+
+    print("##########################################")
+    print("Testing chaining constants and powers")
+    result = apply_constants_fully_symmetric(result, [sp.sin], max_depth=2)
+    print(result)
+    result = filterConstant(result, [sp.sin])
+    print(result)
+    result = filter_powers(result, [0.5])
+    print(result)
+    print("Filter so that only one constat exists in expression: ")
+    result = filter_single_constant(result, [sp.sin])
+    print(result)
+
+
 
 
 
