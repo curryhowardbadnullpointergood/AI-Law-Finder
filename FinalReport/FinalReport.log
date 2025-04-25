@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  24 APR 2025 04:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  24 APR 2025 12:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1226,20 +1226,493 @@ Underfull \hbox (badness 10000) in paragraph at lines 377--378
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
+Underfull \hbox (badness 10000) in paragraph at lines 381--382
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.389 ...e columns of matrix M using numpy.column_
+                                                  stack. The dependent varia...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.390 
+      
+? 
+
+Overfull \hbox (528.75195pt too wide) in paragraph at lines 389--390
+\OT1/ptm/m/n/10 the columns of ma-trix M us-ing numpy.column$[]\OML/cmm/m/it/10
+ tack:Thedependentvariable[]sunitvectorformsvectorb:try:::exceptKeyErrorblocksp
+roviderobusterrorhandling; raisinginformativeValueErrorsifanyvariabledefinition
+isabsent:$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.391 ...itivity enhances usability. numpy.column_
+                                                  stack offers performance. ...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.392 
+      
+? 
+
+Overfull \hbox (290.4593pt too wide) in paragraph at lines 391--392
+[]\OT1/ptm/m/n/10 Design Ra-tio-nale: Case-insensitivity en-hances us-abil-ity.
+ numpy.column$[]\OML/cmm/m/it/10 tackoffersperformance:Expliciterrorhandlingpre
+ventsdownstreamfailuresduetomissingunitdata:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 394--395
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.398 ...ates the null space basis U of M using M_
+                                                  sym.nullspace(), which ide...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.399 
+      
+? 
+
+Overfull \hbox (725.54509pt too wide) in paragraph at lines 398--399
+\OT1/ptm/m/n/10 M$[]\OML/cmm/m/it/10 ym:nullspace\OT1/cmr/m/n/10 ()\OML/cmm/m/i
+t/10 ; whichidentifiesthecombinationsformingdimensionlessgroups:Thefunctionretu
+rnsthesymbolicsolutionvectorpandalistofsymbolicbasisvectorsU:TheuseofSymPyensur
+esprecisionandfacilitatesfindingphysicallyinterpretablerationalexponents:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
+
+ []
+
+[12]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.402     Finding the "Unit-Fixing" Part (p = M_
+                                                sym.LUsolve(b_sym)):
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.403 
+      
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 ... powers (p) of your input variables (xᵢ
+                                                  ) that you need to multipl...
+
+? 
+
+! LaTeX Error: Unicode character Π (U+03A0)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 ...�) that you need to multiply together (Π
+                                                   xᵢ^pᵢ) so that the re...
+
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 ...at you need to multiply together (Π xᵢ
+                                                  ^pᵢ) so that the result ...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.404 ...t you need to multiply together (Π xᵢ^
+                                                  pᵢ) so that the result h...
+
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 ...u need to multiply together (Π xᵢ^pᵢ
+                                                  ) so that the result has t...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.405 
+      
+? 
+
+! LaTeX Error: Unicode character ⁻ (U+207B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.406 ...xample, if the target is Force ([M L T⁻
+                                                  ²]) and inputs are mass (...
+
+? 
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
+06.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+
+! LaTeX Error: Unicode character ⁻ (U+207B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.406 ...responding to mass¹ * length¹ * time⁻
+                                                  ².
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.410 ... the "Dimensionless Combinations" (U = M_
+                                                  sym.nullspace()):
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.411 
+      
+? 
+
+! LaTeX Error: Unicode character Π (U+03A0)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 ...combine powers of the input variables (Π
+                                                   xᵢ^uᵢ) such that the ...
+
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 ...ne powers of the input variables (Π xᵢ
+                                                  ^uᵢ) such that the units...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.414 ...e powers of the input variables (Π xᵢ^
+                                                  uᵢ) such that the units ...
+
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 ...wers of the input variables (Π xᵢ^uᵢ
+                                                  ) such that the units comp...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.415 
+      
+? 
+
+Overfull \hbox (659.78522pt too wide) in paragraph at lines 414--415
+[]\OT1/ptm/m/n/10 The func-tion finds all the fun-da-men-tal ways (U) you can c
+om-bine pow-ers of the in-put vari-ables ( x$[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/1
+0 suchthattheunitscompletelycancelout; resultinginadimensionlessquantity:Eachve
+ctorinUrepresentstheexponentsforonesuchfundamentaldimensionlessgroup:$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--423
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.426 ...on converts original physical data (data_
+                                                  x, data_y) into a dimensio...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.427 
+      
+? 
+
+Overfull \hbox (86.37694pt too wide) in paragraph at lines 426--427
+\OT1/ptm/m/n/10 his func-tion con-verts orig-i-nal phys-i-cal data (data$[]\OML
+/cmm/m/it/10 ; data[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 intoadimensionlessformus
+ingpreviouslycalculatedexponents\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p; U\OT1/cmr/
+m/n/10 )\OML/cmm/m/it/10 :$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.428 ...it Works: First, it calculates a scaling_
+                                                  factor for each data point...
+
+? 
+! Double subscript.
+l.428 ...actor to create the dimensionless data_y_
+                                                  prime. If dimensionless gr...
+
+? 
+! Double subscript.
+l.428 ...hese are stacked (np.vstack) into data_x_
+                                                  prime. If U is empty, data...
+
+? 
+! Double subscript.
+l.428 ...anged. It returns the transformed data_x_
+                                                  prime and data_y_prime.\\
+? 
+! Double subscript.
+l.428 ... the transformed data_x_prime and data_y_
+                                                  prime.\\
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.429 
+      
+? 
+
+Overfull \hbox (2080.99942pt too wide) in paragraph at lines 428--429
+[]\OT1/ptm/m/n/10 How it Works: First, it cal-cu-lates a scaling$[]\OML/cmm/m/i
+t/10 actorforeachdatapointbyraisinginputvariables\OT1/cmr/m/n/10 (\OML/cmm/m/it
+/10 data[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 tothepowersspecifiedinp\OT1/cmr/m/n
+/10 (\OML/cmm/m/it/10 usingnp:float[]ower\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 andm
+ultiplyingtheresults\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 np:prod\OT1/cmr/m/n/10 )\
+OML/cmm/m/it/10 :Theoriginaldependentdata\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 data
+[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 isdividedbythisfactortocreatethedimensionle
+ssdata[][]rime:Ifdimensionlessgroupsexist\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Uisn
+otempty\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; itcalculateseachnewdimensionlessinde
+pendentvariablebyraisingdata[]tothepowersineachvectorufromUandmultiplying:These
+arestacked\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 np:vstack\OT1/cmr/m/n/10 )\OML/cmm/
+m/it/10 intodata[][]rime:IfUisempty; data[]remainsunchanged:Itreturnsthetransfo
+rmeddata[][]rimeanddata[][]rime:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.432 ... independent variable names (independent_
+                                                  vars) and the exponent vec...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.433 
+      
+? 
+
+Overfull \hbox (168.53375pt too wide) in paragraph at lines 432--433
+\OT1/ptm/m/n/10 for-ma-tion. It ac-cepts the orig-i-nal in-de-pen-dent vari-abl
+e names (independent$[]\OML/cmm/m/it/10 ars\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 an
+dtheexponentvectorsforscaling\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10
+ )\OML/cmm/m/it/10 anddimensionlessgroups\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 U\OT
+1/cmr/m/n/10 )\OML/cmm/m/it/10 :$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.434 ...structs the symbolic expression symbolic_
+                                                  p representing the unit-fi...
+
+? 
+
+! LaTeX Error: Unicode character Π (U+03A0)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 ...enting the unit-fixing scaling factor (Π
+                                                   xᵢ^pᵢ) via sp.Mul. Su...
+
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 ...g the unit-fixing scaling factor (Π xᵢ
+                                                  ^pᵢ) via sp.Mul. Subsequ...
+
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 ... unit-fixing scaling factor (Π xᵢ^pᵢ
+                                                  ) via sp.Mul. Subsequently...
+
+? 
+
+! LaTeX Error: Unicode character Π (U+03A0)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 ...pression for each dimensionless group (Π
+                                                   xᵢ^uᵢ) and appending ...
+
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 ...ion for each dimensionless group (Π xᵢ
+                                                  ^uᵢ) and appending it to...
+
+? 
+
+! LaTeX Error: Unicode character ᵢ (U+1D62)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.434 ...or each dimensionless group (Π xᵢ^uᵢ
+                                                  ) and appending it to the ...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.435 
+      
+? 
+
+Overfull \hbox (13.07578pt too wide) in paragraph at lines 434--435
+\OT1/ptm/m/n/10 these sym-bols and the scal-ing ex-po-nents p, it con-structs t
+he sym-bolic ex-pres-sion symbolic$[]\OML/cmm/m/it/10 representingtheunit \OMS/
+cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (1211.48654pt too wide) in paragraph at lines 434--435
+\OML/cmm/m/it/10 fixingscalingfactor\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/c
+mr/m/n/10 )\OML/cmm/m/it/10 viasp:Mul:Subsequently; ititeratesthrougheachexpone
+ntvectoruinU; buildingthecorrespondingsymbolicexpressionforeachdimensionlessgro
+up\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 andapp
+endingittothelistsymbolic[]:ThefunctionreturnsthesingleSymPyexpressionsymbolic[
+]andthelistofSymPyexpressionssymbolic[]:Thisprovidesthemathematicaldefinitionsf
+orthetransformation:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 434--435
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
+
+ []
+
+[13]
 No file FinalReport.bbl.
-[12] (./FinalReport.aux) ) 
+[14] (./FinalReport.aux) ) 
 Here is how much of TeX's memory you used:
- 16834 strings out of 476091
- 345881 string characters out of 5794081
- 1861330 words of memory out of 5000000
- 36927 multiletter control sequences out of 15000+600000
- 524674 words of font info for 54 fonts, out of 8000000 for 9000
+ 16863 strings out of 476091
+ 346290 string characters out of 5794081
+ 1863330 words of memory out of 5000000
+ 36952 multiletter control sequences out of 15000+600000
+ 524988 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,94p,850b,200s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,6n,94p,943b,200s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8
 r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/s
@@ -1248,10 +1721,10 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmr8a.pfb>
-Output written on FinalReport.pdf (12 pages, 106099 bytes).
+Output written on FinalReport.pdf (14 pages, 117152 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

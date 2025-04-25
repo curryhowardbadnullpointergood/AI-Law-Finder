@@ -281,7 +281,7 @@ def apply_constants_v2(expressions, constants, max_depth=2):
 
     return list(final_results)
 
-
+1Introduction:
 1.1Motivation:
 As there is more data being generated than ever before and new experiments, we need a systematic and au-
 tomatic way to deduce various mathematical patterns and laws in these data. Through the use of symbolic
@@ -478,9 +478,64 @@ Search Space Reduction: A smaller number of variables drastically shrinks the co
 subsequent steps.
 Efficiency Boost: It makes Polynomial Fit, Brute Force, and Neural Network-guided searches significantly
 faster and more likely to succeed.
+4.3.1
+Handling Units:
+So i went to the ai feynman database website, and downloaded their units.csv to get a better idea of all the units
+in the dataset, I was dealing with. Then i had a look at all the required units, and then made a unit table, array,
+so that each unit corresponds to a unique power of the bsaic si units which I also implemented, as an array/list.
+code:
+4.3.2
+Construct Matrix and Target Vector:
+This function constructs the dimensional matrix M and target vector b essential for dimensional analysis. It
+accepts lists of independent and dependent variable names and a dictionary mapping variable names (keys) to
+their unit vectors (values).
+Technical Implementation: Unit vectors for independent variables are retrieved via dictionary lookup, using
+lowercase variable names (var.lower()) to ensure case-insensitivity. These vectors are efficiently assembled into
+the columns of matrix M using numpy.columns tack.T hedependentvariable′ sunitvectorf ormsvectorb.try...exceptKeyErrorblo
+Design Rationale: Case-insensitivity enhances usability. numpy.columns tackof f ersperf ormance.Expliciterrorhandlingpreven
+code:
+124.3.3
+Solving Dimension and Basis Units:
+This function determines the exponents for dimensional scaling and dimensionless groups by solving the lin-
+ear systems Mp = b and MU = 0. It takes the dimensional matrix M and target vector b as input. The
+function first converts these NumPy arrays into SymPy matrices (sp.Matrix) to leverage symbolic compu-
+tation capabilities. It then attempts to find an exact particular solution p for Mp = b using SymPy’s LU-
+solve method, chosen for its ability to yield rational solutions. Robust error handling via try...except ad-
+dresses potential issues like inconsistent systems. Finally, it calculates the null space basis U of M using
+Ms ym.nullspace(), whichidentif iesthecombinationsf ormingdimensionlessgroups.T hef unctionreturnsthesymbolicsolu
+Think of it like this: you have a target physical quantity (b, like Force) that depends on several input quantities
+(M, like mass, length, time).
+Finding the ”Unit-Fixing” Part (p = Ms ym.LU solve(bs ym)) :
+The function first figures out the specific combination of powers (p) of your input variables (x) that you need to
+multiply together ( xp )sothattheresulthastheexactsamephysicalunitsasyourtargetvariable(b).
+For example, if the target is Force ([M L T2]) and inputs are mass ([M]), length ([L]), and time ([T]), it would
+find p corresponding to mass1 * length1 * time2.
+It uses LUsolve from SymPy to try and find an exact (often simple fraction or integer) solution for these powers
+p.
+Finding the ”Dimensionless Combinations” (U = Ms ym.nullspace()) :
+After accounting for the basic units, any remaining relationship must involve combinations of input variables
+that have no units at all (they are dimensionless numbers, like Reynolds number).
+The function finds all the fundamental ways (U) you can combine powers of the input variables ( xu )suchthattheunitscompletelycan
+In essence, the function:
+Separates the part of the formula responsible for getting the units right (p).
+Identifies all the core dimensionless building blocks (U) that the rest of the formula must be made from.
+This allows the main algorithm to later focus on finding the relationship between these dimensionless quantities,
+which is a simpler problem than the original one involving various physical units.
+4.3.4
+Data Transformation Function:
+his function converts original physical data (datax , datay )intoadimensionlessf ormusingpreviouslycalculatedexponents(p, U ).
+How it Works: First, it calculates a scalingf actorf oreachdatapointbyraisinginputvariables(datax )tothepowersspecif iedinp(u
+4.3.5
+Symbolic Transformation Generator
+This function generates the symbolic mathematical expressions corresponding to the dimensional analysis trans-
+formation. It accepts the original independent variable names (independentv ars)andtheexponentvectorsf orscaling(p)anddimens
+How it Works: It first creates SymPy symbolic objects for each input variable name using sp.symbols. Utilizing
+these symbols and the scaling exponents p, it constructs the symbolic expression symbolicp representingtheunit−
+f ixingscalingf actor(xp )viasp.M ul.Subsequently, ititeratesthrougheachexponentvectoruinU, buildingthecorrespondings
+insert code:
 4.4
 Testing:
 Every module, function and file, were thoroughly tested using dedicated tests. The boundary conditions and
 inserted tests to make sure the function behaved as envisioned. There was also significant robust testing func-
 tions written when chaining together various techniques and models, in order to ensure everything was working
-smoothly.
+13smoothly.

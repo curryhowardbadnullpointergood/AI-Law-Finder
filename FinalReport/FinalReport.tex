@@ -376,6 +376,73 @@ insert in pseudo code\\
 
     Efficiency Boost: It makes Polynomial Fit, Brute Force, and Neural Network-guided searches significantly faster and more likely to succeed.\\
 
+\subsubsection{Handling Units: }
+
+So i went to the ai feynman database website, and downloaded their units.csv to get a better idea of all the units in the dataset, I was dealing with. Then i had a look at all the required units, and then made a unit table, array, so that each unit corresponds to a unique power of the bsaic si units which I also implemented, as an array/list.\\\
+
+code:\\
+
+\subsubsection{Construct Matrix and Target Vector: }
+
+This function constructs the dimensional matrix M and target vector b essential for dimensional analysis. It accepts lists of independent and dependent variable names and a dictionary mapping variable names (keys) to their unit vectors (values).
+
+Technical Implementation: Unit vectors for independent variables are retrieved via dictionary lookup, using lowercase variable names (var.lower()) to ensure case-insensitivity. These vectors are efficiently assembled into the columns of matrix M using numpy.column_stack. The dependent variable's unit vector forms vector b. try...except KeyError blocks provide robust error handling, raising informative ValueErrors if any variable definition is absent.
+
+Design Rationale: Case-insensitivity enhances usability. numpy.column_stack offers performance. Explicit error handling prevents downstream failures due to missing unit data.\\
+
+
+code: \\
+
+\subsubsection{Solving Dimension and Basis Units: }
+
+This function determines the exponents for dimensional scaling and dimensionless groups by solving the linear systems Mp = b and MU = 0. It takes the dimensional matrix M and target vector b as input. The function first converts these NumPy arrays into SymPy matrices (sp.Matrix) to leverage symbolic computation capabilities. It then attempts to find an exact particular solution p for Mp = b using SymPy's LUsolve method, chosen for its ability to yield rational solutions. Robust error handling via try...except addresses potential issues like inconsistent systems. Finally, it calculates the null space basis U of M using M_sym.nullspace(), which identifies the combinations forming dimensionless groups. The function returns the symbolic solution vector p and a list of symbolic basis vectors U. The use of SymPy ensures precision and facilitates finding physically interpretable rational exponents.\\
+
+Think of it like this: you have a target physical quantity (b, like Force) that depends on several input quantities (M, like mass, length, time).
+
+    Finding the "Unit-Fixing" Part (p = M_sym.LUsolve(b_sym)):
+
+        The function first figures out the specific combination of powers (p) of your input variables (xᵢ) that you need to multiply together (Π xᵢ^pᵢ) so that the result has the exact same physical units as your target variable (b).
+
+        For example, if the target is Force ([M L T⁻²]) and inputs are mass ([M]), length ([L]), and time ([T]), it would find p corresponding to mass¹ * length¹ * time⁻².
+
+        It uses LUsolve from SymPy to try and find an exact (often simple fraction or integer) solution for these powers p.
+
+    Finding the "Dimensionless Combinations" (U = M_sym.nullspace()):
+
+        After accounting for the basic units, any remaining relationship must involve combinations of input variables that have no units at all (they are dimensionless numbers, like Reynolds number).
+
+        The function finds all the fundamental ways (U) you can combine powers of the input variables (Π xᵢ^uᵢ) such that the units completely cancel out, resulting in a dimensionless quantity. Each vector in U represents the exponents for one such fundamental dimensionless group.
+
+In essence, the function:
+
+    Separates the part of the formula responsible for getting the units right (p).
+
+    Identifies all the core dimensionless building blocks (U) that the rest of the formula must be made from.
+
+This allows the main algorithm to later focus on finding the relationship between these dimensionless quantities, which is a simpler problem than the original one involving various physical units.\\
+
+\subsubsection{Data Transformation Function:}
+
+his function converts original physical data (data_x, data_y) into a dimensionless form using previously calculated exponents (p, U).
+
+How it Works: First, it calculates a scaling_factor for each data point by raising input variables (data_x) to the powers specified in p (using np.float_power) and multiplying the results (np.prod). The original dependent data (data_y) is divided by this factor to create the dimensionless data_y_prime. If dimensionless groups exist (U is not empty), it calculates each new dimensionless independent variable by raising data_x to the powers in each vector u from U and multiplying. These are stacked (np.vstack) into data_x_prime. If U is empty, data_x remains unchanged. It returns the transformed data_x_prime and data_y_prime.\\
+
+\subsubsection{Symbolic Transformation Generator}
+
+This function generates the symbolic mathematical expressions corresponding to the dimensional analysis transformation. It accepts the original independent variable names (independent_vars) and the exponent vectors for scaling (p) and dimensionless groups (U).
+
+How it Works: It first creates SymPy symbolic objects for each input variable name using sp.symbols. Utilizing these symbols and the scaling exponents p, it constructs the symbolic expression symbolic_p representing the unit-fixing scaling factor (Π xᵢ^pᵢ) via sp.Mul. Subsequently, it iterates through each exponent vector u in U, building the corresponding symbolic expression for each dimensionless group (Π xᵢ^uᵢ) and appending it to the list symbolic_U. The function returns the single SymPy expression symbolic_p and the list of SymPy expressions symbolic_U. This provides the mathematical definitions for the transformation.\\
+
+insert code:\\
+
+\subsection{Neural Network Fitting: }
+
+The next step crutical component, is using neural networks in order to simplify the expressions further.\\
+In order to get a smotth and differentiable approximation of the function we are looking for, this is what the neural network allows us to do.\\ 
+The neural network provides a powerful, universal function approximator (f_NN) capable of learning intricate patterns directly from data. Crucially, this trained f_NN yields a smooth, differentiable representation. This differentiability is essential for enabling the subsequent, more advanced physics-inspired simplification techniques like symmetry detection, separability analysis, and compositionality checks, which rely on evaluating the function and its gradients at arbitrary points.\\
+
+\subsubsection{SymbolicNetwork: }
+
 
 
 \subsection{Testing: }

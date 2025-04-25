@@ -22,11 +22,16 @@
 \contentsline {subsubsection}{\numberline {4.2.3}Filtering the Polynomial expressions: }{11}{}%
 \contentsline {subsubsection}{\numberline {4.2.4}Evaluating expressions: }{11}{}%
 \contentsline {subsection}{\numberline {4.3}Dimensional Analysis: }{12}{}%
-\contentsline {subsection}{\numberline {4.4}Testing: }{12}{}%
-\contentsline {section}{\numberline {5} Applying the model to Biological Data: }{12}{}%
-\contentsline {section}{\numberline {6}Broder Use Cases: }{12}{}%
-\contentsline {section}{\numberline {7}Project Management: }{12}{}%
-\contentsline {section}{\numberline {8}Conclusion:}{12}{}%
-\contentsline {section}{References}{12}{}%
-\contentsline {section}{Appendix:}{12}{}%
-\contentsline {section}{\numberline {9}Project Planning: }{12}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}Handling Units: }{12}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}Construct Matrix and Target Vector: }{12}{}%
+\contentsline {subsubsection}{\numberline {4.3.3}Solving Dimension and Basis Units: }{13}{}%
+\contentsline {subsubsection}{\numberline {4.3.4}Data Transformation Function:}{13}{}%
+\contentsline {subsubsection}{\numberline {4.3.5}Symbolic Transformation Generator}{13}{}%
+\contentsline {subsection}{\numberline {4.4}Testing: }{13}{}%
+\contentsline {section}{\numberline {5} Applying the model to Biological Data: }{14}{}%
+\contentsline {section}{\numberline {6}Broder Use Cases: }{14}{}%
+\contentsline {section}{\numberline {7}Project Management: }{14}{}%
+\contentsline {section}{\numberline {8}Conclusion:}{14}{}%
+\contentsline {section}{References}{14}{}%
+\contentsline {section}{Appendix:}{14}{}%
+\contentsline {section}{\numberline {9}Project Planning: }{14}{}%
