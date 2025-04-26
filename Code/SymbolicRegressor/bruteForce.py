@@ -1,7 +1,7 @@
 import sympy as sp 
 import numpy as np 
 from itertools import permutations, product, combinations
-
+from functools import lru_cache
 
 # this is the brute force file tries to brute force to fit the data 
 
@@ -42,9 +42,42 @@ def generate_expressions(variables, constants, operators, max_depth):
     return expressions
 
 
+def fast_recursive_expressions(operators, variables, constants, max_depth=3):
+    symbols = [sp.Symbol(v) for v in variables]
+    symbols += [sp.sympify(c) for c in constants]
 
+    @lru_cache(maxsize=None)
+    def build_expressions(depth):
+        if depth == 1:
+            return symbols
 
-def recursive_expressions(operators, variables, constants, max_depth=2):
+        exprs = []
+        prev_exprs = build_expressions(depth - 1)
+
+        for a in prev_exprs:
+            for b in prev_exprs:
+                for op in operators:
+                    try:
+                        if op == '+':
+                            exprs.append(a + b)
+                        elif op == '-':
+                            exprs.append(a - b)
+                        elif op == '*':
+                            exprs.append(a * b)
+                        elif op == '/':
+                            if not b.equals(0):  # avoid divide by zero
+                                exprs.append(a / b)
+                        elif op == '**':
+                            if (not b.is_number) or (b.is_number and b.is_real and abs(float(b)) < 5):  # avoid crazy exponents
+                                exprs.append(a ** b)
+                    except Exception:
+                        continue
+
+        return exprs
+
+    return build_expressions(max_depth)
+
+def recursive_expressions(operators, variables, constants, max_depth=10):
     symbols = [sp.Symbol(v) for v in variables]
 
     def build_expressions(current_depth):
@@ -165,8 +198,8 @@ def generate_recursive_constant_nesting(expr, constants, max_depth):
     results.add(applied)
 
         # Recursively apply other constants to the result
-        deeper = generate_recursive_constant_nesting(applied, constants, max_depth - 1)
-        results.update(deeper)
+    deeper = generate_recursive_constant_nesting(applied, constants, max_depth - 1)
+    results.update(deeper)
 
     return results
 
@@ -522,7 +555,7 @@ if __name__ == "__main__":
     consts = [sp.sin]
     #print(apply_constants_helper(result_list3, consts,1))
     consts = [sp.sin, sp.cos]
-    #result = apply_constants_helper(result_list3, consts, 2)
+    result = apply_constants_version_1(result_list3, consts)
     print(result)
 
     #print("########################################")
