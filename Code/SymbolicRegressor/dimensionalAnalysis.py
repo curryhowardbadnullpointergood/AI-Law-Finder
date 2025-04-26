@@ -1,108 +1,133 @@
-import numpy as np
-from sympy import Matrix, symbols, S, N
-from scipy.linalg import lstsq
+import numpy as np 
+import sympy as sp
 
-def getPowers(input_units, output_units):
-    """
-    Solves for exponents that make the product of input units equal to the output unit.
-    """
-    input_units = np.array(input_units)           # shape: (num_units, num_vars)
-    output_units = np.array(output_units).flatten()  # shape: (num_units,)
 
-    if input_units.shape[0] != output_units.shape[0]:
-        raise ValueError(f"Dimension mismatch: input_units is {input_units.shape}, output_units is {output_units.shape}")
 
-    try:
-        powers = np.linalg.lstsq(input_units, output_units, rcond=None)[0]
-        return powers
-    except Exception as e:
-        raise ValueError(f"Failed to solve for powers: {e}")
+UNIT_TABLE = {
 
-def compute_nullspace(matrix):
-    return Matrix(matrix).nullspace()
+    'mass':                 [1, 0, 0, 0, 0, 0, 0], 
+    'length':               [0, 1, 0, 0, 0, 0, 0],
+    'time':                 [0, 0, 1, 0, 0, 0, 0],
+    'temperature':          [0, 0, 0, 1, 0, 0, 0],
+    'current':              [0, 0, 0, 0, 1, 0, 0],
+    'amount':               [0, 0, 0, 0, 0, 1, 0], 
+    'luminous_intensity':   [0, 0, 0, 0, 0, 0, 1],
 
-def apply_dimensional_analysis(X, y, var_names, units_db):
-    """
-    Apply dimensional analysis to reduce variables to dimensionless forms.
 
-    Parameters:
-    - X (np.ndarray): Input variables (shape: n_samples x n_variables)
-    - y (np.ndarray): Target variable (shape: n_samples,)
-    - var_names (list of str): Variable names corresponding to X columns
-    - units_db (dict): Mapping from variable names to unit vectors
-
-    Returns:
-    - transformed_X: np.ndarray of dimensionless input variables
-    - transformed_y: np.ndarray of dimensionless target variable
-    - new_var_names: list of strings for new Pi terms
-    - solved_part_expr: SymPy expression of solved units
-    - new_var_exprs: List of SymPy expressions for new variables
-    """
-    input_units = np.array([units_db[v] for v in var_names]).T
-    target_units = np.array(units_db['y']).reshape(-1, 1)  # assuming output is called 'y'
-
-    # Check if all variables are already dimensionless
-    if not input_units.any():
-        input_syms = symbols(var_names)
-        return X, y, var_names, S(1), list(input_syms)
-
-    # Step 1: Solve for dimensional consistency
-    M = Matrix(input_units)
-    solved_powers = getPowers(input_units, target_units)
-    solved_syms = symbols(var_names)
-    solved_expr = S(1)
-    for i, p in enumerate(solved_powers):
-        solved_expr *= solved_syms[i] ** round(p, 2)
-
-    # Step 2: Compute nullspace for dimensionless groups (Pi terms)
-    nullspace = compute_nullspace(input_units)
-    new_var_exprs = []
-    for vec in nullspace:
-        expr = S(1)
-        for i in range(len(vec)):
-            expr *= solved_syms[i] ** vec[i]
-        new_var_exprs.append(expr)
-
-    # Step 3: Apply transformations to X and y
-    func = np.ones_like(y, dtype=np.float64)
-    for i in range(len(solved_powers)):
-        func *= X[:, i] ** solved_powers[i]
-    transformed_y = y / func
-
-    new_vars = []
-    for vec in nullspace:
-        dimless = np.ones(X.shape[0], dtype=np.float64)
-        for j in range(len(vec)):
-            # Ensure vec[j] is a numeric value
-            dimless *= X[:, j] ** float(vec[j]) if isinstance(vec[j], (int, float)) else N(X[:, j] ** vec[j])
-        new_vars.append(dimless)
-
-    if new_vars:
-        transformed_X = np.vstack(new_vars).T
-        new_var_names = [f"pi{i+1}" for i in range(len(new_vars))]
-    else:
-        transformed_X = np.empty((X.shape[0], 0))  # no new vars
-        new_var_names = []
-
-    return transformed_X, transformed_y, new_var_names, solved_expr, new_var_exprs
-
-# Example to test:
-X = np.array([[1, 2], [2, 4], [3, 6]], dtype=np.float64)
-y = np.array([3, 6, 9], dtype=np.float64)
-var_names = ['x1', 'x2']
-units_db = {
-    'x1': [1, 0, 0, 0, 0, 0],  # Example unit: m
-    'x2': [0, 1, 0, 0, 0, 0],  # Example unit: s
-    'y': [0, 0, 1, 0, 0, 0]    # Example unit: kg
+    'area':                   [0, 2, 0, 0, 0, 0, 0],   
+    'acceleration':           [0, 1, -2, 0, 0, 0, 0],  
+    'velocity':               [0, 1, -1, 0, 0, 0, 0],  
+    'force':                  [1, 1, -2, 0, 0, 0, 0],  
+    'energy':                 [1, 2, -2, 0, 0, 0, 0],  
+    'power':                  [1, 2, -3, 0, 0, 0, 0], 
+    'pressure':               [1, -1, -2, 0, 0, 0, 0],
+    'charge':                 [0, 0, 1, 0, 1, 0, 0],  
+    'voltage':                [1, 2, -3, 0, -1, 0, 0],
+    'resistance':             [1, 2, -3, 0, -2, 0, 0],
+    'capacitance':            [-1, -2, 4, 0, 2, 0, 0],
+    'inductance':             [1, 2, -2, 0, -2, 0, 0], 
+    'current':                [0, 0, 0, 0, 1, 0, 0],   
+    'potential':              [1, 2, -3, 0, -1, 0, 0], 
+    'magnetic_field':         [1, 0, -2, 0, -1, 0, 0], 
+    'magnetic_flux':          [1, 2, -2, 0, -1, 0, 0], 
+    'electric_field':         [1, 1, -3, 0, -1, 0, 0], 
+    'permittivity':           [-1, -3, 4, 0, 2, 0, 0],
+    'permeability':           [1, 1, -2, 0, -2, 0, 0],  
+    'conductance':            [-1, -2, 3, 0, 2, 0, 0], 
+    'density':                [1, -3, 0, 0, 0, 0, 0],   
+    'frequency':              [0, 0, -1, 0, 0, 0, 0],   
+    'wavenumber':             [0, -1, 0, 0, 0, 0, 0],   
+    'momentum':               [1, 1, -1, 0, 0, 0, 0],   
+    'angular_momentum':       [1, 2, -1, 0, 0, 0, 0],   
+    'torque':                 [1, 2, -2, 0, 0, 0, 0],
+    'specific_heat':          [0, 2, -2, -1, 0, 0, 0], 
+    'thermal_conductivity':   [1, 1, -3, -1, 0, 0, 0], 
+    'boltzmann_constant':     [1, 2, -2, -1, 0, 0, 0], 
+    'entropy':                [1, 2, -2, -1, 0, 0, 0],  
+    'temperature':            [0, 0, 0, 1, 0, 0, 0],    
+    'time':                   [0, 0, 1, 0, 0, 0, 0],    
+    'length':                 [0, 1, 0, 0, 0, 0, 0],    
+    'mass':                   [1, 0, 0, 0, 0, 0, 0],    
+    'volume':                 [0, 3, 0, 0, 0, 0, 0],    
+    'surface_charge_density': [0, -2, 1, 0, 1, 0, 0],   
+    'volume_charge_density':  [0, -3, 1, 0, 1, 0, 0],   
+    'current_density':        [0, -2, 0, 0, 1, 0, 0],   
+    'light_intensity':        [0, 0, 0, 0, 0, 0, 1],    
+    'amount':                 [0, 0, 0, 0, 0, 1, 0],    
+    'luminous_intensity':     [0, 0, 0, 0, 0, 0, 1],    
+    'dimensionless':          [0, 0, 0, 0, 0, 0, 0],    
 }
 
-# Applying dimensional analysis
-transformed_X, transformed_y, new_var_names, solved_expr, new_var_exprs = apply_dimensional_analysis(X, y, var_names, units_db)
-print("Transformed X:", transformed_X)
-print("Transformed y:", transformed_y)
-print("New variable names:", new_var_names)
-print("Solved part expression:", solved_expr)
-print("New variable expressions:", new_var_exprs)
 
 
 
+def get_matrix_target(independent_vars, dependent_var, units_dict):
+    try:
+        M = np.column_stack([units_dict[var.lower()] for var in independent_vars])
+    except KeyError as e:
+        raise ValueError(f"Independent variable '{e.args[0]}' not found in unit dictionary.")
+
+    try:
+        b = np.array(units_dict[dependent_var.lower()])
+    except KeyError:
+        raise ValueError(f"Dependent variable '{dependent_var}' not found in unit dictionary.")
+
+    return M, b  
+
+
+
+
+def solveDimension(M, b):
+    M_sym = sp.Matrix(M)
+    b_sym = sp.Matrix(b)
+
+    try:
+        p = M_sym.LUsolve(b_sym)
+    except Exception as e:
+        raise ValueError(f"Failed to solve Mp = b: {e}")
+
+    U = M_sym.nullspace()
+
+    return p, U
+
+
+
+def generate_dimensionless_data(data_x, data_y, p, U):
+
+    if not isinstance(p, np.ndarray):
+        p = np.array(p).astype(np.float64).flatten()
+
+    p = p.reshape(-1, 1)
+    scaling_factor = np.prod(np.float_power(data_x, p), axis=0)
+    
+    data_y_prime = data_y / scaling_factor
+
+    dimensionless_vars = []
+    
+    if U:
+        dimensionless_vars = []
+        for u in U:
+            # Calculate new dimensionless variable: Π data_x[i, :]**u[i]
+            new_var = np.prod(np.float_power(data_x, u), axis=0)
+            dimensionless_vars.append(new_var)
+
+        # Stack the new dimensionless variables row-wise to form data_x_prime
+        data_x_prime = np.vstack(dimensionless_vars)
+    else:
+        # If U is empty, just return the original data_x_prime
+        data_x_prime = data_x  # No transformation if no dimensionless groups
+
+    return data_x_prime, data_y_prime
+
+
+def symbolicTransformation(independent_vars, p, U):
+    symbols = [sp.symbols(var) for var in independent_vars]
+    
+    symbolic_p = sp.Mul(*[symbols[i]**p[i] for i in range(len(independent_vars))])
+    
+    symbolic_U = []
+    for u in U: 
+        expr_u = sp.Mul(*[symbols[i]**u[i] for i in range(len(independent_vars))])
+        symbolic_U.append(expr_u)
+    
+    return symbolic_p, symbolic_U

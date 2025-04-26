@@ -76,6 +76,21 @@ def recursive_expressions(operators, variables, constants, max_depth=2):
     all_exprs = build_expressions(max_depth)
     return all_exprs
 
+def evaluate_expressions(expressions, variables, X, y_true):
+    results = []
+
+    for expr in expressions:
+        y_pred = evaluate_expression(expr, variables, X)
+        
+        # Skip if evaluation failed
+        if np.isnan(y_pred).any():
+            continue
+        
+        loss = mean_error_descripton_length(y_pred, y_true)
+        results.append((expr, loss))
+    
+    return results
+
 
 # this evaluates a single expression that you pass to it 
 def evaluate_expression(expression, variables, X): 
@@ -131,7 +146,7 @@ def symmetrical_property(expression):
     expList = list(set(expression))
     return expList
     
-# so further pruning the search space through remove all the expression if it does not contain all the variables given to it. 
+# sofurther pruning the search space through remove all the expression if it does not contain all the variables given to it. 
 # must always call the getvars method before this else it won't work 
 def variable_check(expressions, variables):
     temp_vars = [sp.Symbol(v) for v in variables] 
@@ -147,7 +162,7 @@ def generate_recursive_constant_nesting(expr, constants, max_depth):
     # Apply each constant to current expression
     for const in constants:
         applied = const(expr)
-        results.add(applied)
+    results.add(applied)
 
         # Recursively apply other constants to the result
         deeper = generate_recursive_constant_nesting(applied, constants, max_depth - 1)

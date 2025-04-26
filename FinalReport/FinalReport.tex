@@ -442,6 +442,78 @@ In order to get a smotth and differentiable approximation of the function we are
 The neural network provides a powerful, universal function approximator (f_NN) capable of learning intricate patterns directly from data. Crucially, this trained f_NN yields a smooth, differentiable representation. This differentiability is essential for enabling the subsequent, more advanced physics-inspired simplification techniques like symmetry detection, separability analysis, and compositionality checks, which rely on evaluating the function and its gradients at arbitrary points.\\
 
 \subsubsection{SymbolicNetwork: }
+This class defines the neural network architecture used as a universal function approximator within the symbolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in PyTorch.
+
+Technical Implementation: The constructor (__init__) initializes the network structure, accepting the number of input features (n_input) and defaulting to one output feature (n_output=1). The architecture is encapsulated within a torch.nn.Sequential container, specifying a feed-forward network. It comprises five fully connected layers (torch.nn.Linear) with sizes transitioning from n_input -> 128 -> 128 -> 64 -> 64 -> n_output. After each of the first four linear layers, a torch.nn.Tanh activation function is applied. The forward method implements the forward pass, simply passing the input tensor x through the defined sequential model.
+
+Design Rationale: This multi-layer perceptron (MLP) architecture provides significant expressive power. The Tanh activation was chosen as specified in the reference papers, offering a smooth, differentiable non-linearity suitable for approximating complex physical functions and enabling reliable gradient computation for subsequent analysis steps.\\
+
+\subsubsection{ Preparing the data: }
+
+This function preprocesses raw input and output data (data_x, data_y) into a format suitable for PyTorch model training and validation, creating efficient data iterators.
+
+Technical Implementation: It begins by converting the input NumPy arrays data_x and data_y into PyTorch tensors of type torch.float32. Crucially, y_tensor is reshaped using .unsqueeze(1) to ensure it has dimensions [N, 1] (N samples, 1 output feature), compatible with typical regression loss functions. The data is then partitioned into training and validation sets based on the train_split ratio (defaulting to 80% train). Slicing operations create x_train, y_train, x_val, and y_val tensors. These tensor pairs are encapsulated within torch.utils.data.TensorDataset objects. Finally, torch.utils.data.DataLoader instances are generated for both training and validation datasets. The training loader uses shuffle=True to randomize data order per epoch, while the validation loader uses shuffle=False for consistent evaluation.
+
+Design Rationale: This design adheres to standard PyTorch practices. Tensor conversion is mandatory for framework compatibility. The train/validation split is critical for monitoring model generalization and preventing overfitting. TensorDataset provides a convenient pairing of inputs and targets. DataLoader is essential for efficient training, enabling batch processing (managing memory and potentially parallelizing computation) and automating data shuffling, which improves model robustness and convergence.\\
+
+
+\subsubsection{Training the Network: }
+
+This function orchestrates the supervised training process for the provided PyTorch neural network model. Its primary goal is to iteratively adjust the model's parameters (weights and biases) to minimize the difference between its predictions and the true target values using the training data, while monitoring performance on unseen validation data.
+
+Technical Implementation: The function begins by transferring the model to the specified compute device ('cpu' or 'cuda'). It initializes the Adam optimizer, a common adaptive learning rate optimization algorithm, linking it to the model.parameters() and setting the learning_rate. The Mean Squared Error loss (nn.MSELoss), suitable for regression, is chosen as the objective function. The core logic resides in a loop iterating for a specified number of epochs. Within each epoch, the model is set to training mode (model.train()). It then iterates through batches provided by the train_loader, moving each batch to the device. For each batch, it performs a forward pass to get predictions, calculates the loss, clears previous gradients (optimizer.zero_grad()), computes new gradients via backpropagation (loss.backward()), and updates model parameters (optimizer.step()). After processing all training batches, the model switches to evaluation mode (model.eval()) and gradient calculations are disabled (torch.no_grad()) for efficiency. It then evaluates the loss on the val_loader batches. Average training and validation losses are calculated and printed per epoch.
+
+Design Rationale: This structure represents a standard PyTorch training loop. Using DataLoader enables efficient batch processing. The Adam optimizer provides robust convergence properties. MSE loss directly minimizes the squared prediction error. Explicitly setting model.train() and model.eval() ensures correct behavior of layers like dropout or batch normalization (if present). The torch.no_grad() context during validation prevents unnecessary gradient computations, saving resources. Monitoring both training and validation loss is crucial for diagnosing issues like overfitting and determining training duration.\\
+
+\subsubsection{Predict Function: }
+
+This function performs inference using a trained PyTorch model, generating output predictions for a given set of input data. It is designed to take a trained model, input data as a NumPy array (x_numpy), and the target computation device ('cpu' or 'cuda').
+
+Technical Implementation: The function first sets the model to evaluation mode using model.eval(). This is crucial as it disables layers like dropout or batch normalization that have different behaviors during training and inference, ensuring deterministic output. The input NumPy array x_numpy is then converted into a torch.Tensor with dtype=torch.float32 and transferred to the specified device. The core prediction step occurs within a with torch.no_grad(): context manager. This disables gradient calculation, significantly reducing memory consumption and speeding up computation, as gradients are unnecessary during inference. Inside this context, the input tensor x_tensor is passed through the model to obtain the prediction tensor. Finally, the prediction tensor is moved back to the CPU using .cpu() (if it was on a GPU) and converted back into a NumPy array using .numpy() for compatibility with other Python libraries or further processing outside PyTorch.
+
+Design Rationale: This design follows standard PyTorch inference practices. model.eval() ensures correct prediction behavior. Tensor conversion and device handling manage data compatibility with the model. The torch.no_grad() context optimizes performance for inference. Returning a NumPy array provides a user-friendly output format.\\
+
+\subsection{Pareto Frontier Optimisation: }
+
+iThe Pareto frontier provides a principled way to manage the inherent trade-off between a formula's accuracy and its simplicity (complexity) in symbolic regression. Instead of seeking a single "best" formula, the goal is to identify all Pareto-optimal formulas: those for which no other discovered formula is simultaneously simpler and more accurate.\\
+
+
+I am going to implement this by plotting on a 2d plane, where x represent complexity and y represents the mean error description length.  As the algorithm generates candidate formulas (through brute-force search, transformations, or recursive combinations), each candidate is evaluated and potentially added to the set of points forming the frontier.\\
+
+Crucially, any candidate formula that is dominated – meaning another formula on the frontier has both lower (or equal) complexity and lower (or equal) loss (with at least one inequality strict) – is discarded. This Pareto pruning significantly reduces the search space, especially when combining solutions from subproblems, improving computational efficiency and robustness against noise by inherently favouring simpler explanations for a given accuracy level. The final frontier presents the user with a spectrum of optimal solutions.\\
+
+\subsubsection{Points: }
+
+This Point class serves as a fundamental data structure within the Pareto frontier analysis framework. Its primary purpose is to encapsulate the essential characteristics of a single candidate formula evaluated during the symbolic regression process.
+
+Technical Implementation: The constructor (__init__) initializes each Point instance with three attributes: complexity (a numerical score representing the formula's Description Length, Ld), accuracy (a numerical score representing the formula's inaccuracy or loss, typically MEDL), and expression (the actual representation of the symbolic formula, e.g., a SymPy object or string). The __repr__ method provides a standardized, human-readable string representation of the object's state, useful for debugging and logging purposes, displaying the stored complexity, accuracy, and expression values.
+
+Design Rationale: This class is designed to bundle the key metrics (complexity, accuracy) required for Pareto dominance checks with the associated formula (expression). By grouping these related pieces of data into a single object, it simplifies the management and comparison of candidate solutions. Functions operating on the Pareto frontier can easily access the necessary complexity and accuracy attributes from each Point object to determine if one solution dominates another, thereby facilitating the efficient maintenance of the non-dominated set of optimal formulas.
+
+\subsubsection{Pareto Point Set: }
+The update_pareto_points function maintains a Pareto frontier of symbolic expressions, balancing complexity (model simplicity) and loss (prediction error). Each point is a tuple (complexity, loss, expression). New expressions (with known loss values) are evaluated for their complexity using calculate_complexity, then added to the current list of points.
+
+The function filters the combined list to retain only non-dominated points: a point A dominates point B if A is both no more complex and no less accurate, with at least one being strictly better. This ensures only the best trade-offs remain.
+
+In symbolic regression, this is critical because we aim to discover expressions that are not just accurate but also interpretable — meaning low complexity. The Pareto frontier lets us visualize and choose among optimal models, avoiding overfitting (too complex) or underfitting (too simple).
+
+
+
+\subsection{Plotting: }
+
+I wanted ways to visualise and understand in a visual sense what was happening behind the scenes in my symbolic regression program. Humans are visual creatures and looking at plots offers a more powerful way to understand data rather than staring a strng of numbers or expressions, trying to manually find patterns or mistakes.\\ 
+
+I decided to use plotly, instead of the usual matplotlib, as I personally think it is more asthetically pleasing and it has a better interactive environment.\\ 
+
+\subsubsection{Plot for Pareto front: }
+
+Visualizing the Pareto frontier is highly beneficial for interpreting the results of symbolic regression. It provides an intuitive graphical representation of the fundamental trade-off between model complexity and predictive accuracy (or loss).
+
+Code Description: The provided code utilizes the plotly.express library to generate this visualization. A Pandas DataFrame (df) structures the data, holding columns for 'Complexity' (x-axis), 'Loss' (y-axis, representing inaccuracy like MEDL), and the corresponding symbolic 'Expression'. The px.scatter function creates a scatter plot mapping complexity against loss, crucially using the 'Expression' data to label each point directly on the plot via the text argument. Further customization using fig.update_traces enhances point visibility (marker size, color) and label positioning (textposition). fig.update_layout adjusts background aesthetics for clarity.
+
+Utility and Rationale: This visualization allows researchers to readily identify the set of non-dominated solutions. By plotting quantitative metrics, it elucidates points where significant gains in accuracy require substantial increases in complexity (an "elbow" region), facilitating informed model selection based on the specific balance desired between interpretability/simplicity and predictive power. The direct labeling of points with their expressions provides immediate context for each optimal solution discovered.\\
+
+
 
 
 

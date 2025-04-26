@@ -281,6 +281,13 @@ def apply_constants_v2(expressions, constants, max_depth=2):
 
     return list(final_results)
 
+
+
+
+
+
+
+
 1Introduction:
 1.1Motivation:
 As there is more data being generated than ever before and new experiments, we need a systematic and au-
@@ -318,7 +325,7 @@ they had. Firstly I implemented a simple moving avergae as a way to mitigate the
 this -¿ ” Simple and fast, smooths data well by averaging neighbors. However, it blurs sharp changes and is
 sensitive to extreme outlier values, pulling the average significantly and distorting the signal.”
 These were my results, this is the pseudo code, explain the alogrithm.
-7The second denoise algoirthm I implemented is a median filter, and this is what effects it has, and this is how
+8The second denoise algoirthm I implemented is a median filter, and this is what effects it has, and this is how
 i implemented it. Insert Pseudo code. reword: ”Excellent at removing spikes and preserving edges better than
 averaging. Less affected by outliers. Can sometimes slightly distort the overall shape of the signal, especially
 with large window sizes.”
@@ -352,7 +359,7 @@ Another way i further pruned the amount of expression, is through filtering all 
 the newer recursive generator, by removing all the expressions that did not contain all the specified variables.
 This is in order to save further time later on during the evaluation seciton.
 Insert in pseudo code:
-8Then later on i designed it next to work with nested expressions and i wanted it to work with more than one
+9Then later on i designed it next to work with nested expressions and i wanted it to work with more than one
 constant.
 insert in some code that has changed.
 I had then filtered out any of the expressions generated that did not have both of the constants. This is mainy to
@@ -387,7 +394,7 @@ to keep the data as a numpy array, because this will be faster then a text file,
 this, such as numpy arrays being stored in memory, the efficiency of the nderlying data format it is stored in
 (binary), and finally numpy uses c, and so it vectorises operations, making it far faster.
 Insert in pseudo code.
-9As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the
+10As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the
 input data, and y being the target data, as in the final result. Ie x contains the mass and acceleration values, and
 y is the array of the result of the equation f = ma, so it only contains the value of f in it. This is a basic check to
 make sure the number of columns all have a corresponding variable.
@@ -421,7 +428,7 @@ How: It generates all possible polynomial terms up to a specified low degree (e.
 How: For each data point, this creates a linear equation where the unknowns are the polynomial coefficients.
 How: It solves the resulting system of linear equations using standard methods like least squares.
 How: The Root Mean Squared Error (RMSE) of the fit is calculated.
-10How: If the RMSE is below a predefined tolerance (p ol), thepolynomialisacceptedasasolution.
+11How: If the RMSE is below a predefined tolerance (p ol), thepolynomialisacceptedasasolution.
 Effect: It acts as a fast base case in the recursive algorithm, quickly solving problems that are simple polynomi-
 als.
 Effect: It can also solve sub-problems that are transformed into polynomials by other modules (e.g., dimen-
@@ -454,7 +461,7 @@ error between the predicted and actual output values. It tests multiple polynomi
 maximum) and selects the one that provides the lowest error, ensuring an optimal balance between accuracy
 and complexity.
 I use root mean squared error to calculate the loss, and the funciton returns a list of loss, per expression.
-11So i take an expression, then I substitute in the variables using the input data, calculate the predicted y value of
+12So i take an expression, then I substitute in the variables using the input data, calculate the predicted y value of
 the said equation, then take it away from the true value of y the target and then use that to calculate the rmse.
 pseudo code.
 Best polynomial fit:
@@ -494,7 +501,7 @@ lowercase variable names (var.lower()) to ensure case-insensitivity. These vecto
 the columns of matrix M using numpy.columns tack.T hedependentvariable′ sunitvectorf ormsvectorb.try...exceptKeyErrorblo
 Design Rationale: Case-insensitivity enhances usability. numpy.columns tackof f ersperf ormance.Expliciterrorhandlingpreven
 code:
-124.3.3
+134.3.3
 Solving Dimension and Basis Units:
 This function determines the exponents for dimensional scaling and dimensionless groups by solving the lin-
 ear systems Mp = b and MU = 0. It takes the dimensional matrix M and target vector b as input. The
@@ -534,8 +541,120 @@ these symbols and the scaling exponents p, it constructs the symbolic expression
 f ixingscalingf actor(xp )viasp.M ul.Subsequently, ititeratesthrougheachexponentvectoruinU, buildingthecorrespondings
 insert code:
 4.4
+Neural Network Fitting:
+The next step crutical component, is using neural networks in order to simplify the expressions further.
+In order to get a smotth and differentiable approximation of the function we are looking for, this is what the
+neural network allows us to do.
+The neural network provides a powerful, universal function approximator (fN N )capableof learningintricatepatternsdirectlyf rom
+14inspiredsimplif icationtechniqueslikesymmetrydetection, separabilityanalysis, andcompositionalitychecks, whichrelyon
+4.4.1
+SymbolicNetwork:
+This class defines the neural network architecture used as a universal function approximator within the sym-
+bolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in
+PyTorch.
+Technical Implementation: The constructor (i nit) initializesthenetworkstructure,acceptingthenumberof inputf eatures(ni nput)anddef aultingtooneoutpu
+Design Rationale: This multi-layer perceptron (MLP) architecture provides significant expressive power. The
+Tanh activation was chosen as specified in the reference papers, offering a smooth, differentiable non-linearity
+suitable for approximating complex physical functions and enabling reliable gradient computation for subse-
+quent analysis steps.
+4.4.2
+Preparing the data:
+This function preprocesses raw input and output data (datax , datay )intoaf ormatsuitablef orP yT orchmodeltrainingandvalidati
+Technical Implementation: It begins by converting the input NumPy arrays datax anddatay intoP yT orchtensorsof typetorch.f loat3
+Design Rationale: This design adheres to standard PyTorch practices. Tensor conversion is mandatory for
+framework compatibility. The train/validation split is critical for monitoring model generalization and prevent-
+ing overfitting. TensorDataset provides a convenient pairing of inputs and targets. DataLoader is essential for
+efficient training, enabling batch processing (managing memory and potentially parallelizing computation) and
+automating data shuffling, which improves model robustness and convergence.
+4.4.3
+Training the Network:
+This function orchestrates the supervised training process for the provided PyTorch neural network model. Its
+primary goal is to iteratively adjust the model’s parameters (weights and biases) to minimize the difference
+between its predictions and the true target values using the training data, while monitoring performance on
+unseen validation data.
+Technical Implementation: The function begins by transferring the model to the specified compute device (’cpu’
+or ’cuda’). It initializes the Adam optimizer, a common adaptive learning rate optimization algorithm, linking it
+to the model.parameters() and setting the learningr ate.T heM eanSquaredErrorloss(nn.M SELoss), suitablef orregression, isc
+Design Rationale: This structure represents a standard PyTorch training loop. Using DataLoader enables effi-
+cient batch processing. The Adam optimizer provides robust convergence properties. MSE loss directly min-
+imizes the squared prediction error. Explicitly setting model.train() and model.eval() ensures correct behavior of
+layers like dropout or batch normalization (if present). The torch.nog rad()contextduringvalidationpreventsunnecessarygradien
+4.4.4
+Predict Function:
+This function performs inference using a trained PyTorch model, generating output predictions for a given set of
+input data. It is designed to take a trained model, input data as a NumPy array (xn umpy), andthetargetcomputationdevice(′ cpu′ or′
+Technical Implementation: The function first sets the model to evaluation mode using model.eval(). This is cru-
+cial as it disables layers like dropout or batch normalization that have different behaviors during training and in-
+ference, ensuring deterministic output. The input NumPy array xn umpyisthenconvertedintoatorch.T ensorwithdtype =
+torch.f loat32andtransf erredtothespecif ieddevice.T hecorepredictionstepoccurswithinawithtorch.nog rad() :
+contextmanager.T hisdisablesgradientcalculation, signif icantlyreducingmemoryconsumptionandspeedingupcomputatio
+Design Rationale: This design follows standard PyTorch inference practices. model.eval() ensures correct
+prediction behavior. Tensor conversion and device handling manage data compatibility with the model. The
+15torch.nog rad()contextoptimizesperf ormancef orinf erence.ReturningaN umP yarrayprovidesauser−
+f riendlyoutputf ormat.
+4.5
+Pareto Frontier Optimisation:
+iThe Pareto frontier provides a principled way to manage the inherent trade-off between a formula’s accuracy
+and its simplicity (complexity) in symbolic regression. Instead of seeking a single ”best” formula, the goal is
+to identify all Pareto-optimal formulas: those for which no other discovered formula is simultaneously simpler
+and more accurate.
+I am going to implement this by plotting on a 2d plane, where x represent complexity and y represents the mean
+error description length. As the algorithm generates candidate formulas (through brute-force search, trans-
+formations, or recursive combinations), each candidate is evaluated and potentially added to the set of points
+forming the frontier.
+Crucially, any candidate formula that is dominated – meaning another formula on the frontier has both lower (or
+equal) complexity and lower (or equal) loss (with at least one inequality strict) – is discarded. This Pareto prun-
+ing significantly reduces the search space, especially when combining solutions from subproblems, improving
+computational efficiency and robustness against noise by inherently favouring simpler explanations for a given
+accuracy level. The final frontier presents the user with a spectrum of optimal solutions.
+4.5.1
+Points:
+This Point class serves as a fundamental data structure within the Pareto frontier analysis framework. Its pri-
+mary purpose is to encapsulate the essential characteristics of a single candidate formula evaluated during the
+symbolic regression process.
+Technical Implementation: The constructor (i nit initializeseachP ointinstancewiththreeattributes:complexity(anumericalscorerepresentingthef ormula
+)
+Design Rationale: This class is designed to bundle the key metrics (complexity, accuracy) required for Pareto
+dominance checks with the associated formula (expression). By grouping these related pieces of data into a
+single object, it simplifies the management and comparison of candidate solutions. Functions operating on
+the Pareto frontier can easily access the necessary complexity and accuracy attributes from each Point object to
+determine if one solution dominates another, thereby facilitating the efficient maintenance of the non-dominated
+set of optimal formulas.
+4.5.2
+Pareto Point Set:
+The updatep aretop ointsf unctionmaintainsaP aretof rontierof symbolicexpressions, balancingcomplexity(modelsimplicit
+The function filters the combined list to retain only non-dominated points: a point A dominates point B if A is
+both no more complex and no less accurate, with at least one being strictly better. This ensures only the best
+trade-offs remain.
+In symbolic regression, this is critical because we aim to discover expressions that are not just accurate but
+also interpretable — meaning low complexity. The Pareto frontier lets us visualize and choose among optimal
+models, avoiding overfitting (too complex) or underfitting (too simple).
+4.6
+Plotting:
+I wanted ways to visualise and understand in a visual sense what was happening behind the scenes in my sym-
+bolic regression program. Humans are visual creatures and looking at plots offers a more powerful way to
+16understand data rather than staring a strng of numbers or expressions, trying to manually find patterns or mis-
+takes.
+I decided to use plotly, instead of the usual matplotlib, as I personally think it is more asthetically pleasing and
+it has a better interactive environment.
+4.6.1
+Plot for Pareto front:
+Visualizing the Pareto frontier is highly beneficial for interpreting the results of symbolic regression. It provides
+an intuitive graphical representation of the fundamental trade-off between model complexity and predictive
+accuracy (or loss).
+Code Description: The provided code utilizes the plotly.express library to generate this visualization. A Pandas
+DataFrame (df) structures the data, holding columns for ’Complexity’ (x-axis), ’Loss’ (y-axis, representing inac-
+curacy like MEDL), and the corresponding symbolic ’Expression’. The px.scatter function creates a scatter plot
+mapping complexity against loss, crucially using the ’Expression’ data to label each point directly on the plot via
+the text argument. Further customization using fig.updatet racesenhancespointvisibility(markersize, color)andlabelpositioning
+Utility and Rationale: This visualization allows researchers to readily identify the set of non-dominated solu-
+tions. By plotting quantitative metrics, it elucidates points where significant gains in accuracy require substantial
+increases in complexity (an ”elbow” region), facilitating informed model selection based on the specific bal-
+ance desired between interpretability/simplicity and predictive power. The direct labeling of points with their
+expressions provides immediate context for each optimal solution discovered.
+4.7
 Testing:
 Every module, function and file, were thoroughly tested using dedicated tests. The boundary conditions and
 inserted tests to make sure the function behaved as envisioned. There was also significant robust testing func-
 tions written when chaining together various techniques and models, in order to ensure everything was working
-13smoothly.
+smoothly.
