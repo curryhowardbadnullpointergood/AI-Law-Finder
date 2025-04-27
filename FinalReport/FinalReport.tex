@@ -156,388 +156,436 @@ I would like to thank my supervisors, Professor Adam Peugeot and Professor David
 
 \subsection{Motivation: }
 
-As there is more data being generated than ever before and new experiments, we need a systematic and automatic way to deduce various mathematical patterns and laws in 
-these data. Through the use of symbolic regression we can utilise  these data, and in an explainable manner deduce various new physical laws. In this research I have also extended this beyond physics and have applied this to biological data sets which is a novel application of this method. Perhaps extend this beyond or add a sectionsaying this can also be applied to nlp and that it can learn the rules in language and writing etc. \\ 
+As there is more data being generated than ever before and new experiments, we need a systematic and au-
+tomatic way to deduce various mathematical patterns and laws in these data. Through the use of symbolic
+regression we can utilise these data, and in an explainable manner deduce various new physical laws. In this
+research I have also extended this beyond physics and have applied this to biological data sets which is a novel
+application of this method. Perhaps extend this beyond or add a sectionsaying this can also be applied to nlp
+and that it can learn the rules in language and writing etc.
+Talk a little about the way this is used outside of this niche use case, and in research, so of course I need to look
+and research into this.\\
 
-Talk a little about the way this is used outside of this niche use case, and in research, so of course I need to look and research into this.\\
-
-
-\section{Previous Work: }
+\section{Previos Work: }
 
 \subsection{Literature Review: }
 
-
 \section{Noise: }
 
-In this section, I aimed to explore how noise affects the model, and potential ways to mitigate it. Continuing onwards from the previous model, in the data generation step, noise was artificially added, and the results were observed.\\
+In this section, I aimed to explore how noise affects the model, and potential ways to mitigate it. Continuing
+onwards from the previous model, in the data generation step, noise was artificially added, and the results were
+observed.\\
 
+So in order to model the noise, I used the python random library, and generated random numbers between 0 and
+an ever increasing amount of randomness, in oder to guage the accuracy as noise increased for the model. I was
+also part\\
 
-So in order to model the noise, I used the python random library, and generated random numbers between 0 and an ever increasing amount of randomness, in oder to guage the accuracy as noise increased for the model. I was also part
+\subsubsection{How noise affects the model: }
+So in order to add noise to the generated data set, I imported in random, and used the randn.int function. In order
+to vary the inputs, another function was created that incrememntally passes in higher numbers as parameters
+to the random function, allowing each set of generated data to incrememntally become more and more noisy.
+Then the symbolic regression model is run on these new data sets, and the resulting equations levels of noise
+are then plotted in a graph. Furthermore using the Time library to measure the amount of time it takes to run
+the model as the amount of random error increases.
+\subsubsection{How to mitigate noise in data: }
+ Ways to mitigate the noise and it’s affects on the model were explored. Functions such as ”denoise,” in the
+symbolic regression library helped to some extent. However after a certain point, such methods do not seem to
+offer much assistance.\\
+I also made my own denoise algorithm. I implemented various different denoise algorithms to see what effects
+they had. Firstly I implemented a simple moving avergae as a way to mitigate the noise in the dataset. reword
+this -¿ ” Simple and fast, smooths data well by averaging neighbors. However, it blurs sharp changes and is
+sensitive to extreme outlier values, pulling the average significantly and distorting the signal.”
+These were my results, this is the pseudo code, explain the alogrithm\\
 
+The second denoise algoirthm I implemented is a median filter, and this is what effects it has, and this is how
+i implemented it. Insert Pseudo code. reword: ”Excellent at removing spikes and preserving edges better than
+averaging. Less affected by outliers. Can sometimes slightly distort the overall shape of the signal, especially
+with large window sizes.”\\
 
+Finally this is the third algorithm that I had implemented for denoising. Wavelet Denoising, this is the effects,
+and this is the pesudo code. Reword this -¿ ”Transforms data to isolate noise, preserving both smooth and sharp
+signal features effectively. More complex to understand and requires careful selection of wavelet type and pa-
+rameters for optimal results, which can be tricky.”\\
 
+\subsubsection{Modelling the noise: }
 
-\subsection{How noise affects the model: }
+\section{Symbolic Regression from Scratch: }
+\subsection{The core: }
+The core and essential part of any symbolic regression model, lies in the way it at the simplest level, generates
+and traverses the search tree of possible equations and expressions that may fit the data presented to it.
+In order to save time, and to test if my expression generation was working as intended, i have started with sim-
+ple 2 variable equaitons, and also pass in the speific operations used in the equation. Furthermore this is also
+extended to handle constants and more later on.
+enter in the pseudo code here.\\
 
-So in order to add noise to the generated data set, I imported in random, and used the randn.int function. In order to vary the inputs, another function was created that incrememntally passes in higher numbers as parameters to the random function, allowing each set of generated data to incrememntally become more and more noisy. Then the symbolic regression model is run on these new data sets, and the resulting equations levels of noise are then plotted in a graph. Furthermore using the Time library to measure the amount of time it takes to run the model as the amount of random error increases. \\ 
+Then I further improved this, by designing a resursive way to generate these expressions, to allow to generate
+more robust equations from the given variables. Also this is dynamic, so it can
+enter in pseudo code.\\
 
+\subsubsection{ Exploiting Physical Properties: }
 
-\subsection{How to mitigate noise in data: }
-
-Ways to mitigate the noise and it's affects on the model were explored. Functions such as "denoise," in the symbolic regression library helped to some extent. However after a certain point, such methods do not seem to offer much assistance.\\
-
-I also made my own denoise algorithm. I implemented various different denoise algorithms to see what effects they had. Firstly I implemented a simple moving avergae as a way to mitigate the noise in the dataset. reword this -> "
-Simple and fast, smooths data well by averaging neighbors. However, it blurs sharp changes and is sensitive to extreme outlier values, pulling the average significantly and distorting the signal."\\
-
-These were my results, this is the pseudo code, explain the alogrithm.\\ 
-
-The second denoise algoirthm I implemented is a median filter, and this is what effects it has, and this is how i implemented it. Insert Pseudo code. reword: "Excellent at removing spikes and preserving edges better than averaging. Less affected by outliers. Can sometimes slightly distort the overall shape of the signal, especially with large window sizes."\\
-
-Finally this is the third algorithm that I had implemented for denoising. Wavelet Denoising, this is the effects, and this is the pesudo code. Reword this -> "Transforms data to isolate noise, preserving both smooth and sharp signal features effectively. More complex to understand and requires careful selection of wavelet type and parameters for optimal results, which can be tricky."\\
-
-
-\subsection{ Modelling the noise: }
-
-
-%\subsection{ Using Neural Netwroks to approximate the functions: }
-
-%\subsection{ SciNet: }
-
-%\subsection{ Prediction of future states: }
-
-%\subsection{ Varying Initial Conditions: }
-
-
-\section{Writing my own symbolic regressor from scratch: }
-
-\subsection{The core;}
-
-The core and essential part of any symbolic regression model, lies in the way it at the simplest level, generates and traverses the search tree of possible equations and expressions that may fit the data presented to it. \\ 
-
-In order to save time, and to test if my expression generation was working as intended, i have started with simple 2 variable equaitons, and also pass in the speific operations used in the equation. Furthermore this is also extended to handle constants and more later on.\\ 
-
-enter in the pseudo code here.\\ 
-
-Then I further improved this, by designing a resursive way to generate these expressions, to allow to generate more robust equations from the given variables. Also this is dynamic, so it can \\
-
-enter in pseudo code\\
-
-\subsubsection{exploiting physical properties}
-
-The next step is to then start to truncate these generated expressions as much as possible to prune the search tree. One of the ways you can do this is through exploiting the symmertrical property of physical equations and how they are mathematically equivalent. Such as removing duplicate expressions.\\ 
-
+The next step is to then start to truncate these generated expressions as much as possible to prune the search
+tree. One of the ways you can do this is through exploiting the symmertrical property of physical equations and
+how they are mathematically equivalent. Such as removing duplicate expressions.\\
 This is how I achieved that.\\
-Give pseudo code here. \\ 
+Give pseudo code here.\\
 
-\subsubsection{ Dealing with constants: }
+\subsubsection{Dealing with constants:}
 
-Another way i further pruned the amount of expression, is through filtering all the expressions generated through the newer recursive generator, by removing all the expressions that did not contain all the specified variables. This is in order to save further time later on during the evaluation seciton.\\ 
+Another way i further pruned the amount of expression, is through filtering all the expressions generated through
+the newer recursive generator, by removing all the expressions that did not contain all the specified variables.
+This is in order to save further time later on during the evaluation seciton.
+Insert in pseudo code:
 
-Insert in pseudo code:\\
+\subsubsection{Dealing with powers:}
+So appling powers to expressions, I applied the power to the expression. This also allows you to prune the
+search tree further by not needed to generate redundant expressions with powers.
+This is the pseudo code.
+Then I filtered based on if the expression contained the power, this allows me to further prune the tree. In a more
+robust model, this is dervied from scratch, however for the sake of computation time, and flexibility, I decided
+to proceed with this approach as it saves some time.
+this is the pseudo code.
+\subsubsection{Chaining powers and constants:}
+The next step is to chain together powers and constants, such that both are applied to the expressions. It can
+already be chained as with the design it already has. However it needs to be filtered poperly in order to maintain
+the least amount of expressions possible.
+Te constants filter can be used, but the powers are inside the constants, and therefore the older power filter does
+not work as intended. Therefore i needed to redesign it such that it will function recursively.
+This is the code.
+However, sometimes this gives off constants that are chained, such as sin(sin()), and so to filter this futher, I
+want to filter out expressions with more than one instant of the constant that is chained.
+this is the code - filter single constant
+\subsubsection{Loading data:}
 
-Then later on i designed it next to work with nested expressions and i wanted it to work with more than one constant.\\
-
-insert in some code that has changed.\\
-
-I had then filtered out any of the expressions generated that did not have both of the constants. This is mainy to save on some computation time in evaluating some of the redundant expressions. This is how I managed to do that. \\
-
-Insert in pseudo code. \\ 
-
-\subsubsection{ Dealing with powers: }
-
-So appling powers to expressions, I applied the power to the expression. This also allows you to prune the search tree further by not needed to generate redundant expressions with powers. 
-
-This is the pseudo code.\\
-
-Then I filtered based on if the expression contained the power, this allows me to further prune the tree. In a more robust model, this is dervied from scratch, however for the sake of computation time, and flexibility, I decided to proceed with this approach as it saves some time.\\ 
-
-this is the pseudo code.\\ 
-
-\subsubsection{Chaining powers and constants: }
-
-The next step is to chain together powers and constants, such that both are applied to the expressions. It can already be chained as with the design it already has. However it needs to be filtered poperly in order to maintain the least amount of expressions possible.\\
-
-Te constants filter can be used, but the powers are inside the constants, and therefore the older power filter does not work as intended. Therefore i needed to redesign it such that it will function recursively.\\
-
-This is the code.\\
-
-However, sometimes this gives off constants that are chained, such as sin(sin()), and so to filter this futher, I want to filter out expressions with more than one instant of the constant that is chained.\\
-
-this is the code - filter single constant\\
+Next I needed a way to load the data I has typed up. At this point I was focused on testing as quick as possible
+and in order to proceed in a prompt manner I made up some dummy data values. Afterwards I made the decision
+to keep the data as a numpy array, because this will be faster then a text file, there are some various reasons for
+this, such as numpy arrays being stored in memory, the efficiency of the nderlying data format it is stored in
+(binary), and finally numpy uses c, and so it vectorises operations, making it far faster.
+Insert in pseudo code.
 
 
-\subsubsection{ Loading data: }
-Next I needed a way to load the data I has typed up. At this point I was focused on testing as quick as possible and in order to proceed in a prompt manner I made up some dummy data values. Afterwards I made the decision to keep the data as a numpy array, because this will be faster then a text file,  there are some various reasons for this, such as numpy arrays being stored in memory, the efficiency of the nderlying data format it is stored in (binary), and finally numpy uses c, and so it vectorises operations, making it far faster.\\ 
+As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the
+input data, and y being the target data, as in the final result. Ie x contains the mass and acceleration values, and
+y is the array of the result of the equation f = ma, so it only contains the value of f in it. This is a basic check to
+make sure the number of columns all have a corresponding variable.
 
-Insert in pseudo code.\\
+\subsubsection{Evaluating expressions:}
+Next I evaluate the expressions that I had generated, and i assign the variables to a column of the data, in in-
+creasing order. Then this is substituted into the equation, and the expressions are run, and there is an array
+of outputs of the expression. This essentially evaluates every generated expressions that has been pruned, and
+returns a np arrya of the results of those expressions based on the input data.
+insert in pseudo code here.
+Then like the paper suggested, insert in paper here, I used a medium error description length loss function, and
+have implemented it in the same way as in the paper. Using error squared, making all the errors positive, and
+added 1 as a constant to ensure that all the errors are greater than the value, when taking the log.
+Insert in pseudo code.
+Then furthermore I also implemented 2 other loss algorithms, specifically root mean squared loss as well as
+mean absolute error.
+insert in pseudo code.
+This was to help bridge and improve upon the loss algorithm used in the paper, as these two have their own
+advantages, and a combined hybrid approach seemed smarter.
+Explain why later.
+\subsection{Polynomial Fit Module: }
+Now that the simple, core of the algorithm works, and is adapted to take care of contants, powers, variables,
+generate expressions, and filter out the redundancy using physical properties of the world such as symmtery,
+I now aimed to futher extend the program by writing a polynomial fit module. The aim of the polynomial fit
+technique is to.
+Why: Many functions in physics (or parts of them) are low-order polynomials.
+Why: It’s a computationally very cheap method for this specific function class.
+How: It attempts to fit the given data to a sum of polynomial terms.
+How: It generates all possible polynomial terms up to a specified low degree (e.g., degree 4).
+How: For each data point, this creates a linear equation where the unknowns are the polynomial coefficients.
+How: It solves the resulting system of linear equations using standard methods like least squares.
+How: The Root Mean Squared Error (RMSE) of the fit is calculated.
 
-As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the input data, and y being the target data, as in the final result. Ie x contains the mass and acceleration values, and y is the array of the result of the equation f = ma, so it only contains the value of f in it. This is a basic check to make sure the number of columns all have a corresponding variable.\\ 
-
-\subsubsection{ Evaluating expressions: }
-
-Next I evaluate the expressions that I had generated, and i assign the variables to a column of the data, in increasing order. Then this is substituted into the equation, and the expressions are run, and there is an array of outputs of the expression. This essentially evaluates every generated expressions that has been pruned, and returns a np arrya of the results of those expressions based on the input data.\\ 
-
-insert in pseudo code here.\\
-
-Then like the paper suggested, insert in paper here, I used a medium error description length loss function, and have implemented it in the same way as in the paper. Using error squared, making all the errors positive, and added 1 as a constant to ensure that all the errors are greater than the value, when taking the log. \\
-
-Insert in pseudo code. \\
-
-Then furthermore I also implemented 2 other loss algorithms, specifically root mean squared loss as well as mean absolute error.\\
-
-insert in pseudo code.\\
-
-This was to help bridge and improve upon the loss algorithm used in the paper, as these two have their own advantages, and a combined hybrid approach seemed smarter.\\ 
-Explain why later.\\
-
-\subsection{Polynomial Fit module: }
-
-Now that the simple, core of the algorithm works, and is adapted to take care of contants, powers, variables, generate expressions, and filter out the redundancy using physical properties of the world such as symmtery, I now aimed to futher extend the program by writing a polynomial fit module. The aim of the polynomial fit technique is to.\\
-
-    Why: Many functions in physics (or parts of them) are low-order polynomials.\\
-
-    Why: It's a computationally very cheap method for this specific function class.\\
-
-    How: It attempts to fit the given data to a sum of polynomial terms.\\
-
-    How: It generates all possible polynomial terms up to a specified low degree (e.g., degree 4).\\
-
-    How: For each data point, this creates a linear equation where the unknowns are the polynomial coefficients.\\
-
-    How: It solves the resulting system of linear equations using standard methods like least squares.\\
-
-    How: The Root Mean Squared Error (RMSE) of the fit is calculated.\\
-
-    How: If the RMSE is below a predefined tolerance (ε_pol), the polynomial is accepted as a solution.\\
-
-    Effect: It acts as a fast base case in the recursive algorithm, quickly solving problems that are simple polynomials.\\
-
-    Effect: It can also solve sub-problems that are transformed into polynomials by other modules (e.g., dimensional analysis, inverting the function).\\
+How: If the RMSE is below a predefined tolerance (p ol), thepolynomialisacceptedasasolution.
+Effect: It acts as a fast base case in the recursive algorithm, quickly solving problems that are simple polynomi-
+als.
+Effect: It can also solve sub-problems that are transformed into polynomials by other modules (e.g., dimen-
+sional analysis, inverting the function).
 
 \subsubsection{Data Loading:}
+So to start, I began by creating the data loading function. The aim was to take in a numpy array, with the data,
+along with a list of variables. Then comparing the shape of the data column and the number of variables in order
+to make sure the input is sufficient.
+This is the pseudo code. 
 
-So to start, I began by creating the data loading function. The aim was to take in a numpy array, with the data, along with a list of variables. Then comparing the shape of the data column and the number of variables in order to make sure the input is sufficient. \\
 
-This is the pseudo code.\\
+\subsubsection{Generating polynomial expressions:}
 
-\subsubsection{Generating polynomial expressions: }
+Then the next step is to generate polynomaial expressions, and then it will return a list of polynomial expres-
+sions on the list.
+Pseudo conclude
 
-Then the next step is to generate polynomaial expressions, and then it will return a list of polynomial expressions on the list. \\ 
 
-Pseudo code.\\ 
+\subsubsection{Filtering the Polynomial expressions:}
 
-This function, generate_polynomial_expressions, creates all possible symbolic polynomial expressions by combining a list of coefficients and variables with specified mathematical operators (like +, -, *, /) and varying the power of each variable up to a given maximum degree. It recursively explores all permutations of operator placements and degree assignments, returning a list of simplified SymPy expressions. This allows for flexible construction of polynomial forms useful in symbolic regression, equation generation, or algebraic exploration tasks.\\
 
-\subsubsection{Filtering the Polynomial expressions: }
+The filtere xpressionsf unctionprogrammaticallyf ilterssymbolicexpressionsusingstructuralandsemanticconstraints.Lev
+suitedf orlarge − scalesymbolicf ilteringtaskswherestrictmathematicalstructuremustbeenf orced.
+insert in pseudo code.
+This initial version only worked for symblic constants, ie sin, cos etc, and didn’t work for numbers, or nteger
+coefficients, i caught this error during testing and I rewrote the function so that it works for integer coefficients
 
-The filter_expressions function programmatically filters symbolic expressions using structural and semantic constraints. Leveraging SymPy’s symbolic manipulation capabilities—particularly Symbol, Pow, and preorder_traversal—it ensures expressions contain all specified variables, constants (e.g., trigonometric functions), and at least one instance of a required power. The use of free_symbols enables efficient variable presence checks, while recursive traversal allows detection of deeply nested constructs. This method supports algebraic expression pruning in symbolic regression or automated discovery pipelines. Its composability, precision, and reliance on SymPy's optimized traversal make it well-suited for large-scale symbolic filtering tasks where strict mathematical structure must be enforced.\\
 
-insert in pseudo code.\\
+\subsubsection{Evaluating expressions:}
 
-This initial version only worked for symblic constants, ie sin, cos etc, and didn't work for numbers, or nteger coefficients, i caught this error during testing and I rewrote the function so that it works for integer coefficients.\\ 
+Now I need to take the filtered expressions, and try fit the model to the dataset np array. The model fitting
+logic function fits polynomial expressions to input data by finding the best set of coefficients that minimize the
+error between the predicted and actual output values. It tests multiple polynomial degrees (up to a specified
+maximum) and selects the one that provides the lowest error, ensuring an optimal balance between accuracy
+and complexity.
+I use root mean squared error to calculate the loss, and the funciton returns a list of loss, per expression. 
 
-insert code:\\
+So i take an expression, then I substitute in the variables using the input data, calculate the predicted y value of
+the said equation, then take it away from the true value of y the target and then use that to calculate the rmse.
+pseudo code.
+Best polynomial fit:
+Now that I have the list of expressions and the corresponding rmse values, i pick the lowest rmse as the most
+accurate polynomial fit for the data.
+insert in pseudo code . 
 
-\subsubsection{Evaluating expressions: }
-
-Now I need to take the filtered expressions, and try fit the model to the dataset np array. The model fitting logic function fits polynomial expressions to input data by finding the best set of coefficients that minimize the error between the predicted and actual output values. It tests multiple polynomial degrees (up to a specified maximum) and selects the one that provides the lowest error, ensuring an optimal balance between accuracy and complexity.\\
-
-I use root mean squared error to calculate the loss, and the funciton returns a list of loss, per expression.\\ 
-
-So i take an expression, then I substitute in the variables using the input data, calculate the predicted y value of the said equation, then take it away from the true value of y the target and then use that to calculate the rmse.\\
-
-pseudo code. \\
-
-\subsubsectio{Best polynomial fit: }
-
-Now that I have the list of expressions and the corresponding rmse values, i pick the lowest rmse as the most accurate polynomial fit for the data. \\
-
-insert in pseudo code\\
 
 \subsection{Dimensional Analysis: }
 
-    Physics Constraint: Physical equations must be dimensionally consistent (units on both sides must match).
-
-    Strong Simplification: This dimensional constraint severely limits the possible forms of the unknown function.
-
-    First Step: AI Feynman applies dimensional analysis as the very first attempt to simplify the problem.
-
-    Unit Representation: Units of variables (like mass, length, time) are represented as vectors of integer powers.
-
-    Linear System: A linear system is set up based on the unit vectors of the input variables and the target variable.
-
-    Dimensionless Combinations: Solving this system and finding the null space reveals combinations of variables that are dimensionless.
-
-    Problem Transformation: The original problem is transformed into finding a function of these new, dimensionless variables.
-
-    Reduced Variables: This process typically reduces the number of independent variables the algorithm needs to search over.
-
-    Search Space Reduction: A smaller number of variables drastically shrinks the combinatorial search space for subsequent steps.
-
-    Efficiency Boost: It makes Polynomial Fit, Brute Force, and Neural Network-guided searches significantly faster and more likely to succeed.\\
-
-\subsubsection{Handling Units: }
-
-So i went to the ai feynman database website, and downloaded their units.csv to get a better idea of all the units in the dataset, I was dealing with. Then i had a look at all the required units, and then made a unit table, array, so that each unit corresponds to a unique power of the bsaic si units which I also implemented, as an array/list.\\\
-
-code:\\
-
-\subsubsection{Construct Matrix and Target Vector: }
-
-This function constructs the dimensional matrix M and target vector b essential for dimensional analysis. It accepts lists of independent and dependent variable names and a dictionary mapping variable names (keys) to their unit vectors (values).
-
-Technical Implementation: Unit vectors for independent variables are retrieved via dictionary lookup, using lowercase variable names (var.lower()) to ensure case-insensitivity. These vectors are efficiently assembled into the columns of matrix M using numpy.column_stack. The dependent variable's unit vector forms vector b. try...except KeyError blocks provide robust error handling, raising informative ValueErrors if any variable definition is absent.
-
-Design Rationale: Case-insensitivity enhances usability. numpy.column_stack offers performance. Explicit error handling prevents downstream failures due to missing unit data.\\
+Physics Constraint: Physical equations must be dimensionally consistent (units on both sides must match).
+Strong Simplification: This dimensional constraint severely limits the possible forms of the unknown function.
+First Step: AI Feynman applies dimensional analysis as the very first attempt to simplify the problem.
+Unit Representation: Units of variables (like mass, length, time) are represented as vectors of integer powers.
+Linear System: A linear system is set up based on the unit vectors of the input variables and the target variable.
+Dimensionless Combinations: Solving this system and finding the null space reveals combinations of variables
+that are dimensionless.
+Problem Transformation: The original problem is transformed into finding a function of these new, dimension-
+less variables.
+Reduced Variables: This process typically reduces the number of independent variables the algorithm needs to
+search over.
+Search Space Reduction: A smaller number of variables drastically shrinks the combinatorial search space for
+subsequent steps.
+Efficiency Boost: It makes Polynomial Fit, Brute Force, and Neural Network-guided searches significantly
+faster and more likely to succeed. 
 
 
+\subsubsection{Handling Units:}
+
+So i went to the ai feynman database website, and downloaded their units.csv to get a better idea of all the units
+in the dataset, I was dealing with. Then i had a look at all the required units, and then made a unit table, array,
+so that each unit corresponds to a unique power of the bsaic si units which I also implemented, as an array/list.
 code: \\
 
-\subsubsection{Solving Dimension and Basis Units: }
 
-This function determines the exponents for dimensional scaling and dimensionless groups by solving the linear systems Mp = b and MU = 0. It takes the dimensional matrix M and target vector b as input. The function first converts these NumPy arrays into SymPy matrices (sp.Matrix) to leverage symbolic computation capabilities. It then attempts to find an exact particular solution p for Mp = b using SymPy's LUsolve method, chosen for its ability to yield rational solutions. Robust error handling via try...except addresses potential issues like inconsistent systems. Finally, it calculates the null space basis U of M using M_sym.nullspace(), which identifies the combinations forming dimensionless groups. The function returns the symbolic solution vector p and a list of symbolic basis vectors U. The use of SymPy ensures precision and facilitates finding physically interpretable rational exponents.\\
+\subsubsection{Construct Matrix and Target Vector:}
 
-Think of it like this: you have a target physical quantity (b, like Force) that depends on several input quantities (M, like mass, length, time).
+This function constructs the dimensional matrix M and target vector b essential for dimensional analysis. It
+accepts lists of independent and dependent variable names and a dictionary mapping variable names (keys) to
+their unit vectors (values).
+Technical Implementation: Unit vectors for independent variables are retrieved via dictionary lookup, using
+lowercase variable names (var.lower()) to ensure case-insensitivity. These vectors are efficiently assembled into
+the columns of matrix M using numpy.columns tack.T hedependentvariable′ sunitvectorf ormsvectorb.try...exceptKeyErrorblo
+Design Rationale: Case-insensitivity enhances usability. numpy.columns tackof f ersperf ormance.Expliciterrorhandlingpreven
+code:\\ 
 
-    Finding the "Unit-Fixing" Part (p = M_sym.LUsolve(b_sym)):
 
-        The function first figures out the specific combination of powers (p) of your input variables (xᵢ) that you need to multiply together (Π xᵢ^pᵢ) so that the result has the exact same physical units as your target variable (b).
+\subsubsection{Solving Dimension and Basis Units:}
 
-        For example, if the target is Force ([M L T⁻²]) and inputs are mass ([M]), length ([L]), and time ([T]), it would find p corresponding to mass¹ * length¹ * time⁻².
-
-        It uses LUsolve from SymPy to try and find an exact (often simple fraction or integer) solution for these powers p.
-
-    Finding the "Dimensionless Combinations" (U = M_sym.nullspace()):
-
-        After accounting for the basic units, any remaining relationship must involve combinations of input variables that have no units at all (they are dimensionless numbers, like Reynolds number).
-
-        The function finds all the fundamental ways (U) you can combine powers of the input variables (Π xᵢ^uᵢ) such that the units completely cancel out, resulting in a dimensionless quantity. Each vector in U represents the exponents for one such fundamental dimensionless group.
-
+This function determines the exponents for dimensional scaling and dimensionless groups by solving the lin-
+ear systems Mp = b and MU = 0. It takes the dimensional matrix M and target vector b as input. The
+function first converts these NumPy arrays into SymPy matrices (sp.Matrix) to leverage symbolic compu-
+tation capabilities. It then attempts to find an exact particular solution p for Mp = b using SymPy’s LU-
+solve method, chosen for its ability to yield rational solutions. Robust error handling via try...except ad-
+dresses potential issues like inconsistent systems. Finally, it calculates the null space basis U of M using
+Ms ym.nullspace(), whichidentif iesthecombinationsf ormingdimensionlessgroups.T hef unctionreturnsthesymbolicsolu
+Think of it like this: you have a target physical quantity (b, like Force) that depends on several input quantities
+(M, like mass, length, time).
+Finding the ”Unit-Fixing” Part (p = Ms ym.LU solve(bs ym)) :
+The function first figures out the specific combination of powers (p) of your input variables (x) that you need to
+multiply together ( xp )sothattheresulthastheexactsamephysicalunitsasyourtargetvariable(b).
+For example, if the target is Force ([M L T2]) and inputs are mass ([M]), length ([L]), and time ([T]), it would
+find p corresponding to mass1 * length1 * time2.
+It uses LUsolve from SymPy to try and find an exact (often simple fraction or integer) solution for these powers
+p.
+Finding the ”Dimensionless Combinations” (U = Ms ym.nullspace()) :
+After accounting for the basic units, any remaining relationship must involve combinations of input variables
+that have no units at all (they are dimensionless numbers, like Reynolds number).
+The function finds all the fundamental ways (U) you can combine powers of the input variables ( xu )suchthattheunitscompletelycan
 In essence, the function:
+Separates the part of the formula responsible for getting the units right (p).
+Identifies all the core dimensionless building blocks (U) that the rest of the formula must be made from.
+This allows the main algorithm to later focus on finding the relationship between these dimensionless quantities,
+which is a simpler problem than the original one involving various physical units. 
 
-    Separates the part of the formula responsible for getting the units right (p).
 
-    Identifies all the core dimensionless building blocks (U) that the rest of the formula must be made from.
-
-This allows the main algorithm to later focus on finding the relationship between these dimensionless quantities, which is a simpler problem than the original one involving various physical units.\\
 
 \subsubsection{Data Transformation Function:}
+his function converts original physical data (datax , datay )intoadimensionlessf ormusingpreviouslycalculatedexponents(p, U ).
+How it Works: First, it calculates a scalingf actorf oreachdatapointbyraisinginputvariables(datax )tothepowersspecif iedinp(u\\
 
-his function converts original physical data (data_x, data_y) into a dimensionless form using previously calculated exponents (p, U).
 
-How it Works: First, it calculates a scaling_factor for each data point by raising input variables (data_x) to the powers specified in p (using np.float_power) and multiplying the results (np.prod). The original dependent data (data_y) is divided by this factor to create the dimensionless data_y_prime. If dimensionless groups exist (U is not empty), it calculates each new dimensionless independent variable by raising data_x to the powers in each vector u from U and multiplying. These are stacked (np.vstack) into data_x_prime. If U is empty, data_x remains unchanged. It returns the transformed data_x_prime and data_y_prime.\\
 
-\subsubsection{Symbolic Transformation Generator}
+\subsubsection{Symbolic Transformation Generator: }
 
-This function generates the symbolic mathematical expressions corresponding to the dimensional analysis transformation. It accepts the original independent variable names (independent_vars) and the exponent vectors for scaling (p) and dimensionless groups (U).
-
-How it Works: It first creates SymPy symbolic objects for each input variable name using sp.symbols. Utilizing these symbols and the scaling exponents p, it constructs the symbolic expression symbolic_p representing the unit-fixing scaling factor (Π xᵢ^pᵢ) via sp.Mul. Subsequently, it iterates through each exponent vector u in U, building the corresponding symbolic expression for each dimensionless group (Π xᵢ^uᵢ) and appending it to the list symbolic_U. The function returns the single SymPy expression symbolic_p and the list of SymPy expressions symbolic_U. This provides the mathematical definitions for the transformation.\\
-
+This function generates the symbolic mathematical expressions corresponding to the dimensional analysis trans-
+formation. It accepts the original independent variable names (independentv ars)andtheexponentvectorsf orscaling(p)anddimens
+How it Works: It first creates SymPy symbolic objects for each input variable name using sp.symbols. Utilizing
+these symbols and the scaling exponents p, it constructs the symbolic expression symbolicp representingtheunit−
+f ixingscalingf actor(xp )viasp.M ul.Subsequently, ititeratesthrougheachexponentvectoruinU, buildingthecorrespondings
 insert code:\\
+
 
 \subsection{Neural Network Fitting: }
 
-The next step crutical component, is using neural networks in order to simplify the expressions further.\\
-In order to get a smotth and differentiable approximation of the function we are looking for, this is what the neural network allows us to do.\\ 
-The neural network provides a powerful, universal function approximator (f_NN) capable of learning intricate patterns directly from data. Crucially, this trained f_NN yields a smooth, differentiable representation. This differentiability is essential for enabling the subsequent, more advanced physics-inspired simplification techniques like symmetry detection, separability analysis, and compositionality checks, which rely on evaluating the function and its gradients at arbitrary points.\\
-
-\subsubsection{SymbolicNetwork: }
-This class defines the neural network architecture used as a universal function approximator within the symbolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in PyTorch.
-
-Technical Implementation: The constructor (__init__) initializes the network structure, accepting the number of input features (n_input) and defaulting to one output feature (n_output=1). The architecture is encapsulated within a torch.nn.Sequential container, specifying a feed-forward network. It comprises five fully connected layers (torch.nn.Linear) with sizes transitioning from n_input -> 128 -> 128 -> 64 -> 64 -> n_output. After each of the first four linear layers, a torch.nn.Tanh activation function is applied. The forward method implements the forward pass, simply passing the input tensor x through the defined sequential model.
-
-Design Rationale: This multi-layer perceptron (MLP) architecture provides significant expressive power. The Tanh activation was chosen as specified in the reference papers, offering a smooth, differentiable non-linearity suitable for approximating complex physical functions and enabling reliable gradient computation for subsequent analysis steps.\\
-
-\subsubsection{ Preparing the data: }
-
-This function preprocesses raw input and output data (data_x, data_y) into a format suitable for PyTorch model training and validation, creating efficient data iterators.
-
-Technical Implementation: It begins by converting the input NumPy arrays data_x and data_y into PyTorch tensors of type torch.float32. Crucially, y_tensor is reshaped using .unsqueeze(1) to ensure it has dimensions [N, 1] (N samples, 1 output feature), compatible with typical regression loss functions. The data is then partitioned into training and validation sets based on the train_split ratio (defaulting to 80% train). Slicing operations create x_train, y_train, x_val, and y_val tensors. These tensor pairs are encapsulated within torch.utils.data.TensorDataset objects. Finally, torch.utils.data.DataLoader instances are generated for both training and validation datasets. The training loader uses shuffle=True to randomize data order per epoch, while the validation loader uses shuffle=False for consistent evaluation.
-
-Design Rationale: This design adheres to standard PyTorch practices. Tensor conversion is mandatory for framework compatibility. The train/validation split is critical for monitoring model generalization and preventing overfitting. TensorDataset provides a convenient pairing of inputs and targets. DataLoader is essential for efficient training, enabling batch processing (managing memory and potentially parallelizing computation) and automating data shuffling, which improves model robustness and convergence.\\
+The next step crutical component, is using neural networks in order to simplify the expressions further.
+In order to get a smotth and differentiable approximation of the function we are looking for, this is what the
+neural network allows us to do.
+The neural network provides a powerful, universal function approximator (fN N )capableof learningintricatepatternsdirectlyf random\\
 
 
-\subsubsection{Training the Network: }
+\subsubsection{SymbolicNetwork:}
 
-This function orchestrates the supervised training process for the provided PyTorch neural network model. Its primary goal is to iteratively adjust the model's parameters (weights and biases) to minimize the difference between its predictions and the true target values using the training data, while monitoring performance on unseen validation data.
+This class defines the neural network architecture used as a universal function approximator within the sym-
+bolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in
+PyTorch.
+Technical Implementation: The constructor (i nit) initializesthenetworkstructure,acceptingthenumberof inputf eatures(ni nput)anddef aultingtooneoutpu
+Design Rationale: This multi-layer perceptron (MLP) architecture provides significant expressive power. The
+Tanh activation was chosen as specified in the reference papers, offering a smooth, differentiable non-linearity
+suitable for approximating complex physical functions and enabling reliable gradient computation for subse-
+quent analysis steps.\\ 
 
-Technical Implementation: The function begins by transferring the model to the specified compute device ('cpu' or 'cuda'). It initializes the Adam optimizer, a common adaptive learning rate optimization algorithm, linking it to the model.parameters() and setting the learning_rate. The Mean Squared Error loss (nn.MSELoss), suitable for regression, is chosen as the objective function. The core logic resides in a loop iterating for a specified number of epochs. Within each epoch, the model is set to training mode (model.train()). It then iterates through batches provided by the train_loader, moving each batch to the device. For each batch, it performs a forward pass to get predictions, calculates the loss, clears previous gradients (optimizer.zero_grad()), computes new gradients via backpropagation (loss.backward()), and updates model parameters (optimizer.step()). After processing all training batches, the model switches to evaluation mode (model.eval()) and gradient calculations are disabled (torch.no_grad()) for efficiency. It then evaluates the loss on the val_loader batches. Average training and validation losses are calculated and printed per epoch.
 
-Design Rationale: This structure represents a standard PyTorch training loop. Using DataLoader enables efficient batch processing. The Adam optimizer provides robust convergence properties. MSE loss directly minimizes the squared prediction error. Explicitly setting model.train() and model.eval() ensures correct behavior of layers like dropout or batch normalization (if present). The torch.no_grad() context during validation prevents unnecessary gradient computations, saving resources. Monitoring both training and validation loss is crucial for diagnosing issues like overfitting and determining training duration.\\
+\subsubsection{Preparing the data:}
 
-\subsubsection{Predict Function: }
+This function preprocesses raw input and output data (datax , datay )intoaf ormatsuitablef orP yT orchmodeltrainingandvalidati
+Technical Implementation: It begins by converting the input NumPy arrays datax anddatay intoP yT orchtensorsof typetorch.f loat3
+Design Rationale: This design adheres to standard PyTorch practices. Tensor conversion is mandatory for
+framework compatibility. The train/validation split is critical for monitoring model generalization and prevent-
+ing overfitting. TensorDataset provides a convenient pairing of inputs and targets. DataLoader is essential for
+efficient training, enabling batch processing (managing memory and potentially parallelizing computation) and
+automating data shuffling, which improves model robustness and convergence.\\
 
-This function performs inference using a trained PyTorch model, generating output predictions for a given set of input data. It is designed to take a trained model, input data as a NumPy array (x_numpy), and the target computation device ('cpu' or 'cuda').
+\subsubsection{Training the Network:}
 
-Technical Implementation: The function first sets the model to evaluation mode using model.eval(). This is crucial as it disables layers like dropout or batch normalization that have different behaviors during training and inference, ensuring deterministic output. The input NumPy array x_numpy is then converted into a torch.Tensor with dtype=torch.float32 and transferred to the specified device. The core prediction step occurs within a with torch.no_grad(): context manager. This disables gradient calculation, significantly reducing memory consumption and speeding up computation, as gradients are unnecessary during inference. Inside this context, the input tensor x_tensor is passed through the model to obtain the prediction tensor. Finally, the prediction tensor is moved back to the CPU using .cpu() (if it was on a GPU) and converted back into a NumPy array using .numpy() for compatibility with other Python libraries or further processing outside PyTorch.
+This function orchestrates the supervised training process for the provided PyTorch neural network model. Its
+primary goal is to iteratively adjust the model’s parameters (weights and biases) to minimize the difference
+between its predictions and the true target values using the training data, while monitoring performance on
+unseen validation data.
+Technical Implementation: The function begins by transferring the model to the specified compute device (’cpu’
+or ’cuda’). It initializes the Adam optimizer, a common adaptive learning rate optimization algorithm, linking it
+to the model.parameters() and setting the learningr ate.T heM eanSquaredErrorloss(nn.M SELoss), suitablef orregression, isc
+Design Rationale: This structure represents a standard PyTorch training loop. Using DataLoader enables effi-
+cient batch processing. The Adam optimizer provides robust convergence properties. MSE loss directly min-
+imizes the squared prediction error. Explicitly setting model.train() and model.eval() ensures correct behavior of
+layers like dropout or batch normalization (if present). The torch.nog rad()contextduringvalidationpreventsunnecessarygradien\\
 
-Design Rationale: This design follows standard PyTorch inference practices. model.eval() ensures correct prediction behavior. Tensor conversion and device handling manage data compatibility with the model. The torch.no_grad() context optimizes performance for inference. Returning a NumPy array provides a user-friendly output format.\\
+
+\subsubsection{Predict Function:}
+
+This function performs inference using a trained PyTorch model, generating output predictions for a given set of
+input data. It is designed to take a trained model, input data as a NumPy array (xn umpy), andthetargetcomputationdevice(′ cpu′ or′
+Technical Implementation: The function first sets the model to evaluation mode using model.eval(). This is cru-
+cial as it disables layers like dropout or batch normalization that have different behaviors during training and in-
+ference, ensuring deterministic output. The input NumPy array xn umpyisthenconvertedintoatorch.T ensorwithdtype =
+torch.f loat32andtransf erredtothespecif ieddevice.T hecorepredictionstepoccurswithinawithtorch.nog rad() :
+contextmanager.T hisdisablesgradientcalculation, signif icantlyreducingmemoryconsumptionandspeedingupcomputatio
+Design Rationale: This design follows standard PyTorch inference practices. model.eval() ensures correct
+prediction behavior. Tensor conversion and device handling manage data compatibility with the model. The torch.nog rad()contextoptimizesperf ormancef orinf erence.ReturningaN umP yarrayprovidesauser−
+f riendlyoutputf ormat.\\ 
+
 
 \subsection{Pareto Frontier Optimisation: }
 
-iThe Pareto frontier provides a principled way to manage the inherent trade-off between a formula's accuracy and its simplicity (complexity) in symbolic regression. Instead of seeking a single "best" formula, the goal is to identify all Pareto-optimal formulas: those for which no other discovered formula is simultaneously simpler and more accurate.\\
+The Pareto frontier provides a principled way to manage the inherent trade-off between a formula’s accuracy
+and its simplicity (complexity) in symbolic regression. Instead of seeking a single ”best” formula, the goal is
+to identify all Pareto-optimal formulas: those for which no other discovered formula is simultaneously simpler
+and more accurate.
+I am going to implement this by plotting on a 2d plane, where x represent complexity and y represents the mean
+error description length. As the algorithm generates candidate formulas (through brute-force search, trans-
+formations, or recursive combinations), each candidate is evaluated and potentially added to the set of points
+forming the frontier.
+Crucially, any candidate formula that is dominated – meaning another formula on the frontier has both lower (or
+equal) complexity and lower (or equal) loss (with at least one inequality strict) – is discarded. This Pareto prun-
+ing significantly reduces the search space, especially when combining solutions from subproblems, improving
+computational efficiency and robustness against noise by inherently favouring simpler explanations for a given
+accuracy level. The final frontier presents the user with a spectrum of optimal solutions.\\
 
 
-I am going to implement this by plotting on a 2d plane, where x represent complexity and y represents the mean error description length.  As the algorithm generates candidate formulas (through brute-force search, transformations, or recursive combinations), each candidate is evaluated and potentially added to the set of points forming the frontier.\\
+\subsubsection{Points:}
 
-Crucially, any candidate formula that is dominated – meaning another formula on the frontier has both lower (or equal) complexity and lower (or equal) loss (with at least one inequality strict) – is discarded. This Pareto pruning significantly reduces the search space, especially when combining solutions from subproblems, improving computational efficiency and robustness against noise by inherently favouring simpler explanations for a given accuracy level. The final frontier presents the user with a spectrum of optimal solutions.\\
+This Point class serves as a fundamental data structure within the Pareto frontier analysis framework. Its pri-
+mary purpose is to encapsulate the essential characteristics of a single candidate formula evaluated during the
+symbolic regression process.
+Technical Implementation: The constructor (i nit initializeseachP ointinstancewiththreeattributes:complexity(anumericalscorerepresentingthef ormula
+)
+Design Rationale: This class is designed to bundle the key metrics (complexity, accuracy) required for Pareto
+dominance checks with the associated formula (expression). By grouping these related pieces of data into a
+single object, it simplifies the management and comparison of candidate solutions. Functions operating on
+the Pareto frontier can easily access the necessary complexity and accuracy attributes from each Point object to
+determine if one solution dominates another, thereby facilitating the efficient maintenance of the non-dominated
+set of optimal formulas.\\
 
-\subsubsection{Points: }
 
-This Point class serves as a fundamental data structure within the Pareto frontier analysis framework. Its primary purpose is to encapsulate the essential characteristics of a single candidate formula evaluated during the symbolic regression process.
+\subsubsection{Pareto Point Set:}
 
-Technical Implementation: The constructor (__init__) initializes each Point instance with three attributes: complexity (a numerical score representing the formula's Description Length, Ld), accuracy (a numerical score representing the formula's inaccuracy or loss, typically MEDL), and expression (the actual representation of the symbolic formula, e.g., a SymPy object or string). The __repr__ method provides a standardized, human-readable string representation of the object's state, useful for debugging and logging purposes, displaying the stored complexity, accuracy, and expression values.
-
-Design Rationale: This class is designed to bundle the key metrics (complexity, accuracy) required for Pareto dominance checks with the associated formula (expression). By grouping these related pieces of data into a single object, it simplifies the management and comparison of candidate solutions. Functions operating on the Pareto frontier can easily access the necessary complexity and accuracy attributes from each Point object to determine if one solution dominates another, thereby facilitating the efficient maintenance of the non-dominated set of optimal formulas.
-
-\subsubsection{Pareto Point Set: }
-The update_pareto_points function maintains a Pareto frontier of symbolic expressions, balancing complexity (model simplicity) and loss (prediction error). Each point is a tuple (complexity, loss, expression). New expressions (with known loss values) are evaluated for their complexity using calculate_complexity, then added to the current list of points.
-
-The function filters the combined list to retain only non-dominated points: a point A dominates point B if A is both no more complex and no less accurate, with at least one being strictly better. This ensures only the best trade-offs remain.
-
-In symbolic regression, this is critical because we aim to discover expressions that are not just accurate but also interpretable — meaning low complexity. The Pareto frontier lets us visualize and choose among optimal models, avoiding overfitting (too complex) or underfitting (too simple).
-
+The updatep aretop ointsf unctionmaintainsaP aretof rontierof symbolicexpressions, balancingcomplexity(modelsimplicit
+The function filters the combined list to retain only non-dominated points: a point A dominates point B if A is
+both no more complex and no less accurate, with at least one being strictly better. This ensures only the best
+trade-offs remain.
+In symbolic regression, this is critical because we aim to discover expressions that are not just accurate but
+also interpretable — meaning low complexity. The Pareto frontier lets us visualize and choose among optimal
+models, avoiding overfitting (too complex) or underfitting (too simple).\\ 
 
 
 \subsection{Plotting: }
 
-I wanted ways to visualise and understand in a visual sense what was happening behind the scenes in my symbolic regression program. Humans are visual creatures and looking at plots offers a more powerful way to understand data rather than staring a strng of numbers or expressions, trying to manually find patterns or mistakes.\\ 
-
-I decided to use plotly, instead of the usual matplotlib, as I personally think it is more asthetically pleasing and it has a better interactive environment.\\ 
-
-\subsubsection{Plot for Pareto front: }
-
-Visualizing the Pareto frontier is highly beneficial for interpreting the results of symbolic regression. It provides an intuitive graphical representation of the fundamental trade-off between model complexity and predictive accuracy (or loss).
-
-Code Description: The provided code utilizes the plotly.express library to generate this visualization. A Pandas DataFrame (df) structures the data, holding columns for 'Complexity' (x-axis), 'Loss' (y-axis, representing inaccuracy like MEDL), and the corresponding symbolic 'Expression'. The px.scatter function creates a scatter plot mapping complexity against loss, crucially using the 'Expression' data to label each point directly on the plot via the text argument. Further customization using fig.update_traces enhances point visibility (marker size, color) and label positioning (textposition). fig.update_layout adjusts background aesthetics for clarity.
-
-Utility and Rationale: This visualization allows researchers to readily identify the set of non-dominated solutions. By plotting quantitative metrics, it elucidates points where significant gains in accuracy require substantial increases in complexity (an "elbow" region), facilitating informed model selection based on the specific balance desired between interpretability/simplicity and predictive power. The direct labeling of points with their expressions provides immediate context for each optimal solution discovered.\\
+I wanted ways to visualise and understand in a visual sense what was happening behind the scenes in my sym-
+bolic regression program. Humans are visual creatures and looking at plots offers a more powerful way to understand data rather than staring a strng of numbers or expressions, trying to manually find patterns or mis-
+takes.
+I decided to use plotly, instead of the usual matplotlib, as I personally think it is more asthetically pleasing and
+it has a better interactive environment.\\ 
 
 
+\subsubsection{Plot for Pareto front:}
 
+Visualizing the Pareto frontier is highly beneficial for interpreting the results of symbolic regression. It provides
+an intuitive graphical representation of the fundamental trade-off between model complexity and predictive
+accuracy (or loss).
+Code Description: The provided code utilizes the plotly.express library to generate this visualization. A Pandas
+DataFrame (df) structures the data, holding columns for ’Complexity’ (x-axis), ’Loss’ (y-axis, representing inac-
+curacy like MEDL), and the corresponding symbolic ’Expression’. The px.scatter function creates a scatter plot
+mapping complexity against loss, crucially using the ’Expression’ data to label each point directly on the plot via
+the text argument. Further customization using fig.updatet racesenhancespointvisibility(markersize, color)andlabelpositioning
+Utility and Rationale: This visualization allows researchers to readily identify the set of non-dominated solu-
+tions. By plotting quantitative metrics, it elucidates points where significant gains in accuracy require substantial
+increases in complexity (an ”elbow” region), facilitating informed model selection based on the specific bal-
+ance desired between interpretability/simplicity and predictive power. The direct labeling of points with their
+expressions provides immediate context for each optimal solution discovered.\\ 
 
+\subsection{Main method bringing it together Regressor: }
 
-\subsection{Testing: }
-Every module, function and file, were thoroughly tested using dedicated tests. The boundary conditions and inserted tests to make sure the function behaved as envisioned. There was also significant robust testing functions written when chaining together various techniques and models, in order to ensure everything was working smoothly.\\ 
+\subsubsection{main solver}
 
+Part 1: Dimensional Analysis and Symbolic Scaling
 
+The function first applies Dimensional Analysis (DA) to reduce the problem’s dimensionality. It computes a transformation matrix and scaling vector by solving the unit balance equation between independent and target variables. If no dimensionless groups are found, the result is a simple scaling law expressed symbolically. Otherwise, it computes and displays the dimensionless groups and the scaling part of the solution. This ensures the model operates on physically meaningful, unit-consistent quantities, simplifying the functional search space and preventing non-physical relationships. If DA completely solves the problem, the function terminates here by outputting the symbolic solution.
+Part 2: Neural Network Approximation of Dimensionless Relation
 
+When dimensionless groups exist, the function generates dimensionless data and fits a lightweight symbolic neural network to model the relationship between transformed inputs and outputs. A standard training pipeline is executed: data preparation, model instantiation, training with backpropagation, and prediction. The model’s mean squared error (MSE) is computed on the dimensionless targets to evaluate fit quality. Neural network outputs (predictions and gradients) serve as a flexible preliminary approximation, potentially capturing nonlinear relations that guide the subsequent, more rigid symbolic regression steps.
+Part 3: Polynomial Candidate Generation and Filtering
 
+Following the neural fit, the function applies Polynomial Fitting (PF) techniques to generate candidate symbolic expressions. Polynomial terms are systematically composed using provided variables, coefficients, and operators up to a specified degree. Generated expressions are filtered based on structural criteria, such as variable presence and coefficient validity, to ensure physical plausibility. Each polynomial is evaluated against the original data, and a best-fit candidate is selected according to its error score. If a candidate perfectly matches (zero error), the function outputs the discovered symbolic expression and terminates.
+Part 4: Brute Force Symbolic Search and Evaluation
 
+If no polynomial yields a perfect fit, the function initiates a Brute Force (BF) symbolic search. It exhaustively generates expressions by combining variables, constants, operators, and powers. Multiple filters (symmetry, variable relevance, power range, constant handling) systematically prune the expression set to reduce computational complexity and preserve physically meaningful candidates. The remaining expressions are evaluated against the dataset, seeking the best match based on performance metrics. This final exhaustive step ensures that even highly non-obvious symbolic relations can be discovered if they exist within the defined operator and degree space.
 
-
-
-
-
-
+\subsection{Testing:}
+Every module, function and file, were thoroughly tested using dedicated tests. The boundary conditions and
+inserted tests to make sure the function behaved as envisioned. There was also significant robust testing func-
+tions written when chaining together various techniques and models, in order to ensure everything was working
+smoothly.\\
 
 
 \section{ Applying the model to Biological Data: }
 
 
 \section{Broder Use Cases: }
-
-\section{Project Management: }
 
 
 \section{Conclusion:}
@@ -551,5 +599,5 @@ Every module, function and file, were thoroughly tested using dedicated tests. T
 
 \section{Project Planning: }
 
-  
+
 \end{document}
