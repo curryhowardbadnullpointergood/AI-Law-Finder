@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  25 APR 2025 07:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  28 APR 2025 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -799,380 +799,218 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--143
 \openout4 = `FinalReport.toc'.
 
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 159--161
+Underfull \hbox (badness 10000) in paragraph at lines 159--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+LaTeX Warning: Citation `Wood2022' on page 8 undefined on input line 178.
+
+
+LaTeX Warning: Citation `Schmidt2009' on page 8 undefined on input line 178.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
+LaTeX Warning: Citation `kepler' on page 8 undefined on input line 182.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+LaTeX Warning: Citation `Hope2023' on page 8 undefined on input line 191.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--191
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--231
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 262--263
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 266--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 270--271
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 272--273
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 280--281
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 290--292
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 301--302
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--310
-
- []
-
-
-! LaTeX Error: Unicode character ε (U+03B5)
-               not set up for use with LaTeX.
+! LaTeX Error: File `Sun_Mars_Orbit' not found.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.311 ... RMSE is below a predefined tolerance (ε
-                                                  _pol), the polynomial is a...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.311 ...RMSE is below a predefined tolerance (ε_
-                                                  pol), the polynomial is ac...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.312 
-      
+l.197 ...ncludegraphics[width=7cm]{Sun_Mars_Orbit}
+                                                  
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--312
+LaTeX Warning: Citation `Schmidt22009' on page 8 undefined on input line 208.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--211
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
+[8]
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
-
- []
+LaTeX Warning: Citation `Aldeia2022' on page 9 undefined on input line 215.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 319--320
+Underfull \hbox (badness 10000) in paragraph at lines 215--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
+LaTeX Warning: Citation `Cranmer2020' on page 9 undefined on input line 220.
+
+
+LaTeX Warning: Citation `Worm2014' on page 9 undefined on input line 221.
+
+
+LaTeX Warning: Citation `Makke2024' on page 9 undefined on input line 223.
+
+
+LaTeX Warning: Citation `Rivero2022' on page 9 undefined on input line 224.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--228
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 325--326
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.329 This function, generate_
-                              polynomial_expressions, creates all possible s...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.330 
-      
-? 
-
-Overfull \hbox (1875.24477pt too wide) in paragraph at lines 329--330
-[]\OT1/ptm/m/n/10 This func-tion, generate$[]\OML/cmm/m/it/10 olynomial[]xpress
-ions; createsallpossiblesymbolicpolynomialexpressionsbycombiningalistofcoeffici
-entsandvariableswithspecifiedmathematicaloperators\OT1/cmr/m/n/10 (\OML/cmm/m/i
-t/10 like\OT1/cmr/m/n/10 +\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/
-10 ; \OMS/cmsy/m/n/10 ^^C\OML/cmm/m/it/10 ; =\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 
-andvaryingthepowerofeachvariableuptoagivenmaximumdegree:Itrecursivelyexploresal
-lpermutationsofoperatorplacementsanddegreeassignments; returningalistofsimplifi
-edSymPyexpressions:Thisallowsforflexibleconstructionofpolynomialformsusefulinsy
-mbolicregression; equationgeneration; oralgebraicexplorationtasks:[] 
- []
+LaTeX Warning: Citation `Stewart2012' on page 9 undefined on input line 235.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.333 The filter_
-                 expressions function programmatically filters symbolic expr...
-
-? 
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 333.
+LaTeX Warning: Citation `Smith2012' on page 9 undefined on input line 235.
 
 
-LaTeX Warning: Command \textemdash invalid in math mode on input line 333.
-
-
-LaTeX Warning: Command \textemdash invalid in math mode on input line 333.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.334 
-      
-? 
-
-Overfull \hbox (2529.11028pt too wide) in paragraph at lines 333--334
-\OT1/ptm/m/n/10 The filter$[]\OML/cmm/m/it/10 xpressionsfunctionprogrammaticall
-yfilterssymbolicexpressionsusingstructuralandsemanticconstraints:LeveragingSymP
-y[]ssymbolicmanipulationcapabilities\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 particul
-arlySymbol; Pow; andpreorder[]raversal\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 itensu
-resexpressionscontainallspecifiedvariables; constants\OT1/cmr/m/n/10 (\OML/cmm/
-m/it/10 e:g:; trigonometricfunctions\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; andatle
-astoneinstanceofarequiredpower:Theuseoffree[]ymbolsenablesefficientvariablepres
-encechecks; whilerecursivetraversalallowsdetectionofdeeplynestedconstructs:This
-methodsupportsalgebraicexpressionpruninginsymbolicregressionorautomateddiscover
-ypipelines:Itscomposability; precision; andrelianceonSymPy[]soptimizedtraversal
-makeitwell \OMS/cmsy/m/n/10 ^^@
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+LaTeX Warning: Citation `Kelly2021' on page 9 undefined on input line 237.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
+
+ []
+
+
+LaTeX Warning: Citation `Kelly2021' on page 10 undefined on input line 275.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+
+LaTeX Warning: Citation `Longo2021' on page 10 undefined on input line 290.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--291
+
+ []
+
+
+LaTeX Warning: Citation `Blasiak2012' on page 10 undefined on input line 294.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--295
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--303
+
+ []
+
+
+LaTeX Warning: Citation `Taber2009' on page 10 undefined on input line 304.
+
+
+LaTeX Warning: Citation `Tenachi2023' on page 10 undefined on input line 304.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
+
+ []
+
+
+LaTeX Warning: Citation `Angeline1994' on page 11 undefined on input line 322.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 322--323
+
+ []
+
+
+LaTeX Warning: Citation `Liddle2009' on page 11 undefined on input line 324.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--331
 
  []
 
@@ -1182,7 +1020,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 337--338
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
 
  []
 
@@ -1191,309 +1029,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 345--346
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--348
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.384 \\
+        
+? 
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.385 
+      
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--388
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--388
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
-
- []
-
-! Undefined control sequence.
-l.351 \subsubsectio
-                   {Best polynomial fit: }
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 353--354
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 377--378
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--382
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.389 ...e columns of matrix M using numpy.column_
-                                                  stack. The dependent varia...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.390 
-      
-? 
-
-Overfull \hbox (528.75195pt too wide) in paragraph at lines 389--390
-\OT1/ptm/m/n/10 the columns of ma-trix M us-ing numpy.column$[]\OML/cmm/m/it/10
- tack:Thedependentvariable[]sunitvectorformsvectorb:try:::exceptKeyErrorblocksp
-roviderobusterrorhandling; raisinginformativeValueErrorsifanyvariabledefinition
-isabsent:$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.391 ...itivity enhances usability. numpy.column_
-                                                  stack offers performance. ...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.392 
-      
-? 
-
-Overfull \hbox (290.4593pt too wide) in paragraph at lines 391--392
-[]\OT1/ptm/m/n/10 Design Ra-tio-nale: Case-insensitivity en-hances us-abil-ity.
- numpy.column$[]\OML/cmm/m/it/10 tackoffersperformance:Expliciterrorhandlingpre
-ventsdownstreamfailuresduetomissingunitdata:[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.398 ...ates the null space basis U of M using M_
-                                                  sym.nullspace(), which ide...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.399 
-      
-? 
-
-Overfull \hbox (725.54509pt too wide) in paragraph at lines 398--399
-\OT1/ptm/m/n/10 M$[]\OML/cmm/m/it/10 ym:nullspace\OT1/cmr/m/n/10 ()\OML/cmm/m/i
-t/10 ; whichidentifiesthecombinationsformingdimensionlessgroups:Thefunctionretu
-rnsthesymbolicsolutionvectorpandalistofsymbolicbasisvectorsU:TheuseofSymPyensur
-esprecisionandfacilitatesfindingphysicallyinterpretablerationalexponents:[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 398--399
-
- []
-
-[13]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.402     Finding the "Unit-Fixing" Part (p = M_
-                                                sym.LUsolve(b_sym)):
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.403 
-      
-? 
-
-! LaTeX Error: Unicode character ᵢ (U+1D62)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.404 ... powers (p) of your input variables (xᵢ
-                                                  ) that you need to multipl...
-
-? 
-
-! LaTeX Error: Unicode character Π (U+03A0)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.404 ...�) that you need to multiply together (Π
-                                                   xᵢ^pᵢ) so that the re...
-
-? 
-
-! LaTeX Error: Unicode character ᵢ (U+1D62)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.404 ...at you need to multiply together (Π xᵢ
-                                                  ^pᵢ) so that the result ...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.404 ...t you need to multiply together (Π xᵢ^
-                                                  pᵢ) so that the result h...
-
-? 
-
-! LaTeX Error: Unicode character ᵢ (U+1D62)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.404 ...u need to multiply together (Π xᵢ^pᵢ
-                                                  ) so that the result has t...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.405 
-      
-? 
-
-! LaTeX Error: Unicode character ⁻ (U+207B)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.406 ...xample, if the target is Force ([M L T⁻
-                                                  ²]) and inputs are mass (...
-
-? 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
-06.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-
-! LaTeX Error: Unicode character ⁻ (U+207B)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.406 ...responding to mass¹ * length¹ * time⁻
-                                                  ².
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.410 ... the "Dimensionless Combinations" (U = M_
-                                                  sym.nullspace()):
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.411 
-      
-? 
-
-! LaTeX Error: Unicode character Π (U+03A0)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.414 ...combine powers of the input variables (Π
-                                                   xᵢ^uᵢ) such that the ...
-
-? 
-
-! LaTeX Error: Unicode character ᵢ (U+1D62)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.414 ...ne powers of the input variables (Π xᵢ
-                                                  ^uᵢ) such that the units...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.414 ...e powers of the input variables (Π xᵢ^
-                                                  uᵢ) such that the units ...
-
-? 
-
-! LaTeX Error: Unicode character ᵢ (U+1D62)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.414 ...wers of the input variables (Π xᵢ^uᵢ
-                                                  ) such that the units comp...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.415 
-      
-? 
-
-Overfull \hbox (659.78522pt too wide) in paragraph at lines 414--415
-[]\OT1/ptm/m/n/10 The func-tion finds all the fun-da-men-tal ways (U) you can c
-om-bine pow-ers of the in-put vari-ables ( x$[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/1
-0 suchthattheunitscompletelycancelout; resultinginadimensionlessquantity:Eachve
-ctorinUrepresentstheexponentsforonesuchfundamentaldimensionlessgroup:$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 422--423
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.426 ...on converts original physical data (data_
-                                                  x, data_y) into a dimensio...
-
+l.426 ... displacement is within the range of [\pi
+                                                  , -\pi] radians.\\
 ? 
 ! Missing $ inserted.
 <inserted text> 
@@ -1502,658 +1087,320 @@ l.427
       
 ? 
 
-Overfull \hbox (86.37694pt too wide) in paragraph at lines 426--427
-\OT1/ptm/m/n/10 his func-tion con-verts orig-i-nal phys-i-cal data (data$[]\OML
-/cmm/m/it/10 ; data[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 intoadimensionlessformus
-ingpreviouslycalculatedexponents\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p; U\OT1/cmr/
-m/n/10 )\OML/cmm/m/it/10 :$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.428 ...it Works: First, it calculates a scaling_
-                                                  factor for each data point...
-
-? 
-! Double subscript.
-l.428 ...actor to create the dimensionless data_y_
-                                                  prime. If dimensionless gr...
-
-? 
-! Double subscript.
-l.428 ...hese are stacked (np.vstack) into data_x_
-                                                  prime. If U is empty, data...
-
-? 
-! Double subscript.
-l.428 ...anged. It returns the transformed data_x_
-                                                  prime and data_y_prime.\\
-? 
-! Double subscript.
-l.428 ... the transformed data_x_prime and data_y_
-                                                  prime.\\
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.429 
-      
-? 
-
-Overfull \hbox (2080.99942pt too wide) in paragraph at lines 428--429
-[]\OT1/ptm/m/n/10 How it Works: First, it cal-cu-lates a scaling$[]\OML/cmm/m/i
-t/10 actorforeachdatapointbyraisinginputvariables\OT1/cmr/m/n/10 (\OML/cmm/m/it
-/10 data[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 tothepowersspecifiedinp\OT1/cmr/m/n
-/10 (\OML/cmm/m/it/10 usingnp:float[]ower\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 andm
-ultiplyingtheresults\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 np:prod\OT1/cmr/m/n/10 )\
-OML/cmm/m/it/10 :Theoriginaldependentdata\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 data
-[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 isdividedbythisfactortocreatethedimensionle
-ssdata[][]rime:Ifdimensionlessgroupsexist\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Uisn
-otempty\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; itcalculateseachnewdimensionlessinde
-pendentvariablebyraisingdata[]tothepowersineachvectorufromUandmultiplying:These
-arestacked\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 np:vstack\OT1/cmr/m/n/10 )\OML/cmm/
-m/it/10 intodata[][]rime:IfUisempty; data[]remainsunchanged:Itreturnsthetransfo
-rmeddata[][]rimeanddata[][]rime:[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 428--429
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
 
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.432 ... independent variable names (independent_
-                                                  vars) and the exponent vec...
 
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.433 
-      
-? 
+Underfull \hbox (badness 10000) in paragraph at lines 430--433
 
-Overfull \hbox (168.53375pt too wide) in paragraph at lines 432--433
-\OT1/ptm/m/n/10 for-ma-tion. It ac-cepts the orig-i-nal in-de-pen-dent vari-abl
-e names (independent$[]\OML/cmm/m/it/10 ars\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 an
-dtheexponentvectorsforscaling\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10
- )\OML/cmm/m/it/10 anddimensionlessgroups\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 U\OT
-1/cmr/m/n/10 )\OML/cmm/m/it/10 :$ 
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.434 ...structs the symbolic expression symbolic_
-                                                  p representing the unit-fi...
 
-? 
+Underfull \hbox (badness 10000) in paragraph at lines 434--437
 
-! LaTeX Error: Unicode character Π (U+03A0)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--454
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 455--459
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 460--464
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--475
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--487
+
+ []
+
+[14] [15]
+
+! LaTeX Error: Unicode character − (U+2212)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.434 ...enting the unit-fixing scaling factor (Π
-                                                   xᵢ^pᵢ) via sp.Mul. Su...
+l.581 suitedf orlarge −
+                          scalesymbolicf ilteringtaskswherestrictmathematica...
 
 ? 
 
-! LaTeX Error: Unicode character ᵢ (U+1D62)
+Overfull \hbox (26.61543pt too wide) in paragraph at lines 580--585
+\OT1/ptm/m/n/10 The fil-tere xpres-sionsf unc-tion-pro-gram-mat-i-cal-lyf il-te
+rssym-bo-l-ic-ex-pres-sion-sus-ingstruc-tura-land-se-man-tic-constraints.Lev
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 626--630
+
+ []
+
+
+! LaTeX Error: Unicode character ′ (U+2032)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.434 ...g the unit-fixing scaling factor (Π xᵢ
-                                                  ^pᵢ) via sp.Mul. Subsequ...
+l.639 ...mpy.columns tack.T hedependentvariable′
+                                                   sunitvectorf ormsvectorb....
 
 ? 
 
-! LaTeX Error: Unicode character ᵢ (U+1D62)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.434 ... unit-fixing scaling factor (Π xᵢ^pᵢ
-                                                  ) via sp.Mul. Subsequently...
-
-? 
-
-! LaTeX Error: Unicode character Π (U+03A0)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.434 ...pression for each dimensionless group (Π
-                                                   xᵢ^uᵢ) and appending ...
-
-? 
-
-! LaTeX Error: Unicode character ᵢ (U+1D62)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.434 ...ion for each dimensionless group (Π xᵢ
-                                                  ^uᵢ) and appending it to...
-
-? 
-
-! LaTeX Error: Unicode character ᵢ (U+1D62)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.434 ...or each dimensionless group (Π xᵢ^uᵢ
-                                                  ) and appending it to the ...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.435 
-      
-? 
-
-Overfull \hbox (13.07578pt too wide) in paragraph at lines 434--435
-\OT1/ptm/m/n/10 these sym-bols and the scal-ing ex-po-nents p, it con-structs t
-he sym-bolic ex-pres-sion symbolic$[]\OML/cmm/m/it/10 representingtheunit \OMS/
-cmsy/m/n/10 ^^@
- []
-
-
-Overfull \hbox (1211.48654pt too wide) in paragraph at lines 434--435
-\OML/cmm/m/it/10 fixingscalingfactor\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/c
-mr/m/n/10 )\OML/cmm/m/it/10 viasp:Mul:Subsequently; ititeratesthrougheachexpone
-ntvectoruinU; buildingthecorrespondingsymbolicexpressionforeachdimensionlessgro
-up\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 andapp
-endingittothelistsymbolic[]:ThefunctionreturnsthesingleSymPyexpressionsymbolic[
-]andthelistofSymPyexpressionssymbolic[]:Thisprovidesthemathematicaldefinitionsf
-orthetransformation:[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.442 ...rful, universal function approximator (f_
-                                                  NN) capable of learning in...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.443 
-      
-? 
-
-Overfull \hbox (806.48203pt too wide) in paragraph at lines 440--443
-\OT1/ptm/m/n/10 The neu-ral net-work pro-vides a pow-er-ful, uni-ver-sal func-t
-ion ap-prox-i-ma-tor (f$[]\OML/cmm/m/it/10 N\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 c
-apableoflearningintricatepatternsdirectlyfromdata:Crucially; thistrainedf[]Nyie
-ldsasmooth; differentiablerepresentation:Thisdifferentiabilityisessentialforena
-blingthesubsequent; moreadvancedphysics \OMS/cmsy/m/n/10 ^^@
- []
-
-
-Overfull \hbox (343.29483pt too wide) in paragraph at lines 440--443
-\OML/cmm/m/it/10 inspiredsimplificationtechniqueslikesymmetrydetection; separab
-ilityanalysis; andcompositionalitychecks; whichrelyonevaluatingthefunctionandit
-sgradientsatarbitrarypoints:[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 440--443
-
- []
-
-[14]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.447 Technical Implementation: The constructor (_
-                                                  _init__) initializes the n...
-
-? 
-! Missing { inserted.
-<to be read again> 
-                   _
-l.447 ...nical Implementation: The constructor (__
-                                                  init__) initializes the ne...
-
-? 
-! Missing { inserted.
-<to be read again> 
-                   _
-l.447 ...Implementation: The constructor (__init__
-                                                  ) initializes the network ...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.448 
-      
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.448 
-      
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.448 
-      
-? 
-
-Overfull \hbox (1560.983pt too wide) in paragraph at lines 447--448
-[]\OT1/ptm/m/n/10 Technical Im-ple-men-ta-tion: The con-struc-tor ($[]$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.453 ...rocesses raw input and output data (data_
-                                                  x, data_y) into a format s...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.454 
-      
-? 
-
-Overfull \hbox (242.48389pt too wide) in paragraph at lines 453--454
-\OT1/ptm/m/n/10 This func-tion pre-pro-cesses raw in-put and out-put data (data
-$[]\OML/cmm/m/it/10 ; data[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 intoaformatsuitab
-leforPyTorchmodeltrainingandvalidation; creatingefficientdataiterators:$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.455 ...y converting the input NumPy arrays data_
-                                                  x and data_y into PyTorch ...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.456 
-      
-? 
-
-Overfull \hbox (1226.057pt too wide) in paragraph at lines 455--456
-[]\OT1/ptm/m/n/10 Technical Im-ple-men-ta-tion: It be-gins by con-vert-ing the 
-in-put NumPy ar-rays data$[]\OML/cmm/m/it/10 anddata[]intoPyTorchtensorsoftypet
-orch:float\OT1/cmr/m/n/10 32\OML/cmm/m/it/10 :Crucially; y[]ensorisreshapedusin
-g:unsqueeze\OT1/cmr/m/n/10 (1)\OML/cmm/m/it/10 toensureithasdimensions\OT1/cmr/
-m/n/10 [\OML/cmm/m/it/10 N; \OT1/cmr/m/n/10 1](\OML/cmm/m/it/10 Nsamples; \OT1/
-cmr/m/n/10 1\OML/cmm/m/it/10 outputfeature\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; c
-ompatiblewithtypicalregressionlossfunctions:Thedataisthenpartitionedintotrainin
-gandvalidationsetsbasedonthetrain[]plitratio\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 d
-efaultingto\OT1/cmr/m/n/10 80$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--458
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.464 ...el.parameters() and setting the learning_
-                                                  rate. The Mean Squared Err...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.465 
-      
-? 
-
-Overfull \hbox (3414.59406pt too wide) in paragraph at lines 464--465
-\OT1/ptm/m/n/10 to the model.parameters() and set-ting the learning$[]\OML/cmm/
-m/it/10 ate:TheMeanSquaredErrorloss\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 nn:MSELoss
-\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; suitableforregression; ischosenastheobjecti
-vefunction:Thecorelogicresidesinaloopiteratingforaspecifiednumberofepochs:Withi
-neachepoch; themodelissettotrainingmode\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 model:
-train\OT1/cmr/m/n/10 ())\OML/cmm/m/it/10 :Ittheniteratesthroughbatchesprovidedb
-ythetrain[]oader; movingeachbatchtothedevice:Foreachbatch; itperformsaforwardpa
-sstogetpredictions; calculatestheloss; clearspreviousgradients\OT1/cmr/m/n/10 (
-\OML/cmm/m/it/10 optimizer:zero[]rad\OT1/cmr/m/n/10 ())\OML/cmm/m/it/10 ; compu
-tesnewgradientsviabackpropagation\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 loss:backwar
-d\OT1/cmr/m/n/10 ())\OML/cmm/m/it/10 ; andupdatesmodelparameters\OT1/cmr/m/n/10
- (\OML/cmm/m/it/10 optimizer:step\OT1/cmr/m/n/10 ())\OML/cmm/m/it/10 :Afterproc
-essingalltrainingbatches; themodelswitchestoevaluationmode\OT1/cmr/m/n/10 (\OML
-/cmm/m/it/10 model:eval\OT1/cmr/m/n/10 ())\OML/cmm/m/it/10 andgradientcalculati
-onsaredisabled\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 torch:no[]rad\OT1/cmr/m/n/10 ()
-)\OML/cmm/m/it/10 forefficiency:Itthenevaluatesthelossontheval[]oaderbatches:Av
-eragetrainingandvalidationlossesarecalculatedandprintedperepoch:$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.466 ...normalization (if present). The torch.no_
-                                                  grad() context during vali...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.467 
-      
-? 
-
-Overfull \hbox (771.73758pt too wide) in paragraph at lines 466--467
-\OT1/ptm/m/n/10 lay-ers like dropout or batch nor-mal-iza-tion (if present). Th
-e torch.no$[]\OML/cmm/m/it/10 rad\OT1/cmr/m/n/10 ()\OML/cmm/m/it/10 contextduri
-ngvalidationpreventsunnecessarygradientcomputations; savingresources:Monitoring
-bothtrainingandvalidationlossiscrucialfordiagnosingissueslikeoverfittinganddete
-rminingtrainingduration:[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 466--467
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.470 ...ed model, input data as a NumPy array (x_
-                                                  numpy), and the target com...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.471 
-      
-? 
-
-Overfull \hbox (115.68744pt too wide) in paragraph at lines 470--471
-\OT1/ptm/m/n/10 in-put data. It is de-signed to take a trained model, in-put da
-ta as a NumPy ar-ray (x$[]\OML/cmm/m/it/10 umpy\OT1/cmr/m/n/10 )\OML/cmm/m/it/1
-0 ; andthetargetcomputationdevice\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 cpu[]or[]c
-uda[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.472 ...ministic output. The input NumPy array x_
-                                                  numpy is then converted in...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.473 
-      
-? 
-
-Overfull \hbox (49.3834pt too wide) in paragraph at lines 472--473
-\OT1/ptm/m/n/10 fer-ence, en-sur-ing de-ter-min-is-tic out-put. The in-put NumP
-y ar-ray x$[]\OML/cmm/m/it/10 umpyisthenconvertedintoatorch:Tensorwithdtype \OT
-1/cmr/m/n/10 =
- []
-
-
-Overfull \hbox (34.3351pt too wide) in paragraph at lines 472--473
-\OML/cmm/m/it/10 torch:float\OT1/cmr/m/n/10 32\OML/cmm/m/it/10 andtransferredto
-thespecifieddevice:Thecorepredictionstepoccurswithinawithtorch:no[]rad\OT1/cmr/
-m/n/10 () :
- []
-
-
-Overfull \hbox (1674.37576pt too wide) in paragraph at lines 472--473
-\OML/cmm/m/it/10 contextmanager:Thisdisablesgradientcalculation; significantlyr
-educingmemoryconsumptionandspeedingupcomputation; asgradientsareunnecessaryduri
-nginference:Insidethiscontext; theinputtensorx[]ensorispassedthroughthemodeltoo
-btainthepredictiontensor:Finally; thepredictiontensorismovedbacktotheCPUusing:c
-pu\OT1/cmr/m/n/10 ()(\OML/cmm/m/it/10 ifitwasonaGPU\OT1/cmr/m/n/10 )\OML/cmm/m/
-it/10 andconvertedbackintoaNumPyarrayusing:numpy\OT1/cmr/m/n/10 ()\OML/cmm/m/it
-/10 forcompatibilitywithotherPythonlibrariesorfurtherprocessingoutsidePyTorch:$
- 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.474 ...mpatibility with the model. The torch.no_
-                                                  grad() context optimizes p...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.475 
-      
-? 
-
-Overfull \hbox (0.79614pt too wide) in paragraph at lines 474--475
-\OT1/ptm/m/n/10 torch.no$[]\OML/cmm/m/it/10 rad\OT1/cmr/m/n/10 ()\OML/cmm/m/it/
-10 contextoptimizesperformanceforinference:ReturningaNumPyarrayprovidesauser \O
-MS/cmsy/m/n/10 ^^@
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 481--482
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 483--484
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.489 Technical Implementation: The constructor (_
-                                                  _init__) initializes each ...
-
-? 
-! Missing { inserted.
-<to be read again> 
-                   _
-l.489 ...nical Implementation: The constructor (__
-                                                  init__) initializes each P...
-
-? 
-! Missing { inserted.
-<to be read again> 
-                   _
-l.489 ...Implementation: The constructor (__init__
-                                                  ) initializes each Point i...
-
-? 
-! Missing { inserted.
-<to be read again> 
-                   _
-l.489 ..., e.g., a SymPy object or string). The __
-                                                  repr__ method provides a s...
-
-? 
-! Missing { inserted.
-<to be read again> 
-                   _
-l.489 ..., a SymPy object or string). The __repr__
-                                                   method provides a standar...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.490 
-      
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.490 
-      
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.490 
-      
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.490 
-      
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.490 
-      
-? 
-
-Overfull \hbox (1410.71101pt too wide) in paragraph at lines 489--490
-[]\OT1/ptm/m/n/10 Technical Im-ple-men-ta-tion: The con-struc-tor ($[]$ 
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.494 The update_
-                 pareto_points function maintains a Pareto frontier of symbo...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.495 
-      
-? 
-
-Overfull \hbox (1021.71672pt too wide) in paragraph at lines 494--495
-\OT1/ptm/m/n/10 The update$[]\OML/cmm/m/it/10 areto[]ointsfunctionmaintainsaPar
-etofrontierofsymbolicexpressions; balancingcomplexity\OT1/cmr/m/n/10 (\OML/cmm/
-m/it/10 modelsimplicity\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 andloss\OT1/cmr/m/n/10
- (\OML/cmm/m/it/10 predictionerror\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :Eachpointi
-satuple\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 complexity; loss; expression\OT1/cmr/m
-/n/10 )\OML/cmm/m/it/10 :Newexpressions\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 withkn
-ownlossvalues\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 areevaluatedfortheircomplexityus
-ingcalculate[]omplexity; thenaddedtothecurrentlistofpoints:$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 634--642
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 506--507
+Underfull \hbox (badness 10000) in paragraph at lines 675--677
 
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.512 .... Further customization using fig.update_
-                                                  traces enhances point visi...
 
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.513 
-      
+! LaTeX Error: Unicode character − (U+2212)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.685 ...pression symbolicp representingtheunit−
+                                                  
 ? 
 
-Overfull \hbox (403.64389pt too wide) in paragraph at lines 512--513
-\OT1/ptm/m/n/10 the text ar-gu-ment. Fur-ther cus-tomiza-tion us-ing fig.update
-$[]\OML/cmm/m/it/10 racesenhancespointvisibility\OT1/cmr/m/n/10 (\OML/cmm/m/it/
-10 markersize; color\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 andlabelpositioning\OT1/c
-mr/m/n/10 (\OML/cmm/m/it/10 textposition\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :fig:
-update[]ayoutadjustsbackgroundaestheticsforclarity:$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 514--515
+Underfull \hbox (badness 10000) in paragraph at lines 682--688
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 521--522
+Underfull \hbox (badness 10000) in paragraph at lines 692--696
+
+ []
+
+[17]
+Overfull \hbox (3.82637pt too wide) in paragraph at lines 700--708
+\OT1/ptm/m/n/10 Py-Torch. Tech-ni-cal Im-ple-men-ta-tion: The con-struc-tor (i 
+nit) ini-tial-izes-thenet-work-struc-ture,acceptingthenumberof
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 700--708
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 712--719
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 722--733
+
+ []
+
+
+! LaTeX Error: Unicode character ′ (U+2032)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.738 ... umpy), andthetargetcomputationdevice(′
+                                                   cpu′ or′
+? 
+
+! LaTeX Error: Unicode character ′ (U+2032)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.738 ... andthetargetcomputationdevice(′ cpu′
+                                                   or′
+? 
+
+! LaTeX Error: Unicode character ′ (U+2032)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.738 ...etargetcomputationdevice(′ cpu′ or′
+                                                  
+? 
+
+! LaTeX Error: Unicode character − (U+2212)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.745 ...ce.ReturningaN umP yarrayprovidesauser−
+                                                  
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 737--747
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 751--764
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 768--779
+
+ []
+
+
+Overfull \hbox (36.66545pt too wide) in paragraph at lines 783--790
+\OT1/ptm/m/n/10 The up-datep are-top ointsf unc-tion-main-tain-saP aretof ron-t
+ierof sym-bo-l-ic-ex-pres-sions, bal-anc-ing-com-plex-ity(modelsimplicit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 783--790
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 794--799
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 803--816
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 835--839
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 842--843
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 846--847
+
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 854.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 874--875
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 876--877
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 881--882
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 883--884
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 891--892
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 893--896
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 897--898
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 901--902
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 903--904
 
  []
 
 No file FinalReport.bbl.
-[17] (./FinalReport.aux) ) 
+[22] [23] (./FinalReport.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 16863 strings out of 476091
- 346290 string characters out of 5794081
- 1865330 words of memory out of 5000000
- 36952 multiletter control sequences out of 15000+600000
- 524988 words of font info for 55 fonts, out of 8000000 for 9000
+ 16906 strings out of 476091
+ 346969 string characters out of 5794081
+ 1867330 words of memory out of 5000000
+ 36973 multiletter control sequences out of 15000+600000
+ 531758 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,94p,1207b,200s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8
-r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
-mes/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on FinalReport.pdf (17 pages, 167562 bytes).
+ 99i,12n,94p,957b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmri8a.pfb>
+Output written on FinalReport.pdf (23 pages, 217680 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 158 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

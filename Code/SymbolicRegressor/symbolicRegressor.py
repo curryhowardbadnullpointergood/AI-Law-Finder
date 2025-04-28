@@ -13,22 +13,16 @@ import bruteForce as bf
 
 
 
-# main symbolic regression loop, for f = ma 
 
 def solveFma():
-    # generating data 
     x, y = gd.generate_force_data()
-    # dimensional analysis 
     independent = ['mass', 'acceleration']
     dependent = 'force'
     M, b = da.get_matrix_target(independent, dependent, UNIT_TABLE)
-    # solving dimensions 
     p, U = da.solveDimension(M, b)
     
 
 def solve_general( data, target, variables, coefficients, operators, constants, power, independentVars, targetVars, degree, epchos):
-    # this attempts to solve the expression: 
-    # starting with dimensional Analysis 
     print("##############################################################################")
     print("Trying Dimensional Analysis: ")
     print("##############################################################################")
@@ -56,13 +50,11 @@ def solve_general( data, target, variables, coefficients, operators, constants, 
         if (len(constants)) == 1:
             print("Symbolic Result:")
             print("##############################################################################")
-            #print(targetVars + '=' +  symbolic_U)
             print(targetVars + ' = ' )
             print(constants[0] * symbolic_p) 
         else: 
             print("Symbolic Result:")
             print("##############################################################################")
-            #print(targetVars + '=' +  symbolic_U)
             print(targetVars + ' = ' )
             print(symbolic_p) 
 
@@ -329,79 +321,5 @@ degree = 2
 epchos = 50 
 solve_general(data, target, variables, coefficients, operators, constants, power, indepVars, tarVars, degree, epchos)
 
-# double pendulum 
 
 
-# defining symbols 
-theta1, theta2 = sp.symbols('theta1 theta2')        
-theta1_dot, theta2_dot = sp.symbols('theta1_dot theta2_dot') 
-theta1_ddot, theta2_ddot = sp.symbols('theta1_ddot theta2_ddot') 
-l1, l2 = sp.symbols('l1 l2')      
-m1, m2 = sp.symbols('m1 m2')     
-g = sp.symbols('g')
-
-variables_eq1 = [
-    'theta1', 'theta2', 'theta2_dot', 'theta1_ddot', 'theta2_ddot', 'l1', 'l2', 'm1', 'm2', 'g'
-]
-
-variables_eq2 = [
-    'theta1', 'theta2', 'theta1_dot', 'theta1_ddot', 'theta2_ddot', 'l1', 'l2', 'm2', 'g'
-]
-
-n_samples = 40
-
-theta1 = np.random.uniform(-np.pi, np.pi, n_samples)
-theta2 = np.random.uniform(-np.pi, np.pi, n_samples)
-theta1_dot = np.random.uniform(-5, 5, n_samples)
-theta2_dot = np.random.uniform(-5, 5, n_samples)
-theta1_ddot = np.random.uniform(-10, 10, n_samples)  
-theta2_ddot = np.random.uniform(-10, 10, n_samples)
-l1 = np.random.uniform(0.5, 2.0, n_samples)
-l2 = np.random.uniform(0.5, 2.0, n_samples)
-m1 = np.random.uniform(0.5, 5.0, n_samples)
-m2 = np.random.uniform(0.5, 5.0, n_samples)
-g = np.full(n_samples, 9.81)  # constant gravity
-
-# === Step 2: Build x1 (input for first equation) ===
-x1 = np.stack([
-    theta1, theta2, theta2_dot, theta1_ddot, theta2_ddot,
-    l1, l2, m1, m2, g
-], axis=1)
-
-# === Step 3: Compute y1 (target for first equation) ===
-y1 = (
-    (m1 + m2)*l1*theta1_ddot
-    + m2*l2*theta2_ddot*np.cos(theta1 - theta2)
-    + m2*l2*theta2_dot**2*np.sin(theta1 - theta2)
-    + (m1 + m2)*g*np.sin(theta1)
-)
-
-# === Step 4: Build x2 (input for second equation) ===
-x2 = np.stack([
-    theta1, theta2, theta1_dot, theta1_ddot, theta2_ddot,
-    l1, l2, m2, g
-], axis=1)
-
-# === Step 5: Compute y2 (target for second equation) ===
-y2 = (
-    m2*l2*theta2_ddot
-    + m2*l1*theta1_ddot*np.cos(theta1 - theta2)
-    - m2*l1*theta1_dot**2*np.sin(theta1 - theta2)
-    + m2*g*np.sin(theta2)
-)
-
-print("DOUBLE PENDULUM: ")
-operators = ['+', '-', '*']
-degree = 4
-constants = []
-variables_simple = ['theta1', 'theta2', 'theta2_dot', 'theta1_ddot', 'theta2_ddot'] 
-ex = bf.fast_recursive_expressions(operators, variables_simple, constants, degree)
-print(ex)
-exFiltered = bf.symmetrical_property(ex)
-print("Filtered: ")
-print(exFiltered)
-exFilVar = bf.variable_check(exFiltered, variables_eq1)
-print("Variables filter: ")
-print(exFilVar)
-
-print("-")

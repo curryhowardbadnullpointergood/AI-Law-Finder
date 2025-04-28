@@ -25,36 +25,29 @@ const (
 )
 
 type Expr struct {
-	Type ExprType
-	// For VAR or CONST
-	VarName    string
-	ConstValue int
-	// For OP
+	Type        ExprType
+	VarName     string
+	ConstValue  int
 	Op          OperatorType
 	Left, Right *Expr
 }
 
-// Parameters
 const (
-	maxExpressionsPerDepth = 50000 // Limit per depth to avoid explosion
-	numWorkers             = 24    // Number of goroutines
-	maxDepth               = 1     // Maximum depth of expressions
+	maxExpressionsPerDepth = 50000
+	numWorkers             = 24
+	maxDepth               = 1
 )
 
-// Global
 var operators = []OperatorType{ADD, SUB, MUL, POW}
 
-// Create variable node
 func createVar(name string) *Expr {
 	return &Expr{Type: VAR, VarName: name}
 }
 
-// Create constant node
 func createConst(value int) *Expr {
 	return &Expr{Type: CONST, ConstValue: value}
 }
 
-// Create operator node
 func createOp(op OperatorType, left, right *Expr) *Expr {
 	return &Expr{
 		Type:  OP,
@@ -64,28 +57,22 @@ func createOp(op OperatorType, left, right *Expr) *Expr {
 	}
 }
 
-// Job struct
 type job struct {
 	a, b *Expr
 }
 
-// Worker to process jobs
 func worker(jobs <-chan job, results chan<- *Expr, wg *sync.WaitGroup) {
 	defer wg.Done()
 
 	for pair := range jobs {
 		a, b := pair.a, pair.b
 		for _, op := range operators {
-			//if op == DIV && b.Type == CONST && b.ConstValue == 0 {
-			//	continue // Avoid division by zero
-			// }
 			expr := createOp(op, a, b)
 			results <- expr
 		}
 	}
 }
 
-// Print expression recursively
 func printExpression(e *Expr) {
 	if e == nil {
 		return
@@ -133,8 +120,6 @@ func stringifyExpression(e *Expr) string {
 			opSymbol = "-"
 		case MUL:
 			opSymbol = "*"
-		//case DIV:
-		//	opSymbol = "/"
 		case POW:
 			opSymbol = "^"
 		}
@@ -145,7 +130,6 @@ func stringifyExpression(e *Expr) string {
 }
 
 func main() {
-	// Step 1: Setup symbols (variables/constants)
 	symbols := []*Expr{}
 
 	vars := []string{
@@ -168,7 +152,6 @@ func main() {
 
 	expressions := symbols
 
-	// Step 2: Build expressions up to maxDepth
 	for depth := 0; depth < maxDepth; depth++ {
 		fmt.Printf("Building depth %d...\n", depth+1)
 
@@ -177,13 +160,11 @@ func main() {
 
 		var wg sync.WaitGroup
 
-		// Start workers
 		for i := 0; i < numWorkers; i++ {
 			wg.Add(1)
 			go worker(jobs, results, &wg)
 		}
 
-		// Feed jobs (pairs of expressions)
 		go func() {
 			for i := 0; i < len(expressions); i++ {
 				for j := 0; j < len(expressions); j++ {
@@ -193,13 +174,11 @@ func main() {
 			close(jobs)
 		}()
 
-		// Close results after all workers done
 		go func() {
 			wg.Wait()
 			close(results)
 		}()
 
-		// Collect new expressions
 		nextExpressions := []*Expr{}
 		for expr := range results {
 			nextExpressions = append(nextExpressions, expr)
@@ -208,12 +187,10 @@ func main() {
 			}
 		}
 
-		// Move to next layer
 		expressions = nextExpressions
 		fmt.Printf("Depth %d: %d expressions generated.\n", depth+1, len(expressions))
 	}
 
-	// Step 3: Print first 50 expressions
 	fmt.Println("\nSample expressions:")
 	count := 0
 	for _, expr := range expressions {

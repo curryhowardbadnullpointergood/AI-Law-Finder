@@ -14,20 +14,19 @@ class Point:
 
 def calculate_complexity(expr):
     if expr.is_Symbol:
-        return 1  # Variable
+        return 1  
     elif expr.is_Number:
-        return 1 if expr == 1 or expr == 0 else 2  # Constants
+        return 1 if expr == 1 or expr == 0 else 2 
     elif expr.is_Add:
-        return sum(calculate_complexity(arg) for arg in expr.args) + 1  # +1 for the 'Add' node
+        return sum(calculate_complexity(arg) for arg in expr.args) + 1  
     elif expr.is_Mul:
-        return sum(calculate_complexity(arg) for arg in expr.args) + 1  # +1 for the 'Mul' node
+        return sum(calculate_complexity(arg) for arg in expr.args) + 1 
     elif expr.is_Pow:
         base, exp = expr.args
-        return calculate_complexity(base) + calculate_complexity(exp) + 1  # +1 for 'Pow'
+        return calculate_complexity(base) + calculate_complexity(exp) + 1 
     elif isinstance(expr, Function):
-        return sum(calculate_complexity(arg) for arg in expr.args) + 2  # +2 for functions like sin, log, etc.
+        return sum(calculate_complexity(arg) for arg in expr.args) + 2  
     else:
-        # Fallback: assume some complexity for unknown structures
         return 5
 
 def dominates(a, b):

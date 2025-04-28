@@ -36,7 +36,6 @@ max_degree = 2
 
 r = pf.generate_expressions(coefficients, variables, operators, 1)
 print(r)
-#re = pf.filter_expressions(r, variables, coefficients, 1)
 ree = pf.evaluate_expressions(r, variables, x, y )
 print("eval")
 print(ree)

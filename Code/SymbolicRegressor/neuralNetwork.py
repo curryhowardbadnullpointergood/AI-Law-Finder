@@ -51,10 +51,8 @@ def prepare_data(data_x, data_y, batch_size, train_split=0.8):
 
 
 def train_network(model, train_loader, val_loader, epochs, learning_rate, device):
-    # Move model to device
     model = model.to(device)
 
-    # Optimizer and loss function
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
     loss_fn = nn.MSELoss()
 
@@ -65,11 +63,9 @@ def train_network(model, train_loader, val_loader, epochs, learning_rate, device
         for x_batch, y_batch in train_loader:
             x_batch, y_batch = x_batch.to(device), y_batch.to(device)
 
-            # Forward pass
             predictions = model(x_batch)
             loss = loss_fn(predictions, y_batch)
 
-            # Backward pass
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
@@ -78,7 +74,6 @@ def train_network(model, train_loader, val_loader, epochs, learning_rate, device
 
         train_loss /= len(train_loader.dataset)
 
-        # Validation loop
         model.eval()
         val_loss = 0.0
         with torch.no_grad():
@@ -101,17 +96,12 @@ def train_network(model, train_loader, val_loader, epochs, learning_rate, device
 
 
 def predict(model, x_numpy, device):
-    # Ensure the model is in evaluation mode
     model.eval()
-
-    # Convert input to a torch tensor and move to device
     x_tensor = torch.tensor(x_numpy, dtype=torch.float32).to(device)
 
     with torch.no_grad():
-        # Make predictions
         predictions = model(x_tensor)
 
-    # Move the predictions to CPU and convert to NumPy
     return predictions.cpu().numpy()
 
 
@@ -119,16 +109,12 @@ def predict(model, x_numpy, device):
 
 
 def get_gradient(model, x_numpy, device):
-    # Set the model to evaluation mode
     model.eval()
 
-    # Convert input to a torch tensor, move to device, and enable gradient tracking
     x_tensor = torch.tensor(x_numpy, dtype=torch.float32, requires_grad=True).to(device)
 
-    # Forward pass
     output = model(x_tensor)
 
-    # Compute gradients of the output w.r.t. inputs
     gradients = torch.autograd.grad(
         outputs=output,
         inputs=x_tensor,
@@ -137,7 +123,6 @@ def get_gradient(model, x_numpy, device):
         retain_graph=False
     )[0]
 
-    # Return gradients as a NumPy array
     return gradients.cpu().numpy()
 
 

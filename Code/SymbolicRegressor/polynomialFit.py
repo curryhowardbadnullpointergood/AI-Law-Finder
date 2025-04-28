@@ -1,7 +1,6 @@
 import numpy as np 
 import sympy as sp
 import itertools
-# sanity check to make sure data array and variables are legit
 def load_data(data_array, variables):
 
     num_cols = data_array.shape[1]
@@ -13,7 +12,6 @@ def load_data(data_array, variables):
     return data_array
 
 
-# generate polynimial expressions
 def generate_expressions(coeffs, variables, operators, max_degree):
 
     vars_syms = [sp.Symbol(v) for v in variables]
@@ -46,7 +44,6 @@ def generate_expressions(coeffs, variables, operators, max_degree):
 def filter_expressions(expressions, required_vars, required_constants, required_power):
     result = []
 
-    # Convert variable names to sympy Symbols
     required_vars = {sp.Symbol(v) for v in required_vars}
 
     for expr in expressions:
@@ -74,29 +71,6 @@ def filter_expressions(expressions, required_vars, required_constants, required_
     return result
 
 
-#def filter_expressions(expr_list, required_vars, required_constants, required_power):
-#    filtered = []
-
-#    required_vars #= set(sp.Symbol(v) for v in required_vars)
-#    for expr in expr_list:
-#        vars_in_expr = expr.free_symbols
-#        if not required_vars.issubset(vars_in_expr):
-#            continue
-
-  #      if any(not any(isinstance(sub, const) for sub in sp.preorder_traversal(expr)) for const in required_constants):
-   #         continue
-
-        
-    #    has_required_power = any(
-  #          isinstance(sub, sp.Pow) and sub.exp == required_power
-     #       for sub in expr.preorder_traversal()
-      #  )
-       # if not has_required_power:
-        #    continue
-#
- #       filtered.append(expr)
-#
- #   return filtered
 
 
 def evaluate_expressions(expressions, variables, data, y_true):
@@ -133,7 +107,6 @@ def evaluate_expressions_old(expressions, variables, X_data, y_data):
             y_pred = f_lambdified(*[X_data[:, i] for i in range(X_data.shape[1])])
             y_pred = np.array(y_pred, dtype=float).squeeze()
         except Exception as e:
-            # If the expression fails to evaluate, assign infinite loss
             losses.append(float("inf"))
             continue
 

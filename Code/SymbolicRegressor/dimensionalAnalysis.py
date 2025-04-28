@@ -107,14 +107,11 @@ def generate_dimensionless_data(data_x, data_y, p, U):
     if U:
         dimensionless_vars = []
         for u in U:
-            # Calculate new dimensionless variable: Π data_x[i, :]**u[i]
             new_var = np.prod(np.float_power(data_x, u), axis=0)
             dimensionless_vars.append(new_var)
 
-        # Stack the new dimensionless variables row-wise to form data_x_prime
         data_x_prime = np.vstack(dimensionless_vars)
     else:
-        # If U is empty, just return the original data_x_prime
         data_x_prime = data_x  # No transformation if no dimensionless groups
 
     return data_x_prime, data_y_prime

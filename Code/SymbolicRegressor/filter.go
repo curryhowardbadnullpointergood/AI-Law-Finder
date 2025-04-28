@@ -7,9 +7,7 @@ import (
 	"strings"
 )
 
-// readAndFilterExpressions reads expressions from a CSV and filters them
 func readAndFilterExpressions(filename string, requiredVars []string) ([]string, error) {
-	// Open the file
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, err

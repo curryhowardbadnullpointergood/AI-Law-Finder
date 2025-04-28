@@ -6,18 +6,14 @@ from functools import lru_cache
 # this is the brute force file tries to brute force to fit the data 
 
 
-# symbols gloabl var so that the same computation doesn't have to be run over and over 
-# symbols = [] 
 
 
 
-# this takes in a numpy array of variables and target 
 def load_data(x: np.ndarray, y: np.ndarray, var_names):
     assert x.shape[1] == len(var_names)
     return x, y, [sp.Symbol(v) for v in var_names]
 
 
-# generates the expression 
 def generate_expressions(variables, constants, operators, max_depth):
     
     
@@ -65,7 +61,7 @@ def fast_recursive_expressions(operators, variables, constants, max_depth=3):
                         elif op == '*':
                             exprs.append(a * b)
                         elif op == '/':
-                            if not b.equals(0):  # avoid divide by zero
+                            if not b.equals(0): 
                                 exprs.append(a / b)
                         elif op == '**':
                             if (not b.is_number) or (b.is_number and b.is_real and abs(float(b)) < 5):  # avoid crazy exponents
@@ -115,7 +111,6 @@ def evaluate_expressions(expressions, variables, X, y_true):
     for expr in expressions:
         y_pred = evaluate_expression(expr, variables, X)
         
-        # Skip if evaluation failed
         if np.isnan(y_pred).any():
             continue
         
@@ -125,7 +120,6 @@ def evaluate_expressions(expressions, variables, X, y_true):
     return results
 
 
-# this evaluates a single expression that you pass to it 
 def evaluate_expression(expression, variables, X): 
     
     symbols = [sp.Symbol(v) for v in variables]
@@ -138,10 +132,7 @@ def evaluate_expression(expression, variables, X):
     
     
 
-# this evaluated the loss. 
 def evaluate_loss(result, original):
-
-    # mean error description length first 
     print("Calculating Mean Error Description Length: ")
     mean_error_descripton_length(result, original)
 
@@ -173,14 +164,10 @@ def mean_error_descripton_length(result, original):
 
 
 
-# exploits the symmertrical properties of physical equations in oder to even half the search space 
 def symmetrical_property(expression):
-    # removes duplicate expressions 
     expList = list(set(expression))
     return expList
     
-# sofurther pruning the search space through remove all the expression if it does not contain all the variables given to it. 
-# must always call the getvars method before this else it won't work 
 def variable_check(expressions, variables):
     temp_vars = [sp.Symbol(v) for v in variables] 
     temp_vars = set(temp_vars)
@@ -192,12 +179,10 @@ def generate_recursive_constant_nesting(expr, constants, max_depth):
     if max_depth == 0:
         return {expr}
 
-    # Apply each constant to current expression
     for const in constants:
         applied = const(expr)
     results.add(applied)
 
-        # Recursively apply other constants to the result
     deeper = generate_recursive_constant_nesting(applied, constants, max_depth - 1)
     results.update(deeper)
 
@@ -205,21 +190,14 @@ def generate_recursive_constant_nesting(expr, constants, max_depth):
 
 
 def apply_constants_fully_symmetric(expressions, constants, max_depth=2):
-    """
-    Applies all permutations and nested combinations of constant functions to expressions.
-    Includes sin(cos(expr)), cos(sin(expr)), etc.
-    """
     final_results = set()
 
     for expr in expressions:
-        # Include base expr
         final_results.add(expr)
 
-        # Fully nested const combinations
         for const in constants:
             final_results.update(generate_recursive_constant_nesting(expr, constants, max_depth))
 
-        # Add argument-level permutations (like sin(a) * cos(b))
         if not expr.is_Atom:
             args = expr.args
             combos = product(constants, repeat=len(args))
@@ -383,19 +361,15 @@ def apply_constants_version2(expressions, constants, depth=1):
     return list(final_results)
 
 
-# so this is for constants 
 def apply_constants_version_1(expressions, constants):
-    # constants = [sp.Symbol(c) for c in constants] 
-    # print(constants)
     results = set()
 
     for expr in expressions:
         for const in constants:
-            # Always include const(expr) as multiplication-like
             results.add(const(expr))
 
             if expr.is_Atom:
-                continue  # can't split it further
+                continue 
 
             args = expr.args
             combos = product([False, True], repeat=len(args))
@@ -414,7 +388,6 @@ def apply_constants_version_1(expressions, constants):
 
     return list(results)
 
-# powers, so apply powers to expressions
 def apply_powers(expressions, powers, max_depth=2):
     def recursive_powers(expr, depth):
         results = set()
@@ -425,7 +398,6 @@ def apply_powers(expressions, powers, max_depth=2):
             powered = expr ** power
             results.add(powered)
 
-            # Recurse: apply powers to the new powered expr
             deeper = recursive_powers(powered, depth - 1)
             results.update(deeper)
 
@@ -441,7 +413,6 @@ def apply_powers(expressions, powers, max_depth=2):
 
 
 
-# filters expressions such that only those will all inputted constants are left from a list of expressions 
 
 def filterConstant(expressions, constants):
     def has_all_constants(expr):
@@ -450,13 +421,11 @@ def filterConstant(expressions, constants):
 
     return [expr for expr in expressions if has_all_constants(expr)]
 
-# gets the variables and turns it into sympy symbols 
 def get_vars(variables):
     symbols = [sp.Symbol(v) for v in variables]
     return
 
 
-# filters powers from expressions
 def filter_powers(expressions, target_powers):
     filtered = []
 
@@ -476,18 +445,15 @@ def filter_powers_old(expressions, target_powers):
     filtered = []
 
     for expr in expressions:
-        # If it's a power expression
         if expr.is_Pow:
             base, exp = expr.args
             if exp in target_powers:
                 filtered.append(expr)
-        # Optionally, include expr**1 if you want 1 treated as a "power"
         elif 1 in target_powers:
             filtered.append(expr)
 
     return filtered
 
-# filter so that only one constant appears once 
 def filter_single_constant(expressions, constants):
     filtered = []
 

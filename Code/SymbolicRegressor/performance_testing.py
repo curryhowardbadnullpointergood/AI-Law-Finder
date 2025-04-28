@@ -2,11 +2,9 @@ import time
 import psutil
 import os
 import numpy as np
-import torch # Assuming torch is used by neuralNetwork
+import torch 
 import sympy as sp
 
-# Import necessary functions from your modules
-# Add error handling in case some modules are not fully implemented yet
 try:
     import neuralNetwork as nn
     NN_AVAILABLE = True
@@ -24,7 +22,6 @@ except ImportError:
 try:
     import dimensionalAnalysis as da
     DA_AVAILABLE = True
-    # Define a dummy UNIT_TABLE if needed by DA functions and not globally accessible
     if not hasattr(da, 'UNIT_TABLE'):
          da.UNIT_TABLE = {
             'mass': [1, 0, 0], 'length': [0, 1, 0], 'time': [0, 0, 1],
@@ -35,20 +32,14 @@ except ImportError:
     print("Warning: dimensionalAnalysis module not found or incomplete. Skipping DA tests.")
     DA_AVAILABLE = False
 
-# --- Helper Function to Get Memory Usage ---
 def get_memory_usage_mb():
     """Returns the resident set size (RSS) memory usage of the current process in MB."""
     process = psutil.Process(os.getpid())
     mem_info = process.memory_info()
-    return mem_info.rss / (1024 * 1024) # Convert bytes to MB
+    return mem_info.rss / (1024 * 1024) 
 
-# --- Test Functions ---
 
 def performance_test_nn_training(sample_sizes=[100, 1000, 5000], epochs=5):
-    """
-    Measures training time and memory usage for the Neural Network
-    with varying sample sizes.
-    """
     if not NN_AVAILABLE:
         print("Skipping NN Training Performance Test.")
         return
@@ -60,14 +51,11 @@ def performance_test_nn_training(sample_sizes=[100, 1000, 5000], epochs=5):
     for n_samples in sample_sizes:
         print(f"\nTesting with {n_samples} samples...")
 
-        # 1. Generate synthetic data
         n_features = 5
         data_x = np.random.rand(n_samples, n_features).astype(np.float32)
-        # Simple linear target for testing
         coeffs = np.random.rand(n_features)
         data_y = (data_x @ coeffs).astype(np.float32)
 
-        # 2. Prepare data loaders and model
         try:
             train_loader, val_loader = nn.prepare_data(data_x, data_y, batch_size=64)
             model = nn.SymbolicNetwork(n_input=n_features, n_output=1)
@@ -75,14 +63,12 @@ def performance_test_nn_training(sample_sizes=[100, 1000, 5000], epochs=5):
             print(f"  Error during NN setup for {n_samples} samples: {e}")
             continue
 
-        # 3. Measure Time and Memory
         mem_before = get_memory_usage_mb()
         process = psutil.Process(os.getpid())
         cpu_before = process.cpu_times()
         start_time = time.perf_counter()
 
         try:
-            # Run training (use 'cpu' for consistent testing unless GPU is specifically tested)
             nn.train_network(model, train_loader, val_loader, epochs=epochs, learning_rate=1e-3, device='cpu')
         except Exception as e:
             print(f"  Error during NN training for {n_samples} samples: {e}")
@@ -104,14 +90,12 @@ def performance_test_nn_training(sample_sizes=[100, 1000, 5000], epochs=5):
         print(f"  Memory Increase: {mem_increase:.2f} MB")
         results[n_samples] = {'time_s': duration, 'cpu_s': cpu_used, 'mem_mb': mem_used}
 
-    # 4. Analyze results (Example interpretation)
     print("\nExample Interpretation:")
     if len(results) > 1:
         sizes = sorted(results.keys())
         time_ratio = results[sizes[-1]]['time_s'] / results[sizes[0]]['time_s']
         size_ratio = sizes[-1] / sizes[0]
         print(f"  Time scaled by ~{time_ratio:.2f}x for a {size_ratio:.2f}x increase in sample size.")
-        # Add more sophisticated analysis like fitting a line if needed
     print("-" * 40)
     return results
 
@@ -124,23 +108,16 @@ except ImportError as e:
     print(f"Error: Failed to import bruteForce module: {e}")
     print("Please ensure bruteForce.py is in the Python path.")
     BF_AVAILABLE = False
-    sys.exit(1) # Exit if the core module can't be imported
+    sys.exit(1) 
 
-# --- Helper Function ---
 def get_memory_usage_mb():
-    """Returns the resident set size (RSS) memory usage of the current process in MB."""
     process = psutil.Process(os.getpid())
     mem_info = process.memory_info()
-    return mem_info.rss / (1024 * 1024) # Convert bytes to MB
+    return mem_info.rss / (1024 * 1024)
 
-# --- Test Function: Expression Generation ---
 def performance_test_bf_generation(depths=[2, 3, 4],
                                    variables=['x', 'y'],
                                    operators=['+', '*', '-']):
-    """
-    Measures time and memory usage for brute force expression generation
-    at different maximum depths.
-    """
     if not BF_AVAILABLE:
         print("Skipping Brute Force Generation Performance Test (module not available).")
         return
@@ -148,7 +125,7 @@ def performance_test_bf_generation(depths=[2, 3, 4],
     print("\n--- Performance Test: Brute Force Expression Generation ---")
     print(f"Testing with variables={variables}, operators={operators}")
     results = {}
-    constants = [] # Keep constants empty for focus on structural complexity
+    constants = []
 
     for depth in depths:
         print(f"\nTesting with max_depth={depth}...")
@@ -157,9 +134,6 @@ def performance_test_bf_generation(depths=[2, 3, 4],
         start_time = time.perf_counter()
 
         try:
-            # --- Call the generation function ---
-            # NOTE: fast_recursive_expressions uses lru_cache internally.
-            # Each call creates a new inner function scope, so cache is fresh per depth.
             generated_expressions = bf.fast_recursive_expressions(
                 operators=operators,
                 variables=variables,
@@ -167,11 +141,9 @@ def performance_test_bf_generation(depths=[2, 3, 4],
                 max_depth=depth
             )
             num_expressions = len(generated_expressions)
-            # --- End of measured section ---
 
         except Exception as e:
             print(f"  Error during BF generation for depth={depth}: {e}")
-            # If generation fails (e.g., runs out of memory), record failure
             end_time = time.perf_counter()
             mem_after = get_memory_usage_mb()
             duration = end_time - start_time
@@ -182,13 +154,13 @@ def performance_test_bf_generation(depths=[2, 3, 4],
             print(f"  Memory Usage at failure: {mem_used:.2f} MB")
             print(f"  Memory Increase before failure: {mem_increase:.2f} MB")
             results[depth] = {'time_s': duration, 'mem_mb': mem_used, 'num_expr': -1, 'status': 'failed'}
-            continue # Skip to next depth
+            continue 
 
         end_time = time.perf_counter()
         mem_after = get_memory_usage_mb()
 
         duration = end_time - start_time
-        mem_used = mem_after # Total memory after generation
+        mem_used = mem_after 
         mem_increase = mem_after - mem_before
 
         print(f"  Max Depth: {depth}")
@@ -198,16 +170,14 @@ def performance_test_bf_generation(depths=[2, 3, 4],
         print(f"  Memory Increase: {mem_increase:.2f} MB")
         results[depth] = {'time_s': duration, 'mem_mb': mem_used, 'num_expr': num_expressions, 'status': 'success'}
 
-        # Optional: Add a check for excessive time/memory and break early
-        if duration > 60: # Example: Stop if a depth takes over a minute
+        if duration > 60: 
              print(f"  Stopping generation tests early: Depth {depth} took > 60 seconds.")
              break
-        if mem_increase > 1024: # Example: Stop if memory increase exceeds 1GB
+        if mem_increase > 1024: 
              print(f"  Stopping generation tests early: Depth {depth} increased memory by > 1024 MB.")
              break
 
 
-    # --- Analysis ---
     print("\nGeneration Performance Summary:")
     last_num_expr = 0
     last_time = 0
@@ -228,14 +198,9 @@ def performance_test_bf_generation(depths=[2, 3, 4],
     return results
 
 
-# --- Test Function: Expression Evaluation ---
 def performance_test_bf_evaluation(sample_sizes=[100, 1000, 10000],
                                    n_expressions_to_eval=50,
                                    generation_depth=3):
-    """
-    Measures evaluation time for a fixed number of Brute Force expressions
-    with varying sample sizes.
-    """
     if not BF_AVAILABLE:
         print("Skipping Brute Force Evaluation Performance Test (module not available).")
         return
@@ -244,7 +209,6 @@ def performance_test_bf_evaluation(sample_sizes=[100, 1000, 10000],
     print(f"Evaluating {n_expressions_to_eval} expressions (generated up to depth {generation_depth})")
     results = {}
 
-    # --- 1. Generate a pool of expressions first ---
     print("Generating expression pool...")
     eval_vars = ['x', 'y', 'z']
     eval_ops = ['+', '*', '-']
@@ -255,9 +219,7 @@ def performance_test_bf_evaluation(sample_sizes=[100, 1000, 10000],
             constants=[],
             max_depth=generation_depth
         )
-        expression_pool = list(set(expression_pool)) # Unique
-        # Optional: Filter for expressions containing all variables
-        # expression_pool = bf.variable_check(expression_pool, eval_vars)
+        expression_pool = list(set(expression_pool))
 
         if len(expression_pool) < n_expressions_to_eval:
             print(f"  Warning: Generated only {len(expression_pool)} unique expressions.")
@@ -275,42 +237,36 @@ def performance_test_bf_evaluation(sample_sizes=[100, 1000, 10000],
         print(f"  Error generating expression pool: {e}. Skipping evaluation test.")
         return
 
-    # --- 2. Test evaluation with varying sample sizes ---
     for n_samples in sample_sizes:
         print(f"\nTesting evaluation with {n_samples} samples...")
 
-        # Generate synthetic data
         n_features = len(eval_vars)
         try:
-            # Use float64 for potentially better numerical stability in sympy/numpy
-            X_data = np.random.rand(n_samples, n_features).astype(np.float64) * 10.0 + 0.1 # Avoid zeros
-            y_true = np.random.rand(n_samples).astype(np.float64) # Dummy target
+            X_data = np.random.rand(n_samples, n_features).astype(np.float64) * 10.0 + 0.1
+            y_true = np.random.rand(n_samples).astype(np.float64) 
         except MemoryError:
             print(f"  MemoryError generating data for {n_samples} samples. Skipping.")
             results[n_samples] = {'time_s': -1, 'status': 'data_oom'}
             continue
 
 
-        # Measure Time for evaluation
         start_time = time.perf_counter()
         try:
-            # --- Call the evaluation function ---
             evaluation_results = bf.evaluate_expressions(
                 expressions=expressions_to_test,
                 variables=eval_vars,
                 X=X_data,
                 y_true=y_true
             )
-            # --- End of measured section ---
             status = 'success'
         except MemoryError:
              print(f"  MemoryError during evaluation for {n_samples} samples.")
              status = 'eval_oom'
-             evaluation_results = [] # No results if OOM
+             evaluation_results = [] 
         except Exception as e:
             print(f"  Error during BF evaluation for {n_samples} samples: {e}")
             status = 'eval_error'
-            evaluation_results = [] # No results if error
+            evaluation_results = [] 
 
         end_time = time.perf_counter()
         duration = end_time - start_time
@@ -322,12 +278,10 @@ def performance_test_bf_evaluation(sample_sizes=[100, 1000, 10000],
              print(f"  Evaluated expressions (successfully): {len(evaluation_results)}")
         results[n_samples] = {'time_s': duration, 'status': status}
 
-        # Optional: Stop early if evaluation takes too long
-        if duration > 120: # Stop if evaluation takes > 2 minutes
+        if duration > 120:
             print(f"  Stopping evaluation tests early: {n_samples} samples took > 120 seconds.")
             break
 
-    # --- Analysis ---
     print("\nEvaluation Performance Summary:")
     last_time = 0
     last_n_samples = 0
@@ -341,7 +295,7 @@ def performance_test_bf_evaluation(sample_sizes=[100, 1000, 10000],
          if res['status'] == 'success':
              last_time = res['time_s']
              last_n_samples = n_samples
-         else: # Reset comparison point if a test failed
+         else: 
              last_time = 0
              last_n_samples = 0
 
@@ -362,7 +316,6 @@ def performance_test_da_transformation(sample_sizes=[1000, 10000, 100000]):
     print("\n--- Performance Test: Dimensional Analysis Transformation ---")
     results = {}
 
-    # Setup for DA (e.g., F = m*a)
     independent_vars = ['mass', 'acceleration']
     dependent_var = 'force'
     try:
@@ -376,17 +329,14 @@ def performance_test_da_transformation(sample_sizes=[1000, 10000, 100000]):
     for n_samples in sample_sizes:
         print(f"\nTesting with {n_samples} samples...")
 
-        # 1. Generate synthetic physical data
         n_features = len(independent_vars)
         data_x = np.random.rand(n_features, n_samples) + 0.1 # Avoid zeros
         data_y = np.prod(data_x, axis=0) # Dummy target y = x1*x2...
 
-        # 2. Measure Time and Memory
         mem_before = get_memory_usage_mb()
         start_time = time.perf_counter()
 
         try:
-            # Perform the transformation
             _, _ = da.generate_dimensionless_data(data_x, data_y, p_exp_np, U)
         except Exception as e:
             print(f"  Error during DA transformation for {n_samples} samples: {e}")
@@ -405,7 +355,6 @@ def performance_test_da_transformation(sample_sizes=[1000, 10000, 100000]):
         print(f"  Memory Increase: {mem_increase:.2f} MB")
         results[n_samples] = {'time_s': duration, 'mem_mb': mem_used}
 
-    # 3. Analyze results
     print("\nExample Interpretation:")
     if len(results) > 1:
         sizes = sorted(results.keys())
@@ -414,7 +363,6 @@ def performance_test_da_transformation(sample_sizes=[1000, 10000, 100000]):
         size_ratio = sizes[-1] / sizes[0]
         print(f"  Transformation time scaled by ~{time_ratio:.2f}x for a {size_ratio:.2f}x increase in sample size.")
         print(f"  Memory usage scaled by ~{mem_ratio:.2f}x for a {size_ratio:.2f}x increase in sample size.")
-        # Expect near linear scaling for both time and memory with N
     print("-" * 40)
     return results
 
@@ -428,30 +376,23 @@ except ImportError as e:
     print(f"Error: Failed to import polynomialFit module: {e}")
     print("Please ensure polynomialFit.py is in the Python path.")
     PF_AVAILABLE = False
-    sys.exit(1) # Exit if the core module can't be imported
+    sys.exit(1)
 
-# --- Helper Function ---
 def get_memory_usage_mb():
     """Returns the resident set size (RSS) memory usage of the current process in MB."""
     process = psutil.Process(os.getpid())
     mem_info = process.memory_info()
-    return mem_info.rss / (1024 * 1024) # Convert bytes to MB
+    return mem_info.rss / (1024 * 1024)
 
-# --- Test Function: Expression Generation ---
 def performance_test_pf_generation(max_degrees=[1, 2, 3],
                                    num_variables=3,
                                    operators=['+', '*']):
-    """
-    Measures time and memory usage for polynomial expression generation
-    with varying maximum degrees.
-    """
     if not PF_AVAILABLE:
         print("Skipping Polynomial Fit Generation Performance Test (module not available).")
         return
 
     print("\n--- Performance Test: Polynomial Fit Expression Generation ---")
     variables = [f'x{i}' for i in range(num_variables)]
-    # Use dummy coefficients (e.g., all 1s) for structure
     coeffs = [1] * num_variables
     print(f"Testing with num_variables={num_variables}, operators={operators}")
     results = {}
@@ -463,7 +404,6 @@ def performance_test_pf_generation(max_degrees=[1, 2, 3],
         start_time = time.perf_counter()
 
         try:
-            # --- Call the generation function ---
             generated_expressions = pf.generate_expressions(
                 coeffs=coeffs,
                 variables=variables,
@@ -471,11 +411,9 @@ def performance_test_pf_generation(max_degrees=[1, 2, 3],
                 max_degree=degree
             )
             num_expressions = len(generated_expressions)
-            # --- End of measured section ---
             status = 'success'
 
         except MemoryError:
-            # Handle potential out-of-memory errors for high degrees/vars
             end_time = time.perf_counter()
             mem_after = get_memory_usage_mb()
             duration = end_time - start_time
@@ -485,7 +423,7 @@ def performance_test_pf_generation(max_degrees=[1, 2, 3],
             print(f"  Time Elapsed before failure: {duration:.4f} seconds")
             print(f"  Memory Usage at failure: {mem_used:.2f} MB")
             results[degree] = {'time_s': duration, 'mem_mb': mem_used, 'num_expr': -1, 'status': 'oom'}
-            continue # Skip to next degree
+            continue 
 
         except Exception as e:
             end_time = time.perf_counter()
@@ -497,14 +435,14 @@ def performance_test_pf_generation(max_degrees=[1, 2, 3],
             print(f"  Time Elapsed before failure: {duration:.4f} seconds")
             print(f"  Memory Usage at failure: {mem_used:.2f} MB")
             results[degree] = {'time_s': duration, 'mem_mb': mem_used, 'num_expr': -1, 'status': 'error'}
-            continue # Skip to next degree
+            continue
 
 
         end_time = time.perf_counter()
         mem_after = get_memory_usage_mb()
 
         duration = end_time - start_time
-        mem_used = mem_after # Total memory after generation
+        mem_used = mem_after
         mem_increase = mem_after - mem_before
 
         print(f"  Max Degree: {degree}")
@@ -514,16 +452,13 @@ def performance_test_pf_generation(max_degrees=[1, 2, 3],
         print(f"  Memory Increase: {mem_increase:.2f} MB")
         results[degree] = {'time_s': duration, 'mem_mb': mem_used, 'num_expr': num_expressions, 'status': 'success'}
 
-        # Optional: Add a check for excessive time/memory and break early
-        # Polynomial generation complexity grows very rapidly with degree and num_vars
-        if duration > 60: # Stop if a degree takes over a minute
+        if duration > 60: 
              print(f"  Stopping generation tests early: Degree {degree} took > 60 seconds.")
              break
-        if mem_increase > 1024: # Stop if memory increase exceeds 1GB
+        if mem_increase > 1024: 
              print(f"  Stopping generation tests early: Degree {degree} increased memory by > 1024 MB.")
              break
 
-    # --- Analysis ---
     print("\nGeneration Performance Summary:")
     last_num_expr = 0
     last_time = 0
@@ -532,7 +467,6 @@ def performance_test_pf_generation(max_degrees=[1, 2, 3],
         if res['status'] == 'success':
             print(f"  Degree {degree}: {res['num_expr']} expressions, {res['time_s']:.4f}s, {res['mem_mb']:.2f}MB total mem")
             if last_num_expr > 0:
-                # Avoid division by zero if previous step failed or generated 0 expressions
                 expr_ratio = (res['num_expr'] / last_num_expr) if last_num_expr else float('inf')
                 time_ratio = (res['time_s'] / last_time) if last_time else float('inf')
                 print(f"    -> Expr Ratio (vs D{degree-1}): {expr_ratio:.2f}x, Time Ratio: {time_ratio:.2f}x")
@@ -540,7 +474,6 @@ def performance_test_pf_generation(max_degrees=[1, 2, 3],
             last_time = res['time_s']
         else:
             print(f"  Degree {degree}: Failed ({res['status']}) after {res['time_s']:.4f}s, {res['mem_mb']:.2f}MB total mem")
-            # Reset comparison point if a test failed
             last_num_expr = 0
             last_time = 0
 
@@ -548,15 +481,10 @@ def performance_test_pf_generation(max_degrees=[1, 2, 3],
     return results
 
 
-# --- Test Function: Expression Evaluation ---
 def performance_test_pf_evaluation(sample_sizes=[100, 1000, 10000],
                                    num_variables=3,
                                    generation_degree=2,
                                    operators=['+', '*']):
-    """
-    Measures evaluation time for a fixed pool of Polynomial Fit expressions
-    with varying sample sizes.
-    """
     if not PF_AVAILABLE:
         print("Skipping Polynomial Fit Evaluation Performance Test (module not available).")
         return
@@ -567,7 +495,6 @@ def performance_test_pf_evaluation(sample_sizes=[100, 1000, 10000],
     print(f"Generating expression pool (degree={generation_degree}, vars={num_variables})...")
     results = {}
 
-    # --- 1. Generate a fixed pool of expressions first ---
     try:
         expression_pool = pf.generate_expressions(
             coeffs=eval_coeffs,
@@ -575,7 +502,6 @@ def performance_test_pf_evaluation(sample_sizes=[100, 1000, 10000],
             operators=operators,
             max_degree=generation_degree
         )
-        # Make unique, although generate_expressions might already do simplification
         expression_pool = list(set(expression_pool))
         n_expressions_to_eval = len(expression_pool)
 
@@ -588,15 +514,11 @@ def performance_test_pf_evaluation(sample_sizes=[100, 1000, 10000],
         print(f"  Error generating expression pool: {e}. Skipping evaluation test.")
         return
 
-    # --- 2. Test evaluation with varying sample sizes ---
     for n_samples in sample_sizes:
         print(f"\nTesting evaluation with {n_samples} samples...")
 
-        # Generate synthetic data
         try:
-            # Use float64 for potentially better numerical stability
             X_data = np.random.rand(n_samples, num_variables).astype(np.float64) * 5.0 + 0.1 # Avoid zeros/extremes
-            # Generate a dummy target based on a simple polynomial
             target_coeffs = np.random.rand(num_variables)
             y_true = X_data @ target_coeffs + np.sum(X_data**2, axis=1) # Example: linear + quadratic term
             y_true = y_true.astype(np.float64)
@@ -609,18 +531,14 @@ def performance_test_pf_evaluation(sample_sizes=[100, 1000, 10000],
              results[n_samples] = {'time_s': -1, 'status': 'data_error'}
              continue
 
-        # Measure Time for evaluation
         start_time = time.perf_counter()
         try:
-            # --- Call the evaluation function ---
-            # Note: pf.evaluate_expressions uses lambdify internally
             evaluation_results = pf.evaluate_expressions(
                 expressions=expression_pool,
                 variables=eval_vars,
                 data=X_data, # Pass data directly as expected by the function
                 y_true=y_true
             )
-            # --- End of measured section ---
             status = 'success'
         except MemoryError:
              print(f"  MemoryError during evaluation for {n_samples} samples.")
@@ -638,16 +556,13 @@ def performance_test_pf_evaluation(sample_sizes=[100, 1000, 10000],
         print(f"  Evaluation Time: {duration:.4f} seconds")
         print(f"  Status: {status}")
         if status == 'success':
-             # Check how many expressions evaluated without error (lambdify can fail)
              print(f"  Evaluated expressions (successfully): {len(evaluation_results)}/{n_expressions_to_eval}")
         results[n_samples] = {'time_s': duration, 'status': status}
 
-        # Optional: Stop early if evaluation takes too long
-        if duration > 120: # Stop if evaluation takes > 2 minutes
+        if duration > 120: 
             print(f"  Stopping evaluation tests early: {n_samples} samples took > 120 seconds.")
             break
 
-    # --- Analysis ---
     print("\nEvaluation Performance Summary:")
     last_time = 0
     last_n_samples = 0
@@ -661,7 +576,7 @@ def performance_test_pf_evaluation(sample_sizes=[100, 1000, 10000],
          if res['status'] == 'success':
              last_time = res['time_s']
              last_n_samples = n_samples
-         else: # Reset comparison point if a test failed
+         else:
              last_time = 0
              last_n_samples = 0
 
@@ -671,13 +586,10 @@ def performance_test_pf_evaluation(sample_sizes=[100, 1000, 10000],
 
 
 
-# --- Main Execution Block ---
 if __name__ == "__main__":
     print("Starting Performance Tests...")
 
-    # Run the tests
     nn_results = performance_test_nn_training(sample_sizes=[100, 500, 1500], epochs=3)
-    # bf_results = performance_test_bf_evaluation(sample_sizes=[100, 1000, 5000], n_expressions=15, depth=2)
     da_results = performance_test_da_transformation(sample_sizes=[1000, 10000, 50000])
 
     if not BF_AVAILABLE:
@@ -687,19 +599,16 @@ if __name__ == "__main__":
         print(" Starting Brute Force Performance Tests")
         print("="*60)
 
-        # --- Run Generation Test ---
-        # Be cautious with depths > 4, they can take a very long time/memory
         generation_results = performance_test_bf_generation(
-            depths=[2, 3], # Start with smaller depths
+            depths=[2, 3],
             variables=['x', 'y'],
             operators=['+', '*', '-']
         )
 
-        # --- Run Evaluation Test ---
         evaluation_results = performance_test_bf_evaluation(
-            sample_sizes=[100, 1000, 5000], # Test scaling with data size
-            n_expressions_to_eval=50,      # Number of formulas to check
-            generation_depth=3             # Complexity of formulas to check
+            sample_sizes=[100, 1000, 5000],
+            n_expressions_to_eval=50,     
+            generation_depth=3           
         )
 
         print("\nPerformance Tests Completed.")
@@ -713,19 +622,16 @@ if __name__ == "__main__":
         print(" Starting Polynomial Fit Performance Tests")
         print("="*60)
 
-        # --- Run Generation Test ---
-        # Be cautious with max_degree > 3 or num_variables > 4
         generation_results = performance_test_pf_generation(
-            max_degrees=[1, 2], # Keep degrees low initially
-            num_variables=3,    # Number of input variables (e.g., x, y, z)
-            operators=['+', '*'] # Common operators
+            max_degrees=[1, 2],
+            num_variables=3,  
+            operators=['+', '*'] 
         )
 
-        # --- Run Evaluation Test ---
         evaluation_results = performance_test_pf_evaluation(
-            sample_sizes=[100, 1000, 5000], # Test scaling with data size
-            num_variables=3,               # Must match generation pool if reused
-            generation_degree=2,           # Complexity of formulas to evaluate
+            sample_sizes=[100, 1000, 5000], 
+            num_variables=3,               
+            generation_degree=2,          
             operators=['+', '*']
         )
 
