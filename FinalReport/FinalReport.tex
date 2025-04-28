@@ -427,23 +427,179 @@ The function iterates through a few hundred time steps, updating the angular vel
 
 \subsection{Noise: }
 
-In this section, I aimed to explore how noise affects the model, and potential ways to mitigate it. Continuing
-onwards from the previous model, in the data generation step, noise was artificially added, and the results were
-observed.\\
+    This section investigates the model's robustness to noise. To simulate varying levels of interference, artificial noise was systematically introduced during the data generation phase, building upon the previously established model framework. Noise was modelled by generating random numbers within a range of progressively increasing magnitude, utilizing Python's random library. The objective was to observe and quantify the degradation in model accuracy as a function of increasing noise levels, as well as explore ways to mitigate it.\\
 
-So in order to model the noise, I used the python random library, and generated random numbers between 0 and
-an ever increasing amount of randomness, in oder to guage the accuracy as noise increased for the model. I was
-also part\\
 
 \subsubsection{How noise affects the model: }
-So in order to add noise to the generated data set, I imported in random, and used the randn.int function. In order
-to vary the inputs, another function was created that incrememntally passes in higher numbers as parameters
-to the random function, allowing each set of generated data to incrememntally become more and more noisy.
-Then the symbolic regression model is run on these new data sets, and the resulting equations levels of noise
-are then plotted in a graph. Furthermore using the Time library to measure the amount of time it takes to run
-the model as the amount of random error increases.
+
+To introduce noise into the generated dataset, I imported Python’s random library and used the randint function. To systematically vary the level of noise, I created an additional function that incrementally increased the parameters passed to randint, causing each successive dataset to become progressively noisier.\\
+
+After generating these noisy datasets, the symbolic regression model was applied to each one, and the resulting equations were analyzed. The relationship between noise level and model performance was then visualized through a graph. Additionally, the time library was used to measure how long each run of the model took.\\
+
+PLOT HERE:\\
+
+\subsubsection{Denoise function: }
+
+    Following the initial noise analysis, a subsequent experiment incorporated a denoising method (implemented using a Python library) applied to the data prior to processing by the pysr model. The results, as depicted in the accompanying plot, indicate that this denoising approach improved model performance up to a specific noise threshold. However, beyond this critical level, performance degraded comparably for both the denoised and non-denoised datasets, suggesting the denoise function's effectiveness diminished at higher noise intensities.\\
+
+PLOT HERE:\\
+
+\section{Symbolic Regression from First Principles: }
+
+
+\subsection{A Brute-Force Approach: }
+
+The core and essential component of any symbolic regression model lies in its ability to generate and traverse the search space of potential equations and expressions that best fit the given data. To streamline the process and validate the functionality of my expression generation, I began by implementing simple two-variable equations, specifying the operations used within the equation. This approach was initially limited to basic operations, with plans to extend it to accommodate constants and additional complexities.\\
+
+def generate_expressions(variables, constants, operators, max_depth):
+    
+
+    symbols = [sp.Symbol(v) for v in variables] + [sp.Integer(c) for c in constants]
+    expressions = []
+    
+    for a, b in permutations(symbols, 2):
+        for op in operators:
+            try:
+                if op == '+':
+                    expressions.append(a + b)
+                elif op == '-':
+                    expressions.append(a - b)
+                elif op == '*':
+                    expressions.append(a * b)
+                elif op == '/':
+                    expressions.append(a / b)
+                elif op == '**':
+                    expressions.append(a ** b)
+            except:
+                continue
+    return expressions
+
+
+Subsequently, I refined this approach by designing a recursive method to generate expressions, allowing for the creation of more robust and diverse equations from the available variables. This process is dynamic, making it adaptable to a variety of input configurations.\\
+
+def recursive_expressions(operators, variables, constants, max_depth=10):
+    symbols = [sp.Symbol(v) for v in variables]
+
+    def build_expressions(current_depth):
+        if current_depth == 0:
+            return symbols.copy()
+
+        new_expressions = []
+        prev_expressions = build_expressions(current_depth - 1)
+
+        for a in prev_expressions:
+            for b in prev_expressions:
+                for op in operators:
+                    try:
+                        if op == '+':
+                            new_expressions.append(a + b)
+                        elif op == '-':
+                            new_expressions.append(a - b)
+                        elif op == '*':
+                            new_expressions.append(a * b)
+                        elif op == '/':
+                            new_expressions.append(a / b)
+                        elif op == '**':
+                            new_expressions.append(a ** b)
+                    except:
+                        continue
+
+        return new_expressions
+
+    all_exprs = build_expressions(max_depth)
+    return all_exprs
+
+
+\subsubsection{ Exploiting Physical Properties: }
+
+The next step involves truncating the generated expressions to prune the search tree as efficiently as possible. One effective method for achieving this is by leveraging the symmetrical properties of physical equations and recognizing their mathematical equivalence. This includes removing redundant or duplicate expressions that do not contribute new information.\\
+
+This is the approach I used to achieve this:\\
+
+
+\subsubsection{Dealing with constants:}
+
+Another approach I employed to further prune the set of generated expressions was by filtering out any expressions that did not contain all the specified variables. This step helps optimize the process by reducing the number of irrelevant expressions, ultimately saving computation time during the evaluation phase.\\
+
+
+\subsubsection{Dealing with powers:}
+
+To apply powers to expressions, I incorporated the power operation directly into the generated expressions. This not only allows for the creation of more complex models but also facilitates further pruning of the search tree by avoiding the generation of redundant expressions that already incorporate powers.\\
+
+
+def apply_powers(expressions, powers, max_depth=2):
+    def recursive_powers(expr, depth):
+        results = set()
+        if depth == 0:
+            return {expr}
+        
+        for power in powers:
+            powered = expr ** power
+            results.add(powered)
+
+            deeper = recursive_powers(powered, depth - 1)
+            results.update(deeper)
+
+        return results
+
+    all_results = set()
+    for expr in expressions:
+        all_results.add(expr)
+        all_results.update(recursive_powers(expr, max_depth))
+
+    return list(all_results)
+
+
+
+
+
+I implemented a filtering mechanism based on whether the expression included a power operation. This further reduces the size of the search tree by eliminating unnecessary branches. While a more robust model would derive this power operation from scratch, I opted for this approach to optimize computation time and maintain flexibility.\\
+
+def filter_powers(expressions, target_powers):
+    filtered = []
+
+    for expr in expressions:
+        found = any(
+            sub.is_Pow and sub.args[1] in target_powers
+            for sub in sp.preorder_traversal(expr)
+        )
+        if found:
+            filtered.append(expr)
+
+    return filtered
+
+
+
+
+
+
+\subsubsection{Chaining powers and constants:}
+
+The next step was to chain together powers and constants, applying both to the generated expressions. While the existing design already supports chaining, it is essential to properly filter the results to ensure the search tree remains as compact as possible.\\
+
+Although constants can be filtered using the existing method, the power operations are embedded within the constants, which causes the previous power filter to no longer function as expected. Consequently, I redesigned the filtering process to operate recursively, allowing it to handle both powers and constants effectively.\\
+
+
+code: \\
+
+However, this approach sometimes results in expressions that feature chained constants, such as sin(sin()). To refine the model further, I introduced an additional filter to remove expressions with multiple instances of the same constant chained together.\\
+
+
+\subsubsection{Loading data:}
+
+Next, I needed an efficient way to load the data I had created. At this stage, my primary focus was on rapid testing. To facilitate this, I initially generated some dummy data values. Afterward, I decided to store the data as a NumPy array, as this would offer significant speed advantages over using text files. Several factors contribute to this, such as NumPy arrays being stored in memory, the efficiency of the underlying binary data format, and NumPy's use of C, which allows it to vectorize operations, greatly enhancing performance.\\
+
+def load_data(x: np.ndarray, y: np.ndarray, var_names):
+    assert x.shape[1] == len(var_names)
+    return x, y, [sp.Symbol(v) for v in var_names]
+
+
+
+As shown, I perform a check to ensure that the number of variables provided matches the shape of the array X, where X represents the input data, and y represents the target data, i.e., the final result. For example, X contains the mass and acceleration values, while y contains the corresponding values of the force f as calculated by the equation f=maf=ma. This serves as a basic validation to confirm that the number of columns in the input data corresponds correctly to the variables provided.\\
+
 \subsubsection{How to mitigate noise in data: }
- Ways to mitigate the noise and it’s affects on the model were explored. Functions such as ”denoise,” in the
+
+Ways to mitigate the noise and it’s affects on the model were explored. Functions such as ”denoise,” in the
 symbolic regression library helped to some extent. However after a certain point, such methods do not seem to
 offer much assistance.\\
 I also made my own denoise algorithm. I implemented various different denoise algorithms to see what effects
@@ -462,183 +618,204 @@ and this is the pesudo code. Reword this -¿ ”Transforms data to isolate noise
 signal features effectively. More complex to understand and requires careful selection of wavelet type and pa-
 rameters for optimal results, which can be tricky.”\\
 
-\subsubsection{Modelling the noise: }
-
-\section{Symbolic Regression from Scratch: }
-\subsection{The core: }
-The core and essential part of any symbolic regression model, lies in the way it at the simplest level, generates
-and traverses the search tree of possible equations and expressions that may fit the data presented to it.
-In order to save time, and to test if my expression generation was working as intended, i have started with sim-
-ple 2 variable equaitons, and also pass in the speific operations used in the equation. Furthermore this is also
-extended to handle constants and more later on.
-enter in the pseudo code here.\\
-
-Then I further improved this, by designing a resursive way to generate these expressions, to allow to generate
-more robust equations from the given variables. Also this is dynamic, so it can
-enter in pseudo code.\\
-
-\subsubsection{ Exploiting Physical Properties: }
-
-The next step is to then start to truncate these generated expressions as much as possible to prune the search
-tree. One of the ways you can do this is through exploiting the symmertrical property of physical equations and
-how they are mathematically equivalent. Such as removing duplicate expressions.\\
-This is how I achieved that.\\
-Give pseudo code here.\\
-
-\subsubsection{Dealing with constants:}
-
-Another way i further pruned the amount of expression, is through filtering all the expressions generated through
-the newer recursive generator, by removing all the expressions that did not contain all the specified variables.
-This is in order to save further time later on during the evaluation seciton.
-Insert in pseudo code:
-
-\subsubsection{Dealing with powers:}
-So appling powers to expressions, I applied the power to the expression. This also allows you to prune the
-search tree further by not needed to generate redundant expressions with powers.
-This is the pseudo code.
-Then I filtered based on if the expression contained the power, this allows me to further prune the tree. In a more
-robust model, this is dervied from scratch, however for the sake of computation time, and flexibility, I decided
-to proceed with this approach as it saves some time.
-this is the pseudo code.
-\subsubsection{Chaining powers and constants:}
-The next step is to chain together powers and constants, such that both are applied to the expressions. It can
-already be chained as with the design it already has. However it needs to be filtered poperly in order to maintain
-the least amount of expressions possible.
-Te constants filter can be used, but the powers are inside the constants, and therefore the older power filter does
-not work as intended. Therefore i needed to redesign it such that it will function recursively.
-This is the code.
-However, sometimes this gives off constants that are chained, such as sin(sin()), and so to filter this futher, I
-want to filter out expressions with more than one instant of the constant that is chained.
-this is the code - filter single constant
-\subsubsection{Loading data:}
-
-Next I needed a way to load the data I has typed up. At this point I was focused on testing as quick as possible
-and in order to proceed in a prompt manner I made up some dummy data values. Afterwards I made the decision
-to keep the data as a numpy array, because this will be faster then a text file, there are some various reasons for
-this, such as numpy arrays being stored in memory, the efficiency of the nderlying data format it is stored in
-(binary), and finally numpy uses c, and so it vectorises operations, making it far faster.
-Insert in pseudo code.
 
 
-As you can see I check if the number of variables entered matches the shape of the arrary in X, which here is the
-input data, and y being the target data, as in the final result. Ie x contains the mass and acceleration values, and
-y is the array of the result of the equation f = ma, so it only contains the value of f in it. This is a basic check to
-make sure the number of columns all have a corresponding variable.
+
 
 \subsubsection{Evaluating expressions:}
-Next I evaluate the expressions that I had generated, and i assign the variables to a column of the data, in in-
-creasing order. Then this is substituted into the equation, and the expressions are run, and there is an array
-of outputs of the expression. This essentially evaluates every generated expressions that has been pruned, and
-returns a np arrya of the results of those expressions based on the input data.
-insert in pseudo code here.
-Then like the paper suggested, insert in paper here, I used a medium error description length loss function, and
-have implemented it in the same way as in the paper. Using error squared, making all the errors positive, and
-added 1 as a constant to ensure that all the errors are greater than the value, when taking the log.
-Insert in pseudo code.
-Then furthermore I also implemented 2 other loss algorithms, specifically root mean squared loss as well as
-mean absolute error.
-insert in pseudo code.
-This was to help bridge and improve upon the loss algorithm used in the paper, as these two have their own
-advantages, and a combined hybrid approach seemed smarter.
-Explain why later.
-\subsection{Polynomial Fit Module: }
-Now that the simple, core of the algorithm works, and is adapted to take care of contants, powers, variables,
-generate expressions, and filter out the redundancy using physical properties of the world such as symmtery,
-I now aimed to futher extend the program by writing a polynomial fit module. The aim of the polynomial fit
-technique is to.
-Why: Many functions in physics (or parts of them) are low-order polynomials.
-Why: It’s a computationally very cheap method for this specific function class.
-How: It attempts to fit the given data to a sum of polynomial terms.
-How: It generates all possible polynomial terms up to a specified low degree (e.g., degree 4).
-How: For each data point, this creates a linear equation where the unknowns are the polynomial coefficients.
-How: It solves the resulting system of linear equations using standard methods like least squares.
-How: The Root Mean Squared Error (RMSE) of the fit is calculated.
 
-How: If the RMSE is below a predefined tolerance (p ol), thepolynomialisacceptedasasolution.
-Effect: It acts as a fast base case in the recursive algorithm, quickly solving problems that are simple polynomi-
-als.
-Effect: It can also solve sub-problems that are transformed into polynomials by other modules (e.g., dimen-
-sional analysis, inverting the function).
+
+Next, I evaluate the expressions that have been generated. I assign the input variables to the corresponding columns of the data in increasing order. These values are then substituted into the expressions, and the model runs the calculations, producing an array of outputs for each expression. This process essentially evaluates every pruned expression and returns a NumPy array of results based on the input data.\\
+
+def evaluate_expression(expression, variables, X): 
+    
+    symbols = [sp.Symbol(v) for v in variables]
+    func = sp.lambdify(symbols, expression, modules='numpy')
+    try:
+        inputs = [X[:, i] for i in range(X.shape[1])]
+        return func(*inputs)
+    except Exception as e:
+        return np.full(X.shape[0], np.nan)
+    
+
+
+Following the approach outlined in the paper [insert citation here], I utilized a medium error description length loss function, implementing it as described. The error is calculated using the squared difference to ensure all errors are positive, and a constant of 1 is added to guarantee that all errors are greater than 1 when taking the logarithm.\\
+
+
+def mean_error_descripton_length(result, original):
+    result = np.array(result).flatten()
+    original = np.array(original).flatten()
+
+    total_log_error = 0.0
+    n = len(result)
+
+    for i in range(n):
+        error = abs(original[i] - result[i])
+        log_error = np.log2(1 + error ** 2)
+        total_log_error += log_error
+        print(f"Index {i}: true={original[i]}, pred={result[i]}, error={error}, log_error={log_error:.4f}")
+
+    return (total_log_error / n)
+
+
+
+
+
+
+\subsection{Polynomial Fit Module: }
+
+Now that the core of the algorithm is functional—handling constants, powers, variables, generating expressions, and filtering redundancy using physical principles like symmetry—I aimed to extend the program by implementing a polynomial fitting module. The goal of this technique is to efficiently fit data to a polynomial model, as many functions in physics (or parts of them) are well-approximated by low-order polynomials, and polynomial fitting is a computationally inexpensive method for this specific class of functions. The technique generates all possible polynomial terms up to a specified degree (e.g., degree 4) and creates a linear equation for each data point where the unknowns are the polynomial coefficients. The system of equations is solved using standard methods such as least squares, and the Root Mean Squared Error (RMSE) of the fit is calculated. If the RMSE is below a predefined tolerance (denoted as pol), the polynomial is accepted as a solution. This approach serves as a fast base case in the recursive algorithm, quickly solving problems that are simple polynomials, and it can also handle sub-problems transformed into polynomial form by other modules, such as dimensional analysis or function inversion.\\
+
 
 \subsubsection{Data Loading:}
-So to start, I began by creating the data loading function. The aim was to take in a numpy array, with the data,
-along with a list of variables. Then comparing the shape of the data column and the number of variables in order
-to make sure the input is sufficient.
-This is the pseudo code. 
+
+To begin, I developed the data loading function. The goal was to accept a NumPy array containing the data, along with a list of variables. The function then compares the shape of the data array with the number of variables provided to ensure that the input is consistent and sufficient for further processing.\\
+
+
+def load_data(data_array, variables):
+
+    num_cols = data_array.shape[1]
+    num_vars = len(variables)
+
+    if num_cols != num_vars:
+        raise ValueError(f"Data has {num_data_cols} columns but {num_vars} variables were provided.")
+
+    return data_array
+
+
 
 
 \subsubsection{Generating polynomial expressions:}
 
-Then the next step is to generate polynomaial expressions, and then it will return a list of polynomial expres-
-sions on the list.
-Pseudo conclude
+The next step involves generating polynomial expressions. The function returns a list of polynomial expressions based on the input coefficients, variables, and operators, considering a specified maximum degree for the terms.\\
+
+The function works by first creating symbolic representations for the variables. It then iterates over all possible combinations of powers for the variables up to the specified degree and combines these terms using the provided operators. Finally, the generated expressions are simplified and returned as a list.\\
+
+
+def generate_expressions(coeffs, variables, operators, max_degree):
+
+    vars_syms = [sp.Symbol(v) for v in variables]
+
+    expressions = []
+
+
+    for powers in itertools.product(range(1, max_degree + 1), repeat=len(vars_syms)):
+        terms = [c * (v ** p) for c, v, p in zip(coeffs, vars_syms, powers)]
+        for ops in itertools.product(operators, repeat=len(terms) - 1):
+            expr = terms[0]
+            for op, term in zip(ops, terms[1:]):
+                if op == '+':
+                    expr = expr + term
+                elif op == '-':
+                    expr = expr - term
+                elif op == '*':
+                    expr = expr * term
+                elif op == '/':
+                    expr = expr / term
+            expressions.append(sp.simplify(expr))
+
+    return expressions
+
+
 
 
 \subsubsection{Filtering the Polynomial expressions:}
 
+The filter_expressions function programmatically filters symbolic expressions based on both structural and semantic constraints. It is particularly suited for large-scale symbolic filtering tasks where strict mathematical structures must be enforced.\\
 
-The filtere xpressionsf unctionprogrammaticallyf ilterssymbolicexpressionsusingstructuralandsemanticconstraints.Lev
-suitedf orlarge − scalesymbolicf ilteringtaskswherestrictmathematicalstructuremustbeenf orced.
-insert in pseudo code.
-This initial version only worked for symblic constants, ie sin, cos etc, and didn’t work for numbers, or nteger
-coefficients, i caught this error during testing and I rewrote the function so that it works for integer coefficients
+The initial version of this function worked for symbolic constants (e.g., sin, cos, etc.) but failed to handle numbers or integer coefficients. This issue was identified during testing, prompting me to rewrite the function so that it could also handle integer coefficients properly.\\
+
+def filter_expressions(expressions, required_vars, required_constants, required_power):
+    result = []
+
+    required_vars = {sp.Symbol(v) for v in required_vars}
+
+    for expr in expressions:
+        symbols_ok = required_vars.issubset(expr.free_symbols)
+
+        if not all(
+            any(
+                (isinstance(sub, const) if isinstance(const, type)
+                 else sub == const)
+                for sub in sp.preorder_traversal(expr)
+            )
+            for const in required_constants
+        ):
+            continue
+
+
+        power_ok = any(
+            isinstance(sub, sp.Pow) and sub.exp == required_power
+            for sub in sp.preorder_traversal(expr)
+        )
+
+        if symbols_ok and power_ok:
+            result.append(expr)
+
+    return result
+
 
 
 \subsubsection{Evaluating expressions:}
 
-Now I need to take the filtered expressions, and try fit the model to the dataset np array. The model fitting
-logic function fits polynomial expressions to input data by finding the best set of coefficients that minimize the
-error between the predicted and actual output values. It tests multiple polynomial degrees (up to a specified
-maximum) and selects the one that provides the lowest error, ensuring an optimal balance between accuracy
-and complexity.
-I use root mean squared error to calculate the loss, and the funciton returns a list of loss, per expression. 
+The next step involves fitting the filtered expressions to the dataset. The model fitting function fits polynomial expressions to the input data by determining the optimal set of coefficients that minimize the error between the predicted and actual output values. It evaluates multiple polynomial degrees, up to a specified maximum, and selects the degree that results in the lowest error, thereby ensuring an optimal balance between accuracy and complexity.\\
 
-So i take an expression, then I substitute in the variables using the input data, calculate the predicted y value of
-the said equation, then take it away from the true value of y the target and then use that to calculate the rmse.
-pseudo code.
-Best polynomial fit:
-Now that I have the list of expressions and the corresponding rmse values, i pick the lowest rmse as the most
-accurate polynomial fit for the data.
-insert in pseudo code . 
+I utilize the Root Mean Squared Error (RMSE) to calculate the loss, and the function returns a list of loss values, one for each expression.\\
+
+def evaluate_expressions(expressions, variables, data, y_true):
+    results = []
+    for expr in expressions:
+        try:
+            func = sp.lambdify(variables, expr, modules='numpy')
+            y_pred = np.array([func(*row) for row in data])
+            rmse = np.sqrt(np.mean((y_pred - y_true)**2))
+            results.append((expr, rmse))
+        except Exception as e:
+            print(f"Skipping {expr} due to error: {e}")
+    return results
+
+To begin the fitting process, I take an expression, substitute the input variables with the corresponding values from the dataset, and compute the predicted yy-values based on the equation. I then calculate the difference between the predicted values and the true target values (yy), which are the actual outputs. This difference is used to compute the Root Mean Squared Error (RMSE), which quantifies the prediction error for the expression.\\
+
+\subsubsection{Best Polynomial Fit:}
+
+After calculating the RMSE values for each expression, I select the expression with the lowest RMSE as the most accurate polynomial fit for the data. This ensures that the chosen model has the best performance in terms of minimizing prediction error.\\
+
+def bestFit(results):
+    return min(results, key=lambda x: x[1])
+
 
 
 \subsection{Dimensional Analysis: }
 
-Physics Constraint: Physical equations must be dimensionally consistent (units on both sides must match).
-Strong Simplification: This dimensional constraint severely limits the possible forms of the unknown function.
-First Step: AI Feynman applies dimensional analysis as the very first attempt to simplify the problem.
-Unit Representation: Units of variables (like mass, length, time) are represented as vectors of integer powers.
-Linear System: A linear system is set up based on the unit vectors of the input variables and the target variable.
-Dimensionless Combinations: Solving this system and finding the null space reveals combinations of variables
-that are dimensionless.
-Problem Transformation: The original problem is transformed into finding a function of these new, dimension-
-less variables.
-Reduced Variables: This process typically reduces the number of independent variables the algorithm needs to
-search over.
-Search Space Reduction: A smaller number of variables drastically shrinks the combinatorial search space for
-subsequent steps.
-Efficiency Boost: It makes Polynomial Fit, Brute Force, and Neural Network-guided searches significantly
-faster and more likely to succeed. 
+
+Physical equations must be dimensionally consistent, meaning the units on both sides of the equation must match, which severely limits the possible forms of the unknown function. This dimensional constraint provides a strong simplification of the problem, significantly narrowing the scope of valid equations. AI Feynman addresses this by applying dimensional analysis as the first step, simplifying the problem by identifying which combinations of variables are dimensionally consistent. The units of the variables—such as mass, length, and time—are represented as vectors of integer powers, forming a linear system based on the unit vectors of the input and target variables. Solving this system and finding the null space reveals dimensionless combinations of variables, which transforms the problem into one of finding a function of these new dimensionless variables. This process typically reduces the number of independent variables that the algorithm needs to search over, drastically shrinking the combinatorial search space for subsequent steps, such as polynomial fitting, brute force, and neural network-guided searches. As a result, the reduction in variables leads to a significant boost in efficiency, making these searches faster and more likely to succeed.\\
 
 
 \subsubsection{Handling Units:}
 
-So i went to the ai feynman database website, and downloaded their units.csv to get a better idea of all the units
-in the dataset, I was dealing with. Then i had a look at all the required units, and then made a unit table, array,
-so that each unit corresponds to a unique power of the bsaic si units which I also implemented, as an array/list.
-code: \\
 
+The AI Feynman database was accessed, and the units.csv file was downloaded to better understand the units present in the dataset. Upon reviewing the required units, a unit table was created in the form of an array, where each unit corresponds to a unique power of the fundamental SI units. Additionally, the basic SI units were implemented as an array/list to facilitate this mapping.\\
+
+
+UNIT_TABLE = {
+
+    'mass':                 [1, 0, 0, 0, 0, 0, 0], 
+    'length':               [0, 1, 0, 0, 0, 0, 0],
+    'time':                 [0, 0, 1, 0, 0, 0, 0],
+    'temperature':          [0, 0, 0, 1, 0, 0, 0],
+    'current':              [0, 0, 0, 0, 1, 0, 0],
+    'amount':               [0, 0, 0, 0, 0, 1, 0], 
+    'luminous_intensity':   [0, 0, 0, 0, 0, 0, 1],
+
+
+There were also relevent derived units included.\\ 
 
 \subsubsection{Construct Matrix and Target Vector:}
 
-This function constructs the dimensional matrix M and target vector b essential for dimensional analysis. It
-accepts lists of independent and dependent variable names and a dictionary mapping variable names (keys) to
-their unit vectors (values).
-Technical Implementation: Unit vectors for independent variables are retrieved via dictionary lookup, using
-lowercase variable names (var.lower()) to ensure case-insensitivity. These vectors are efficiently assembled into
-the columns of matrix M using numpy.columns tack.T hedependentvariable′ sunitvectorf ormsvectorb.try...exceptKeyErrorblo
-Design Rationale: Case-insensitivity enhances usability. numpy.columns tackof f ersperf ormance.Expliciterrorhandlingpreven
-code:\\ 
+This function constructs the dimensional matrix MM and the target vector bb, which are essential for performing dimensional analysis. It accepts lists of independent and dependent variable names, along with a dictionary that maps each variable name (as the key) to its corresponding unit vector (as the value). The unit vectors for the independent variables are retrieved through dictionary lookup, using lowercase variable names (i.e., var.lower()) to ensure case-insensitivity. These vectors are then efficiently assembled into the columns of matrix MM using numpy.column_stack, while the unit vector of the dependent variable forms the target vector bb. This approach ensures usability through case-insensitivity, leverages the performance benefits of numpy.column_stack, and includes explicit error handling to prevent issues arising from missing or incorrect keys.\\
+
+
+
 
 
 \subsubsection{Solving Dimension and Basis Units:}
