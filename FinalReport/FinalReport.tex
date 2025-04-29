@@ -6,7 +6,7 @@
 \usepackage{pgfgantt}
 \usepackage{booktabs}
 \usepackage{graphicx}
-
+\usepackage{float}
 \usepackage{times}
 \usepackage{fancyhdr,graphicx,amsmath,amssymb}
 \usepackage[ruled,vlined]{algorithm2e}
@@ -138,7 +138,7 @@ ECS Statement of Originality Template, updated August 2018, Alex Weddell aioffic
 
 \newpage 
 
-{\Huge \textbf{Abstract}}\\[1cm]
+{\Huge \textbf{Acknowledgements}}\\[1cm]
 
 
 I would like to thank my supervisors, Professor Adam Peugeot and Professor David Millard, for all the help and advise I received throughout this project. \\
@@ -167,11 +167,11 @@ and that it can learn the rules in language and writing etc.
 Talk a little about the way this is used outside of this niche use case, and in research, so of course I need to look
 and research into this.\\
 
-\section{Previos Work: }
+\section{Previous Work: }
 
 \subsection{Literature Review: }
 
-\subsection{ Introduction: }
+\subsection{Introduction: }
   
 Humanity has spent millennia observing the world, creating concepts that describe the variables, such as mass and force, to derive laws. In physics, like with
 all human endeavours, new discoveries and ways of thought are based upon previous works, creating
@@ -211,9 +211,7 @@ empirical laws \cite{Schmidt22009}, we will explore some of them below. It is al
 well-known techniques for regression, (eg: neural networks), that are essentially black boxes, symbolic
 regression, aims to extract white-box models and is easy to analyse.\\
 
-\begin{center} 
-  \textbf {\Large  Brute Force:}
-\end{center}
+\subsubsection{Brute Force: }
 Symbolic Regression (SR), is interpretable \cite{Aldeia2022}, unlike Neural Networks (NN), which are often considered more explainable. The difference is interpretability allows us to comprehend how the model works,
 like observing how gears move in a glass box, while explainable means you get an overview of why a
 certain output was achieved, even without knowing the full nuances of it’s inner workings.\\
@@ -230,9 +228,9 @@ generalisable fit, is sometimes troublesome.\\
 
 The brute force approach of simply trying all possible combinations of symbolic expressions within some defined space. The model will subsequently increase the complexity over time, and will stop when either the fitting errors lowers below some defined limit or exceeds the upper limit of runtime. While in theory can solve all of our problems, in practise takes longer than the age of our universe to finish. In essence it's like searching for a singular drop in the ocean. Thankfully, there are some ways of pruning the search space, and drastically reducing the time taken to solve for the most accurate expression. \\ 
 
-\begin{center} 
-  \textbf {\Large Partial Derivatives:}
-\end{center}
+
+\subsubsection{Partial Derivatives: }
+
 
 Partial derivatives, of some function f, with multiple variables such as x and y, is it's dervative with respect to one of those two variables, while the other variables in the function are kept constant. Formally, given a function with two or more variables, $f(x_1, x_2, \ldots, x_n) $, the partial derivative of $f$ with respect to $x_i$, where $x_i$ is some value $x$ in $(x_1, x_2, \ldots, x_i, \ldots, x_n)$, gives the rate of change of $f$ with respect to $x_i$. It is calculated by taking the ith derivative of $f$ with respect to $x_i$, whilst holding the other variables fixed. \cite{Stewart2012} \cite{Smith2012} \\
 
@@ -281,10 +279,7 @@ You can subtly guide the type of laws that such an algorithm finds, by selective
 
 
 
-
-\begin{center} 
-  \textbf {\Large Dimensional Analysis:}
-\end{center}
+\subsubsection{Dimensional Analysis: }
 
 Dimensional Analysis is a method of solving problems usually in maths and physics, where we analyse
 the relationships between different physical quantities, by comparing their ”units.” It is a powerful
@@ -309,10 +304,8 @@ This is also more intuitive to understand physical phenomena, the nature of phys
 
 
 
+\subsubsection{Genetic Programming:}
 
-\begin{center} 
-  \textbf {\Large Genetic Programming:}
-\end{center}
 
 
 Genetic programming (GP), is a special evolutionary algorithmic technique, where the individuals are seen as programs that evolve, starting for a population, is iteratively "evolved," transforming the populations of individual programs, intro other populations. This new generation of programs are created using some genetic operations or survival criteria, mimicking natural evolutionary condition on earth.\\ 
@@ -336,7 +329,7 @@ Here M is the mean squared error, and N is the number of data points, X is the n
 
 \section{PySR}
 
-This section describes the relevent implementations that are completed as of 10 December 2024.\\ 
+This section describes the initial implementation of the symbolic regression models I developed using the PySR library.\\
 
 \subsection{Momentum Laws: }
 
@@ -438,13 +431,67 @@ To introduce noise into the generated dataset, I imported Python’s random libr
 
 After generating these noisy datasets, the symbolic regression model was applied to each one, and the resulting equations were analyzed. The relationship between noise level and model performance was then visualized through a graph. Additionally, the time library was used to measure how long each run of the model took.\\
 
-PLOT HERE:\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{noise_conservation_random}
+    \includegraphics[width=7cm]{noise_Newtons_First_Law_random}
+    \includegraphics[width=7cm]{noise_Newtons_Third_Law_random}
+    \includegraphics[width=7cm]{noise_Simple_Harmonic_Motion}
+    \caption{Noise plots for various physical laws.}
+    \label{fig:noise_plots}
+\end{figure}
+
+iterative: 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{noise_conservation_random_i}
+    \includegraphics[width=7cm]{noise_Newtons_First_Law_random_i}
+    \includegraphics[width=7cm]{noise_Newtons_Third_Law_random_i}
+    \includegraphics[width=7cm]{noise_Simple_Harmonic_Motion_random_i}
+    \caption{Noise plots for iterative process.}
+    \label{fig:noise_iterative_plots}
+\end{figure}
+
 
 \subsubsection{Denoise function: }
 
     Following the initial noise analysis, a subsequent experiment incorporated a denoising method (implemented using a Python library) applied to the data prior to processing by the pysr model. The results, as depicted in the accompanying plot, indicate that this denoising approach improved model performance up to a specific noise threshold. However, beyond this critical level, performance degraded comparably for both the denoised and non-denoised datasets, suggesting the denoise function's effectiveness diminished at higher noise intensities.\\
 
-PLOT HERE:\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{noise_conservation_d_r}
+    \includegraphics[width=7cm]{noise_Newtons_First_Law_d_r}
+    \includegraphics[width=7cm]{noise_Newtons_Second_Law_d_r}
+    \includegraphics[width=7cm]{noise_Newtons_Third_Law_d_r}
+    \includegraphics[width=7cm]{noise_Rutherford_d_r}
+    \includegraphics[width=7cm]{noise_Simple_Harmonic_Motion_d_r}
+    \caption{Noise plots with dimensionless reduction for various physical systems.}
+    \label{fig:noise_dimless_plots}
+\end{figure}
+
+
+
+
+Iterative: \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{noise_conservation_d_i}
+    \includegraphics[width=7cm]{noise_Newtons_First_Law_d_i}
+    \includegraphics[width=7cm]{noise_Newtons_Second_Law_d_i}
+    \includegraphics[width=7cm]{noise_Newtons_Third_Law_d_i}
+    \includegraphics[width=7cm]{noise_Rutherford_d_i}
+    \includegraphics[width=7cm]{noise_Simple_Harmonic_Motion_d_i}
+    \caption{Noise plots with dimensionless reduction and iterative improvement for various physical systems.}
+    \label{fig:noise_dimless_iterative_plots}
+\end{figure}
+
+
+
+
 
 \section{Symbolic Regression from First Principles: }
 
@@ -808,7 +855,7 @@ Return `GeneratedExpressions`\;
 
 \subsubsection{Filtering the Polynomial expressions:}
 
-The filter_expressions function programmatically filters symbolic expressions based on both structural and semantic constraints. It is particularly suited for large-scale symbolic filtering tasks where strict mathematical structures must be enforced.\\
+The filter\_expressions function programmatically filters symbolic expressions based on both structural and semantic constraints. It is particularly suited for large-scale symbolic filtering tasks where strict mathematical structures must be enforced.\\
 
 The initial version of this function worked for symbolic constants (e.g., sin, cos, etc.) but failed to handle numbers or integer coefficients. This issue was identified during testing, prompting me to rewrite the function so that it could also handle integer coefficients properly.\\
 
@@ -935,7 +982,7 @@ There were also relevent derived units included.\\
 
 \subsubsection{Construct Matrix and Target Vector:}
 
-This function constructs the dimensional matrix MM and the target vector bb, which are essential for performing dimensional analysis. It accepts lists of independent and dependent variable names, along with a dictionary that maps each variable name (as the key) to its corresponding unit vector (as the value). The unit vectors for the independent variables are retrieved through dictionary lookup, using lowercase variable names (i.e., var.lower()) to ensure case-insensitivity. These vectors are then efficiently assembled into the columns of matrix MM using numpy.column_stack, while the unit vector of the dependent variable forms the target vector bb. This approach ensures usability through case-insensitivity, leverages the performance benefits of numpy.column_stack, and includes explicit error handling to prevent issues arising from missing or incorrect keys.\\
+This function constructs the dimensional matrix MM and the target vector bb, which are essential for performing dimensional analysis. It accepts lists of independent and dependent variable names, along with a dictionary that maps each variable name (as the key) to its corresponding unit vector (as the value). The unit vectors for the independent variables are retrieved through dictionary lookup, using lowercase variable names (i.e., var.lower()) to ensure case-insensitivity. These vectors are then efficiently assembled into the columns of matrix MM using numpy.column\_stack, while the unit vector of the dependent variable forms the target vector bb. This approach ensures usability through case-insensitivity, leverages the performance benefits of numpy.column\_stack, and includes explicit error handling to prevent issues arising from missing or incorrect keys.\\
 
 
 
@@ -1015,9 +1062,9 @@ Return \(p\) and \(U\)\;
 
 \subsubsection{Data Transformation Function:}
 
-The generate_dimensionless_data function is designed to transform a dataset into dimensionless form by applying the scaling factors derived from the solution vector pp and the null space UU. Initially, the function checks if pp is a NumPy array; if not, it converts it into a flattened NumPy array with np.float64 type for consistency. The function then reshapes pp into a column vector and calculates a scaling factor by raising each variable in the input data dataxdatax​ to the powers specified by pp, followed by computing the product of these scaled values along the specified axis. This scaling factor is then used to adjust the target values dataydatay​ to obtain the dimensionless target values data_y_prime.\\
+The generate\_dimensionless\_data function is designed to transform a dataset into dimensionless form by applying the scaling factors derived from the solution vector pp and the null space UU. Initially, the function checks if pp is a NumPy array; if not, it converts it into a flattened NumPy array with np.float64 type for consistency. The function then reshapes pp into a column vector and calculates a scaling factor by raising each variable in the input data dataxdatax​ to the powers specified by pp, followed by computing the product of these scaled values along the specified axis. This scaling factor is then used to adjust the target values dataydatay​ to obtain the dimensionless target values data\_y\_prime.\\
 
-If the null space UU is provided, the function proceeds to generate new dimensionless variables by computing the product of the input data dataxdatax​ raised to the powers specified by each vector in UU. These newly generated dimensionless variables are stacked together to form a transformed input dataset data_x_prime. If no null space is provided, the original input data dataxdatax​ is returned unchanged. This function provides a way to normalize and simplify the dataset, ensuring that all variables are dimensionless, which facilitates further analysis.\\
+If the null space UU is provided, the function proceeds to generate new dimensionless variables by computing the product of the input data datax raised to the powers specified by each vector in UU. These newly generated dimensionless variables are stacked together to form a transformed input dataset data\_x\_prime. If no null space is provided, the original input data datax is returned unchanged. This function provides a way to normalize and simplify the dataset, ensuring that all variables are dimensionless, which facilitates further analysis.\\
 
 
 
@@ -1065,9 +1112,9 @@ Return \(X'\) and \(Y'\)\;
 
 \subsubsection{Symbolic Transformation Generator: }
 
-This function generates the symbolic mathematical expressions corresponding to the dimensional analysis transformation. It accepts the original independent variable names (independent_vars), the exponent vectors for scaling (p), and the dimensionless combinations (U).\\
+This function generates the symbolic mathematical expressions corresponding to the dimensional analysis transformation. It accepts the original independent variable names (independent\_vars), the exponent vectors for scaling (p), and the dimensionless combinations (U).\\
 
-The function first creates symbolic representations of each independent variable using sp.symbols from the SymPy library. Then, using the scaling exponents pp, it constructs the symbolic expression symbolic_p representing the unit-fixing scaling factor xpxp through sp.Mul, which allows for the multiplication of terms. This expression effectively represents the scaling transformation applied to the input variables.\\
+The function first creates symbolic representations of each independent variable using sp.symbols from the SymPy library. Then, using the scaling exponents pp, it constructs the symbolic expression symbolic\_p representing the unit-fixing scaling factor xpxp through sp.Mul, which allows for the multiplication of terms. This expression effectively represents the scaling transformation applied to the input variables.\\
 
 Next, the function iterates through each exponent vector uu in the null space UU, building the corresponding symbolic expressions for the dimensionless combinations. Each new variable is constructed by applying the powers from the exponent vector uu to the original input variables, and the resulting expressions are added to a list. This process ensures that both the scaling factors and the dimensionless combinations are represented as symbolic mathematical expressions, which are essential for understanding the relationship between the variables in the dimensional analysis.\\
 
@@ -1090,7 +1137,7 @@ Initialize empty list `SymbolicDimensionlessGroups`\;
 \For{each vector \(u\) in Null space basis \(U\)}{
   Form symbolic expression for a dimensionless group by taking the product of each symbolic variable raised to the corresponding power in \(u\)\;
   \( \text{DimensionlessGroup}_u = \prod_{i} \text{variable}_i^{u_i} \)\;
-  Add `DimensionlessGroup_u` to `SymbolicDimensionlessGroups`\;
+  Add `DimensionlessGroup\_u` to `SymbolicDimensionlessGroups`\;
 }
 
 Return `ScalingFactor` and `SymbolicDimensionlessGroups`\;
@@ -1116,7 +1163,7 @@ The next critical component involves using neural networks to predict and comput
 \subsubsection{SymbolicNetwork:}
 
 
-This class defines the neural network architecture used as a universal function approximator within the symbolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in PyTorch. The constructor (__init__) initializes the network structure, accepting the number of input features (n_input) and defaulting to a single output (n_output). The model consists of several fully connected layers, with each layer followed by a Tanh activation function, which was selected based on the specifications of the reference papers. This multi-layer perceptron (MLP) architecture provides significant expressive power, making it capable of approximating complex relationships within the data. The Tanh activation ensures smooth, differentiable non-linearity, making the network suitable for approximating complex physical functions. While the neural network does not directly solve symbolic expressions, it enables us to predict outputs and compute gradients from the dimensionless data. These predictions and gradients help visualize how changes in input variables affect the model's outputs, offering valuable insights into the system's underlying behavior and functional relationships. This approach aids in interpreting complex patterns, even when the explicit symbolic form is not easily obtainable.\\
+This class defines the neural network architecture used as a universal function approximator within the symbolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in PyTorch. The constructor (init) initializes the network structure, accepting the number of input features (n\_input) and defaulting to a single output (n\_output). The model consists of several fully connected layers, with each layer followed by a Tanh activation function, which was selected based on the specifications of the reference papers. This multi-layer perceptron (MLP) architecture provides significant expressive power, making it capable of approximating complex relationships within the data. The Tanh activation ensures smooth, differentiable non-linearity, making the network suitable for approximating complex physical functions. While the neural network does not directly solve symbolic expressions, it enables us to predict outputs and compute gradients from the dimensionless data. These predictions and gradients help visualize how changes in input variables affect the model's outputs, offering valuable insights into the system's underlying behavior and functional relationships. This approach aids in interpreting complex patterns, even when the explicit symbolic form is not easily obtainable.\\
 
 
 
@@ -1161,7 +1208,7 @@ Return the output tensor\;
 
 \subsubsection{Preparing the data:}
 
-This function preprocesses raw input (data_x) and output (data_y) data into a format suitable for PyTorch model training and validation. It begins by converting the input NumPy arrays into PyTorch tensors of type torch.float32, as PyTorch requires tensor structures for efficient computation. The data is then split into training and validation sets based on a configurable train_split ratio, ensuring the model can be evaluated on unseen data to prevent overfitting. The TensorDataset class is used to pair the input and target data, enabling efficient indexing during training, while the DataLoader handles batching, memory management, and parallel processing. Additionally, the DataLoader automates data shuffling, which improves model robustness by ensuring the model does not memorize the data order, aiding in better convergence during training. This design follows standard PyTorch practices to ensure compatibility, scalability, and efficient handling of large datasets, while the training-validation split is crucial for monitoring generalization and model performance.\\
+This function preprocesses raw input (data\_x) and output (data\_y) data into a format suitable for PyTorch model training and validation. It begins by converting the input NumPy arrays into PyTorch tensors of type torch.float32, as PyTorch requires tensor structures for efficient computation. The data is then split into training and validation sets based on a configurable train\_split ratio, ensuring the model can be evaluated on unseen data to prevent overfitting. The TensorDataset class is used to pair the input and target data, enabling efficient indexing during training, while the DataLoader handles batching, memory management, and parallel processing. Additionally, the DataLoader automates data shuffling, which improves model robustness by ensuring the model does not memorize the data order, aiding in better convergence during training. This design follows standard PyTorch practices to ensure compatibility, scalability, and efficient handling of large datasets, while the training-validation split is crucial for monitoring generalization and model performance.\\
 
 
 \begin{algorithm}[H]
@@ -1257,7 +1304,7 @@ Define a loss function (e.g., Mean Squared Error)\;
 
 \subsubsection{Predict Function:}
 
-This function performs inference using a trained PyTorch model, generating output predictions for a given set of input data. It is designed to take a trained model, input data as a NumPy array (x_numpy), and the target computation device ('cpu' or 'cuda'). The function begins by setting the model to evaluation mode using model.eval(), which is critical as it disables layers like dropout or batch normalization that behave differently during training and inference, ensuring deterministic output. The input data (x_numpy) is then converted into a PyTorch tensor with the appropriate dtype=torch.float32 and transferred to the specified device. The core prediction step occurs within a with torch.no_grad() context manager, which disables gradient calculation, thereby reducing memory consumption and speeding up computations during inference. This design follows standard PyTorch inference practices, ensuring that the model behaves correctly during prediction and optimizes performance by avoiding unnecessary gradient computations. Finally, the predictions are returned as a NumPy array, providing a user-friendly output format that is compatible with typical post-processing and analysis workflows.\\
+This function performs inference using a trained PyTorch model, generating output predictions for a given set of input data. It is designed to take a trained model, input data as a NumPy array (x\_numpy), and the target computation device ('cpu' or 'cuda'). The function begins by setting the model to evaluation mode using model.eval(), which is critical as it disables layers like dropout or batch normalization that behave differently during training and inference, ensuring deterministic output. The input data (x\_numpy) is then converted into a PyTorch tensor with the appropriate dtype=torch.float32 and transferred to the specified device. The core prediction step occurs within a with torch.no\_grad() context manager, which disables gradient calculation, thereby reducing memory consumption and speeding up computations during inference. This design follows standard PyTorch inference practices, ensuring that the model behaves correctly during prediction and optimizes performance by avoiding unnecessary gradient computations. Finally, the predictions are returned as a NumPy array, providing a user-friendly output format that is compatible with typical post-processing and analysis workflows.\\
 
 \begin{algorithm}[H]
 \SetAlgoLined % Ensures vertical lines for structure
@@ -1323,7 +1370,7 @@ Return the constructed string\;
 \subsubsection{Pareto Point Set:}
 
 
-The update_pareto_points function maintains a Pareto frontier of symbolic expressions, balancing model complexity and accuracy. It filters a combined list of candidate solutions to retain only non-dominated points, where a point A dominates point B if A is both no more complex and no less accurate, with at least one of these metrics strictly better. This approach ensures that only the best trade-offs between complexity and accuracy remain. In symbolic regression, this is crucial as the goal is to identify expressions that are both accurate and interpretable—low in complexity. The Pareto frontier provides a valuable tool for visualizing and selecting optimal models, helping to avoid overfitting (excessive complexity) and underfitting (excessive simplicity).\\
+The update\_pareto points function maintains a Pareto frontier of symbolic expressions, balancing model complexity and accuracy. It filters a combined list of candidate solutions to retain only non-dominated points, where a point A dominates point B if A is both no more complex and no less accurate, with at least one of these metrics strictly better. This approach ensures that only the best trade-offs between complexity and accuracy remain. In symbolic regression, this is crucial as the goal is to identify expressions that are both accurate and interpretable—low in complexity. The Pareto frontier provides a valuable tool for visualizing and selecting optimal models, helping to avoid overfitting (excessive complexity) and underfitting (excessive simplicity).\\
 
 
 \begin{algorithm}[H]
@@ -1386,7 +1433,7 @@ The need arose to find ways to visualize and better understand the processes occ
 
 
 
-Visualizing the Pareto frontier is crucial for interpreting the results of symbolic regression as it offers an intuitive graphical representation of the trade-off between model complexity and predictive accuracy (or loss). The provided code leverages the Plotly Express library to generate this visualization. A Pandas DataFrame (df) is used to organize the data, containing columns for 'Complexity' (x-axis), 'Loss' (y-axis, representing inaccuracies such as MEDL), and the corresponding symbolic 'Expression'. The px.scatter function generates a scatter plot that maps complexity against loss, with the 'Expression' data being displayed as labels on each point using the text argument. Additional customization via fig.update_traces enhances the visibility of the points (marker size, color) and optimizes label positioning. This visualization allows researchers to easily identify the set of non-dominated solutions. By plotting quantitative metrics, it reveals where significant accuracy improvements require substantial increases in complexity (often visible in the "elbow" region), aiding in model selection based on the desired balance between interpretability and predictive power. Direct labeling of points with their expressions provides immediate context for each optimal solution.\\
+Visualizing the Pareto frontier is crucial for interpreting the results of symbolic regression as it offers an intuitive graphical representation of the trade-off between model complexity and predictive accuracy (or loss). The provided code leverages the Plotly Express library to generate this visualization. A Pandas DataFrame (df) is used to organize the data, containing columns for 'Complexity' (x-axis), 'Loss' (y-axis, representing inaccuracies such as MEDL), and the corresponding symbolic 'Expression'. The px.scatter function generates a scatter plot that maps complexity against loss, with the 'Expression' data being displayed as labels on each point using the text argument. Additional customization via fig.update traces enhances the visibility of the points (marker size, color) and optimizes label positioning. This visualization allows researchers to easily identify the set of non-dominated solutions. By plotting quantitative metrics, it reveals where significant accuracy improvements require substantial increases in complexity (often visible in the "elbow" region), aiding in model selection based on the desired balance between interpretability and predictive power. Direct labeling of points with their expressions provides immediate context for each optimal solution.\\
 
 
 
@@ -1518,7 +1565,6 @@ This study highlights how biological systems can be rendered into symbolic, mech
 
 \section{Project Management: }
 
-\subsection{Gantt Chart: }
 
 \subsection{Risk Assessment: }
 
@@ -1571,9 +1617,51 @@ Scope Creep &
 \end{table}
 
 
-In retrospect, more time should have been allocated to the literature review. The volume of relevant academic papers requiring detailed analysis was greater than initially anticipated, and each source took considerably longer to read than expected. Developing a symbolic regression algorithm from scratch also proved to be time-consuming. The process involved continuous redesigns to improve effectiveness and the implementation of increasingly diverse strategies for exploring the search space. Integrating these elements into a cohesive and functional system further extended development time.\\
+\subsection{Gantt Charts: }
 
-Significant delays were also encountered when attempting to run the AIFeynman 2.0 codebase. Compatibility issues between the legacy Fortran code, the modern Linux kernel, and contemporary multithreading and processing methods prevented successful compilation and execution. Weeks were spent resolving these issues to enable a comparative evaluation between models, which ultimately proved to be a costly diversion. Unlike AIFeynman, the developed codebase does not rely on legacy programming languages. Eventually, an earlier version of AIFeynman (version 1) was located and made operational using precompiled Fortran binaries and an older GNU Fortran compiler, though it lacked recent enhancements.\\
+
+\subsection{Project Reflection: }
+
+In reflection, the symbolic regressor was successful and has demonstrated all of the goals initially outlined, successfully deriving the expected formulas. However, one extension that was intended—deriving a chaotic system like a double pendulum—proved to be extremely difficult and ultimately impossible with the current architecture. Even after removing the dimensions from the data and eliminating constants, the sheer number of variables involved in predicting angular momentum, along with the fact that it is a coupled system, made the regressor’s design inadequate. Even when the dataset was split and the data fed in individually, the search space remained large, and valid expressions only emerged at a recursive depth of 5. This depth led to a total of 254,803,968 possible searches—an amount which, by calculation, would take longer than the age of the universe to solve using the current algorithm.\\
+
+%\includegraphics[width=7cm]{double_pendulum_static}
+%\includegraphics[width=7cm]{double_pendulum_static}
+
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{double_pendulum_static}
+        \caption*{(a) Static double pendulum}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{double_pendulum_path}
+        \caption*{(b) Double pendulum path}
+    \end{minipage}
+    \caption{Side-by-side visualisation of a double pendulum's static setup and path.}
+    \label{fig:double_pendulum_side_by_side}
+\end{figure}
+
+
+
+
+
+Having never previously worked on a project of this academic scale, this was a novel experience. Every decision and design choice had to be justified with prior research and academic references, making the process significantly more demanding than expected. Justifying the architectural choices and constantly being under pressure to produce valid expressions drove the development of the regressor in the most effective way possible. A Golang version of the regressor was briefly explored but wisely abandoned due to time constraints, allowing focus to return to writing the report. Some aspects of the project took far longer than anticipated, and attempts to collaborate with authors of referenced papers were unsuccessful, as no responses were received.\\
+
+An agile approach would not have worked well in this context. It proved more valuable to focus on the overall design, plan for the long term, and rigorously test components throughout, rather than developing a half-baked and ineffective core. This rationale guided the early stages, which involved careful library selection and thorough research into various strategies before committing to a design. Each function was rigorously tested upon writing to ensure speed, effectiveness, and correctness. Modules were developed in such a way that, when combined, the main regressor worked with minimal or no significant bugs. Furthermore, planning contingency time in the form of short but frequent breaks proved highly beneficial and was far more effective than reserving all available time until the end.\\
+
+While implementing, designing, testing, and writing the project and report was challenging, the process led to the development of several key research skills—such as referencing properly, reading academic papers more systematically, and learning that seemingly minor details can cause the longest delays. It became clear that it is ambitious and often unwise to expect to achieve absolutely everything envisioned at the start of a project. It is always better to err on the side of caution—promise little and overdeliver, rather than the opposite. Working at the intersection of machine learning and its applications in other domains such as biology and physics has highlighted the immense potential of machine learning. It has shown how tools based on algorithms and computation can solve problems that once required exceptional human insight—now solved by silicon and code.\\
+
+
+\section{Conclusion: }
+
+To summarise the goal of this project is to explore deriving physical laws through AI, and helping automate the discovery of emphirical laws. Hopefully, this would help speed up the process of discovering new laws, in data, as well as remove the inherent human bias towards creating expressions. A significant amount of attention was placed on reimplementing the regressor from scratch in a more modern and maintainable language, in order to make it easier for future improvements to be made. Also I've used the least amount of libriries possible (numpy and sumpy), in order to build this, allowing it to be really easy to maintain the codebase. It has sucesfully derived the resulted expected and has generated a series of complex expressions for describing data. \\
+
+
+
 
 
 
