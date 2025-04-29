@@ -13,44 +13,47 @@
 \contentsline {subsubsection}{\numberline {3.3.1}How noise affects the model: }{13}{}%
 \contentsline {subsubsection}{\numberline {3.3.2}Denoise function: }{13}{}%
 \contentsline {section}{\numberline {4}Symbolic Regression from First Principles: }{14}{}%
-\contentsline {subsection}{\numberline {4.1}The core: }{14}{}%
-\contentsline {subsubsection}{\numberline {4.1.1} Exploiting Physical Properties: }{14}{}%
-\contentsline {subsubsection}{\numberline {4.1.2}Dealing with constants:}{14}{}%
-\contentsline {subsubsection}{\numberline {4.1.3}Dealing with powers:}{14}{}%
-\contentsline {subsubsection}{\numberline {4.1.4}Chaining powers and constants:}{14}{}%
-\contentsline {subsubsection}{\numberline {4.1.5}Loading data:}{14}{}%
-\contentsline {subsubsection}{\numberline {4.1.6}How to mitigate noise in data: }{15}{}%
-\contentsline {subsubsection}{\numberline {4.1.7}Evaluating expressions:}{15}{}%
-\contentsline {subsection}{\numberline {4.2}Polynomial Fit Module: }{15}{}%
-\contentsline {subsubsection}{\numberline {4.2.1}Data Loading:}{16}{}%
-\contentsline {subsubsection}{\numberline {4.2.2}Generating polynomial expressions:}{16}{}%
-\contentsline {subsubsection}{\numberline {4.2.3}Filtering the Polynomial expressions:}{16}{}%
-\contentsline {subsubsection}{\numberline {4.2.4}Evaluating expressions:}{16}{}%
-\contentsline {subsection}{\numberline {4.3}Dimensional Analysis: }{16}{}%
-\contentsline {subsubsection}{\numberline {4.3.1}Handling Units:}{17}{}%
-\contentsline {subsubsection}{\numberline {4.3.2}Construct Matrix and Target Vector:}{17}{}%
-\contentsline {subsubsection}{\numberline {4.3.3}Solving Dimension and Basis Units:}{17}{}%
-\contentsline {subsubsection}{\numberline {4.3.4}Data Transformation Function:}{17}{}%
-\contentsline {subsubsection}{\numberline {4.3.5}Symbolic Transformation Generator: }{18}{}%
-\contentsline {subsection}{\numberline {4.4}Neural Network Fitting: }{18}{}%
-\contentsline {subsubsection}{\numberline {4.4.1}SymbolicNetwork:}{18}{}%
-\contentsline {subsubsection}{\numberline {4.4.2}Preparing the data:}{18}{}%
-\contentsline {subsubsection}{\numberline {4.4.3}Training the Network:}{18}{}%
-\contentsline {subsubsection}{\numberline {4.4.4}Predict Function:}{19}{}%
-\contentsline {subsection}{\numberline {4.5}Pareto Frontier Optimisation: }{19}{}%
-\contentsline {subsubsection}{\numberline {4.5.1}Points:}{19}{}%
-\contentsline {subsubsection}{\numberline {4.5.2}Pareto Point Set:}{19}{}%
-\contentsline {subsection}{\numberline {4.6}Plotting: }{20}{}%
-\contentsline {subsubsection}{\numberline {4.6.1}Plot for Pareto front:}{20}{}%
-\contentsline {subsection}{\numberline {4.7}Main method bringing it together Regressor: }{20}{}%
-\contentsline {subsubsection}{\numberline {4.7.1}main solver}{20}{}%
-\contentsline {subsection}{\numberline {4.8}Testing:}{21}{}%
-\contentsline {subsubsection}{\numberline {4.8.1}Unit Testing: }{21}{}%
-\contentsline {subsubsection}{\numberline {4.8.2}Integration Testing: }{21}{}%
-\contentsline {subsubsection}{\numberline {4.8.3}Performance Testing: }{22}{}%
-\contentsline {subsubsection}{\numberline {4.8.4}AI-Feynman Dataset: }{22}{}%
-\contentsline {section}{\numberline {5} Applying the model to Biological Data: }{22}{}%
-\contentsline {section}{\numberline {6}Evaluation:}{23}{}%
-\contentsline {section}{References}{23}{}%
-\contentsline {section}{Appendix:}{23}{}%
-\contentsline {section}{\numberline {7}Project Planning: }{23}{}%
+\contentsline {subsection}{\numberline {4.1}A Brute-Force Approach: }{14}{}%
+\contentsline {subsubsection}{\numberline {4.1.1} Exploiting Physical Properties: }{15}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Dealing with constants:}{15}{}%
+\contentsline {subsubsection}{\numberline {4.1.3}Dealing with powers:}{15}{}%
+\contentsline {subsubsection}{\numberline {4.1.4}Chaining powers and constants:}{16}{}%
+\contentsline {subsubsection}{\numberline {4.1.5}Loading data:}{16}{}%
+\contentsline {subsubsection}{\numberline {4.1.6}How to mitigate noise in data: }{17}{}%
+\contentsline {subsubsection}{\numberline {4.1.7}Evaluating expressions:}{17}{}%
+\contentsline {subsection}{\numberline {4.2}Polynomial Fit Module: }{18}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Data Loading:}{19}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Generating polynomial expressions:}{19}{}%
+\contentsline {subsubsection}{\numberline {4.2.3}Filtering the Polynomial expressions:}{19}{}%
+\contentsline {subsubsection}{\numberline {4.2.4}Evaluating expressions:}{20}{}%
+\contentsline {subsubsection}{\numberline {4.2.5}Best Polynomial Fit:}{21}{}%
+\contentsline {subsection}{\numberline {4.3}Dimensional Analysis: }{21}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}Handling Units:}{21}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}Construct Matrix and Target Vector:}{22}{}%
+\contentsline {subsubsection}{\numberline {4.3.3}Solving Dimension and Basis Units:}{22}{}%
+\contentsline {subsubsection}{\numberline {4.3.4}Data Transformation Function:}{23}{}%
+\contentsline {subsubsection}{\numberline {4.3.5}Symbolic Transformation Generator: }{24}{}%
+\contentsline {subsection}{\numberline {4.4}Neural Network Fitting: }{24}{}%
+\contentsline {subsubsection}{\numberline {4.4.1}SymbolicNetwork:}{24}{}%
+\contentsline {subsubsection}{\numberline {4.4.2}Preparing the data:}{25}{}%
+\contentsline {subsubsection}{\numberline {4.4.3}Training the Network:}{25}{}%
+\contentsline {subsubsection}{\numberline {4.4.4}Predict Function:}{26}{}%
+\contentsline {subsection}{\numberline {4.5}Pareto Frontier Optimisation: }{27}{}%
+\contentsline {subsubsection}{\numberline {4.5.1}Points:}{27}{}%
+\contentsline {subsubsection}{\numberline {4.5.2}Pareto Point Set:}{28}{}%
+\contentsline {subsection}{\numberline {4.6}Plotting: }{29}{}%
+\contentsline {subsubsection}{\numberline {4.6.1}Plot for Pareto front:}{29}{}%
+\contentsline {subsection}{\numberline {4.7}Main method bringing it together Regressor: }{29}{}%
+\contentsline {subsubsection}{\numberline {4.7.1}main solver}{29}{}%
+\contentsline {subsection}{\numberline {4.8}Testing:}{30}{}%
+\contentsline {subsubsection}{\numberline {4.8.1}Unit Testing: }{30}{}%
+\contentsline {subsubsection}{\numberline {4.8.2}Integration Testing: }{31}{}%
+\contentsline {subsubsection}{\numberline {4.8.3}Performance Testing: }{31}{}%
+\contentsline {subsubsection}{\numberline {4.8.4}AI-Feynman Dataset: }{31}{}%
+\contentsline {section}{\numberline {5} Applying the model to Biological Data: }{31}{}%
+\contentsline {section}{\numberline {6}Evaluation:}{32}{}%
+\contentsline {section}{References}{32}{}%
+\contentsline {section}{Appendix:}{32}{}%
+\contentsline {section}{\numberline {7}Project Management: }{32}{}%
+\contentsline {subsection}{\numberline {7.1}Gantt Chart: }{32}{}%
+\contentsline {subsection}{\numberline {7.2}Risk Assessment: }{32}{}%

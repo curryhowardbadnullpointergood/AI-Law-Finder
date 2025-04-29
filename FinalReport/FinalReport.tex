@@ -4,6 +4,8 @@
 \usepackage[margin=3cm]{geometry} % margins might need to change in the future check with professor adam 
 \setlength{\parindent}{0pt}
 \usepackage{pgfgantt}
+\usepackage{booktabs}
+\usepackage{graphicx}
 
 \usepackage{times}
 \usepackage{fancyhdr,graphicx,amsmath,amssymb}
@@ -451,63 +453,65 @@ PLOT HERE:\\
 
 The core and essential component of any symbolic regression model lies in its ability to generate and traverse the search space of potential equations and expressions that best fit the given data. To streamline the process and validate the functionality of my expression generation, I began by implementing simple two-variable equations, specifying the operations used within the equation. This approach was initially limited to basic operations, with plans to extend it to accommodate constants and additional complexities.\\
 
-def generate_expressions(variables, constants, operators, max_depth):
-    
 
-    symbols = [sp.Symbol(v) for v in variables] + [sp.Integer(c) for c in constants]
-    expressions = []
-    
-    for a, b in permutations(symbols, 2):
-        for op in operators:
-            try:
-                if op == '+':
-                    expressions.append(a + b)
-                elif op == '-':
-                    expressions.append(a - b)
-                elif op == '*':
-                    expressions.append(a * b)
-                elif op == '/':
-                    expressions.append(a / b)
-                elif op == '**':
-                    expressions.append(a ** b)
-            except:
-                continue
-    return expressions
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of variable names, list of constants, list of operators}
+\KwResult{List of generated symbolic expressions}
+
+\textbf{Initialization:}\;
+Create pool of symbolic variables and constants from inputs\;
+Initialize empty list for expressions\;
+
+\For{each pair (a, b) from the pool (considering permutations)}{
+  \For{each operator op from the list of operators}{
+    Form expression \( a \text{ op } b \)\;
+    \If{resulting expression is valid}{
+      Add expression to the list of expressions\;
+    }
+  }
+}
+
+Return list of expressions\;
+
+\caption{Generate Initial Symbolic Expressions}
+\label{alg:generate_expressions} % You can use this label to reference the algorithm
+\end{algorithm}
+
 
 
 Subsequently, I refined this approach by designing a recursive method to generate expressions, allowing for the creation of more robust and diverse equations from the available variables. This process is dynamic, making it adaptable to a variety of input configurations.\\
 
-def recursive_expressions(operators, variables, constants, max_depth=10):
-    symbols = [sp.Symbol(v) for v in variables]
 
-    def build_expressions(current_depth):
-        if current_depth == 0:
-            return symbols.copy()
 
-        new_expressions = []
-        prev_expressions = build_expressions(current_depth - 1)
 
-        for a in prev_expressions:
-            for b in prev_expressions:
-                for op in operators:
-                    try:
-                        if op == '+':
-                            new_expressions.append(a + b)
-                        elif op == '-':
-                            new_expressions.append(a - b)
-                        elif op == '*':
-                            new_expressions.append(a * b)
-                        elif op == '/':
-                            new_expressions.append(a / b)
-                        elif op == '**':
-                            new_expressions.append(a ** b)
-                    except:
-                        continue
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of operators, list of variable names, maximum depth}
+\KwResult{List of symbolic expressions generated at the maximum depth}
 
-        return new_expressions
+\textbf{Initialization:}\;
+Create list `Expressions[0]` containing symbolic variables from input\;
 
-    all_exprs = build_expressions(max_depth)
-    return all_exprs
+\For{depth \(d\) from 1 to maximum depth}{
+  Create empty list `Expressions[d]`\;
+  \For{each expression \(a\) in `Expressions[d-1]`}{
+    \For{each expression \(b\) in `Expressions[d-1]`}{
+      \For{each operator \(op\) in list of operators}{
+        Attempt to form new expression \( a \text{ op } b \)\;
+        \If{resulting expression is valid}{
+          Add new expression to `Expressions[d]`\;
+        }
+      }
+    }
+  }
+}
+
+Return `Expressions[maximum depth]`\;
+
+\caption{Recursive Generation of Symbolic Expressions}
+\label{alg:recursive_expressions} % Add a label for referencing
+\end{algorithm}
 
 
 \subsubsection{ Exploiting Physical Properties: }
@@ -527,49 +531,67 @@ Another approach I employed to further prune the set of generated expressions wa
 To apply powers to expressions, I incorporated the power operation directly into the generated expressions. This not only allows for the creation of more complex models but also facilitates further pruning of the search tree by avoiding the generation of redundant expressions that already incorporate powers.\\
 
 
-def apply_powers(expressions, powers, max_depth=2):
-    def recursive_powers(expr, depth):
-        results = set()
-        if depth == 0:
-            return {expr}
-        
-        for power in powers:
-            powered = expr ** power
-            results.add(powered)
 
-            deeper = recursive_powers(powered, depth - 1)
-            results.update(deeper)
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of initial expressions, list of powers, maximum depth}
+\KwResult{List of unique symbolic expressions generated by applying powers}
 
-        return results
+\textbf{Initialization:}\;
+Create set `ResultExpressions` and add all initial expressions to it\;
 
-    all_results = set()
-    for expr in expressions:
-        all_results.add(expr)
-        all_results.update(recursive_powers(expr, max_depth))
+\For{depth \(d\) from 1 to maximum depth}{
+  Create empty set `NewExpressionsThisDepth`\;
+  \For{each expression \(e\) in `ResultExpressions` (from previous depths)}{
+    \For{each power \(p\) in list of powers}{
+      Attempt to calculate \( powered\_e = e^{p} \)\;
+      \If{resulting expression is valid}{
+        Add \( powered\_e \) to `NewExpressionsThisDepth`\;
+      }
+    }
+  }
+  Add all expressions from `NewExpressionsThisDepth` to `ResultExpressions`\;
+}
 
-    return list(all_results)
+Return list representation of `ResultExpressions`\;
 
+\caption{Apply Powers Recursively to Expressions}
+\label{alg:apply_powers} % Add a label for referencing
+\end{algorithm}
 
 
 
 
 I implemented a filtering mechanism based on whether the expression included a power operation. This further reduces the size of the search tree by eliminating unnecessary branches. While a more robust model would derive this power operation from scratch, I opted for this approach to optimize computation time and maintain flexibility.\\
 
-def filter_powers(expressions, target_powers):
-    filtered = []
 
-    for expr in expressions:
-        found = any(
-            sub.is_Pow and sub.args[1] in target_powers
-            for sub in sp.preorder_traversal(expr)
-        )
-        if found:
-            filtered.append(expr)
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of expressions, list of target powers}
+\KwResult{List of expressions containing a sub-expression with a target power}
 
-    return filtered
+\textbf{Initialization:}\;
+Create empty list `FilteredExpressions`\;
 
+\For{each expression \(e\) in input expressions}{
+  Set `found_target_power` to false\;
+  Traverse the symbolic tree of \(e\) (e.g., preorder)\;
+  \For{each sub-expression \(s\) during traversal}{
+    \If{\(s\) is a power AND exponent of \(s\) is in target powers}{
+      Set `found_target_power` to true\;
+      Break traversal for \(e\)\; % Stop searching this expression
+    }
+  }
+  \If{`found_target_power` is true}{
+    Add \(e\) to `FilteredExpressions`\;
+  }
+}
 
+Return `FilteredExpressions`\;
 
+\caption{Filter Expressions by Presence of Target Powers}
+\label{alg:filter_powers} % Add a label for referencing
+\end{algorithm}
 
 
 
@@ -589,9 +611,27 @@ However, this approach sometimes results in expressions that feature chained con
 
 Next, I needed an efficient way to load the data I had created. At this stage, my primary focus was on rapid testing. To facilitate this, I initially generated some dummy data values. Afterward, I decided to store the data as a NumPy array, as this would offer significant speed advantages over using text files. Several factors contribute to this, such as NumPy arrays being stored in memory, the efficiency of the underlying binary data format, and NumPy's use of C, which allows it to vectorize operations, greatly enhancing performance.\\
 
-def load_data(x: np.ndarray, y: np.ndarray, var_names):
-    assert x.shape[1] == len(var_names)
-    return x, y, [sp.Symbol(v) for v in var_names]
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{Input matrix \(X\), target vector \(Y\), list of variable names}
+\KwResult{Input matrix \(X\), target vector \(Y\), list of symbolic variables}
+
+\textbf{Check Input Validity:}\;
+\If{number of columns in \(X\) \(\neq\) number of variable names}{
+  Indicate error or stop execution\;
+}
+
+\textbf{Process Variables:}\;
+Create list of symbolic variables from the list of variable names\;
+
+Return \(X\), \(Y\), and the list of symbolic variables\;
+
+\caption{Load and Validate Data}
+\label{alg:load_data} % Add a label for referencing
+\end{algorithm}
+
 
 
 
@@ -627,36 +667,69 @@ rameters for optimal results, which can be tricky.”\\
 
 Next, I evaluate the expressions that have been generated. I assign the input variables to the corresponding columns of the data in increasing order. These values are then substituted into the expressions, and the model runs the calculations, producing an array of outputs for each expression. This process essentially evaluates every pruned expression and returns a NumPy array of results based on the input data.\\
 
-def evaluate_expression(expression, variables, X): 
-    
-    symbols = [sp.Symbol(v) for v in variables]
-    func = sp.lambdify(symbols, expression, modules='numpy')
-    try:
-        inputs = [X[:, i] for i in range(X.shape[1])]
-        return func(*inputs)
-    except Exception as e:
-        return np.full(X.shape[0], np.nan)
-    
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{Symbolic expression, list of variable names, input data matrix \(X\)}
+\KwResult{Numerical evaluation of the expression for each data point in \(X\), or NaN if evaluation fails}
+
+\textbf{Initialization:}\;
+Create list of symbolic variables from the list of variable names\;
+
+\textbf{Convert to Numerical Function:}\;
+Convert the symbolic expression into a numerical function, mapping symbolic variables to input columns of \(X\)\;
+
+\textbf{Evaluate:}\;
+Prepare input data from columns of \(X\) to match function arguments\;
+\Try{
+  Evaluate the numerical function using the prepared input data\;
+  Return the resulting array of values\;
+}
+\Catch{Evaluation fails (e.g., division by zero)}{
+  Return an array of Not-a-Number (NaN) values with the same size as the number of data points\;
+}
+
+\caption{Evaluate Symbolic Expression Numerically}
+\label{alg:evaluate_expression} % Add a label for referencing
+\end{algorithm}
+
+
+
 
 
 Following the approach outlined in the paper [insert citation here], I utilized a medium error description length loss function, implementing it as described. The error is calculated using the squared difference to ensure all errors are positive, and a constant of 1 is added to guarantee that all errors are greater than 1 when taking the logarithm.\\
 
 
-def mean_error_descripton_length(result, original):
-    result = np.array(result).flatten()
-    original = np.array(original).flatten()
 
-    total_log_error = 0.0
-    n = len(result)
 
-    for i in range(n):
-        error = abs(original[i] - result[i])
-        log_error = np.log2(1 + error ** 2)
-        total_log_error += log_error
-        print(f"Index {i}: true={original[i]}, pred={result[i]}, error={error}, log_error={log_error:.4f}")
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{Array of predicted values, Array of original values}
+\KwResult{Mean of the base-2 logarithm of (1 + squared error)}
 
-    return (total_log_error / n)
+\textbf{Initialization:}\;
+Flatten input arrays `predicted` and `original`\;
+Initialize `total_log_error` to 0.0\;
+Get the number of elements `n` (length of arrays)\;
 
+\textbf{Calculate Total Log Error:}\;
+\For{index \(i\) from 0 to \(n-1\)}{
+  Calculate `error` = absolute difference between `original[i]` and `predicted[i]`\;
+  Calculate `squared_error` = `error` squared\;
+  Calculate `log_error` = base-2 logarithm of (1 + `squared_error`)\;
+  Add `log_error` to `total_log_error`\;
+  % Optional: Log or print intermediate values (as in original code)
+}
+
+\textbf{Calculate Mean Error:}\;
+Calculate `mean_error` = `total_log_error` / `n`\;
+
+Return `mean_error`\;
+
+\caption{Calculate Mean Log Squared Error}
+\label{alg:mean_log_squared_error} % Add a label for referencing
+\end{algorithm}
 
 
 
@@ -672,15 +745,27 @@ Now that the core of the algorithm is functional—handling constants, powers, v
 To begin, I developed the data loading function. The goal was to accept a NumPy array containing the data, along with a list of variables. The function then compares the shape of the data array with the number of variables provided to ensure that the input is consistent and sufficient for further processing.\\
 
 
-def load_data(data_array, variables):
 
-    num_cols = data_array.shape[1]
-    num_vars = len(variables)
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{Input data array, list of variable names}
+\KwResult{Validated input data array (if valid)}
 
-    if num_cols != num_vars:
-        raise ValueError(f"Data has {num_data_cols} columns but {num_vars} variables were provided.")
+\textbf{Check Input Validity:}\;
+Get number of columns in data array\;
+Get number of variable names\;
 
-    return data_array
+\If{number of columns \(\neq\) number of variable names}{
+  Raise a value error indicating the mismatch\;
+}
+
+% If the check passes, the function proceeds to return
+Return input data array\;
+
+\caption{Load and Validate Data Array}
+\label{alg:load_data_array} % Add a label for referencing
+\end{algorithm}
+
 
 
 
@@ -692,29 +777,31 @@ The next step involves generating polynomial expressions. The function returns a
 The function works by first creating symbolic representations for the variables. It then iterates over all possible combinations of powers for the variables up to the specified degree and combines these terms using the provided operators. Finally, the generated expressions are simplified and returned as a list.\\
 
 
-def generate_expressions(coeffs, variables, operators, max_degree):
 
-    vars_syms = [sp.Symbol(v) for v in variables]
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of coefficients, list of variable names, list of operators, maximum degree}
+\KwResult{List of generated symbolic expressions}
 
-    expressions = []
+\textbf{Initialization:}\;
+Create list of symbolic variables from variable names\;
+Initialize empty list `GeneratedExpressions`\;
 
+\textbf{Generate Expressions:}\;
+\For{each combination of powers (from 1 to max degree) for each variable}{
+  Create a list of `terms`, where each term is `coefficient * variable ^ power`\;
+  \For{each combination of operators (one less than number of terms)}{
+    Build an `expression` by combining the `terms` sequentially using the chosen operators\;
+    Simplify the `expression`\;
+    Add the simplified `expression` to `GeneratedExpressions`\;
+  }
+}
 
-    for powers in itertools.product(range(1, max_degree + 1), repeat=len(vars_syms)):
-        terms = [c * (v ** p) for c, v, p in zip(coeffs, vars_syms, powers)]
-        for ops in itertools.product(operators, repeat=len(terms) - 1):
-            expr = terms[0]
-            for op, term in zip(ops, terms[1:]):
-                if op == '+':
-                    expr = expr + term
-                elif op == '-':
-                    expr = expr - term
-                elif op == '*':
-                    expr = expr * term
-                elif op == '/':
-                    expr = expr / term
-            expressions.append(sp.simplify(expr))
+Return `GeneratedExpressions`\;
 
-    return expressions
+\caption{Generate Expressions from Terms and Operators}
+\label{alg:generate_expressions_terms} % Add a label for referencing
+\end{algorithm}
 
 
 
@@ -725,34 +812,44 @@ The filter_expressions function programmatically filters symbolic expressions ba
 
 The initial version of this function worked for symbolic constants (e.g., sin, cos, etc.) but failed to handle numbers or integer coefficients. This issue was identified during testing, prompting me to rewrite the function so that it could also handle integer coefficients properly.\\
 
-def filter_expressions(expressions, required_vars, required_constants, required_power):
-    result = []
-
-    required_vars = {sp.Symbol(v) for v in required_vars}
-
-    for expr in expressions:
-        symbols_ok = required_vars.issubset(expr.free_symbols)
-
-        if not all(
-            any(
-                (isinstance(sub, const) if isinstance(const, type)
-                 else sub == const)
-                for sub in sp.preorder_traversal(expr)
-            )
-            for const in required_constants
-        ):
-            continue
 
 
-        power_ok = any(
-            isinstance(sub, sp.Pow) and sub.exp == required_power
-            for sub in sp.preorder_traversal(expr)
-        )
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of expressions, List of required variable names, List of required constants (values/types), Required power value}
+\KwResult{List of expressions matching all criteria}
 
-        if symbols_ok and power_ok:
-            result.append(expr)
+\textbf{Initialization:}\;
+Create empty list `FilteredExpressions`\;
+Convert required variable names to symbolic variables\;
 
-    return result
+\For{each expression \(e\) in input expressions}{
+  Set `vars_ok` = true if all required symbolic variables are in \(e\)'s free symbols, false otherwise\;
+  \If{NOT `vars_ok`}{continue}\; % Skip if variables are missing
+
+  Set `constants_ok` = true\;
+  \For{each required constant \(c\) in list of required constants}{
+    Check if \(c\) is present as a sub-expression in \(e\) (matching value or type)\;
+    \If{NOT present}{`constants_ok` = false; break loop over constants}\; % Missing a required constant
+  }
+  \If{NOT `constants_ok`}{continue}\; % Skip if any constant is missing
+
+  Set `power_ok` = false\;
+  Check if any sub-expression in \(e\) is a power with exponent equal to required power\;
+  \If{present}{`power_ok` = true}\;
+  \If{NOT `power_ok`}{continue}\; % Skip if required power is missing
+
+  % If we reached here, all checks passed
+  Add \(e\) to `FilteredExpressions`\;
+}
+
+Return `FilteredExpressions`\;
+
+\caption{Filter Expressions by Variables, Constants, and Power}
+\label{alg:filter_expressions} % Add a label for referencing
+\end{algorithm}
+
+
 
 
 
@@ -762,17 +859,34 @@ The next step involves fitting the filtered expressions to the dataset. The mode
 
 I utilize the Root Mean Squared Error (RMSE) to calculate the loss, and the function returns a list of loss values, one for each expression.\\
 
-def evaluate_expressions(expressions, variables, data, y_true):
-    results = []
-    for expr in expressions:
-        try:
-            func = sp.lambdify(variables, expr, modules='numpy')
-            y_pred = np.array([func(*row) for row in data])
-            rmse = np.sqrt(np.mean((y_pred - y_true)**2))
-            results.append((expr, rmse))
-        except Exception as e:
-            print(f"Skipping {expr} due to error: {e}")
-    return results
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of symbolic expressions, List of symbolic variables, Input data matrix \(X\), True target vector \(Y_{true}\)}
+\KwResult{List of (expression, RMSE) pairs for successfully evaluated expressions}
+
+\textbf{Initialization:}\;
+Create empty list `EvaluationResults`\;
+
+\For{each expression \(e\) in input expressions}{
+  \Try{
+    Convert \(e\) into a numerical function using the symbolic variables\;
+    Evaluate the numerical function for each data point in \(X\) to get predicted values \(Y_{pred}\)\;
+    Calculate Root Mean Squared Error (RMSE) between \(Y_{pred}\) and \(Y_{true}\)\;
+    Add the pair (\(e\), RMSE) to `EvaluationResults`\;
+  }
+  \Catch{Evaluation fails (e.g., runtime error)}{
+    % Optional: Log or print a message about skipping the expression
+  }
+}
+
+Return `EvaluationResults`\;
+
+\caption{Evaluate Expressions and Calculate RMSE}
+\label{alg:evaluate_expressions} % Add a label for referencing
+\end{algorithm}
+
 
 To begin the fitting process, I take an expression, substitute the input variables with the corresponding values from the dataset, and compute the predicted yy-values based on the equation. I then calculate the difference between the predicted values and the true target values (yy), which are the actual outputs. This difference is used to compute the Root Mean Squared Error (RMSE), which quantifies the prediction error for the expression.\\
 
@@ -797,15 +911,24 @@ Physical equations must be dimensionally consistent, meaning the units on both s
 The AI Feynman database was accessed, and the units.csv file was downloaded to better understand the units present in the dataset. Upon reviewing the required units, a unit table was created in the form of an array, where each unit corresponds to a unique power of the fundamental SI units. Additionally, the basic SI units were implemented as an array/list to facilitate this mapping.\\
 
 
-UNIT_TABLE = {
+\begin{algorithm}[H]
+\SetAlgoLined
+\caption{Dimensional Vectors for SI Base Units}
+\label{alg:unit_table} % Add a label for referencing
 
-    'mass':                 [1, 0, 0, 0, 0, 0, 0], 
-    'length':               [0, 1, 0, 0, 0, 0, 0],
-    'time':                 [0, 0, 1, 0, 0, 0, 0],
-    'temperature':          [0, 0, 0, 1, 0, 0, 0],
-    'current':              [0, 0, 0, 0, 1, 0, 0],
-    'amount':               [0, 0, 0, 0, 0, 1, 0], 
-    'luminous_intensity':   [0, 0, 0, 0, 0, 0, 1],
+% Description of the table structure
+Mapping from physical quantity name to its dimensional vector (Mass, Length, Time, Temperature, Current, Amount, Luminous Intensity):\;
+\vspace{0.5em} % Add a little vertical space for clarity
+
+\textbf{mass}:                 [1, 0, 0, 0, 0, 0, 0]\;
+\textbf{length}:               [0, 1, 0, 0, 0, 0, 0]\;
+\textbf{time}:                 [0, 0, 1, 0, 0, 0, 0]\;
+\textbf{temperature}:          [0, 0, 0, 1, 0, 0, 0]\;
+\textbf{current}:              [0, 0, 0, 0, 1, 0, 0]\;
+\textbf{amount}:               [0, 0, 0, 0, 0, 1, 0]\;
+\textbf{luminous\_intensity}:   [0, 0, 0, 0, 0, 0, 1]\; % Note the escaped underscore
+
+\end{algorithm}
 
 
 There were also relevent derived units included.\\ 
@@ -817,179 +940,483 @@ This function constructs the dimensional matrix MM and the target vector bb, whi
 
 
 
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of independent variable names, Dependent variable name, Dictionary mapping variable names to dimensional vectors}
+\KwResult{Matrix \(M\) of independent variable dimensional vectors, Vector \(b\) of dependent variable dimensional vector}
+
+\textbf{Construct Matrix \(M\):}\;
+Initialize empty matrix \(M\)\;
+\For{each independent variable name \(v\) in the list}{
+  \Try{
+    Look up the dimensional vector for \(v\) in the dictionary\;
+    Add this vector as a column to matrix \(M\)\;
+  }
+  \Catch{Variable name \(v\) not found in dictionary}{
+    Raise an error indicating the missing independent variable\;
+  }
+}
+
+\textbf{Construct Vector \(b\):}\;
+\Try{
+  Look up the dimensional vector for the dependent variable name \(d\) in the dictionary\;
+  Set this vector as vector \(b\)\;
+}
+\Catch{Variable name \(d\) not found in dictionary}{
+  Raise an error indicating the missing dependent variable\;
+}
+
+Return matrix \(M\) and vector \(b\)\;
+
+\caption{Construct Dimensional Matrix and Target Vector}
+\label{alg:get_matrix_target} % Add a label for referencing
+\end{algorithm}
+
+
+
+
+
 
 \subsubsection{Solving Dimension and Basis Units:}
 
-This function determines the exponents for dimensional scaling and dimensionless groups by solving the lin-
-ear systems Mp = b and MU = 0. It takes the dimensional matrix M and target vector b as input. The
-function first converts these NumPy arrays into SymPy matrices (sp.Matrix) to leverage symbolic compu-
-tation capabilities. It then attempts to find an exact particular solution p for Mp = b using SymPy’s LU-
-solve method, chosen for its ability to yield rational solutions. Robust error handling via try...except ad-
-dresses potential issues like inconsistent systems. Finally, it calculates the null space basis U of M using
-Ms ym.nullspace(), whichidentif iesthecombinationsf ormingdimensionlessgroups.T hef unctionreturnsthesymbolicsolu
-Think of it like this: you have a target physical quantity (b, like Force) that depends on several input quantities
-(M, like mass, length, time).
-Finding the ”Unit-Fixing” Part (p = Ms ym.LU solve(bs ym)) :
-The function first figures out the specific combination of powers (p) of your input variables (x) that you need to
-multiply together ( xp )sothattheresulthastheexactsamephysicalunitsasyourtargetvariable(b).
-For example, if the target is Force ([M L T2]) and inputs are mass ([M]), length ([L]), and time ([T]), it would
-find p corresponding to mass1 * length1 * time2.
-It uses LUsolve from SymPy to try and find an exact (often simple fraction or integer) solution for these powers
-p.
-Finding the ”Dimensionless Combinations” (U = Ms ym.nullspace()) :
-After accounting for the basic units, any remaining relationship must involve combinations of input variables
-that have no units at all (they are dimensionless numbers, like Reynolds number).
-The function finds all the fundamental ways (U) you can combine powers of the input variables ( xu )suchthattheunitscompletelycan
-In essence, the function:
-Separates the part of the formula responsible for getting the units right (p).
-Identifies all the core dimensionless building blocks (U) that the rest of the formula must be made from.
-This allows the main algorithm to later focus on finding the relationship between these dimensionless quantities,
-which is a simpler problem than the original one involving various physical units. 
+
+The solveDimension function solves the system of equations M⋅p=bM⋅p=b for the unknown vector pp, where MM is the dimensional matrix and bb is the target vector. The function begins by converting the input matrices MM and bb into symbolic matrices using SymPy's Matrix class. It then attempts to solve for pp using the LU decomposition method (LUsolve), which is efficient for solving linear systems. If this process fails, an error is raised, indicating the issue encountered during the solution attempt. Additionally, the function computes the null space of matrix MM, representing the set of dimensionless combinations of the variables. The function returns two outputs: the solution vector pp and the null space UU, which provides insight into any dimensionless combinations of the input variables. This method ensures robust error handling and leverages symbolic computation for accuracy.\\
+
+
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{Matrix \(M\), Vector \(b\)}
+\KwResult{Particular solution vector \(p\), Null space basis matrix \(U\)}
+
+\textbf{Solve for Particular Solution \(p\):}\;
+\Try{
+  Solve the linear system \(M \cdot p = b\) for vector \(p\)\;
+}
+\Catch{Solving fails (e.g., matrix is singular or system inconsistent)}{
+  Raise an error indicating failure to solve the system\;
+}
+
+\textbf{Calculate Null Space Basis \(U\):}\;
+Calculate the basis vectors for the null space of matrix \(M\)\;
+Form matrix \(U\) where columns are the null space basis vectors\;
+
+Return \(p\) and \(U\)\;
+
+\caption{Solve Dimensional System and Find Null Space}
+\label{alg:solve_dimension} % Add a label for referencing
+\end{algorithm}
+
+
+
 
 
 
 \subsubsection{Data Transformation Function:}
-his function converts original physical data (datax , datay )intoadimensionlessf ormusingpreviouslycalculatedexponents(p, U ).
-How it Works: First, it calculates a scalingf actorf oreachdatapointbyraisinginputvariables(datax )tothepowersspecif iedinp(u\\
+
+The generate_dimensionless_data function is designed to transform a dataset into dimensionless form by applying the scaling factors derived from the solution vector pp and the null space UU. Initially, the function checks if pp is a NumPy array; if not, it converts it into a flattened NumPy array with np.float64 type for consistency. The function then reshapes pp into a column vector and calculates a scaling factor by raising each variable in the input data dataxdatax​ to the powers specified by pp, followed by computing the product of these scaled values along the specified axis. This scaling factor is then used to adjust the target values dataydatay​ to obtain the dimensionless target values data_y_prime.\\
+
+If the null space UU is provided, the function proceeds to generate new dimensionless variables by computing the product of the input data dataxdatax​ raised to the powers specified by each vector in UU. These newly generated dimensionless variables are stacked together to form a transformed input dataset data_x_prime. If no null space is provided, the original input data dataxdatax​ is returned unchanged. This function provides a way to normalize and simplify the dataset, ensuring that all variables are dimensionless, which facilitates further analysis.\\
+
+
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{Input data matrix \(X\), Target data vector \(Y\), Particular solution vector \(p\), Null space basis matrix \(U\)}
+\KwResult{Dimensionless input matrix \(X'\), Dimensionless target vector \(Y'\)}
+
+\textbf{Prepare Particular Solution:}\;
+Ensure \(p\) is a flattened numerical vector\;
+
+\textbf{Calculate Scaling Factor:}\;
+Calculate a `scaling_factor` vector by raising each column of \(X\) to the corresponding power in \(p\) and taking the product across variables for each data point\;
+\( \text{scaling\_factor}_i = \prod_{j} X_{ij}^{p_j} \)\;
+
+\textbf{Transform Target Data:}\;
+Calculate dimensionless target vector \(Y'\) by dividing \(Y\) by the `scaling_factor`\;
+\( Y'_i = Y_i / \text{scaling\_factor}_i \)\;
+
+\textbf{Transform Input Data:}\;
+\If{Null space basis \(U\) is not empty}{
+  Create empty list `DimensionlessVariables`\;
+  \For{each vector \(u\) in \(U\)}{
+    Calculate a new dimensionless variable vector by raising each column of \(X\) to the corresponding power in \(u\) and taking the product across variables for each data point\;
+    \( \text{new\_var}_i = \prod_{j} X_{ij}^{u_j} \)\;
+    Add `new_var` to `DimensionlessVariables`\;
+  }
+  Form dimensionless input matrix \(X'\) by stacking the vectors in `DimensionlessVariables`\;
+}
+\Else{
+  Set dimensionless input matrix \(X'\) equal to the original input matrix \(X\)\;
+}
+
+Return \(X'\) and \(Y'\)\;
+
+\caption{Generate Dimensionless Data}
+\label{alg:generate_dimensionless_data} % Add a label for referencing
+\end{algorithm}
+
+
+
 
 
 
 \subsubsection{Symbolic Transformation Generator: }
 
-This function generates the symbolic mathematical expressions corresponding to the dimensional analysis trans-
-formation. It accepts the original independent variable names (independentv ars)andtheexponentvectorsf orscaling(p)anddimens
-How it Works: It first creates SymPy symbolic objects for each input variable name using sp.symbols. Utilizing
-these symbols and the scaling exponents p, it constructs the symbolic expression symbolicp representingtheunit−
-f ixingscalingf actor(xp )viasp.M ul.Subsequently, ititeratesthrougheachexponentvectoruinU, buildingthecorrespondings
-insert code:\\
+This function generates the symbolic mathematical expressions corresponding to the dimensional analysis transformation. It accepts the original independent variable names (independent_vars), the exponent vectors for scaling (p), and the dimensionless combinations (U).\\
+
+The function first creates symbolic representations of each independent variable using sp.symbols from the SymPy library. Then, using the scaling exponents pp, it constructs the symbolic expression symbolic_p representing the unit-fixing scaling factor xpxp through sp.Mul, which allows for the multiplication of terms. This expression effectively represents the scaling transformation applied to the input variables.\\
+
+Next, the function iterates through each exponent vector uu in the null space UU, building the corresponding symbolic expressions for the dimensionless combinations. Each new variable is constructed by applying the powers from the exponent vector uu to the original input variables, and the resulting expressions are added to a list. This process ensures that both the scaling factors and the dimensionless combinations are represented as symbolic mathematical expressions, which are essential for understanding the relationship between the variables in the dimensional analysis.\\
+
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwData{List of independent variable names, Particular solution vector \(p\), Null space basis matrix \(U\)}
+\KwResult{Symbolic scaling factor expression, List of symbolic dimensionless group expressions}
+
+\textbf{Initialization:}\;
+Create list of symbolic variables from independent variable names\;
+
+\textbf{Construct Symbolic Scaling Factor:}\;
+Form symbolic expression for scaling factor by taking the product of each symbolic variable raised to the corresponding power in \(p\)\;
+\( \text{ScalingFactor} = \prod_{i} \text{variable}_i^{p_i} \)\;
+
+\textbf{Construct Symbolic Dimensionless Groups:}\;
+Initialize empty list `SymbolicDimensionlessGroups`\;
+\For{each vector \(u\) in Null space basis \(U\)}{
+  Form symbolic expression for a dimensionless group by taking the product of each symbolic variable raised to the corresponding power in \(u\)\;
+  \( \text{DimensionlessGroup}_u = \prod_{i} \text{variable}_i^{u_i} \)\;
+  Add `DimensionlessGroup_u` to `SymbolicDimensionlessGroups`\;
+}
+
+Return `ScalingFactor` and `SymbolicDimensionlessGroups`\;
+
+\caption{Symbolic Transformation using Dimensional Analysis Results}
+\label{alg:symbolic_transformation} % Add a label for referencing
+\end{algorithm}
+
+
 
 
 \subsection{Neural Network Fitting: }
 
-The next step crutical component, is using neural networks in order to simplify the expressions further.
-In order to get a smotth and differentiable approximation of the function we are looking for, this is what the
-neural network allows us to do.
-The neural network provides a powerful, universal function approximator (fN N )capableof learningintricatepatternsdirectlyf random\\
+
+The next critical component involves using neural networks to predict and compute gradients from the dimensionless data, providing valuable insights for visualization. While neural networks do not directly solve for symbolic expressions, they serve as powerful tools for approximating complex relationships within the data. By training a neural network on the dimensionless variables, it can predict the output for a given input and calculate gradients, offering a smooth, differentiable function that helps visualize how changes in the input variables influence the model’s predictions. This capability allows us to gain a deeper understanding of the underlying behavior of the system. Although neural networks do not offer an explicit symbolic expression, they provide a flexible and efficient way to visualize the functional dependencies, aiding in the interpretation of complex patterns that may be difficult to express symbolically. Ultimately, the network's predictions and gradients can be used to explore and understand the data, even if the true functional form remains implicit.\\
+
+
+
+
+
 
 
 \subsubsection{SymbolicNetwork:}
 
-This class defines the neural network architecture used as a universal function approximator within the sym-
-bolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in
-PyTorch.
-Technical Implementation: The constructor (i nit) initializesthenetworkstructure,acceptingthenumberof inputf eatures(ni nput)anddef aultingtooneoutpu
-Design Rationale: This multi-layer perceptron (MLP) architecture provides significant expressive power. The
-Tanh activation was chosen as specified in the reference papers, offering a smooth, differentiable non-linearity
-suitable for approximating complex physical functions and enabling reliable gradient computation for subse-
-quent analysis steps.\\ 
+
+This class defines the neural network architecture used as a universal function approximator within the symbolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in PyTorch. The constructor (__init__) initializes the network structure, accepting the number of input features (n_input) and defaulting to a single output (n_output). The model consists of several fully connected layers, with each layer followed by a Tanh activation function, which was selected based on the specifications of the reference papers. This multi-layer perceptron (MLP) architecture provides significant expressive power, making it capable of approximating complex relationships within the data. The Tanh activation ensures smooth, differentiable non-linearity, making the network suitable for approximating complex physical functions. While the neural network does not directly solve symbolic expressions, it enables us to predict outputs and compute gradients from the dimensionless data. These predictions and gradients help visualize how changes in input variables affect the model's outputs, offering valuable insights into the system's underlying behavior and functional relationships. This approach aids in interpreting complex patterns, even when the explicit symbolic form is not easily obtainable.\\
+
+
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\caption{Symbolic Regression Neural Network Architecture}
+\label{alg:symbolic_network} % Add a label for referencing
+
+\textbf{Class Definition:}\;
+Define a Neural Network Class `SymbolicNetwork` inheriting from a base Neural Network Module\;
+
+\textbf{Initialization Method (`__init__`):}\;
+\KwData{Number of input features (`n_input`), Number of output features (`n_output`, default 1)}\;
+Call the constructor of the base Neural Network Module\;
+Define a sequential model containing the following layers:\;
+\Indp % Indent the list of layers
+Linear layer: `n_input` inputs, 128 outputs\;
+Tanh activation function\;
+Linear layer: 128 inputs, 128 outputs\;
+Tanh activation function\;
+Linear layer: 128 inputs, 64 outputs\;
+Tanh activation function\;
+Linear layer: 64 inputs, 64 outputs\;
+Tanh activation function\;
+Linear layer: 64 inputs, `n_output` outputs\;
+\Indm % Unindent
+
+\textbf{Forward Method (`forward`):}\;
+\KwData{Input tensor `x`}\;
+\KwResult{Output tensor}\;
+Pass the input tensor `x` through the defined sequential model\;
+Return the output tensor\;
+
+\end{algorithm}
+
+
+
+
+
 
 
 \subsubsection{Preparing the data:}
 
-This function preprocesses raw input and output data (datax , datay )intoaf ormatsuitablef orP yT orchmodeltrainingandvalidati
-Technical Implementation: It begins by converting the input NumPy arrays datax anddatay intoP yT orchtensorsof typetorch.f loat3
-Design Rationale: This design adheres to standard PyTorch practices. Tensor conversion is mandatory for
-framework compatibility. The train/validation split is critical for monitoring model generalization and prevent-
-ing overfitting. TensorDataset provides a convenient pairing of inputs and targets. DataLoader is essential for
-efficient training, enabling batch processing (managing memory and potentially parallelizing computation) and
-automating data shuffling, which improves model robustness and convergence.\\
+This function preprocesses raw input (data_x) and output (data_y) data into a format suitable for PyTorch model training and validation. It begins by converting the input NumPy arrays into PyTorch tensors of type torch.float32, as PyTorch requires tensor structures for efficient computation. The data is then split into training and validation sets based on a configurable train_split ratio, ensuring the model can be evaluated on unseen data to prevent overfitting. The TensorDataset class is used to pair the input and target data, enabling efficient indexing during training, while the DataLoader handles batching, memory management, and parallel processing. Additionally, the DataLoader automates data shuffling, which improves model robustness by ensuring the model does not memorize the data order, aiding in better convergence during training. This design follows standard PyTorch practices to ensure compatibility, scalability, and efficient handling of large datasets, while the training-validation split is crucial for monitoring generalization and model performance.\\
+
+
+\begin{algorithm}[H]
+\SetAlgoLined % Ensures vertical lines for structure
+\KwData{Input data array \(X\), Target data array \(Y\), Batch size, Training split ratio (default 0.8)}
+\KwResult{Training data loader, Validation data loader}
+
+\textbf{Convert to Tensors:}\;
+Convert \(X\) to a PyTorch tensor (float32)\;
+Convert \(Y\) to a PyTorch tensor (float32) and add a dimension\;
+
+\textbf{Split Data:}\;
+Get the total number of samples\;
+Calculate the index for splitting based on the training split ratio\;
+Split the input and target tensors into training and validation sets\;
+
+\textbf{Create Datasets:}\;
+Create a training dataset from the training tensors\;
+Create a validation dataset from the validation tensors\;
+
+\textbf{Create Data Loaders:}\;
+Create a training data loader from the training dataset, using the specified batch size and enabling shuffling\;
+Create a validation data loader from the validation dataset, using the specified batch size and disabling shuffling\;
+
+Return the training data loader and the validation data loader\;
+
+\caption{Prepare Data for Neural Network Training}
+\label{alg:prepare_data} % Add a label for referencing
+\end{algorithm}
+
+
+
+
 
 \subsubsection{Training the Network:}
 
-This function orchestrates the supervised training process for the provided PyTorch neural network model. Its
-primary goal is to iteratively adjust the model’s parameters (weights and biases) to minimize the difference
-between its predictions and the true target values using the training data, while monitoring performance on
-unseen validation data.
-Technical Implementation: The function begins by transferring the model to the specified compute device (’cpu’
-or ’cuda’). It initializes the Adam optimizer, a common adaptive learning rate optimization algorithm, linking it
-to the model.parameters() and setting the learningr ate.T heM eanSquaredErrorloss(nn.M SELoss), suitablef orregression, isc
-Design Rationale: This structure represents a standard PyTorch training loop. Using DataLoader enables effi-
-cient batch processing. The Adam optimizer provides robust convergence properties. MSE loss directly min-
-imizes the squared prediction error. Explicitly setting model.train() and model.eval() ensures correct behavior of
-layers like dropout or batch normalization (if present). The torch.nog rad()contextduringvalidationpreventsunnecessarygradien\\
+TThis function orchestrates the supervised training process for the provided PyTorch neural network model, with the primary goal of adjusting the model’s parameters (weights and biases) to minimize the difference between its predictions and the true target values using the training data, while also monitoring performance on unseen validation data. The function starts by transferring the model to the specified compute device (either ‘cpu’ or ‘cuda’) and initializes the Adam optimizer, a commonly used adaptive learning rate optimization algorithm. The optimizer is linked to the model's parameters, with the learning rate set as a hyperparameter. The Mean Squared Error (MSE) loss function is used, which is well-suited for regression tasks as it minimizes the squared error between predicted and actual values. The training loop iterates through multiple epochs, where the model is trained using batches from the training data, and the optimizer updates the model’s parameters based on the gradients computed from the loss function. During the validation phase, the model’s performance is evaluated without gradient calculation to save computational resources. This standard PyTorch training loop, which uses DataLoader for efficient batch processing, ensures the model is correctly trained and evaluated on both training and validation datasets, with printed outputs for tracking progress.\\
+
+
+\begin{algorithm}[H]
+\SetAlgoLined % Ensures vertical lines for structure
+\KwData{Neural network model, Training data loader, Validation data loader, Number of epochs, Learning rate, Device}
+\KwResult{Trained neural network model (implicitly returned by modification)}
+
+\textbf{Initialization:}\;
+Move model to the specified device\;
+Initialize an optimizer (e.g., Adam) with model parameters and learning rate\;
+Define a loss function (e.g., Mean Squared Error)\;
+
+\For{each epoch from 1 to Number of epochs}{
+  \textbf{Training Phase:}\;
+  Set model to training mode\;
+  Initialize total training loss for the epoch\;
+  \For{each batch (inputs, targets) in Training data loader}{
+    Move inputs and targets to the specified device\;
+    Perform forward pass to get predictions\;
+    Calculate loss between predictions and targets\;
+    Zero gradients of model parameters\;
+    Perform backward pass to compute gradients\;
+    Update model parameters using the optimizer\;
+    Accumulate batch loss to total training loss\;
+  }
+  Calculate average training loss for the epoch\;
+
+  \textbf{Validation Phase:}\;
+  Set model to evaluation mode\;
+  Initialize total validation loss for the epoch\;
+  Disable gradient calculations\;
+  \For{each batch (inputs, targets) in Validation data loader}{
+    Move inputs and targets to the specified device\;
+    Perform forward pass to get predictions\;
+    Calculate loss between predictions and targets\;
+    Accumulate batch loss to total validation loss\;
+  }
+  Calculate average validation loss for the epoch\;
+  Enable gradient calculations\; % Restore default state
+
+  % Optional: Print epoch summary (as in original code)
+  Print epoch number, training loss, and validation loss\;
+}
+
+% Model is trained in place, no explicit return needed in pseudocode
+
+\caption{Train Neural Network Model}
+\label{alg:train_network} % Add a label for referencing
+\end{algorithm}
+
+
+
+
+
 
 
 \subsubsection{Predict Function:}
 
-This function performs inference using a trained PyTorch model, generating output predictions for a given set of
-input data. It is designed to take a trained model, input data as a NumPy array (xn umpy), andthetargetcomputationdevice(′ cpu′ or′
-Technical Implementation: The function first sets the model to evaluation mode using model.eval(). This is cru-
-cial as it disables layers like dropout or batch normalization that have different behaviors during training and in-
-ference, ensuring deterministic output. The input NumPy array xn umpyisthenconvertedintoatorch.T ensorwithdtype =
-torch.f loat32andtransf erredtothespecif ieddevice.T hecorepredictionstepoccurswithinawithtorch.nog rad() :
-contextmanager.T hisdisablesgradientcalculation, signif icantlyreducingmemoryconsumptionandspeedingupcomputatio
-Design Rationale: This design follows standard PyTorch inference practices. model.eval() ensures correct
-prediction behavior. Tensor conversion and device handling manage data compatibility with the model. The torch.nog rad()contextoptimizesperf ormancef orinf erence.ReturningaN umP yarrayprovidesauser−
-f riendlyoutputf ormat.\\ 
+This function performs inference using a trained PyTorch model, generating output predictions for a given set of input data. It is designed to take a trained model, input data as a NumPy array (x_numpy), and the target computation device ('cpu' or 'cuda'). The function begins by setting the model to evaluation mode using model.eval(), which is critical as it disables layers like dropout or batch normalization that behave differently during training and inference, ensuring deterministic output. The input data (x_numpy) is then converted into a PyTorch tensor with the appropriate dtype=torch.float32 and transferred to the specified device. The core prediction step occurs within a with torch.no_grad() context manager, which disables gradient calculation, thereby reducing memory consumption and speeding up computations during inference. This design follows standard PyTorch inference practices, ensuring that the model behaves correctly during prediction and optimizes performance by avoiding unnecessary gradient computations. Finally, the predictions are returned as a NumPy array, providing a user-friendly output format that is compatible with typical post-processing and analysis workflows.\\
+
+\begin{algorithm}[H]
+\SetAlgoLined % Ensures vertical lines for structure
+\KwData{Trained neural network model, Input data (NumPy array), Device}
+\KwResult{Predicted output (NumPy array)}
+
+\textbf{Setup:}\;
+Set model to evaluation mode\;
+Convert input data (NumPy array) to PyTorch tensor (float32) and move to the specified device\;
+
+\textbf{Predict:}\;
+Disable gradient calculations\;
+Perform forward pass using the model with the input tensor\;
+Move the resulting predictions tensor to CPU\;
+Convert the predictions tensor to a NumPy array\;
+Enable gradient calculations\; % Restore default state
+
+Return the predicted NumPy array\;
+
+\caption{Generate Predictions using Trained Network}
+\label{alg:predict} % Add a label for referencing
+\end{algorithm}
+
+
+
+
 
 
 \subsection{Pareto Frontier Optimisation: }
 
-The Pareto frontier provides a principled way to manage the inherent trade-off between a formula’s accuracy
-and its simplicity (complexity) in symbolic regression. Instead of seeking a single ”best” formula, the goal is
-to identify all Pareto-optimal formulas: those for which no other discovered formula is simultaneously simpler
-and more accurate.
-I am going to implement this by plotting on a 2d plane, where x represent complexity and y represents the mean
-error description length. As the algorithm generates candidate formulas (through brute-force search, trans-
-formations, or recursive combinations), each candidate is evaluated and potentially added to the set of points
-forming the frontier.
-Crucially, any candidate formula that is dominated – meaning another formula on the frontier has both lower (or
-equal) complexity and lower (or equal) loss (with at least one inequality strict) – is discarded. This Pareto prun-
-ing significantly reduces the search space, especially when combining solutions from subproblems, improving
-computational efficiency and robustness against noise by inherently favouring simpler explanations for a given
-accuracy level. The final frontier presents the user with a spectrum of optimal solutions.\\
+
+The Pareto frontier provides a valuable method for balancing the trade-off between accuracy and simplicity (complexity) in symbolic regression. Rather than searching for a single "best" formula, the objective is to identify all Pareto-optimal formulas, which are those for which no other formula is both simpler and more accurate. To implement this, a 2D plot is created where the x-axis represents the formula's complexity and the y-axis represents the mean error description length. As candidate formulas are generated through methods such as brute-force search, transformations, or recursive combinations, each candidate is evaluated and plotted as a point on the frontier. A critical aspect of this approach is Pareto pruning: any candidate formula that is dominated – meaning that another formula on the frontier has both equal or lower complexity and equal or lower loss (with at least one strict inequality) – is discarded. This pruning process reduces the search space and improves computational efficiency by eliminating redundant solutions, especially when combining results from subproblems. Additionally, it enhances robustness against noise by inherently favoring simpler formulas that achieve a given accuracy. The final Pareto frontier provides a spectrum of optimal solutions, offering the user a range of trade-offs between complexity and accuracy.\\
+
 
 
 \subsubsection{Points:}
 
-This Point class serves as a fundamental data structure within the Pareto frontier analysis framework. Its pri-
-mary purpose is to encapsulate the essential characteristics of a single candidate formula evaluated during the
-symbolic regression process.
-Technical Implementation: The constructor (i nit initializeseachP ointinstancewiththreeattributes:complexity(anumericalscorerepresentingthef ormula
-)
-Design Rationale: This class is designed to bundle the key metrics (complexity, accuracy) required for Pareto
-dominance checks with the associated formula (expression). By grouping these related pieces of data into a
-single object, it simplifies the management and comparison of candidate solutions. Functions operating on
-the Pareto frontier can easily access the necessary complexity and accuracy attributes from each Point object to
-determine if one solution dominates another, thereby facilitating the efficient maintenance of the non-dominated
-set of optimal formulas.\\
+
+The Point class is a fundamental data structure within the Pareto frontier analysis framework, encapsulating the key characteristics of a single candidate formula evaluated during the symbolic regression process. Its constructor initializes each instance with three attributes: complexity, a numerical score representing the formula's complexity; accuracy, a measure of the formula's performance; and the formula itself, which is the associated symbolic expression. This design consolidates the essential metrics (complexity, accuracy) needed for Pareto dominance checks into a single object, simplifying the management and comparison of candidate solutions. Functions operating on the Pareto frontier can efficiently access the complexity and accuracy attributes to determine dominance relationships, facilitating the maintenance of a non-dominated set of optimal formulas.\\
+
+
+\begin{algorithm}[H]
+\SetAlgoLined % Ensures vertical lines for structure
+\caption{Point Class for Pareto Front}
+\label{alg:point_class} % Add a label for referencing
+
+\textbf{Class Definition:}\;
+Define a Class `Point` to represent a candidate solution\;
+
+\textbf{Initialization Method (`__init__`):}\;
+\KwData{Complexity value, Accuracy value, Symbolic expression}\;
+Store the input complexity, accuracy, and expression as attributes of the Point object\;
+
+\textbf{Representation Method (`__repr__`):}\;
+\KwResult{String representation of the Point object}\;
+Construct a descriptive string including the complexity, accuracy, and expression values\;
+Return the constructed string\;
+
+\end{algorithm}
+
 
 
 \subsubsection{Pareto Point Set:}
 
-The updatep aretop ointsf unctionmaintainsaP aretof rontierof symbolicexpressions, balancingcomplexity(modelsimplicit
-The function filters the combined list to retain only non-dominated points: a point A dominates point B if A is
-both no more complex and no less accurate, with at least one being strictly better. This ensures only the best
-trade-offs remain.
-In symbolic regression, this is critical because we aim to discover expressions that are not just accurate but
-also interpretable — meaning low complexity. The Pareto frontier lets us visualize and choose among optimal
-models, avoiding overfitting (too complex) or underfitting (too simple).\\ 
+
+The update_pareto_points function maintains a Pareto frontier of symbolic expressions, balancing model complexity and accuracy. It filters a combined list of candidate solutions to retain only non-dominated points, where a point A dominates point B if A is both no more complex and no less accurate, with at least one of these metrics strictly better. This approach ensures that only the best trade-offs between complexity and accuracy remain. In symbolic regression, this is crucial as the goal is to identify expressions that are both accurate and interpretable—low in complexity. The Pareto frontier provides a valuable tool for visualizing and selecting optimal models, helping to avoid overfitting (excessive complexity) and underfitting (excessive simplicity).\\
+
+
+\begin{algorithm}[H]
+\SetAlgoLined % Ensures vertical lines for structure
+\KwData{List of current Pareto points (complexity, accuracy, expression), List of new expressions, List of corresponding losses}
+\KwResult{List of unique Pareto points (complexity, accuracy, expression) from the combined set}
+
+\textbf{Prepare New Points:}\;
+Create empty list `NewPoints`\;
+\For{each new expression \(e\) and its loss \(l\)}{
+  Calculate complexity of \(e\)\;
+  Add (complexity, \(l\), \(e\)) as a tuple to `NewPoints`\;
+}
+
+\textbf{Combine and Identify Pareto Front:}\;
+Combine `CurrentPoints` and `NewPoints` into a single list `CombinedPoints`\;
+Create empty list `ParetoPoints`\;
+\For{each point \(p_1\) in `CombinedPoints`}{
+  Set `is_dominated` to false\;
+  \For{each other point \(p_2\) in `CombinedPoints` (\(p_2 \neq p_1\))}{
+    \If{\(p_2\) dominates \(p_1\) (better or equal in all objectives, strictly better in at least one)}{
+      Set `is_dominated` to true\;
+      Break inner loop\;
+    }
+  }
+  \If{NOT `is_dominated`}{
+    Add \(p_1\) to `ParetoPoints`\;
+  }
+}
+
+\textbf{Remove Duplicates:}\;
+Create empty set `SeenPointsKeys`\;
+Create empty list `UniqueParetoPoints`\;
+\For{each point \(p\) in `ParetoPoints`}{
+  Create a unique key for \(p\) (e.g., based on complexity, loss, and string representation of expression)\;
+  \If{key is NOT in `SeenPointsKeys`}{
+    Add \(p\) to `UniqueParetoPoints`\;
+    Add key to `SeenPointsKeys`\;
+  }
+}
+
+Return `UniqueParetoPoints`\;
+
+\caption{Update Pareto Front with New Candidate Solutions}
+\label{alg:update_pareto_points} % Add a label for referencing
+\end{algorithm}
+
 
 
 \subsection{Plotting: }
 
-I wanted ways to visualise and understand in a visual sense what was happening behind the scenes in my sym-
-bolic regression program. Humans are visual creatures and looking at plots offers a more powerful way to understand data rather than staring a strng of numbers or expressions, trying to manually find patterns or mis-
-takes.
-I decided to use plotly, instead of the usual matplotlib, as I personally think it is more asthetically pleasing and
-it has a better interactive environment.\\ 
+
+The need arose to find ways to visualize and better understand the processes occurring behind the scenes in the symbolic regression program. Humans are inherently visual creatures, and visualizations provide a more powerful means of comprehending data compared to simply examining strings of numbers or expressions, which makes it difficult to identify patterns or errors manually. Plotly was chosen over the more commonly used Matplotlib for its superior aesthetic appeal and its enhanced interactive environment, offering a more intuitive and engaging experience for exploring the data and model results.\\
+
+
+
 
 
 \subsubsection{Plot for Pareto front:}
 
-Visualizing the Pareto frontier is highly beneficial for interpreting the results of symbolic regression. It provides
-an intuitive graphical representation of the fundamental trade-off between model complexity and predictive
-accuracy (or loss).
-Code Description: The provided code utilizes the plotly.express library to generate this visualization. A Pandas
-DataFrame (df) structures the data, holding columns for ’Complexity’ (x-axis), ’Loss’ (y-axis, representing inac-
-curacy like MEDL), and the corresponding symbolic ’Expression’. The px.scatter function creates a scatter plot
-mapping complexity against loss, crucially using the ’Expression’ data to label each point directly on the plot via
-the text argument. Further customization using fig.updatet racesenhancespointvisibility(markersize, color)andlabelpositioning
-Utility and Rationale: This visualization allows researchers to readily identify the set of non-dominated solu-
-tions. By plotting quantitative metrics, it elucidates points where significant gains in accuracy require substantial
-increases in complexity (an ”elbow” region), facilitating informed model selection based on the specific bal-
-ance desired between interpretability/simplicity and predictive power. The direct labeling of points with their
-expressions provides immediate context for each optimal solution discovered.\\ 
+
+
+Visualizing the Pareto frontier is crucial for interpreting the results of symbolic regression as it offers an intuitive graphical representation of the trade-off between model complexity and predictive accuracy (or loss). The provided code leverages the Plotly Express library to generate this visualization. A Pandas DataFrame (df) is used to organize the data, containing columns for 'Complexity' (x-axis), 'Loss' (y-axis, representing inaccuracies such as MEDL), and the corresponding symbolic 'Expression'. The px.scatter function generates a scatter plot that maps complexity against loss, with the 'Expression' data being displayed as labels on each point using the text argument. Additional customization via fig.update_traces enhances the visibility of the points (marker size, color) and optimizes label positioning. This visualization allows researchers to easily identify the set of non-dominated solutions. By plotting quantitative metrics, it reveals where significant accuracy improvements require substantial increases in complexity (often visible in the "elbow" region), aiding in model selection based on the desired balance between interpretability and predictive power. Direct labeling of points with their expressions provides immediate context for each optimal solution.\\
+
+
+
+\begin{algorithm}[H]
+\SetAlgoLined % Ensures vertical lines for structure
+\KwData{List of Pareto points (complexity, accuracy, expression), Plot title (default)}
+\KwResult{Plotly figure object representing the Pareto frontier}
+
+\textbf{Prepare Data:}\;
+Convert the list of Pareto points into a structured data format (e.g., a table or DataFrame) with columns for Complexity, Loss, and Expression\;
+
+\textbf{Create Scatter Plot:}\;
+Generate a scatter plot using the prepared data\;
+Map Complexity to the x-axis, Loss to the y-axis\;
+Use Expression as text labels for each point\;
+Set the plot title\;
+
+\textbf{Style Plot:}\;
+Customize the appearance of the data points (e.g., size, color)\;
+Customize the appearance of the text labels (e.g., position)\;
+Customize the plot layout (e.g., background colors, font, title alignment)\;
+
+Return the generated Plotly figure object\;
+
+\caption{Plot Pareto Frontier using Plotly}
+\label{alg:plot_pareto_frontier} % Add a label for referencing
+\end{algorithm}
+
+
+
 
 \subsection{Main method bringing it together Regressor: }
 
@@ -1089,7 +1516,68 @@ This study highlights how biological systems can be rendered into symbolic, mech
 
 \addcontentsline{toc}{section}{Appendix:}
 
-\section{Project Planning: }
+\section{Project Management: }
+
+\subsection{Gantt Chart: }
+
+\subsection{Risk Assessment: }
+
+
+Prior to the commencement of this project, a risk assessment was conducted to anticipate potential challenges and plan mitigation strategies. This proactive approach aimed to ensure a smoother development process. Several risks did materialize during the course of the work; however, thanks to the preparations made, they were effectively managed and did not significantly hinder progress.\\
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Issue &
+  Impact &
+  Prob &
+  Risk &
+  Mitigation \\ \hline
+Unexpected delays and accidents &
+  3 &
+  3 &
+  7 &
+  \begin{tabular}[c]{@{}l@{}}Include contingency plans and a 3 week\\ break between major stages of the project,\\ to allow for unexpected incidents.of the project,\\ to allow for unexpected incidents.\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Unable to generate enough\\ experimental data due to lack\\ of computational power.\end{tabular} &
+  4 &
+  1 &
+  14 &
+  \begin{tabular}[c]{@{}l@{}}Explore alternate more efficient ways of\\ simulating data, consider using cloud\\ infrastructure or potentially the\\ Universities HPC facilities.\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Challenges learning the \\ pendulum laws and the derivation\end{tabular} &
+  2 &
+  4 &
+  5 &
+  \begin{tabular}[c]{@{}l@{}}Seek other resources from the Physics Department\\ to learn the Physics required. Look up\\ explanations online to learn.\end{tabular} \\ \hline
+Interpretability Challenges &
+  3 &
+  2 &
+  10 &
+  \begin{tabular}[c]{@{}l@{}}Challenges in interpreting how the model\\ works, can be mitigated through visualising\\ the data, plotting results and through\\ seeking ways to explain the model.\end{tabular} \\ \hline
+Symbolic Regression Failure &
+  3 &
+  4 &
+  9 &
+  \begin{tabular}[c]{@{}l@{}}Research and select appropriate SR algorithms/libraries; Start with a simple \\ operator set; Test on synthetic data with known solutions.\end{tabular} \\ \hline
+Scope Creep &
+  2 &
+  2 &
+  14 &
+  \begin{tabular}[c]{@{}l@{}}Define clear project scope and deliverables at the start; Use a detailed \\ timeline with milestones; Regularly review progress against the plan.\end{tabular} \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+In retrospect, more time should have been allocated to the literature review. The volume of relevant academic papers requiring detailed analysis was greater than initially anticipated, and each source took considerably longer to read than expected. Developing a symbolic regression algorithm from scratch also proved to be time-consuming. The process involved continuous redesigns to improve effectiveness and the implementation of increasingly diverse strategies for exploring the search space. Integrating these elements into a cohesive and functional system further extended development time.\\
+
+Significant delays were also encountered when attempting to run the AIFeynman 2.0 codebase. Compatibility issues between the legacy Fortran code, the modern Linux kernel, and contemporary multithreading and processing methods prevented successful compilation and execution. Weeks were spent resolving these issues to enable a comparative evaluation between models, which ultimately proved to be a costly diversion. Unlike AIFeynman, the developed codebase does not rely on legacy programming languages. Eventually, an earlier version of AIFeynman (version 1) was located and made operational using precompiled Fortran binaries and an older GNU Fortran compiler, though it lacked recent enhancements.\\
+
+
+
+
 
 
 \end{document}

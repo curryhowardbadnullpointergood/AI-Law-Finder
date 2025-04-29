@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  28 APR 2025 07:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  29 APR 2025 00:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -427,7 +427,27 @@ File: pgfcalendar.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \gtt@calendar@startofweek=\count307
 \gtt@left@slot=\count308
 \gtt@right@slot=\count309
-) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen258
+\lightrulewidth=\dimen259
+\cmidrulewidth=\dimen260
+\belowrulesep=\dimen261
+\belowbottomsep=\dimen262
+\aboverulesep=\dimen263
+\abovetopsep=\dimen264
+\cmidrulesep=\dimen265
+\cmidrulekern=\dimen266
+\defaultaddspace=\dimen267
+\@cmidla=\count310
+\@cmidlb=\count311
+\@aboverulesep=\dimen268
+\@belowrulesep=\dimen269
+\@thisruleclass=\count312
+\@lastruleclass=\count313
+\@thisrulewidth=\dimen270
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
@@ -454,23 +474,23 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks30
-\ex@=\dimen258
+\ex@=\dimen271
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen259
+\pmbraise@=\dimen272
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count310
+\inf@bad=\count314
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count311
-\leftroot@=\count312
+\uproot@=\count315
+\leftroot@=\count316
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count313
-\DOTSCASE@=\count314
+\classnum@=\count317
+\DOTSCASE@=\count318
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -480,30 +500,30 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen260
+\big@size=\dimen273
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count315
+\macc@depth=\count319
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count316
+\c@MaxMatrixCols=\count320
 \dotsspace@=\muskip16
-\c@parentequation=\count317
-\dspbrk@lvl=\count318
+\c@parentequation=\count321
+\dspbrk@lvl=\count322
 \tag@help=\toks31
-\row@=\count319
-\column@=\count320
-\maxfields@=\count321
+\row@=\count323
+\column@=\count324
+\maxfields@=\count325
 \andhelp@=\toks32
-\eqnshift@=\dimen261
-\alignsep@=\dimen262
-\tagshift@=\dimen263
-\tagwidth@=\dimen264
-\totwidth@=\dimen265
-\lineht@=\dimen266
+\eqnshift@=\dimen274
+\alignsep@=\dimen275
+\tagshift@=\dimen276
+\tagwidth@=\dimen277
+\totwidth@=\dimen278
+\lineht@=\dimen279
 \@envbody=\toks33
 \multlinegap=\skip60
 \multlinetaggap=\skip61
@@ -524,7 +544,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count322
+\c@AlgoLine=\count326
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
@@ -533,7 +553,7 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count323
+\c@checkoddpage=\count327
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -549,12 +569,12 @@ Package: relsize 2013/03/29 ver 4.1
 \skiplength=\skip68
 \algomargin=\skip69
 \skipalgocfslide=\skip70
-\algowidth=\dimen267
-\inoutsize=\dimen268
-\inoutindent=\dimen269
-\interspacetitleruled=\dimen270
-\interspacealgoruled=\dimen271
-\interspacetitleboxruled=\dimen272
+\algowidth=\dimen280
+\inoutsize=\dimen281
+\inoutindent=\dimen282
+\interspacetitleruled=\dimen283
+\interspacealgoruled=\dimen284
+\interspacetitleboxruled=\dimen285
 \algocf@ruledwidth=\skip71
 \algocf@inoutbox=\box66
 \algocf@inputbox=\box67
@@ -571,57 +591,57 @@ Package: relsize 2013/03/29 ver 4.1
 \algoheightrule=\skip78
 \algotitleheightruledefault=\skip79
 \algotitleheightrule=\skip80
-\c@algocfline=\count324
-\c@algocfproc=\count325
-\c@algocf=\count326
+\c@algocfline=\count328
+\c@algocfproc=\count329
+\c@algocf=\count330
 \algocf@algoframe=\box72
 \algocf@algobox=\box73
 )
 
 LaTeX Warning: \include should only be used after \begin{document} on input lin
-e 11.
+e 13.
 
 No file pythonlisting.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-4.
+6.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count327
+\l__color_backend_stack_int=\count331
 \l__pdf_internal_box=\box74
 )
 (./FinalReport.aux)
 \openout1 = `FinalReport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count328
-\scratchdimen=\dimen273
+\scratchcounter=\count332
+\scratchdimen=\dimen286
 \scratchbox=\box75
-\nofMPsegments=\count329
-\nofMParguments=\count330
+\nofMPsegments=\count333
+\nofMParguments=\count334
 \everyMPshowfont=\toks35
-\MPscratchCnt=\count331
-\MPscratchDim=\dimen274
-\MPnumerator=\count332
-\makeMPintoPDFobject=\count333
+\MPscratchCnt=\count335
+\MPscratchDim=\dimen287
+\MPnumerator=\count336
+\makeMPintoPDFobject=\count337
 \everyMPtoPDFconversion=\toks36
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -669,11 +689,6 @@ e
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
@@ -683,114 +698,119 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
 [2]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 52--54
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--57
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--61
+Underfull \hbox (badness 10000) in paragraph at lines 60--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--65
+Underfull \hbox (badness 10000) in paragraph at lines 64--67
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--75
+Underfull \hbox (badness 10000) in paragraph at lines 73--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Underfull \hbox (badness 10000) in paragraph at lines 80--82
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--84
+Underfull \hbox (badness 10000) in paragraph at lines 83--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--90
+Underfull \hbox (badness 10000) in paragraph at lines 90--92
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--97
+Underfull \hbox (badness 10000) in paragraph at lines 93--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--102
+Underfull \hbox (badness 10000) in paragraph at lines 102--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--108
+Underfull \hbox (badness 10000) in paragraph at lines 105--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--113
+Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--117
+Underfull \hbox (badness 10000) in paragraph at lines 116--119
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 120--122
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--127
+Underfull \hbox (badness 10000) in paragraph at lines 125--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--132
+Underfull \hbox (badness 10000) in paragraph at lines 132--134
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
@@ -799,34 +819,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--143
 \openout4 = `FinalReport.toc'.
 
  [7]
-Underfull \hbox (badness 10000) in paragraph at lines 159--167
+Underfull \hbox (badness 10000) in paragraph at lines 161--169
 
  []
 
 
-LaTeX Warning: Citation `Wood2022' on page 8 undefined on input line 178.
+LaTeX Warning: Citation `Wood2022' on page 8 undefined on input line 180.
 
 
-LaTeX Warning: Citation `Schmidt2009' on page 8 undefined on input line 178.
+LaTeX Warning: Citation `Schmidt2009' on page 8 undefined on input line 180.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--179
-
- []
-
-
-LaTeX Warning: Citation `kepler' on page 8 undefined on input line 182.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--188
+Underfull \hbox (badness 10000) in paragraph at lines 176--181
 
  []
 
 
-LaTeX Warning: Citation `Hope2023' on page 8 undefined on input line 191.
+LaTeX Warning: Citation `kepler' on page 8 undefined on input line 184.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--194
+Underfull \hbox (badness 10000) in paragraph at lines 182--190
+
+ []
+
+
+LaTeX Warning: Citation `Hope2023' on page 8 undefined on input line 193.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--196
 
  []
 
@@ -837,61 +857,53 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.197 ...ncludegraphics[width=7cm]{Sun_Mars_Orbit}
+l.199 ...ncludegraphics[width=7cm]{Sun_Mars_Orbit}
                                                   
 ? 
 
-LaTeX Warning: Citation `Schmidt22009' on page 8 undefined on input line 208.
+LaTeX Warning: Citation `Schmidt22009' on page 8 undefined on input line 210.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--211
+Underfull \hbox (badness 10000) in paragraph at lines 207--213
 
  []
 
 [8]
 
-LaTeX Warning: Citation `Aldeia2022' on page 9 undefined on input line 215.
+LaTeX Warning: Citation `Aldeia2022' on page 9 undefined on input line 217.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--218
-
- []
-
-
-LaTeX Warning: Citation `Cranmer2020' on page 9 undefined on input line 220.
-
-
-LaTeX Warning: Citation `Worm2014' on page 9 undefined on input line 221.
-
-
-LaTeX Warning: Citation `Makke2024' on page 9 undefined on input line 223.
-
-
-LaTeX Warning: Citation `Rivero2022' on page 9 undefined on input line 224.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--228
+Underfull \hbox (badness 10000) in paragraph at lines 217--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+LaTeX Warning: Citation `Cranmer2020' on page 9 undefined on input line 222.
+
+
+LaTeX Warning: Citation `Worm2014' on page 9 undefined on input line 223.
+
+
+LaTeX Warning: Citation `Makke2024' on page 9 undefined on input line 225.
+
+
+LaTeX Warning: Citation `Rivero2022' on page 9 undefined on input line 226.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--230
 
  []
 
 
-LaTeX Warning: Citation `Stewart2012' on page 9 undefined on input line 235.
-
-
-LaTeX Warning: Citation `Smith2012' on page 9 undefined on input line 235.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 
-LaTeX Warning: Citation `Kelly2021' on page 9 undefined on input line 237.
+LaTeX Warning: Citation `Stewart2012' on page 9 undefined on input line 237.
+
+
+LaTeX Warning: Citation `Smith2012' on page 9 undefined on input line 237.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 237--238
@@ -899,32 +911,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 237--238
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--253
+LaTeX Warning: Citation `Kelly2021' on page 9 undefined on input line 239.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--256
+Underfull \hbox (badness 10000) in paragraph at lines 247--255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
 
  []
 
 
-LaTeX Warning: Citation `Kelly2021' on page 10 undefined on input line 275.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
-
- []
+LaTeX Warning: Citation `Kelly2021' on page 10 undefined on input line 277.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 277--278
@@ -932,23 +947,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 277--278
  []
 
 
-LaTeX Warning: Citation `Longo2021' on page 10 undefined on input line 290.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--291
+Underfull \hbox (badness 10000) in paragraph at lines 279--280
 
  []
 
 
-LaTeX Warning: Citation `Blasiak2012' on page 10 undefined on input line 294.
+LaTeX Warning: Citation `Longo2021' on page 10 undefined on input line 292.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--295
+Underfull \hbox (badness 10000) in paragraph at lines 289--293
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+LaTeX Warning: Citation `Blasiak2012' on page 10 undefined on input line 296.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--297
 
  []
 
@@ -968,22 +983,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--303
  []
 
 
-LaTeX Warning: Citation `Taber2009' on page 10 undefined on input line 304.
-
-
-LaTeX Warning: Citation `Tenachi2023' on page 10 undefined on input line 304.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
+
+LaTeX Warning: Citation `Taber2009' on page 10 undefined on input line 306.
+
+
+LaTeX Warning: Citation `Tenachi2023' on page 10 undefined on input line 306.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--307
 
  []
 
-
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 318--319
 
  []
@@ -994,15 +1009,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 320--321
  []
 
 
-LaTeX Warning: Citation `Angeline1994' on page 11 undefined on input line 322.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 322--323
 
  []
 
 
-LaTeX Warning: Citation `Liddle2009' on page 11 undefined on input line 324.
+LaTeX Warning: Citation `Angeline1994' on page 11 undefined on input line 324.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 324--325
@@ -1010,17 +1022,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 324--325
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
+LaTeX Warning: Citation `Liddle2009' on page 11 undefined on input line 326.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
 
  []
 
@@ -1029,8 +1044,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+
+ []
+
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
 
  []
 
@@ -1041,7 +1061,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.384 \\
+l.386 \\
         
 ? 
 
@@ -1051,53 +1071,48 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.385 
+l.387 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--388
+Underfull \hbox (badness 10000) in paragraph at lines 388--390
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--388
+Underfull \hbox (badness 10000) in paragraph at lines 388--390
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.426 ... displacement is within the range of [\pi
+l.428 ... displacement is within the range of [\pi
                                                   , -\pi] radians.\\
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.427 
+l.429 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 426--427
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
+Underfull \hbox (badness 10000) in paragraph at lines 432--433
 
  []
 
@@ -1112,7 +1127,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 439--440
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
@@ -1122,307 +1137,1759 @@ Underfull \hbox (badness 10000) in paragraph at lines 445--446
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--457
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 458--461
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 464--469
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 514--522
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 523--527
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 528--532
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
 
  []
 
-[15]
 
-! LaTeX Error: Unicode character − (U+2212)
-               not set up for use with LaTeX.
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.589 
+      
+? 
+
+! LaTeX Error: Bad math environment delimiter.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.590 suitedf orlarge −
-                          scalesymbolicf ilteringtaskswherestrictmathematica...
-
+l.589 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.589 
+      
 ? 
 
-Overfull \hbox (26.61543pt too wide) in paragraph at lines 589--594
-\OT1/ptm/m/n/10 The fil-tere xpres-sionsf unc-tion-pro-gram-mat-i-cal-lyf il-te
-rssym-bo-l-ic-ex-pres-sion-sus-ingstruc-tura-land-se-man-tic-constraints.Lev
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.589 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.589 
+      
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.589 
+      
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.589 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.589 
+      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.594 \end{algorithm}
+                     
+? 
+
+Underfull \hbox (badness 10000) detected at line 594
+[][]
+ []
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.594 \end{algorithm}
+                     
+? 
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--639
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 612--613
 
  []
 
 [16]
+Underfull \hbox (badness 10000) in paragraph at lines 638--639
 
-! LaTeX Error: Unicode character ′ (U+2032)
-               not set up for use with LaTeX.
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.648 ...mpy.columns tack.T hedependentvariable′
-                                                   sunitvectorf ormsvectorb....
 
+Underfull \hbox (badness 10000) in paragraph at lines 642--650
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 651--655
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 656--660
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 668--669
+
+ []
+
+! Undefined control sequence.
+l.685 \Try
+          {
 ? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 643--651
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 684--686
-
- []
-
-
-! LaTeX Error: Unicode character − (U+2212)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.694 ...pression symbolicp representingtheunit−
-                                                  
+! Undefined control sequence.
+l.689 \Catch
+            {Evaluation fails (e.g., division by zero)}{
 ? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 691--697
-
- []
-
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 701--705
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.713 Initialize `total_
+                        log_error` to 0.0\;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.715 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.724 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
+                                                  }}\algocf@pop {\skiprule }...
+l.724 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
+                                                  }\algocf@pop {\skiprule }\...
+l.724 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
+                                                  \algocf@pop {\skiprule }\a...
+l.724 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.724 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.726 Calculate `mean_
+                      error` = `total_log_error` / `n`\;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.727 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.728 Return `mean_
+                   error`\;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.729 
+      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.732 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.732 \end{algorithm}
+                     
+? 
+
+Underfull \hbox (badness 10000) detected at line 732
+[][]
+ []
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.732 \end{algorithm}
+                     
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 740--741
 
  []
 
 
-Overfull \hbox (3.82637pt too wide) in paragraph at lines 709--717
-\OT1/ptm/m/n/10 Py-Torch. Tech-ni-cal Im-ple-men-ta-tion: The con-struc-tor (i 
-nit) ini-tial-izes-thenet-work-struc-ture,acceptingthenumberof
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 709--717
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 721--728
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 731--742
+Underfull \hbox (badness 10000) in paragraph at lines 745--746
 
  []
 
 [18]
-
-! LaTeX Error: Unicode character ′ (U+2032)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.747 ... umpy), andthetargetcomputationdevice(′
-                                                   cpu′ or′
-? 
-
-! LaTeX Error: Unicode character ′ (U+2032)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.747 ... andthetargetcomputationdevice(′ cpu′
-                                                   or′
-? 
-
-! LaTeX Error: Unicode character ′ (U+2032)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.747 ...etargetcomputationdevice(′ cpu′ or′
-                                                  
-? 
-
-! LaTeX Error: Unicode character − (U+2212)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.754 ...ce.ReturningaN umP yarrayprovidesauser−
-                                                  
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 746--756
+Underfull \hbox (badness 10000) in paragraph at lines 775--776
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 760--773
+Underfull \hbox (badness 10000) in paragraph at lines 777--778
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.799 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.799 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.811 The filter_
+                 expressions function programmatically filters symbolic expr...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.812 
+      
+? 
+
+Overfull \hbox (242.4266pt too wide) in paragraph at lines 811--812
+\OT1/ptm/m/n/10 The filter$[]\OML/cmm/m/it/10 xpressionsfunctionprogrammaticall
+yfilterssymbolicexpressionsbasedonbothstructuralandsemanticconstraints:Itispart
+icularlysuitedforlarge \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 811--812
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 777--788
-
- []
-
-
-Overfull \hbox (36.66545pt too wide) in paragraph at lines 792--799
-\OT1/ptm/m/n/10 The up-datep are-top ointsf unc-tion-main-tain-saP aretof ron-t
-ierof sym-bo-l-ic-ex-pres-sions, bal-anc-ing-com-plex-ity(modelsimplicit
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 792--799
+Underfull \hbox (badness 10000) in paragraph at lines 813--814
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 803--808
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
+                                                  }}\algocf@pop {\skiprule }...
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
+                                                  }\algocf@pop {\skiprule }\...
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
+                                                  \algocf@pop {\skiprule }\a...
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
+                                                  }}\algocf@pop {\skiprule }...
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
+                                                  }\algocf@pop {\skiprule }\...
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
+                                                  \algocf@pop {\skiprule }\a...
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.845 
+      
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.845 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.845 
+      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+
+Underfull \hbox (badness 10000) detected at line 850
+[][]
+ []
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.850 \end{algorithm}
+                     
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 858--859
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 812--825
+Underfull \hbox (badness 10000) in paragraph at lines 860--861
 
  []
 
+! Undefined control sequence.
+<argument>  \Try 
+                 { Convert \(e\) into a numerical function using the symboli...
+l.883 
+      
+? 
+! Undefined control sequence.
+<argument> ...) to `EvaluationResults`\; } \Catch 
+                                                  {Evaluation fails (e.g., r...
+l.883 
+      
+? 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 844--848
+Underfull \hbox (badness 10000) in paragraph at lines 891--892
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--852
+Underfull \hbox (badness 10000) in paragraph at lines 895--896
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 855--856
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 911--912
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 934--935
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.938 ... columns of matrix MM using numpy.column_
+                                                  stack, while the unit vect...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.939 
+      
+? 
+
+Overfull \hbox (141.1208pt too wide) in paragraph at lines 938--939
+\OT1/ptm/m/n/10 numpy.column$[]\OML/cmm/m/it/10 tack; whiletheunitvectorofthede
+pendentvariableformsthetargetvectorbb:Thisapproachensuresusabilitythroughcase \
+OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (263.83406pt too wide) in paragraph at lines 938--939
+\OML/cmm/m/it/10 insensitivity; leveragestheperformancebenefitsofnumpy:column[]
+tack; andincludesexpliciterrorhandlingtopreventissuesarisingfrommissingorincorr
+ectkeys:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 938--939
+
+ []
+
+! Undefined control sequence.
+<argument>  \Try 
+                 { Look up the dimensional vector for \(v\) in the dictionar...
+l.959 
+      
+? 
+! Undefined control sequence.
+<argument> ...a column to matrix \(M\)\; } \Catch 
+                                                  {Variable name \(v\) not f...
+l.959 
+      
+? 
+! Undefined control sequence.
+l.961 \Try
+          {
+? 
+! Undefined control sequence.
+l.965 \Catch
+            {Variable name \(d\) not found in dictionary}{
+? 
+
+! LaTeX Error: Unicode character ⋅ (U+22C5)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.983 ...ction solves the system of equations M⋅
+                                                  p=bM⋅p=b for the unknown...
+
+? 
+
+! LaTeX Error: Unicode character ⋅ (U+22C5)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.983 ...olves the system of equations M⋅p=bM⋅
+                                                  p=b for the unknown vector...
+
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 983--984
+
+ []
+
+[22]
+! Undefined control sequence.
+l.994 \Try
+          {
+? 
+! Undefined control sequence.
+l.997 \Catch
+            {Solving fails (e.g., matrix is singular or system inconsistent)}{
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1018 The generate_
+                    dimensionless_data function is designed to transform a d...
+
+? 
+
+! LaTeX Error: Unicode character ​ (U+200B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1018 ...variable in the input data dataxdatax​
+                                                   to the powers specified b...
+
+? 
+
+! LaTeX Error: Unicode character ​ (U+200B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1018 ...o adjust the target values dataydatay​
+                                                   to obtain the dimensionle...
+
+? 
+! Double subscript.
+l.1018 ... the dimensionless target values data_y_
+                                                  prime.\\
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1019 
+       
+? 
+
+Overfull \hbox (2447.12505pt too wide) in paragraph at lines 1018--1019
+\OT1/ptm/m/n/10 The generate$[]\OML/cmm/m/it/10 imensionless[]atafunctionisdesi
+gnedtotransformadatasetintodimensionlessformbyapplyingthescalingfactorsderivedf
+romthesolutionvectorppandthenullspaceUU:Initially; thefunctionchecksifppisaNumP
+yarray\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 ifnot; itconvertsitintoaflattenedNumPy
+arraywithnp:float\OT1/cmr/m/n/10 64\OML/cmm/m/it/10 typeforconsistency:Thefunct
+ionthenreshapesppintoacolumnvectorandcalculatesascalingfactorbyraisingeachvaria
+bleintheinputdatadataxdataxtothepowersspecifiedbypp; followedbycomputingtheprod
+uctofthesescaledvaluesalongthespecifiedaxis:Thisscalingfactoristhenusedtoadjust
+thetargetvaluesdataydataytoobtainthedimensionlesstargetvaluesdata[][]rime:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1019
+
+ []
+
+
+! LaTeX Error: Unicode character ​ (U+200B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1020 ... product of the input data dataxdatax​
+                                                   raised to the powers spec...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1020 ...o form a transformed input dataset data_
+                                                  x_prime. If no null space ...
+
+? 
+! Double subscript.
+l.1020 ...form a transformed input dataset data_x_
+                                                  prime. If no null space is...
+
+? 
+
+! LaTeX Error: Unicode character ​ (U+200B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1020 ...d, the original input data dataxdatax​
+                                                   is returned unchanged. Th...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1021 
+       
+? 
+
+Overfull \hbox (928.01186pt too wide) in paragraph at lines 1020--1021
+\OT1/ptm/m/n/10 ated di-men-sion-less vari-ables are stacked to-gether to form 
+a trans-formed in-put dataset data$[][]\OML/cmm/m/it/10 rime:Ifnonullspaceispro
+vided; theoriginalinputdatadataxdataxisreturnedunchanged:Thisfunctionprovidesaw
+aytonormalizeandsimplifythedataset; ensuringthatallvariablesaredimensionless; w
+hichfacilitatesfurtheranalysis:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1034 Calculate a `scaling_
+                            factor` vector by raising each column of \(X\) t...
+
+? 
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1034 ...tor` vector by raising each column of \(
+                                                  X\) to the corresponding p...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1038 ...(Y'\) by dividing \(Y\) by the `scaling_
+                                                  factor`\;
+? 
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1039 \(
+          Y'_i = Y_i / \text{scaling\_factor}_i \)\;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1051 \Else
+            {
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
+                                                  }}\algocf@pop {\skiprule }...
+l.1051 \Else
+            {
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
+                                                  }\algocf@pop {\skiprule }\...
+l.1051 \Else
+            {
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
+                                                  \algocf@pop {\skiprule }\a...
+l.1051 \Else
+            {
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1051 \Else
+            {
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1059 \end{algorithm}
+                      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1059 \end{algorithm}
+                      
+? 
+
+Underfull \hbox (badness 10000) detected at line 1059
+[][]
+ []
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.1059 \end{algorithm}
+                      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1068 ...independent variable names (independent_
+                                                  vars), the exponent vector...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1069 
+       
+? 
+
+Overfull \hbox (204.32332pt too wide) in paragraph at lines 1068--1069
+\OT1/ptm/m/n/10 for-ma-tion. It ac-cepts the orig-i-nal in-de-pen-dent vari-abl
+e names (independent$[]\OML/cmm/m/it/10 ars\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; 
+theexponentvectorsforscaling\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 
+)\OML/cmm/m/it/10 ; andthedimensionlesscombinations\OT1/cmr/m/n/10 (\OML/cmm/m/
+it/10 U\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1068--1069
+
+ []
+
+[23]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1070 ...tructs the symbolic expression symbolic_
+                                                  p representing the unit-fi...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1071 
+       
+? 
+
+Overfull \hbox (54.8958pt too wide) in paragraph at lines 1070--1071
+\OT1/ptm/m/n/10 SymPy li-brary. Then, us-ing the scal-ing ex-po-nents pp, it co
+n-structs the sym-bolic ex-pres-sion symbolic$[]\OML/cmm/m/it/10 representingth
+eunit \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (337.73097pt too wide) in paragraph at lines 1070--1071
+\OML/cmm/m/it/10 fixingscalingfactorxpxpthroughsp:Mul; whichallowsforthemultipl
+icationofterms:Thisexpressioneffectivelyrepresentsthescalingtransformationappli
+edtotheinputvariables:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1070--1071
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1073
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1095 
+       
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
+                                                  }}\algocf@pop {\skiprule }...
+l.1095 
+       
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
+                                                  }\algocf@pop {\skiprule }\...
+l.1095 
+       
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
+                                                  \algocf@pop {\skiprule }\a...
+l.1095 
+       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1095 
+       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1100 \end{algorithm}
+                      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1100 \end{algorithm}
+                      
+? 
+
+Underfull \hbox (badness 10000) detected at line 1100
+[][]
+ []
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.1100 \end{algorithm}
+                      
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1119 ...k modules in PyTorch. The constructor (_
+                                                  _init__) initializes the n...
+
+? 
+! Missing { inserted.
+<to be read again> 
+                   _
+l.1119 ... modules in PyTorch. The constructor (__
+                                                  init__) initializes the ne...
+
+? 
+! Missing { inserted.
+<to be read again> 
+                   _
+l.1119 ...es in PyTorch. The constructor (__init__
+                                                  ) initializes the network ...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1120 
+       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1120 
+       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1120 
+       
+? 
+
+Overfull \hbox (2980.34131pt too wide) in paragraph at lines 1119--1120
+\OT1/ptm/m/n/10 Torch. The con-struc-tor ($[]$ 
+ []
+
+[24]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1132 ...tbf{Initialization Method (`__init__`):}
+                                                  \;
+? 
+! Missing { inserted.
+<to be read again> 
+                   _
+l.1132 ...tbf{Initialization Method (`__init__`):}
+                                                  \;
+? 
+! Missing { inserted.
+<to be read again> 
+                   _
+l.1132 ...tbf{Initialization Method (`__init__`):}
+                                                  \;
+? 
+! Incompatible list can't be unboxed.
+\KwData ... \hangafter =1\unhbox \algocf@inputbox 
+                                                  #1\par }\algocf@linesnumbe...
+l.1133 ...output features (`n_output`, default 1)}
+                                                  \;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1133 ...output features (`n_output`, default 1)}
+                                                  \;
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1133 ...output features (`n_output`, default 1)}
+                                                  \;
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1133 ...output features (`n_output`, default 1)}
+                                                  \;
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1133 ...tput features (`n_output`, default 1)}\;
+                                                  
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1134 C
+        all the constructor of the base Neural Network Module\;
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1135 D
+        efine a sequential model containing the following layers:\;
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1137 L
+        inear layer: `n_input` inputs, 128 outputs\;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1137 Linear layer: `n_
+                        input` inputs, 128 outputs\;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1147 
+       
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1148 \textbf{Forward Method (`forward`):}
+                                           \;
+? 
+
+! LaTeX Error: Command \algocf@everyparhanging undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1149 \KwData{Input tensor `x`}
+                                \;
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1149 \KwData{Input tensor `x`}\;
+                                  
+? 
+
+! LaTeX Error: Command \algocf@everyparhanging undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1150 \KwResult{Output tensor}
+                               \;
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1150 \KwResult{Output tensor}\;
+                                 
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1151 P
+        ass the input tensor `x` through the defined sequential model\;
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1152 R
+        eturn the output tensor\;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1164 This function preprocesses raw input (data_
+                                                  x) and output (data_y) dat...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1165 
+       
+? 
+
+Overfull \hbox (3715.62134pt too wide) in paragraph at lines 1164--1165
+\OT1/ptm/m/n/10 This func-tion pre-pro-cesses raw in-put (data$[]\OT1/cmr/m/n/1
+0 )\OML/cmm/m/it/10 andoutput\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 data[]\OT1/cmr/m
+/n/10 )\OML/cmm/m/it/10 dataintoaformatsuitableforPyTorchmodeltrainingandvalida
+tion:ItbeginsbyconvertingtheinputNumPyarraysintoPyTorchtensorsoftypetorch:float
+\OT1/cmr/m/n/10 32\OML/cmm/m/it/10 ; asPyTorchrequirestensorstructuresforeffici
+entcomputation:Thedataisthensplitintotrainingandvalidationsetsbasedonaconfigura
+bletrain[]plitratio; ensuringthemodelcanbeevaluatedonunseendatatopreventoverfit
+ting:TheTensorDatasetclassisusedtopairtheinputandtargetdata; enablingefficienti
+ndexingduringtraining; whiletheDataLoaderhandlesbatching; memorymanagement; and
+parallelprocessing:Additionally; theDataLoaderautomatesdatashuffling; whichimpr
+ovesmodelrobustnessbyensuringthemodeldoesnotmemorizethedataorder; aidinginbette
+rconvergenceduringtraining:ThisdesignfollowsstandardPyTorchpracticestoensurecom
+patibility; scalability; andefficienthandlingoflargedatasets; whilethetraining 
+\OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1201--1202
+
+ []
+
+[25]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1260 ...d model, input data as a NumPy array (x_
+                                                  numpy), and the target com...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1261 
+       
+? 
+
+Overfull \hbox (1498.05824pt too wide) in paragraph at lines 1260--1261
+\OT1/ptm/m/n/10 in-put data. It is de-signed to take a trained model, in-put da
+ta as a NumPy ar-ray (x$[]\OML/cmm/m/it/10 umpy\OT1/cmr/m/n/10 )\OML/cmm/m/it/1
+0 ; andthetargetcomputationdevice\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 cpu[]or[]c
+uda[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :Thefunctionbeginsbysettingthemodeltoeva
+luationmodeusingmodel:eval\OT1/cmr/m/n/10 ()\OML/cmm/m/it/10 ; whichiscriticala
+sitdisableslayerslikedropoutorbatchnormalizationthatbehavedifferentlyduringtrai
+ningandinference; ensuringdeterministicoutput:Theinputdata\OT1/cmr/m/n/10 (\OML
+/cmm/m/it/10 x[]umpy\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 isthenconvertedintoaPyTor
+chtensorwiththeappropriatedtype \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (1772.11852pt too wide) in paragraph at lines 1260--1261
+\OML/cmm/m/it/10 torch:float\OT1/cmr/m/n/10 32\OML/cmm/m/it/10 andtransferredto
+thespecifieddevice:Thecorepredictionstepoccurswithinawithtorch:no[]rad\OT1/cmr/
+m/n/10 ()\OML/cmm/m/it/10 contextmanager; whichdisablesgradientcalculation; the
+rebyreducingmemoryconsumptionandspeedingupcomputationsduringinference:Thisdesig
+nfollowsstandardPyTorchinferencepractices; ensuringthatthemodelbehavescorrectly
+duringpredictionandoptimizesperformancebyavoidingunnecessarygradientcomputation
+s:Finally; thepredictionsarereturnedasaNumPyarray; providingauser \OMS/cmsy/m/n
+/10 ^^@
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1260--1261
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 1292--1293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1310 ...tbf{Initialization Method (`__init__`):}
+                                                  \;
+? 
+! Missing { inserted.
+<to be read again> 
+                   _
+l.1310 ...tbf{Initialization Method (`__init__`):}
+                                                  \;
+? 
+! Missing { inserted.
+<to be read again> 
+                   _
+l.1310 ...tbf{Initialization Method (`__init__`):}
+                                                  \;
+? 
+! Incompatible list can't be unboxed.
+\KwData ... \hangafter =1\unhbox \algocf@inputbox 
+                                                  #1\par }\algocf@linesnumbe...
+l.1311 ...ue, Accuracy value, Symbolic expression}
+                                                  \;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1311 ...ue, Accuracy value, Symbolic expression}
+                                                  \;
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1311 ...ue, Accuracy value, Symbolic expression}
+                                                  \;
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1311 ...ue, Accuracy value, Symbolic expression}
+                                                  \;
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1311 ..., Accuracy value, Symbolic expression}\;
+                                                  
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1312 S
+        tore the input complexity, accuracy, and expression as attributes of...
+
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1314 ...tbf{Representation Method (`__repr__`):}
+                                                  \;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1314 ...tbf{Representation Method (`__repr__`):}
+                                                  \;
+? 
+! Missing { inserted.
+<to be read again> 
+                   _
+l.1314 ...tbf{Representation Method (`__repr__`):}
+                                                  \;
+? 
+! Missing { inserted.
+<to be read again> 
+                   _
+l.1314 ...tbf{Representation Method (`__repr__`):}
+                                                  \;
+? 
+
+! LaTeX Error: Command \algocf@everyparhanging undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1315 ...ring representation of the Point object}
+                                                  \;
+? 
+! Incompatible list can't be unboxed.
+\KwResult ...hangafter =1\unhbox \algocf@inputbox 
+                                                  #1\par }\algocf@linesnumbe...
+l.1315 ...ring representation of the Point object}
+                                                  \;
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1315 ...ring representation of the Point object}
+                                                  \;
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1315 ...ring representation of the Point object}
+                                                  \;
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1315 ...ring representation of the Point object}
+                                                  \;
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1315 ...ng representation of the Point object}\;
+                                                  
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1316 C
+        onstruct a descriptive string including the complexity, accuracy, an...
+
+? 
+! Undefined control sequence.
+\algocf@everypar ...parnl \algocf@everyparhanging 
+                                                  
+l.1317 R
+        eturn the constructed string\;
+? 
+[27]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1326 The update_
+                  pareto_points function maintains a Pareto frontier of symb...
+
+? 
+
+LaTeX Warning: Command \textemdash invalid in math mode on input line 1326.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1327 
+       
+? 
+
+Overfull \hbox (376.74773pt too wide) in paragraph at lines 1326--1327
+\OT1/ptm/m/n/10 The update$[]\OML/cmm/m/it/10 areto[]ointsfunctionmaintainsaPar
+etofrontierofsymbolicexpressions; balancingmodelcomplexityandaccuracy:Itfilters
+acombinedlistofcandidatesolutionstoretainonlynon \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (369.28152pt too wide) in paragraph at lines 1326--1327
+\OML/cmm/m/it/10 dominatedpoints; whereapointAdominatespointBifAisbothnomorecom
+plexandnolessaccurate; withatleastoneofthesemetricsstrictlybetter:Thisapproache
+nsuresthatonlythebesttrade \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (1068.21947pt too wide) in paragraph at lines 1326--1327
+\OML/cmm/m/it/10 offsbetweencomplexityandaccuracyremain:Insymbolicregression; t
+hisiscrucialasthegoalistoidentifyexpressionsthatarebothaccurateandinterpretable
+\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 lowincomplexity:TheParetofrontierprovidesava
+luabletoolforvisualizingandselectingoptimalmodels; helpingtoavoidoverfitting\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 excessivecomplexity\OT1/cmr/m/n/10 )\OML/cmm/m/i
+t/10 andunderfitting\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 excessivesimplicity\OT1/c
+mr/m/n/10 )\OML/cmm/m/it/10 :[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1326--1327
+
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1356 
+       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1356 
+       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1356 
+       
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
+                                                  }}\algocf@pop {\skiprule }...
+l.1356 
+       
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
+                                                  }\algocf@pop {\skiprule }\...
+l.1356 
+       
+? 
+! Extra }, or forgotten $.
+\algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
+                                                  \algocf@pop {\skiprule }\a...
+l.1356 
+       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1356 
+       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1356 
+       
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.1356 
+       
+? 
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.1356 
+       
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1356 
+       
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1372 \end{algorithm}
+                      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1372 \end{algorithm}
+                      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1372 \end{algorithm}
+                      
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1372 \end{algorithm}
+                      
+? 
+
+Underfull \hbox (badness 10000) detected at line 1372
+[][]
+ []
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.1372 \end{algorithm}
+                      
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1379--1380
+
+ []
+
+[28]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1389 ...Additional customization via fig.update_
+                                                  traces enhances the visibi...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.1390 
+       
+? 
+
+Overfull \hbox (448.06332pt too wide) in paragraph at lines 1389--1390
+\OT1/ptm/m/n/10 ar-gu-ment. Ad-di-tional cus-tomiza-tion via fig.update$[]\OML/
+cmm/m/it/10 racesenhancesthevisibilityofthepoints\OT1/cmr/m/n/10 (\OML/cmm/m/it
+/10 markersize; color\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 andoptimizeslabelpositio
+ning:Thisvisualizationallowsresearcherstoeasilyidentifythesetofnon \OMS/cmsy/m/
+n/10 ^^@
+ []
+
+
+Overfull \hbox (1186.56454pt too wide) in paragraph at lines 1389--1390
+\OML/cmm/m/it/10 dominatedsolutions:Byplottingquantitativemetrics; itrevealswhe
+resignificantaccuracyimprovementsrequiresubstantialincreasesincomplexity\OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 oftenvisibleinthe\OT1/cmr/m/n/10 "\OML/cmm/m/it/10 e
+lbow\OT1/cmr/m/n/10 "\OML/cmm/m/it/10 region\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;
+ aidinginmodelselectionbasedonthedesiredbalancebetweeninterpretabilityandpredic
+tivepower:Directlabelingofpointswiththeirexpressionsprovidesimmediatecontextfor
+eachoptimalsolution:[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1389--1390
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1443
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1446--1447
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1450--1451
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 863.
+               Default added (so using `tbp') on input line 1458.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 883--884
-
- []
-
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 885--886
+Underfull \hbox (badness 10000) in paragraph at lines 1478--1479
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 890--891
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1480--1481
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 892--893
+Underfull \hbox (badness 10000) in paragraph at lines 1485--1486
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 900--901
+Underfull \hbox (badness 10000) in paragraph at lines 1487--1488
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 902--905
+Underfull \hbox (badness 10000) in paragraph at lines 1495--1496
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 906--907
+Underfull \hbox (badness 10000) in paragraph at lines 1497--1500
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1501--1502
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--909
-
- []
-
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 910--911
+Underfull \hbox (badness 10000) in paragraph at lines 1503--1504
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 912--913
+Underfull \hbox (badness 10000) in paragraph at lines 1505--1506
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1507--1508
 
  []
 
 No file FinalReport.bbl.
-[23] (./FinalReport.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1526--1527
+
+ []
+
+
+! LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1530 \begin{table}[H]
+                       
+? 
+[32] [33] (./FinalReport.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16906 strings out of 476091
- 346969 string characters out of 5794081
+ 17010 strings out of 476091
+ 348856 string characters out of 5794081
  1867330 words of memory out of 5000000
- 36973 multiletter control sequences out of 15000+600000
- 531758 words of font info for 69 fonts, out of 8000000 for 9000
+ 37073 multiletter control sequences out of 15000+600000
+ 533892 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,12n,94p,957b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,23n,94p,1448b,676s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
-utmri8a.pfb>
-Output written on FinalReport.pdf (23 pages, 218364 bytes).
+c/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on FinalReport.pdf (33 pages, 291184 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
+ 205 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
