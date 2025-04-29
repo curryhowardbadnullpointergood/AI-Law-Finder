@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: FinalReport.aux
+The style file: plain.bst
+Illegal, another \bibstyle command---line 194 of file FinalReport.aux
+ : \bibstyle
+ :          {plain}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 195 of file FinalReport.aux
+ : \bibdata
+ :         {FinalReport}
+I'm skipping whatever remains of this command
+Database file #1: FinalReport.bib
+Warning--I didn't find a database entry for "badiri2020"
+You've used 27 entries,
+            2118 wiz_defined-function locations,
+            643 strings with 8301 characters,
+and the built_in function-call counts, 7356 in all, are:
+= -- 653
+> -- 443
+< -- 6
++ -- 177
+- -- 148
+* -- 449
+:= -- 1321
+add.period$ -- 74
+call.type$ -- 27
+change.case$ -- 151
+chr.to.int$ -- 0
+cite$ -- 27
+duplicate$ -- 270
+empty$ -- 554
+format.name$ -- 148
+if$ -- 1485
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 24
+newline$ -- 131
+num.names$ -- 54
+pop$ -- 186
+preamble$ -- 1
+purify$ -- 128
+quote$ -- 0
+skip$ -- 215
+stack$ -- 0
+substring$ -- 155
+swap$ -- 35
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 100
+warning$ -- 0
+while$ -- 55
+width$ -- 29
+write$ -- 277
+(There were 2 error messages)

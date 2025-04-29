@@ -1,0 +1,154 @@
+\begin{thebibliography}{10}
+
+\bibitem{abdellaoui2021}
+Ismail~Alaoui Abdellaoui and Siamak Mehrkanoon.
+\newblock Symbolic regression for scientific discovery: an application to wind
+  speed forecasting, 2021.
+
+\bibitem{abroshan2023}
+Mahed Abroshan, Saumitra Mishra, and Mohammad~Mahdi Khalili.
+\newblock Symbolic metamodels for interpreting black-boxes using primitive
+  functions, 2023.
+
+\bibitem{Aldeia2022}
+Guilherme Seidyo~Imai Aldeia and Fabrício~Olivetti de~França.
+\newblock Interpretability in symbolic regression: a benchmark of explanatory
+  methods using the feynman data set.
+\newblock {\em Genetic Programming and Evolvable Machines}, 23, 2022.
+
+\bibitem{Alnuqaydan2023}
+Abdulhakim Alnuqaydan, Sergei Gleyzer, and Harrison Prosper.
+\newblock Symba: symbolic computation of squared amplitudes in high energy
+  physics with machine learning.
+\newblock {\em Machine Learning: Science and Technology}, 4(1):015007, January
+  2023.
+
+\bibitem{Angeline1994}
+Peter~J. Angeline.
+\newblock Genetic programming: On the programming of computers by means of
+  natural selection,.
+\newblock {\em Biosystems}, 33, 1994.
+
+\bibitem{badirli2020}
+Sarkhan Badirli, Xuanqing Liu, Zhengming Xing, Avradeep Bhowmik, Khoa Doan, and
+  Sathiya~S. Keerthi.
+\newblock Gradient boosting neural networks: Grownet, 2020.
+
+\bibitem{Blasiak2012}
+W.~Blasiak, M.~Godlewska, R.~Rosiek, and D.~Wcislo.
+\newblock Spectrum of physics comprehension.
+\newblock {\em European Journal of Physics}, 33, 2012.
+
+\bibitem{lacava2021}
+William~La Cava, Patryk Orzechowski, Bogdan Burlacu, Fabrício~Olivetti
+  de~França, Marco Virgolin, Ying Jin, Michael Kommenda, and Jason~H. Moore.
+\newblock Contemporary symbolic regression methods and their relative
+  performance, 2021.
+
+\bibitem{cranmer2023}
+Miles Cranmer.
+\newblock Interpretable machine learning for science with pysr and
+  symbolicregression.jl, 2023.
+
+\bibitem{Cranmer2020}
+Miles Cranmer, Alvaro Sanchez-Gonzalez, Peter Battaglia, Rui Xu, Kyle Cranmer,
+  David Spergel, and Shirley Ho.
+\newblock Discovering symbolic models from deep learning with inductive biases.
+\newblock In {\em Advances in Neural Information Processing Systems}, volume
+  2020-December, 2020.
+
+\bibitem{Hope2023}
+Tom Hope, Doug Downey, Daniel~S. Weld, Oren Etzioni, and Eric Horvitz.
+\newblock A computational inflection for scientific discovery.
+\newblock {\em Communications of the ACM}, 66, 2023.
+
+\bibitem{Kelly2021}
+G.~V. Kelly.
+\newblock Partial differential equations for scientists and engineers by g.
+  stephenson.
+\newblock {\em Irish Mathematical Society Bulletin}, 0018, 2021.
+
+\bibitem{kepler}
+Alexandre Koyré and R.~E.W. Maddison.
+\newblock {\em The astronomical revolution: Copernicus - Kepler - Borelli},
+  volume~20.
+\newblock online, 2013.
+
+\bibitem{Liddle2009}
+Andrew~R. Liddle, Pia Mukherjee, and David Parkinson.
+\newblock {\em Model selection and multi-model inference}, volume
+  9780521887946, chapter~2.
+\newblock online, 2009.
+
+\bibitem{Longo2021}
+Sandro~G. Longo.
+\newblock {\em Dimensional Analysis}, volume~05, chapter~5.
+\newblock online, 2021.
+
+\bibitem{Makke2024}
+Nour Makke and Sanjay Chawla.
+\newblock Interpretable scientific discovery with symbolic regression: a
+  review.
+\newblock {\em Artificial Intelligence Review}, 57, 2024.
+
+\bibitem{Rivero2022}
+Daniel Rivero, Enrique Fernandez-Blanco, and Alejandro Pazos.
+\newblock Dome: A deterministic technique for equation development and symbolic
+  regression.
+\newblock {\em Expert Systems with Applications}, 198, 2022.
+
+\bibitem{Schmidt2009}
+Michael Schmidt and Hod Lipson.
+\newblock Distilling free-form natural laws from experimental data.
+\newblock {\em Science}, 324, 2009.
+
+\bibitem{Schmidt22009}
+Michael Schmidt and Hod Lipson.
+\newblock Supporting online material for distilling free-form natural laws from
+  experimental data.
+\newblock {\em Science (New York, N.Y.)}, 324, 2009.
+
+\bibitem{Smith2012}
+R.T. Smith.
+\newblock Calculus early transcendentals functions.
+\newblock {\em Calculus Early Transcendentals Functions 4TH edition}, 53, 2012.
+
+\bibitem{Stewart2012}
+James Stewart.
+\newblock {\em Essential Calculus: Early Transcendentals}.
+\newblock online, 2012.
+
+\bibitem{Taber2009}
+Keith~S. Taber.
+\newblock Maths should be the last thing we teach.
+\newblock {\em Physics Education}, 44, 2009.
+
+\bibitem{Tenachi2023}
+Wassim Tenachi, Rodrigo Ibata, and Foivos~I. Diakogiannis.
+\newblock Deep symbolic regression for physics guided by units constraints:
+  Toward the automated discovery of physical laws.
+\newblock {\em The Astrophysical Journal}, 959, 2023.
+
+\bibitem{udrescu2020}
+Silviu-Marian Udrescu and Max Tegmark.
+\newblock Ai feynman: a physics-inspired method for symbolic regression, 2020.
+
+\bibitem{willard2022}
+Jared Willard, Xiaowei Jia, Shaoming Xu, Michael Steinbach, and Vipin Kumar.
+\newblock Integrating scientific knowledge with machine learning for
+  engineering and environmental systems, 2022.
+
+\bibitem{Wood2022}
+Charlie Wood.
+\newblock Powerful ‘ machine scientists ’ distill the laws of physics from
+  raw data.
+\newblock {\em Quanta Magazine}, 2022.
+
+\bibitem{Worm2014}
+Tony Worm and Kenneth Chiu.
+\newblock Scaling up prioritized grammar enumeration for scientific discovery
+  in the cloud.
+\newblock In {\em Proceedings - 2014 IEEE International Conference on Big Data,
+  IEEE Big Data 2014}, 2014.
+
+\end{thebibliography}

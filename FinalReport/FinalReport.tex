@@ -158,21 +158,6 @@ I would like to thank my supervisors, Professor Adam Peugeot and Professor David
 
 \subsection{Motivation: }
 
-As there is more data being generated than ever before and new experiments, we need a systematic and au-
-tomatic way to deduce various mathematical patterns and laws in these data. Through the use of symbolic
-regression we can utilise these data, and in an explainable manner deduce various new physical laws. In this
-research I have also extended this beyond physics and have applied this to biological data sets which is a novel
-application of this method. Perhaps extend this beyond or add a sectionsaying this can also be applied to nlp
-and that it can learn the rules in language and writing etc.
-Talk a little about the way this is used outside of this niche use case, and in research, so of course I need to look
-and research into this.\\
-
-\section{Previous Work: }
-
-\subsection{Literature Review: }
-
-\subsection{Introduction: }
-  
 Humanity has spent millennia observing the world, creating concepts that describe the variables, such as mass and force, to derive laws. In physics, like with
 all human endeavours, new discoveries and ways of thought are based upon previous works, creating
 a natural bias in the way new problems are approached. All existing theories, are therefore
@@ -191,8 +176,16 @@ has to some extent resisted automation.\\
 
 One of the core challenges of physics and artificial intelligence, is finding analytical relations automatically, discovering a symbolic expression that accurately matches the data from an unknown function.
 This problem, due to it’s nature, is NP-hard \cite{Hope2023} in principle. The vastness of the space
-of mathematical constants, adds to the difficulty. 
+of mathematical constants, adds to the difficulty. This aligns with a growing research area focused on integrating scientific domain knowledge with machine learning techniques to accelerate discovery and overcome limitations of purely data-driven or purely mechanistic models \cite{willard2022}.
 This literatire review aims to present the recent advances in discovery of emphirical laws through data powered by artificial intelligence. It focuses on methodoogies that dimish human bias through seeking solutions without assumptions. We will explore various techniques employed to achieve these goals, which includes reducing the search space, and analyse the effectivness of these methods.\\  
+
+
+As there is more data being generated than ever before and new experiments, we need a systematic and au-
+tomatic way to deduce various mathematical patterns and laws in these data. Through the use of symbolic
+regression we can utilise these data, and in an explainable manner deduce various new physical laws. In this
+research I have also extended this beyond physics and have applied this to biological data sets which is a novel
+application of this method.\\
+
 
 \begin{figure}[h] 
     \centering
@@ -202,19 +195,23 @@ This literatire review aims to present the recent advances in discovery of emphi
 \end{figure}
 
 
+\section{Background Researh: }
+
+\subsection{Literature Review: }
+
 \subsection{Symbolic Regression: }
 
 Symbolic regression, is a technique that analyses and searches over the space of traceable mathematical
 expressions to find the best fit for a data set. By not requiring prior information about the model,
-it is unbiased. There are a plethora of various strategies that have been implemented in solving for
+it is unbiased. There are a plethora of various strategies \cite{lacava2021} that have been implemented in solving for
 empirical laws \cite{Schmidt22009}, we will explore some of them below. It is also worth mentioning, that unlike other
-well-known techniques for regression, (eg: neural networks), that are essentially black boxes, symbolic
+well-known techniques for regression, (eg: neural networks), that are essentially black boxes \cite{abroshan2023}, symbolic
 regression, aims to extract white-box models and is easy to analyse.\\
 
 \subsubsection{Brute Force: }
 Symbolic Regression (SR), is interpretable \cite{Aldeia2022}, unlike Neural Networks (NN), which are often considered more explainable. The difference is interpretability allows us to comprehend how the model works,
 like observing how gears move in a glass box, while explainable means you get an overview of why a
-certain output was achieved, even without knowing the full nuances of it’s inner workings.\\
+certain output was achieved, even without knowing the full nuances of it’s inner workings. This however does not mean there aren't ways to approach this incrementally with neural networks, which allows for interpretability to increase \cite{badiri2020}.\\
 
 There however, are some challenges associated with SR, in comparison to function fitting (NN). SR,
 starts with nothing, a blank slate, and it has to learn the entire expression \cite{Cranmer2020}, unlike function fitting
@@ -251,8 +248,19 @@ even be extended to prune the search space further, this could be achieved throu
 knowledge of physics into the constraints for the partial derivatives. These concepts will be illustrated
 with an example below.\\
 
+\begin{figure}[h] 
+    \centering
+    \includegraphics[width=10cm]{heated_rod} 
+    \caption{Temperature distribution along a heated rod, illustrating the physical scenario where partial derivatives describe heat flow.}
+    \label{fig:Rod} 
+\end{figure}
+
+
+
+
 
 Consider a iron rod, that has been heated up, such that it is hotter on one side than the other. Now it is intuitive to say that closer to the heat source, the temperature will be higher than further along the rod, where it will be colder. We can illustrate this temperature distribution with a function:  \\
+
 
 \begin{center}
 $T(x,y,z)$
@@ -308,9 +316,9 @@ This is also more intuitive to understand physical phenomena, the nature of phys
 
 
 
-Genetic programming (GP), is a special evolutionary algorithmic technique, where the individuals are seen as programs that evolve, starting for a population, is iteratively "evolved," transforming the populations of individual programs, intro other populations. This new generation of programs are created using some genetic operations or survival criteria, mimicking natural evolutionary condition on earth.\\ 
+Genetic programming (GP), is a special evolutionary algorithmic technique, where the individuals are seen as programs that evolve, starting for a population, is iteratively "evolved," transforming the populations of individual programs, into other populations. This new generation of programs are created using some genetic operations or survival criteria, \cite{lacava2021}mimicking natural evolutionary condition on earth.\\ 
 
-A very basic overview, shows that genetic programming algorithms, consists of initializing the population, then evaluation of the said population through some predefined metrics and functions, followed by selection of the fittest programs based on the score given by the metric, and "genetic operation," such as reproduction, mutation and cross-over. The algorithm then iterates these steps thousands of times, through many generations, and finally terminates once the desired result has been achieved.\\
+A very basic overview, shows that genetic programming algorithms, consists of initializing the population \cite{abroshan2023}, then evaluation of the said population through some predefined metrics and functions, followed by selection of the fittest programs based on the score given by the metric, and "genetic operation," such as reproduction, mutation and cross-over. The algorithm then iterates these steps thousands of times, through many generations, and finally terminates once the desired result has been achieved.\\
 
 We can use genetic programming, and tweak the algorithm, and combine it with symbolic regression, to help us derive laws. \\
 
@@ -325,6 +333,10 @@ There are various ways to implement the fitness function, and for example we can
 Here M is the mean squared error, and N is the number of data points, X is the number of parameters used on the genetic programming algorithm. The lower the value of V is, the better the model performs. The performance of this stratergy can then be evaluated with various other metrics, to judge how well the algorithm performs. \\ 
 
 
+\subsubsection{Broader Use Cases and Techniques: }
+
+SYMBA \cite{Alnuqaydan2023}demonstrates using advanced Transformer models for complex symbolic computation in physics. It's relevant as an emerging alternative to traditional Symbolic Regression. Rather than searching expression space, it treats symbolic manipulation like language translation, directly mapping input sequences (problems) to output sequences (symbolic solutions) using powerful sequence-to-sequence techniques. This is essential for high-energy physics. Allowing  physicists to rapidly generate theoretical predictions needed to interpret experimental data from particle colliders, speeding up scientific analysis and discovery.\\
+
 
 
 \section{PySR}
@@ -333,7 +345,7 @@ This section describes the initial implementation of the symbolic regression mod
 
 \subsection{Momentum Laws: }
 
-To generate the dataset, I chose 100 data points, and created two variables mass (M) and acceleration (a), each represented in two dimensions. Then the data points were generated using $numpy.random.randn$ function. The force (F), was then calculated to be the produce of these two data sets. Mass and acceleration were concatenated along the same axis using $numpy.concatenate$, resulting in a combined dataset. This is partially because the model used here, $PySRRegressor$ expects a single array as input, and this helps highlight the relationship between these variables to the symbolic regression algorithm.\\ 
+To generate the dataset, I chose 100 data points, and created two variables mass (M) and acceleration (a), each represented in two dimensions\cite{cranmer2023}. Then the data points were generated using $numpy.random.randn$ function. The force (F), was then calculated to be the produce of these two data sets. Mass and acceleration were concatenated along the same axis using $numpy.concatenate$, resulting in a combined dataset. This is partially because the model used here, $PySRRegressor$ expects a single array as input, and this helps highlight the relationship between these variables to the symbolic regression algorithm.\\ 
 
 Then model performed symbolic regression, configured with 40 iterations along with a customer loss function, taken to be the squred diffrence between the prediction and the target variable. \\ 
 
@@ -378,7 +390,12 @@ Combine \( M \) and \( A \) into input matrix \( X \)\;
 \\
 \\
 
+
+
 Similarly, the other laws of momentum, were also dervied using this approach. \\ 
+
+
+
 \\
 
 \begin{align} \label{eq:impulse_momentum}
@@ -394,6 +411,8 @@ m_1 \mathbf{v}_{1,i} + m_2 \mathbf{v}_{2,i} &= m_1 \mathbf{v}_{1,f} + m_2 \mathb
 \subsection{Pendulum Laws:}
 
 The data is generated using numpy. The simulation involves, Euler's method to solve the pendulum's equation of motion. Through taking small and discrete steps, the method approximates the solution. The equation for a simple pendulum is given by: \\
+
+
 
 \begin{center}
 \begin{equation}
@@ -420,6 +439,15 @@ The Euler technique approximates the changes in angular velocity and displacemen
 
 The function iterates through a few hundred time steps, updating the angular velocity and displacement at each time step. To prevent errors accumulating due to numerical drift, which are small errors that accumulate and become significant due to the inherent nature of approximation methods like Eulers. To keep the values coherent, a wrap around operation is used to ensure the angular displacement is within the range of [\pi, -\pi] radians.\\ 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{pendulum_simulation}
+    \caption{The motion of a simple pendulum using the Euler method.} % Optional
+    \label{fig:sr_flow}
+\end{figure}
+
+
+
 \subsection{Noise: }
 
     This section investigates the model's robustness to noise. To simulate varying levels of interference, artificial noise was systematically introduced during the data generation phase, building upon the previously established model framework. Noise was modelled by generating random numbers within a range of progressively increasing magnitude, utilizing Python's random library. The objective was to observe and quantify the degradation in model accuracy as a function of increasing noise levels, as well as explore ways to mitigate it.\\
@@ -432,15 +460,18 @@ To introduce noise into the generated dataset, I imported Python’s random libr
 After generating these noisy datasets, the symbolic regression model was applied to each one, and the resulting equations were analyzed. The relationship between noise level and model performance was then visualized through a graph. Additionally, the time library was used to measure how long each run of the model took.\\
 
 
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=7cm]{noise_conservation_random}
     \includegraphics[width=7cm]{noise_Newtons_First_Law_random}
     \includegraphics[width=7cm]{noise_Newtons_Third_Law_random}
     \includegraphics[width=7cm]{noise_Simple_Harmonic_Motion}
-    \caption{Noise plots for various physical laws.}
+    \caption{Plots showing how loss behaves as noise is increased randomly.}
     \label{fig:noise_plots}
 \end{figure}
+
+Shows from top left to bottom right, Conservation, Newtons first law, Newtons third law and Simple Harmonic Motion. \\
 
 iterative: 
 
@@ -450,14 +481,15 @@ iterative:
     \includegraphics[width=7cm]{noise_Newtons_First_Law_random_i}
     \includegraphics[width=7cm]{noise_Newtons_Third_Law_random_i}
     \includegraphics[width=7cm]{noise_Simple_Harmonic_Motion_random_i}
-    \caption{Noise plots for iterative process.}
+    \caption{Plots showing how loss behaves as noise is increased iteratively.}
     \label{fig:noise_iterative_plots}
 \end{figure}
+Shows from top left to bottom right, Conservation, Newtons first law, Newtons third law and Simple Harmonic Motion. \\
 
 
 \subsubsection{Denoise function: }
 
-    Following the initial noise analysis, a subsequent experiment incorporated a denoising method (implemented using a Python library) applied to the data prior to processing by the pysr model. The results, as depicted in the accompanying plot, indicate that this denoising approach improved model performance up to a specific noise threshold. However, beyond this critical level, performance degraded comparably for both the denoised and non-denoised datasets, suggesting the denoise function's effectiveness diminished at higher noise intensities.\\
+    Following the initial noise analysis, a subsequent experiment incorporated a denoising method (implemented using a Python library) applied to the data prior to processing by the pysr model. The results, as depicted in the accompanying plot, indicate that this denoising approach improved model performance up to a specific noise threshold. However, beyond this critical level, performance degraded comparably for both the denoised and non-denoised datasets, suggesting the denoise function's effectiveness diminished at higher noise intensities.\cite{Wood2022} \\
 
 
 \begin{figure}[H]
@@ -472,7 +504,7 @@ iterative:
     \label{fig:noise_dimless_plots}
 \end{figure}
 
-
+From top left to bottom right, shows Conservation, Newton's First, Newton's Second, Newton's Third, Rutherford, and Simple Harmonic Motion laws.\\  
 
 
 Iterative: \\
@@ -489,6 +521,7 @@ Iterative: \\
     \label{fig:noise_dimless_iterative_plots}
 \end{figure}
 
+From top left to bottom right, shows Conservation, Newton's First, Newton's Second, Newton's Third, Rutherford, and Simple Harmonic Motion laws.\\  
 
 
 
@@ -523,7 +556,7 @@ Return list of expressions\;
 
 \caption{Generate Initial Symbolic Expressions}
 \label{alg:generate_expressions} % You can use this label to reference the algorithm
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -558,7 +591,7 @@ Return `Expressions[maximum depth]`\;
 
 \caption{Recursive Generation of Symbolic Expressions}
 \label{alg:recursive_expressions} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 \subsubsection{ Exploiting Physical Properties: }
@@ -604,7 +637,7 @@ Return list representation of `ResultExpressions`\;
 
 \caption{Apply Powers Recursively to Expressions}
 \label{alg:apply_powers} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -677,7 +710,7 @@ Return \(X\), \(Y\), and the list of symbolic variables\;
 
 \caption{Load and Validate Data}
 \label{alg:load_data} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -739,7 +772,7 @@ Prepare input data from columns of \(X\) to match function arguments\;
 
 \caption{Evaluate Symbolic Expression Numerically}
 \label{alg:evaluate_expression} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -776,7 +809,7 @@ Return `mean_error`\;
 
 \caption{Calculate Mean Log Squared Error}
 \label{alg:mean_log_squared_error} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -811,7 +844,7 @@ Return input data array\;
 
 \caption{Load and Validate Data Array}
 \label{alg:load_data_array} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -848,7 +881,7 @@ Return `GeneratedExpressions`\;
 
 \caption{Generate Expressions from Terms and Operators}
 \label{alg:generate_expressions_terms} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -894,7 +927,7 @@ Return `FilteredExpressions`\;
 
 \caption{Filter Expressions by Variables, Constants, and Power}
 \label{alg:filter_expressions} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -932,7 +965,7 @@ Return `EvaluationResults`\;
 
 \caption{Evaluate Expressions and Calculate RMSE}
 \label{alg:evaluate_expressions} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 To begin the fitting process, I take an expression, substitute the input variables with the corresponding values from the dataset, and compute the predicted yy-values based on the equation. I then calculate the difference between the predicted values and the true target values (yy), which are the actual outputs. This difference is used to compute the Root Mean Squared Error (RMSE), which quantifies the prediction error for the expression.\\
@@ -958,24 +991,31 @@ Physical equations must be dimensionally consistent, meaning the units on both s
 The AI Feynman database was accessed, and the units.csv file was downloaded to better understand the units present in the dataset. Upon reviewing the required units, a unit table was created in the form of an array, where each unit corresponds to a unique power of the fundamental SI units. Additionally, the basic SI units were implemented as an array/list to facilitate this mapping.\\
 
 
-\begin{algorithm}[H]
-\SetAlgoLined
-\caption{Dimensional Vectors for SI Base Units}
-\label{alg:unit_table} % Add a label for referencing
+\begin{table}[H]
+\centering
+\resizebox{0.95\textwidth}{!}{ % Adjust width as needed
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textit{\textbf{SI Base Units}} & \textit{\textbf{Vectorised Value}} & \textit{\textbf{Derived Units}} & \textit{\textbf{Vectorised Values}} \\ \hline
+\textbf{Mass}           & {[}1, 0, 0, 0, 0, 0, 0{]} & \textbf{Area}          & {[}0, 2, 0, 0, 0, 0, 0{]}   \\ \hline
+\textbf{Length}         & {[}0, 1, 0, 0, 0, 0, 0{]} & \textbf{Acceleration}  & {[}0, 1, -2, 0, 0, 0, 0{]}  \\ \hline
+\textbf{Time}           & {[}0, 0, 1, 0, 0, 0, 0{]} & \textbf{Voltage}       & {[}1, 2, -3, 0, -1, 0, 0{]} \\ \hline
+\textbf{Temperature}    & {[}0, 0, 0, 1, 0, 0, 0{]} & \textbf{Density}       & {[}1, -3, 0, 0, 0, 0, 0{]}  \\ \hline
+\textbf{Current}        & {[}0, 0, 0, 0, 1, 0, 0{]} & \textbf{Torque}        & {[}1, 2, -2, 0, 0, 0, 0{]}  \\ \hline
+\textbf{Substance (mol)}& {[}0, 0, 0, 0, 0, 1, 0{]} & \textbf{Volume}        & {[}0, 3, 0, 0, 0, 0, 0{]}   \\ \hline
+\textbf{Luminosity}     & {[}0, 0, 0, 0, 0, 0, 1{]} & \textbf{Dimensionless} & {[}0, 0, 0, 0, 0, 0, 0{]}   \\ \hline
+\end{tabular}
+}
+\caption{SI base and derived units with their corresponding vectorised representations.}
+\label{tab:si_units_extended}
+\end{table}\\
 
-% Description of the table structure
-Mapping from physical quantity name to its dimensional vector (Mass, Length, Time, Temperature, Current, Amount, Luminous Intensity):\;
-\vspace{0.5em} % Add a little vertical space for clarity
 
-\textbf{mass}:                 [1, 0, 0, 0, 0, 0, 0]\;
-\textbf{length}:               [0, 1, 0, 0, 0, 0, 0]\;
-\textbf{time}:                 [0, 0, 1, 0, 0, 0, 0]\;
-\textbf{temperature}:          [0, 0, 0, 1, 0, 0, 0]\;
-\textbf{current}:              [0, 0, 0, 0, 1, 0, 0]\;
-\textbf{amount}:               [0, 0, 0, 0, 0, 1, 0]\;
-\textbf{luminous\_intensity}:   [0, 0, 0, 0, 0, 0, 1]\; % Note the escaped underscore
 
-\end{algorithm}
+
+
+
+
 
 
 There were also relevent derived units included.\\ 
@@ -1017,7 +1057,7 @@ Return matrix \(M\) and vector \(b\)\;
 
 \caption{Construct Dimensional Matrix and Target Vector}
 \label{alg:get_matrix_target} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1053,7 +1093,7 @@ Return \(p\) and \(U\)\;
 
 \caption{Solve Dimensional System and Find Null Space}
 \label{alg:solve_dimension} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1103,7 +1143,7 @@ Return \(X'\) and \(Y'\)\;
 
 \caption{Generate Dimensionless Data}
 \label{alg:generate_dimensionless_data} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1144,7 +1184,7 @@ Return `ScalingFactor` and `SymbolicDimensionlessGroups`\;
 
 \caption{Symbolic Transformation using Dimensional Analysis Results}
 \label{alg:symbolic_transformation} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1152,7 +1192,7 @@ Return `ScalingFactor` and `SymbolicDimensionlessGroups`\;
 \subsection{Neural Network Fitting: }
 
 
-The next critical component involves using neural networks to predict and compute gradients from the dimensionless data, providing valuable insights for visualization. While neural networks do not directly solve for symbolic expressions, they serve as powerful tools for approximating complex relationships within the data. By training a neural network on the dimensionless variables, it can predict the output for a given input and calculate gradients, offering a smooth, differentiable function that helps visualize how changes in the input variables influence the model’s predictions. This capability allows us to gain a deeper understanding of the underlying behavior of the system. Although neural networks do not offer an explicit symbolic expression, they provide a flexible and efficient way to visualize the functional dependencies, aiding in the interpretation of complex patterns that may be difficult to express symbolically. Ultimately, the network's predictions and gradients can be used to explore and understand the data, even if the true functional form remains implicit.\\
+The next critical component involves using neural networks to predict and compute gradients from the dimensionless data, providing valuable insights for visualization. While neural networks do not directly solve for symbolic expressions, they serve as powerful tools for approximating complex relationships within the data. By training a neural network on the dimensionless variables, it can predict the output for a given input and calculate gradients, offering a smooth, differentiable function that helps visualize how changes in the input variables influence the model’s predictions \cite{Alnuqaydan2023}. This capability allows us to gain a deeper understanding of the underlying behavior of the system. Although neural networks do not offer an explicit symbolic expression, they provide a flexible and efficient way to visualize the functional dependencies, aiding in the interpretation of complex patterns that may be difficult to express symbolically. Ultimately, the network's predictions and gradients can be used to explore and understand the data, even if the true functional form remains implicit.\\
 
 
 
@@ -1160,10 +1200,10 @@ The next critical component involves using neural networks to predict and comput
 
 
 
-\subsubsection{SymbolicNetwork:}
+\subsubsection{Symbolic Network:}
 
 
-This class defines the neural network architecture used as a universal function approximator within the symbolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in PyTorch. The constructor (init) initializes the network structure, accepting the number of input features (n\_input) and defaulting to a single output (n\_output). The model consists of several fully connected layers, with each layer followed by a Tanh activation function, which was selected based on the specifications of the reference papers. This multi-layer perceptron (MLP) architecture provides significant expressive power, making it capable of approximating complex relationships within the data. The Tanh activation ensures smooth, differentiable non-linearity, making the network suitable for approximating complex physical functions. While the neural network does not directly solve symbolic expressions, it enables us to predict outputs and compute gradients from the dimensionless data. These predictions and gradients help visualize how changes in input variables affect the model's outputs, offering valuable insights into the system's underlying behavior and functional relationships. This approach aids in interpreting complex patterns, even when the explicit symbolic form is not easily obtainable.\\
+This class defines the neural network architecture used as a universal function approximator within the symbolic regression framework. It inherits from torch.nn.Module, the base class for all neural network modules in PyTorch. The constructor (init) initializes the network structure, accepting the number of input features (n\_input) and defaulting to a single output (n\_output). The model consists of several fully connected layers, with each layer followed by a Tanh activation function, which was selected based on the specifications of the reference papers. This multi-layer perceptron (MLP) architecture provides significant expressive power \cite{abdellaoui2021}, making it capable of approximating complex relationships within the data. While this project approaches this is being used for dimensionless data, you can also use neural networks as sequential weak learners in gradient boosting frameworks to build approximations \cite{badirli2020}.The Tanh activation ensures smooth, differentiable non-linearity, making the network suitable for approximating complex physical functions. While the neural network does not directly solve symbolic expressions, it enables us to predict outputs and compute gradients from the dimensionless data. These predictions and gradients help visualize how changes in input variables affect the model's outputs, offering valuable insights into the system's underlying behavior and functional relationships. This approach aids in interpreting complex patterns, even when the explicit symbolic form is not easily obtainable.\\
 
 
 
@@ -1198,7 +1238,7 @@ Linear layer: 64 inputs, `n_output` outputs\;
 Pass the input tensor `x` through the defined sequential model\;
 Return the output tensor\;
 
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1237,7 +1277,7 @@ Return the training data loader and the validation data loader\;
 
 \caption{Prepare Data for Neural Network Training}
 \label{alg:prepare_data} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1286,15 +1326,13 @@ Define a loss function (e.g., Mean Squared Error)\;
   Calculate average validation loss for the epoch\;
   Enable gradient calculations\; % Restore default state
 
-  % Optional: Print epoch summary (as in original code)
   Print epoch number, training loss, and validation loss\;
 }
 
-% Model is trained in place, no explicit return needed in pseudocode
 
 \caption{Train Neural Network Model}
 \label{alg:train_network} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1326,7 +1364,7 @@ Return the predicted NumPy array\;
 
 \caption{Generate Predictions using Trained Network}
 \label{alg:predict} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1336,7 +1374,7 @@ Return the predicted NumPy array\;
 \subsection{Pareto Frontier Optimisation: }
 
 
-The Pareto frontier provides a valuable method for balancing the trade-off between accuracy and simplicity (complexity) in symbolic regression. Rather than searching for a single "best" formula, the objective is to identify all Pareto-optimal formulas, which are those for which no other formula is both simpler and more accurate. To implement this, a 2D plot is created where the x-axis represents the formula's complexity and the y-axis represents the mean error description length. As candidate formulas are generated through methods such as brute-force search, transformations, or recursive combinations, each candidate is evaluated and plotted as a point on the frontier. A critical aspect of this approach is Pareto pruning: any candidate formula that is dominated – meaning that another formula on the frontier has both equal or lower complexity and equal or lower loss (with at least one strict inequality) – is discarded. This pruning process reduces the search space and improves computational efficiency by eliminating redundant solutions, especially when combining results from subproblems. Additionally, it enhances robustness against noise by inherently favoring simpler formulas that achieve a given accuracy. The final Pareto frontier provides a spectrum of optimal solutions, offering the user a range of trade-offs between complexity and accuracy.\\
+The Pareto frontier provides a valuable method for balancing the trade-off between accuracy and simplicity (complexity) in symbolic regression. Rather than searching for a single "best" formula, the objective is to identify all Pareto-optimal formulas, which are those for which no other formula is both simpler and more accurate. To implement this, a 2D plot is created where the x-axis represents the formula's complexity and the y-axis represents the mean error description length. As candidate formulas are generated through methods such as brute-force search, transformations, or recursive combinations, each candidate is evaluated and plotted as a point on the frontier. A critical aspect of this approach is Pareto pruning: any candidate formula that is dominated – meaning that another formula on the frontier has both equal or lower complexity and equal or lower loss (with at least one strict inequality) – is discarded just like in \cite{cranmer2023}. This pruning process reduces the search space and improves computational efficiency by eliminating redundant solutions, especially when combining results from subproblems. Additionally, it enhances robustness against noise by inherently favoring simpler formulas that achieve a given accuracy. The final Pareto frontier provides a spectrum of optimal solutions, offering the user a range of trade-offs between complexity and accuracy \cite{lacava2021}.\\
 
 
 
@@ -1363,7 +1401,7 @@ Store the input complexity, accuracy, and expression as attributes of the Point 
 Construct a descriptive string including the complexity, accuracy, and expression values\;
 Return the constructed string\;
 
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1416,7 +1454,7 @@ Return `UniqueParetoPoints`\;
 
 \caption{Update Pareto Front with New Candidate Solutions}
 \label{alg:update_pareto_points} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1460,7 +1498,7 @@ Return the generated Plotly figure object\;
 
 \caption{Plot Pareto Frontier using Plotly}
 \label{alg:plot_pareto_frontier} % Add a label for referencing
-\end{algorithm}
+\end{algorithm}\\
 
 
 
@@ -1471,16 +1509,25 @@ Return the generated Plotly figure object\;
 
 Part 1: Dimensional Analysis and Symbolic Scaling
 
-The function first applies Dimensional Analysis (DA) to reduce the problem’s dimensionality. It computes a transformation matrix and scaling vector by solving the unit balance equation between independent and target variables. If no dimensionless groups are found, the result is a simple scaling law expressed symbolically. Otherwise, it computes and displays the dimensionless groups and the scaling part of the solution. This ensures the model operates on physically meaningful, unit-consistent quantities, simplifying the functional search space and preventing non-physical relationships. If DA completely solves the problem, the function terminates here by outputting the symbolic solution.
+The function first applies Dimensional Analysis (DA) to reduce the problem’s dimensionality. It computes a transformation matrix and scaling vector by solving the unit balance equation between independent and target variables. If no dimensionless groups are found, the result is a simple scaling law expressed symbolically. Otherwise, it computes and displays the dimensionless groups and the scaling part of the solution. This ensures the model operates on physically meaningful, unit-consistent quantities, simplifying the functional search space and preventing non-physical relationships. If DA completely solves the problem, the function terminates here by outputting the symbolic solution \cite{udrescu2020}.
 Part 2: Neural Network Approximation of Dimensionless Relation
 
 When dimensionless groups exist, the function generates dimensionless data and fits a lightweight symbolic neural network to model the relationship between transformed inputs and outputs. A standard training pipeline is executed: data preparation, model instantiation, training with backpropagation, and prediction. The model’s mean squared error (MSE) is computed on the dimensionless targets to evaluate fit quality. Neural network outputs (predictions and gradients) serve as a flexible preliminary approximation, potentially capturing nonlinear relations that guide the subsequent, more rigid symbolic regression steps.
 Part 3: Polynomial Candidate Generation and Filtering
 
-Following the neural fit, the function applies Polynomial Fitting (PF) techniques to generate candidate symbolic expressions. Polynomial terms are systematically composed using provided variables, coefficients, and operators up to a specified degree. Generated expressions are filtered based on structural criteria, such as variable presence and coefficient validity, to ensure physical plausibility. Each polynomial is evaluated against the original data, and a best-fit candidate is selected according to its error score. If a candidate perfectly matches (zero error), the function outputs the discovered symbolic expression and terminates.
+Following the neural fit, the function applies Polynomial Fitting (PF) techniques to generate candidate symbolic expressions \cite{udrescu2020}. Polynomial terms are systematically composed using provided variables, coefficients, and operators up to a specified degree. Generated expressions are filtered based on structural criteria, such as variable presence and coefficient validity, to ensure physical plausibility. Each polynomial is evaluated against the original data, and a best-fit candidate is selected according to its error score. If a candidate perfectly matches (zero error), the function outputs the discovered symbolic expression and terminates.
 Part 4: Brute Force Symbolic Search and Evaluation
 
-If no polynomial yields a perfect fit, the function initiates a Brute Force (BF) symbolic search. It exhaustively generates expressions by combining variables, constants, operators, and powers. Multiple filters (symmetry, variable relevance, power range, constant handling) systematically prune the expression set to reduce computational complexity and preserve physically meaningful candidates. The remaining expressions are evaluated against the dataset, seeking the best match based on performance metrics. This final exhaustive step ensures that even highly non-obvious symbolic relations can be discovered if they exist within the defined operator and degree space.
+If no polynomial yields a perfect fit, the function initiates a Brute Force (BF) symbolic search. It exhaustively generates expressions by combining variables, constants, operators, and powers. Multiple filters (symmetry, variable relevance, power range, constant handling) systematically prune the expression set to reduce computational complexity and preserve physically meaningful candidates. The remaining expressions are evaluated against the dataset, seeking the best match based on performance metrics. This final exhaustive step ensures that even highly non-obvious symbolic relations can be discovered if they exist within the defined operator and degree space.\\
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{SR_Flow}
+    \caption{The SR control flow for the solver, show in this diagram above.} % Optional
+    \label{fig:sr_flow}
+\end{figure}\\
+
 
 \subsection{Testing:}
 Every module, function and file, were thoroughly tested using dedicated tests. The boundary conditions and
@@ -1515,14 +1562,14 @@ Brute Force          & Load, Generate, Recursive, Evaluate, Loss, Variable Filte
 Main Solver               & Main Solver, Laws                          & Passed                        \\ \hline
 \end{tabular}%
 }
-\end{table}
+\end{table}\\
 
 
 
 \subsubsection{Integration Testing: }
 
 
-To validate the interoperability and functional correctness of the developed software system, a comprehensive suite of integration tests was designed and executed. These tests focused on the interactions between the core Python modules, including Dimensional Analysis (dimensionalAnalysis), Polynomial Fitting (polynomialFit), Brute-Force Symbolic Regression (bruteForce), Neural Network (neuralNetwork) components, Pareto front optimization (pareto), and visualization (plots). Utilizing Python's unittest framework, the tests simulated realistic data analysis workflows, verifying the seamless flow of data and control between modules.\\
+To validate the interoperability and functional correctness of the developed software system, a comprehensive suite of integration tests was designed and executed. These tests focused on the interactions between the core Python modules, including Dimensional Analysis (dimensionalAnalysis), Polynomial Fitting (polynomialFit), Brute-Force Symbolic Regression (bruteForce), Neural Network (neuralNetwork) components, Pareto front optimization (pareto), and visualization (plots). Utilizing Python's unittest framework, the tests simulated realistic data analysis workflows, verifying the seamless flow of data and control between modules. This type of chaining multiple methods was partily inspired by \cite{cranmer2023}, showing that it is far more effective to employ this architecture when aiming to prune the search tree.\\
 
 Key tested interactions included the preprocessing of data using Dimensional Analysis feeding into various model fitting approaches (PF, BF, NN), the evaluation of candidate expressions generated by BF and PF modules and their subsequent management on a Pareto front, and the symbolic transformation capabilities of the Dimensional Analysis module. Further tests confirmed the internal consistency of complex operations within the Brute-Force module and the functionality of gradient calculations in the Neural Network. Successful execution of these tests demonstrates the robustness of the integrated system and its capability to perform complex, multi-stage symbolic regression tasks as designed, ensuring reliable data handoffs and component communication within the software architecture.\\
 
@@ -1534,12 +1581,11 @@ To quantitatively evaluate the computational efficiency and scalability of the c
 The methodology involved systematically varying key parameters influencing complexity, such as expression generation depth (bruteForce), maximum polynomial degree (polynomialFit), the number of input variables, and the size of the input data sample for evaluation. By recording execution time and memory consumption under these varying conditions, the tests aimed to characterize the performance scaling of each module's algorithms. This analysis provides crucial insights into the computational complexity and resource requirements associated with each approach, enabling an understanding of their practical limitations and scalability characteristics. The results quantify the performance trade-offs inherent in different symbolic search strategies and inform the feasibility of applying the developed system to large-scale scientific discovery tasks by establishing empirical benchmarks for time and memory demands.\\
 
 
-\subsubsection{AI-Feynman Dataset: }
 
 
 \section{ Applying the model to Biological Data: }
 
-However, its application to biological systems remains an underexplored frontier. Biological processes are inherently noisy, high-dimensional, and complex, often lacking explicit governing equations. As a result, there exists a significant research gap in employing symbolic regression techniques for biological data modeling. A limited number of studies attempt this integration, making it a novel and potentially revolutionary field of study.\\
+However, its application to biological systems remains an underexplored frontier. Biological processes are inherently noisy, high-dimensional, and complex, often lacking explicit governing equations. As a result, there exists a significant research gap in employing symbolic regression techniques \cite{willard2022}for biological data modeling. A limited number of studies attempt this integration, making it a novel and potentially revolutionary field of study.\\
 
 In this work, we apply symbolic regression to a fundamental biological process: the prediction of nucleic acid melting temperature (Tm) from DNA/RNA base counts. The melting temperature is computed through a well-established empirical formula known as the Wallace rule, defined as:\\
 Tm=2(A+T)+4(G+C)\\
@@ -1556,6 +1602,9 @@ This study highlights how biological systems can be rendered into symbolic, mech
 
 \section{Evaluation:}
 
+
+
+\newpage
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{plain}
 \bibliography{\jobname} 
@@ -1619,6 +1668,15 @@ Scope Creep &
 
 \subsection{Gantt Charts: }
 
+A Gantt chart along with a rough outline of the relevent dates for various submission was made towards the beginning of this project, this also included contengency planning and short yet frequent breaks every couple weeks. Furthermore also made a gantt chart to compare the actual timeline vs the prediction made. \\ 
+
+
+\includegraphics[width=15cm]{Gantt_Chart}
+
+What actually ended up happnening: \\
+
+
+\includegraphics[width=15cm]{Gantt_v3}
 
 \subsection{Project Reflection: }
 
@@ -1633,17 +1691,17 @@ In reflection, the symbolic regressor was successful and has demonstrated all of
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{double_pendulum_static}
-        \caption*{(a) Static double pendulum}
+        \caption{(a) Static double pendulum}
     \end{minipage}%
     \hfill
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{double_pendulum_path}
-        \caption*{(b) Double pendulum path}
+        \caption{(b) Double pendulum path}
     \end{minipage}
     \caption{Side-by-side visualisation of a double pendulum's static setup and path.}
     \label{fig:double_pendulum_side_by_side}
-\end{figure}
+\end{figure}\\
 
 
 
@@ -1658,12 +1716,20 @@ While implementing, designing, testing, and writing the project and report was c
 
 \section{Conclusion: }
 
-To summarise the goal of this project is to explore deriving physical laws through AI, and helping automate the discovery of emphirical laws. Hopefully, this would help speed up the process of discovering new laws, in data, as well as remove the inherent human bias towards creating expressions. A significant amount of attention was placed on reimplementing the regressor from scratch in a more modern and maintainable language, in order to make it easier for future improvements to be made. Also I've used the least amount of libriries possible (numpy and sumpy), in order to build this, allowing it to be really easy to maintain the codebase. It has sucesfully derived the resulted expected and has generated a series of complex expressions for describing data. \\
 
 
 
+To summarise, the goal of this project is to explore the derivation of physical laws using AI and to help automate the discovery of empirical relationships. Ideally, this would accelerate the process of identifying new laws from data, while also mitigating inherent human bias in formulating expressions. Significant effort was dedicated to reimplementing the symbolic regressor from scratch in a modern, maintainable language, making future improvements easier to implement. Additionally, I used the minimal number of libraries (only \texttt{numpy} and \texttt{sympy}) to keep the codebase lightweight and highly maintainable. The regressor successfully derived the expected results and generated a series of complex expressions to describe the input data. \\
 
+The symbolic regressor also supports multiple techniques—such as dimensional analysis, neural networks for visualisation, and Pareto frontiers to balance accuracy and complexity—allowing for various approaches to the same dataset. While this improves performance and flexibility, there are still some edge cases that produce errors due to type mismatches, particularly with more complex nonlinear datasets. Python's dynamic typing system makes these bugs harder to detect and resolve. \\
 
+While chaining these various methods together, I realised that gradient and prediction information from the neural network was not being used to its full potential. This aspect could be significantly improved, potentially by integrating small-batch learning techniques. Doing so could strike a better balance between accuracy and interpretability, leveraging neural networks in a more targeted and structured way. \\
+
+Recommendations for future work include extending the role of neural networks and enhancing visualisation methods beyond basic plots. The polynomial fitting module could also be expanded to provide approximate solutions when brute-force or dimensional analysis approaches fall short. In practice, this architecture deduces expressions significantly faster from smaller datasets compared to the original AIFeynman model, often reducing computation time from hours to minutes or even seconds, due to its minimal reliance on external libraries. However, this comes at a slight cost to accuracy due to the aforementioned type mismatch issues. \\
+
+Additionally, I have begun developing a Golang version, which has the potential to be even faster than PySR. The use of goroutines allows for inherently better optimisation and concurrency. If the hybrid approach described in \cite{Alnuqaydan2023} is adopted—modeling sequences using Go structs—this could dramatically increase performance, potentially by orders of magnitude. I attempted a brute-force approach for a double pendulum equation using minimal filtering, but the search space proved too large due to the system’s chaotic nature and the high number of interacting variables, even when the expression was simplified. \\
+
+There is also strong potential to extend this methodology beyond physics and biological data. Chemistry is a natural next step, but this approach can generalise to any dataset where relationships among variables can be encoded and understood by the model—for example, in economics or any domain where causation and correlation can be meaningfully captured. \\
 
 
 

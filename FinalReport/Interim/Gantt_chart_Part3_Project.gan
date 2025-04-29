@@ -40,31 +40,31 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" uid="5af7bd9ecce8468cab6280982619a323" name="Background Research" color="#be9b7b" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2024-10-17" duration="22" complete="0" thirdDate="2024-10-17" thirdDate-constraint="1" priority="2" expand="true">
+        <task id="0" uid="5af7bd9ecce8468cab6280982619a323" name="Background Research" color="#be9b7b" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2024-10-17" duration="25" complete="0" thirdDate="2024-10-17" thirdDate-constraint="1" priority="2" expand="true">
             <notes><![CDATA[Background research, should last about 1 month 
 ]]></notes>
         </task>
-        <task id="1" uid="b28248d24a2140dd8e1de4abeeb769be" name="Literature Review" color="#3c2f2f" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2024-10-17" duration="7" complete="10" expand="true"/>
-        <task id="2" uid="e8bb2f2dd48746a5aacaaa560e87dfec" name="Learning Required Tools" color="#fff4e6" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2024-10-21" duration="10" complete="0" expand="true"/>
-        <task id="3" uid="f7f15acd7f2b455ea85b309a3e556935" name="Research Motion Laws" color="#854442" meeting="false" start="2024-10-25" duration="7" complete="0" expand="true"/>
-        <task id="4" uid="e5d143d5136744dd8aa429fe90196ba7" name="Research Pendulum Laws" color="#4b3832" meeting="false" start="2024-11-04" duration="10" complete="0" expand="true"/>
-        <task id="7" uid="662228f7974f43a7aab2844cfa40611b" name="Design and Planning" color="#005582" meeting="false" start="2024-11-18" duration="15" complete="0" priority="2" expand="true"/>
-        <task id="8" uid="5b3b97415e5d4f1b8a44a1647958ce4a" name="Goals: need/want/optional" color="#0086ad" meeting="false" start="2024-11-18" duration="7" complete="0" expand="true"/>
-        <task id="9" uid="273a3921b9ad40dfad0387812560d6d8" name="Costs/Development Time" color="#00c2c7" meeting="false" start="2024-11-28" duration="7" complete="0" expand="true"/>
-        <task id="10" uid="805e11420eef405b918402f2f6e0aed2" name="Progress Report" color="#a70000" meeting="false" start="2024-12-09" duration="16" complete="0" expand="true"/>
+        <task id="1" uid="b28248d24a2140dd8e1de4abeeb769be" name="Literature Review" color="#3c2f2f" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2024-10-17" duration="28" complete="10" expand="true"/>
+        <task id="2" uid="e8bb2f2dd48746a5aacaaa560e87dfec" name="Learning Required Tools" color="#fff4e6" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2024-10-21" duration="7" complete="0" expand="true"/>
+        <task id="3" uid="f7f15acd7f2b455ea85b309a3e556935" name="Research Motion Laws" color="#854442" meeting="false" start="2024-10-25" duration="10" complete="0" expand="true"/>
+        <task id="4" uid="e5d143d5136744dd8aa429fe90196ba7" name="Research Pendulum Laws" color="#4b3832" meeting="false" start="2024-11-04" duration="13" complete="0" expand="true"/>
+        <task id="7" uid="662228f7974f43a7aab2844cfa40611b" name="Design and Planning" color="#005582" meeting="false" start="2024-11-18" duration="25" complete="0" priority="2" expand="true"/>
+        <task id="8" uid="5b3b97415e5d4f1b8a44a1647958ce4a" name="Goals: need/want/optional" color="#0086ad" meeting="false" start="2024-11-18" duration="4" complete="0" expand="true"/>
+        <task id="9" uid="273a3921b9ad40dfad0387812560d6d8" name="Costs/Development Time" color="#00c2c7" meeting="false" start="2024-11-28" duration="21" complete="0" expand="true"/>
+        <task id="10" uid="805e11420eef405b918402f2f6e0aed2" name="Progress Report" color="#a70000" meeting="false" start="2024-12-09" duration="20" complete="0" expand="true"/>
         <task id="11" uid="027cf3e9d0654be28089fba2f4876db0" name="Draft/Log" color="#ff0000" meeting="false" start="2024-10-17" duration="37" complete="0" expand="true"/>
-        <task id="13" uid="cd88f84b5ebe490591c64a95f998cf8d" name="Write + Evaluate" color="#ffbaba" meeting="false" start="2024-12-09" duration="16" complete="0" expand="true"/>
-        <task id="14" uid="625381df68f7400bb968cce2a84501cf" name="Implementation" color="#660066" meeting="false" start="2024-12-31" duration="49" complete="0" expand="true"/>
-        <task id="15" uid="bf3aac3957304b87badb0a346a0db503" name="Generate Data Sets" color="#800080" meeting="false" start="2024-12-31" duration="6" complete="0" expand="true"/>
-        <task id="16" uid="33febb3ad4784fc1957ab1d3fcfa25c2" name="Train Models" color="#be29ec" meeting="false" start="2025-01-08" duration="23" complete="0" expand="true"/>
-        <task id="17" uid="89f44da6fe3d484192a0d7671f7bea75" name="Evaluation" color="#d896ff" meeting="false" start="2025-02-10" duration="10" complete="0" expand="true"/>
-        <task id="18" uid="60e73f8adc3d4c238ceb15639d154f42" name="Fine Tuning" color="#efbbff" meeting="false" start="2025-02-24" duration="10" complete="0" expand="true"/>
-        <task id="19" uid="00c212f76b4146d4927adc10609014f4" name="Testing" color="#3bd6c6" meeting="false" start="2025-03-10" duration="11" complete="0" expand="true"/>
-        <task id="20" uid="bf91e0ce51514e789bea005ae7ec4507" name="Test" color="#40e0d0" meeting="false" start="2025-03-10" duration="6" complete="0" expand="true"/>
-        <task id="21" uid="487d01a68a284397bb249b6285be319b" name="Improvements" color="#43e8d8" meeting="false" start="2025-03-18" duration="5" complete="0" expand="true"/>
-        <task id="22" uid="e4bcc646a4884cb58db14cf1dcb4246e" name="Final Report" color="#8db600" meeting="false" start="2025-03-25" duration="11" complete="0" expand="true"/>
+        <task id="13" uid="cd88f84b5ebe490591c64a95f998cf8d" name="Write + Evaluate" color="#ffbaba" meeting="false" start="2024-12-06" duration="21" complete="0" expand="true"/>
+        <task id="14" uid="625381df68f7400bb968cce2a84501cf" name="Implementation" color="#660066" meeting="false" start="2024-12-31" duration="60" complete="0" expand="true"/>
+        <task id="15" uid="bf3aac3957304b87badb0a346a0db503" name="Generate Data Sets" color="#800080" meeting="false" start="2024-12-31" duration="7" complete="0" expand="true"/>
+        <task id="16" uid="33febb3ad4784fc1957ab1d3fcfa25c2" name="Train Models" color="#be29ec" meeting="false" start="2025-01-08" duration="26" complete="0" expand="true"/>
+        <task id="17" uid="89f44da6fe3d484192a0d7671f7bea75" name="Evaluation" color="#d896ff" meeting="false" start="2025-02-10" duration="14" complete="0" expand="true"/>
+        <task id="18" uid="60e73f8adc3d4c238ceb15639d154f42" name="Fine Tuning" color="#efbbff" meeting="false" start="2025-02-24" duration="14" complete="0" expand="true"/>
+        <task id="19" uid="00c212f76b4146d4927adc10609014f4" name="Testing" color="#3bd6c6" meeting="false" start="2025-03-10" duration="7" complete="0" expand="true"/>
+        <task id="20" uid="bf91e0ce51514e789bea005ae7ec4507" name="Test" color="#40e0d0" meeting="false" start="2025-03-10" duration="2" complete="0" expand="true"/>
+        <task id="21" uid="487d01a68a284397bb249b6285be319b" name="Improvements" color="#43e8d8" meeting="false" start="2025-03-18" duration="2" complete="0" expand="true"/>
+        <task id="22" uid="e4bcc646a4884cb58db14cf1dcb4246e" name="Final Report" color="#8db600" meeting="false" start="2025-03-25" duration="14" complete="0" expand="true"/>
         <task id="23" uid="e4d4c5c90c6d4c85a418c434015e5de4" name="Log Progress" color="#addf00" meeting="false" start="2024-12-31" duration="60" complete="0" expand="true"/>
-        <task id="24" uid="9e5a2b37cefa42c09adb5156aa0fb9eb" name="Write + Evaluate" color="#daff5b" meeting="false" start="2025-03-25" duration="11" complete="0" expand="true"/>
+        <task id="24" uid="9e5a2b37cefa42c09adb5156aa0fb9eb" name="Write + Evaluate" color="#daff5b" meeting="false" start="2025-03-25" duration="14" complete="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
