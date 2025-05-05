@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  29 APR 2025 13:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.5.12)  29 APR 2025 15:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -990,27 +990,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 333--334
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--349
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 350--351
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
@@ -1021,7 +1016,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.391 \\
+l.388 \\
         
 ? 
 
@@ -1031,11 +1026,11 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.392 
+l.389 
       
 ? 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
@@ -1046,33 +1041,33 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.400 
+l.397 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--414
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--431
+Underfull \hbox (badness 10000) in paragraph at lines 427--428
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.440 ... displacement is within the range of [\pi
+l.437 ... displacement is within the range of [\pi
                                                   , -\pi] radians.\\
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.441 
+l.438 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--441
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
 
  []
 
@@ -1080,176 +1075,169 @@ Underfull \hbox (badness 10000) in paragraph at lines 440--441
 <pendulum_simulation.png, id=63, 670.505pt x 396.48125pt>
 File: pendulum_simulation.png Graphic file (type png)
 <use pendulum_simulation.png>
-Package pdftex.def Info: pendulum_simulation.png  used on input line 444.
+Package pdftex.def Info: pendulum_simulation.png  used on input line 441.
 (pdftex.def)             Requested size: 227.62204pt x 134.59615pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 4
+57.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--459
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 
  []
 
 <noise_conservation_random.pdf, id=65, 602.25pt x 376.52669pt>
 File: noise_conservation_random.pdf Graphic file (type pdf)
 <use noise_conservation_random.pdf>
-Package pdftex.def Info: noise_conservation_random.pdf  used on input line 466.
+Package pdftex.def Info: noise_conservation_random.pdf  used on input line 468.
 
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
 <noise_Newtons_First_Law_random.pdf, id=66, 602.25pt x 376.52669pt>
 File: noise_Newtons_First_Law_random.pdf Graphic file (type pdf)
 <use noise_Newtons_First_Law_random.pdf>
 Package pdftex.def Info: noise_Newtons_First_Law_random.pdf  used on input line
- 467.
+ 469.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
 <noise_Newtons_Third_Law_random.pdf, id=67, 602.25pt x 376.52669pt>
 File: noise_Newtons_Third_Law_random.pdf Graphic file (type pdf)
 <use noise_Newtons_Third_Law_random.pdf>
 Package pdftex.def Info: noise_Newtons_Third_Law_random.pdf  used on input line
- 468.
+ 470.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
 <noise_Simple_Harmonic_Motion.pdf, id=68, 602.25pt x 376.52669pt>
 File: noise_Simple_Harmonic_Motion.pdf Graphic file (type pdf)
 <use noise_Simple_Harmonic_Motion.pdf>
 Package pdftex.def Info: noise_Simple_Harmonic_Motion.pdf  used on input line 4
-69.
+71.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
 [14 <./pendulum_simulation.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
 
-<noise_conservation_random_i.pdf, id=73, 602.25pt x 376.52669pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--479
+
+ []
+
+<noise_conservation_random_i.pdf, id=74, 602.25pt x 376.52669pt>
 File: noise_conservation_random_i.pdf Graphic file (type pdf)
 <use noise_conservation_random_i.pdf>
 Package pdftex.def Info: noise_conservation_random_i.pdf  used on input line 48
-0.
+2.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Newtons_First_Law_random_i.pdf, id=74, 602.25pt x 376.52669pt>
+<noise_Newtons_First_Law_random_i.pdf, id=75, 602.25pt x 376.52669pt>
 File: noise_Newtons_First_Law_random_i.pdf Graphic file (type pdf)
 <use noise_Newtons_First_Law_random_i.pdf>
 Package pdftex.def Info: noise_Newtons_First_Law_random_i.pdf  used on input li
-ne 481.
+ne 483.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Newtons_Third_Law_random_i.pdf, id=75, 602.25pt x 376.52669pt>
+<noise_Newtons_Third_Law_random_i.pdf, id=76, 602.25pt x 376.52669pt>
 File: noise_Newtons_Third_Law_random_i.pdf Graphic file (type pdf)
 <use noise_Newtons_Third_Law_random_i.pdf>
 Package pdftex.def Info: noise_Newtons_Third_Law_random_i.pdf  used on input li
-ne 482.
+ne 484.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Simple_Harmonic_Motion_random_i.pdf, id=76, 602.25pt x 376.52669pt>
+<noise_Simple_Harmonic_Motion_random_i.pdf, id=77, 602.25pt x 376.52669pt>
 File: noise_Simple_Harmonic_Motion_random_i.pdf Graphic file (type pdf)
 <use noise_Simple_Harmonic_Motion_random_i.pdf>
 Package pdftex.def Info: noise_Simple_Harmonic_Motion_random_i.pdf  used on inp
-ut line 483.
+ut line 485.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 487--488
-
- []
-
 [15 <./noise_conservation_random.pdf> <./noise_Newtons_First_Law_random.pdf> <.
-/noise_Newtons_Third_Law_random.pdf> <./noise_Simple_Harmonic_Motion.pdf> <./no
-ise_conservation_random_i.pdf> <./noise_Newtons_First_Law_random_i.pdf> <./nois
-e_Newtons_Third_Law_random_i.pdf> <./noise_Simple_Harmonic_Motion_random_i.pdf>
-]
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
+/noise_Newtons_Third_Law_random.pdf> <./noise_Simple_Harmonic_Motion.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
 
  []
 
-<noise_conservation_d_r.pdf, id=196, 602.25pt x 376.52669pt>
+<noise_conservation_d_r.pdf, id=141, 602.25pt x 376.52669pt>
 File: noise_conservation_d_r.pdf Graphic file (type pdf)
 <use noise_conservation_d_r.pdf>
-Package pdftex.def Info: noise_conservation_d_r.pdf  used on input line 497.
+Package pdftex.def Info: noise_conservation_d_r.pdf  used on input line 499.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Newtons_First_Law_d_r.pdf, id=197, 602.25pt x 376.52669pt>
+<noise_Newtons_First_Law_d_r.pdf, id=142, 602.25pt x 376.52669pt>
 File: noise_Newtons_First_Law_d_r.pdf Graphic file (type pdf)
 <use noise_Newtons_First_Law_d_r.pdf>
-Package pdftex.def Info: noise_Newtons_First_Law_d_r.pdf  used on input line 49
-8.
+Package pdftex.def Info: noise_Newtons_First_Law_d_r.pdf  used on input line 50
+0.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Newtons_Second_Law_d_r.pdf, id=198, 602.25pt x 376.52669pt>
+<noise_Newtons_Second_Law_d_r.pdf, id=143, 602.25pt x 376.52669pt>
 File: noise_Newtons_Second_Law_d_r.pdf Graphic file (type pdf)
 <use noise_Newtons_Second_Law_d_r.pdf>
-Package pdftex.def Info: noise_Newtons_Second_Law_d_r.pdf  used on input line 4
-99.
+Package pdftex.def Info: noise_Newtons_Second_Law_d_r.pdf  used on input line 5
+01.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Newtons_Third_Law_d_r.pdf, id=199, 602.25pt x 376.52669pt>
+<noise_Newtons_Third_Law_d_r.pdf, id=144, 602.25pt x 376.52669pt>
 File: noise_Newtons_Third_Law_d_r.pdf Graphic file (type pdf)
 <use noise_Newtons_Third_Law_d_r.pdf>
 Package pdftex.def Info: noise_Newtons_Third_Law_d_r.pdf  used on input line 50
-0.
+2.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Rutherford_d_r.pdf, id=200, 602.25pt x 376.52669pt>
+<noise_Rutherford_d_r.pdf, id=145, 602.25pt x 376.52669pt>
 File: noise_Rutherford_d_r.pdf Graphic file (type pdf)
 <use noise_Rutherford_d_r.pdf>
-Package pdftex.def Info: noise_Rutherford_d_r.pdf  used on input line 501.
+Package pdftex.def Info: noise_Rutherford_d_r.pdf  used on input line 503.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Simple_Harmonic_Motion_d_r.pdf, id=201, 602.25pt x 376.52669pt>
+<noise_Simple_Harmonic_Motion_d_r.pdf, id=146, 602.25pt x 376.52669pt>
 File: noise_Simple_Harmonic_Motion_d_r.pdf Graphic file (type pdf)
 <use noise_Simple_Harmonic_Motion_d_r.pdf>
 Package pdftex.def Info: noise_Simple_Harmonic_Motion_d_r.pdf  used on input li
-ne 502.
+ne 504.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 507--508
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
+[16 <./noise_conservation_random_i.pdf> <./noise_Newtons_First_Law_random_i.pdf
+> <./noise_Newtons_Third_Law_random_i.pdf> <./noise_Simple_Harmonic_Motion_rand
+om_i.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 509--511
 
  []
 
-<noise_conservation_d_i.pdf, id=202, 602.25pt x 376.52669pt>
+<noise_conservation_d_i.pdf, id=206, 602.25pt x 376.52669pt>
 File: noise_conservation_d_i.pdf Graphic file (type pdf)
 <use noise_conservation_d_i.pdf>
-Package pdftex.def Info: noise_conservation_d_i.pdf  used on input line 514.
+Package pdftex.def Info: noise_conservation_d_i.pdf  used on input line 515.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Newtons_First_Law_d_i.pdf, id=203, 602.25pt x 376.52669pt>
+<noise_Newtons_First_Law_d_i.pdf, id=207, 602.25pt x 376.52669pt>
 File: noise_Newtons_First_Law_d_i.pdf Graphic file (type pdf)
 <use noise_Newtons_First_Law_d_i.pdf>
 Package pdftex.def Info: noise_Newtons_First_Law_d_i.pdf  used on input line 51
-5.
+6.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Newtons_Second_Law_d_i.pdf, id=204, 602.25pt x 376.52669pt>
+<noise_Newtons_Second_Law_d_i.pdf, id=208, 602.25pt x 376.52669pt>
 File: noise_Newtons_Second_Law_d_i.pdf Graphic file (type pdf)
 <use noise_Newtons_Second_Law_d_i.pdf>
 Package pdftex.def Info: noise_Newtons_Second_Law_d_i.pdf  used on input line 5
-16.
+17.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Newtons_Third_Law_d_i.pdf, id=205, 602.25pt x 376.52669pt>
+<noise_Newtons_Third_Law_d_i.pdf, id=209, 602.25pt x 376.52669pt>
 File: noise_Newtons_Third_Law_d_i.pdf Graphic file (type pdf)
 <use noise_Newtons_Third_Law_d_i.pdf>
 Package pdftex.def Info: noise_Newtons_Third_Law_d_i.pdf  used on input line 51
-7.
+8.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Rutherford_d_i.pdf, id=206, 602.25pt x 376.52669pt>
+<noise_Rutherford_d_i.pdf, id=210, 602.25pt x 376.52669pt>
 File: noise_Rutherford_d_i.pdf Graphic file (type pdf)
 <use noise_Rutherford_d_i.pdf>
-Package pdftex.def Info: noise_Rutherford_d_i.pdf  used on input line 518.
+Package pdftex.def Info: noise_Rutherford_d_i.pdf  used on input line 519.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-<noise_Simple_Harmonic_Motion_d_i.pdf, id=207, 602.25pt x 376.52669pt>
+<noise_Simple_Harmonic_Motion_d_i.pdf, id=211, 602.25pt x 376.52669pt>
 File: noise_Simple_Harmonic_Motion_d_i.pdf Graphic file (type pdf)
 <use noise_Simple_Harmonic_Motion_d_i.pdf>
 Package pdftex.def Info: noise_Simple_Harmonic_Motion_d_i.pdf  used on input li
-ne 519.
+ne 520.
 (pdftex.def)             Requested size: 199.16928pt x 124.51846pt.
-[16 <./noise_conservation_d_r.pdf> <./noise_Newtons_First_Law_d_r.pdf> <./noise
+[17 <./noise_conservation_d_r.pdf> <./noise_Newtons_First_Law_d_r.pdf> <./noise
 _Newtons_Second_Law_d_r.pdf> <./noise_Newtons_Third_Law_d_r.pdf> <./noise_Ruthe
 rford_d_r.pdf> <./noise_Simple_Harmonic_Motion_d_r.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 524--525
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 534--535
 
  []
@@ -1261,10 +1249,10 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.560 
+l.561 
       
 ? 
-[17 <./noise_conservation_d_i.pdf> <./noise_Newtons_First_Law_d_i.pdf> <./noise
+[18 <./noise_conservation_d_i.pdf> <./noise_Newtons_First_Law_d_i.pdf> <./noise
 _Newtons_Second_Law_d_i.pdf> <./noise_Newtons_Third_Law_d_i.pdf> <./noise_Ruthe
 rford_d_i.pdf> <./noise_Simple_Harmonic_Motion_d_i.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 563--564
@@ -1282,22 +1270,22 @@ l.595
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--600
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--602
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--607
+Underfull \hbox (badness 10000) in paragraph at lines 608--609
 
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 611--612
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 614--615
 
  []
 
@@ -1308,18 +1296,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.641 
+l.644 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 645--646
+Underfull \hbox (badness 10000) in paragraph at lines 648--649
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.669 
+l.671 
       
 ? 
 
@@ -1329,13 +1317,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.669 
+l.671 
       
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.669 
+l.671 
       
 ? 
 
@@ -1345,67 +1333,62 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.669 
+l.671 
       
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.669 
+l.671 
       
 ? 
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.669 
+l.671 
       
 ? 
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.669 
+l.671 
       
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.669 
+l.671 
       
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.674 \end{algorithm}
+l.676 \end{algorithm}
                      
 ? 
 
-Underfull \hbox (badness 10000) detected at line 674
+Underfull \hbox (badness 10000) detected at line 676
 [][]
  []
 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.674 \end{algorithm}
+l.676 \end{algorithm}
                      
 ? 
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 680--681
-
- []
-
-
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 682--683
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 685--686
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 687--688
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
 
  []
 
@@ -1421,40 +1404,40 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.714 
+l.716 
       
 ? 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 718--719
+
+Underfull \hbox (badness 10000) in paragraph at lines 719--720
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 722--730
+Underfull \hbox (badness 10000) in paragraph at lines 726--727
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 731--735
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 736--740
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 748--749
+Underfull \hbox (badness 10000) in paragraph at lines 733--734
 
  []
 
 ! Undefined control sequence.
-l.765 \Try
+l.751 \Try
           {
 ? 
 ! Undefined control sequence.
-l.769 \Catch
+l.755 \Catch
             {Evaluation fails (e.g., division by zero)}{
 ? 
 
@@ -1464,101 +1447,101 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.776 
+l.762 
       
 ? 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 781--782
+
+Underfull \hbox (badness 10000) in paragraph at lines 765--766
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.793 Initialize `total_
+l.778 Initialize `total_
                         log_error` to 0.0\;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.795 
+l.780 
       
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.804 
+l.789 
       
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
                                                   }}\algocf@pop {\skiprule }...
-l.804 
+l.789 
       
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
                                                   }\algocf@pop {\skiprule }\...
-l.804 
+l.789 
       
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
                                                   \algocf@pop {\skiprule }\a...
-l.804 
+l.789 
       
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.804 
+l.789 
       
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.806 Calculate `mean_
+l.791 Calculate `mean_
                       error` = `total_log_error` / `n`\;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.807 
+l.792 
       
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.808 Return `mean_
+l.793 Return `mean_
                    error`\;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.809 
+l.794 
       
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.812 \end{algorithm}
+l.797 \end{algorithm}
                      \\
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.812 \end{algorithm}
+l.797 \end{algorithm}
                      \\
 ? 
 
-Underfull \hbox (badness 10000) detected at line 812
+Underfull \hbox (badness 10000) detected at line 797
 [][]
  []
 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.812 \end{algorithm}
+l.797 \end{algorithm}
                      \\
 ? 
 
@@ -1568,20 +1551,19 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.813 
+l.798 
       
 ? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 820--821
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 825--826
-
- []
-
 [22]
+Underfull \hbox (badness 10000) in paragraph at lines 807--808
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--814
+
+ []
+
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1589,304 +1571,30 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.848 
+l.837 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 855--856
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 857--858
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.879 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.879 
-      
-? 
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.885 
-      
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 891--892
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 893--894
+Underfull \hbox (badness 10000) in paragraph at lines 845--846
 
  []
 
 [23]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
+Underfull \hbox (badness 10000) in paragraph at lines 847--848
 
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-\algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
-                                                  }}\algocf@pop {\skiprule }...
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-\algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
-                                                  }\algocf@pop {\skiprule }\...
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-\algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
-                                                  \algocf@pop {\skiprule }\a...
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-\algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
-                                                  }}\algocf@pop {\skiprule }...
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-\algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
-                                                  }\algocf@pop {\skiprule }\...
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-\algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
-                                                  \algocf@pop {\skiprule }\a...
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.925 
-      
-? 
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.925 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.925 
-      
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-! Missing } inserted.
-<inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
-? 
-
-Underfull \hbox (badness 10000) detected at line 930
-[][]
  []
 
-! Missing } inserted.
+! Missing $ inserted.
 <inserted text> 
-                }
-l.930 \end{algorithm}
-                     \\
+                $
+l.871 
+      
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.871 
+      
 ? 
 
 ! LaTeX Error: There's no line here to end.
@@ -1895,29 +1603,49 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.931 
+l.877 
       
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 938--939
+Underfull \hbox (badness 10000) in paragraph at lines 884--885
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 940--941
+Underfull \hbox (badness 10000) in paragraph at lines 886--887
+
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.922 
+      
+? 
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 929--930
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 931--932
 
  []
 
 ! Undefined control sequence.
 <argument>  \Try 
                  { Convert \(e\) into a numerical function using the symboli...
-l.963 
+l.953 
       
 ? 
 ! Undefined control sequence.
 <argument> ...) to `EvaluationResults`\; } \Catch 
                                                   {Evaluation fails (e.g., r...
-l.963 
+l.953 
       
 ? 
 
@@ -1927,67 +1655,63 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.969 
+l.959 
       
-? 
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 971--972
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 975--976
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 985--986
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 991--992
-
- []
-
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1012 
-       
 ? 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1021--1022
+Underfull \hbox (badness 10000) in paragraph at lines 960--961
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 998--999
+
+ []
+
+[26]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1019 
+       
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1025
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1029--1030
 
  []
 
 ! Undefined control sequence.
 <argument>  \Try 
                  { Look up the dimensional vector for \(v\) in the dictionar...
-l.1046 
+l.1053 
        
 ? 
 ! Undefined control sequence.
 <argument> ...a column to matrix \(M\)\; } \Catch 
                                                   {Variable name \(v\) not f...
-l.1046 
+l.1053 
        
 ? 
 ! Undefined control sequence.
-l.1048 \Try
+l.1055 \Try
            {
 ? 
 ! Undefined control sequence.
-l.1052 \Catch
+l.1059 \Catch
              {Variable name \(d\) not found in dictionary}{
 ? 
 
@@ -1997,7 +1721,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1061 
+l.1068 
        
 ? 
 
@@ -2008,7 +1732,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1070 ...tion solves the system of equations M⋅
+l.1078 ...tion solves the system of equations M⋅
                                                   p=bM⋅p=b for the unknown...
 
 ? 
@@ -2020,22 +1744,22 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1070 ...lves the system of equations M⋅p=bM⋅
+l.1078 ...lves the system of equations M⋅p=bM⋅
                                                   p=b for the unknown vector...
 
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1070--1071
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1079
 
  []
 
-[26]
+[27]
 ! Undefined control sequence.
-l.1081 \Try
+l.1088 \Try
            {
 ? 
 ! Undefined control sequence.
-l.1084 \Catch
+l.1091 \Catch
              {Solving fails (e.g., matrix is singular or system inconsistent)}{
 
 ? 
@@ -2046,7 +1770,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1097 
+l.1104 
        
 ? 
 
@@ -2057,36 +1781,41 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1105 ...variable in the input data dataxdatax​
-                                                   to the powers specified b...
+l.1113 ...o adjust the target values dataydatay​
+                                                   to obtain the dimensionle...
 
 ? 
 
-! LaTeX Error: Unicode character ​ (U+200B)
+! LaTeX Error: Unicode character ′ (U+2032)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1105 ...o adjust the target values dataydatay​
-                                                   to obtain the dimensionle...
-
+l.1113 ...the dimensionless target values datay′
+                                                  datay′.\\
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1105--1106
+! LaTeX Error: Unicode character ′ (U+2032)
+               not set up for use with LaTeX.
 
- []
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1113 ...nsionless target values datay′datay′
+                                                  .\\
+? 
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1107--1108
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1114
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1121 Calculate a `scaling_
+l.1127 Calculate a `scaling_
                             factor` vector by raising each column of \(X\) t...
 
 ? 
@@ -2097,14 +1826,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1121 ...tor` vector by raising each column of \(
+l.1127 ...tor` vector by raising each column of \(
                                                   X\) to the corresponding p...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1125 ...(Y'\) by dividing \(Y\) by the `scaling_
+l.1131 ...(Y'\) by dividing \(Y\) by the `scaling_
                                                   factor`\;
 ? 
 
@@ -2114,60 +1843,60 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1126 \(
+l.1132 \(
           Y'_i = Y_i / \text{scaling\_factor}_i \)\;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1138 \Else
+l.1144 \Else
             {
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
                                                   }}\algocf@pop {\skiprule }...
-l.1138 \Else
+l.1144 \Else
             {
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
                                                   }\algocf@pop {\skiprule }\...
-l.1138 \Else
+l.1144 \Else
             {
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
                                                   \algocf@pop {\skiprule }\a...
-l.1138 \Else
+l.1144 \Else
             {
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1138 \Else
+l.1144 \Else
             {
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1146 \end{algorithm}
+l.1152 \end{algorithm}
                       \\
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1146 \end{algorithm}
+l.1152 \end{algorithm}
                       \\
 ? 
 
-Underfull \hbox (badness 10000) detected at line 1146
+Underfull \hbox (badness 10000) detected at line 1152
 [][]
  []
 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1146 \end{algorithm}
+l.1152 \end{algorithm}
                       \\
 ? 
 
@@ -2177,21 +1906,21 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1147 
+l.1153 
        
 ? 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 1155--1156
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1161--1162
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1157--1158
+Underfull \hbox (badness 10000) in paragraph at lines 1163--1164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1159--1160
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1166
 
  []
 
@@ -2202,101 +1931,101 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1188 
+l.1194 
        
 ? 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 1195--1196
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1201--1202
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1206--1207
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1213
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1219 ...tbf{Initialization Method (`__init__`):}
+l.1225 ...tbf{Initialization Method (`__init__`):}
                                                   \;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.1219 ...tbf{Initialization Method (`__init__`):}
+l.1225 ...tbf{Initialization Method (`__init__`):}
                                                   \;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.1219 ...tbf{Initialization Method (`__init__`):}
+l.1225 ...tbf{Initialization Method (`__init__`):}
                                                   \;
 ? 
 ! Incompatible list can't be unboxed.
 \KwData ... \hangafter =1\unhbox \algocf@inputbox 
                                                   #1\par }\algocf@linesnumbe...
-l.1220 ...output features (`n_output`, default 1)}
+l.1226 ...output features (`n_output`, default 1)}
                                                   \;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1220 ...output features (`n_output`, default 1)}
+l.1226 ...output features (`n_output`, default 1)}
                                                   \;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1220 ...output features (`n_output`, default 1)}
+l.1226 ...output features (`n_output`, default 1)}
                                                   \;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1220 ...output features (`n_output`, default 1)}
+l.1226 ...output features (`n_output`, default 1)}
                                                   \;
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1220 ...tput features (`n_output`, default 1)}\;
+l.1226 ...tput features (`n_output`, default 1)}\;
                                                   
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1221 C
+l.1227 C
         all the constructor of the base Neural Network Module\;
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1222 D
+l.1228 D
         efine a sequential model containing the following layers:\;
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1224 L
+l.1230 L
         inear layer: `n_input` inputs, 128 outputs\;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1224 Linear layer: `n_
+l.1230 Linear layer: `n_
                         input` inputs, 128 outputs\;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1234 
+l.1240 
        
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1235 \textbf{Forward Method (`forward`):}
+l.1241 \textbf{Forward Method (`forward`):}
                                            \;
 ? 
 
@@ -2306,13 +2035,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1236 \KwData{Input tensor `x`}
+l.1242 \KwData{Input tensor `x`}
                                 \;
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1236 \KwData{Input tensor `x`}\;
+l.1242 \KwData{Input tensor `x`}\;
                                   
 ? 
 
@@ -2322,25 +2051,25 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1237 \KwResult{Output tensor}
+l.1243 \KwResult{Output tensor}
                                \;
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1237 \KwResult{Output tensor}\;
+l.1243 \KwResult{Output tensor}\;
                                  
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1238 P
+l.1244 P
         ass the input tensor `x` through the defined sequential model\;
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1239 R
+l.1245 R
         eturn the output tensor\;
 ? 
 
@@ -2350,42 +2079,11 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1242 
+l.1248 
        
 ? 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1251--1252
-
- []
-
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1281 
-       
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1288--1289
-
- []
-
 [30]
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1336 
-       
-? 
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 1345--1346
+Underfull \hbox (badness 10000) in paragraph at lines 1257--1258
 
  []
 
@@ -2396,96 +2094,127 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1368 
+l.1287 
+       
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1294--1295
+
+ []
+
+[31]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1342 
        
 ? 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1377--1378
+Underfull \hbox (badness 10000) in paragraph at lines 1351--1352
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1384--1385
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1374 
+       
+? 
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 1383--1384
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1390--1391
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1395 ...tbf{Initialization Method (`__init__`):}
+l.1401 ...tbf{Initialization Method (`__init__`):}
                                                   \;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.1395 ...tbf{Initialization Method (`__init__`):}
+l.1401 ...tbf{Initialization Method (`__init__`):}
                                                   \;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.1395 ...tbf{Initialization Method (`__init__`):}
+l.1401 ...tbf{Initialization Method (`__init__`):}
                                                   \;
 ? 
 ! Incompatible list can't be unboxed.
 \KwData ... \hangafter =1\unhbox \algocf@inputbox 
                                                   #1\par }\algocf@linesnumbe...
-l.1396 ...ue, Accuracy value, Symbolic expression}
+l.1402 ...ue, Accuracy value, Symbolic expression}
                                                   \;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1396 ...ue, Accuracy value, Symbolic expression}
+l.1402 ...ue, Accuracy value, Symbolic expression}
                                                   \;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1396 ...ue, Accuracy value, Symbolic expression}
+l.1402 ...ue, Accuracy value, Symbolic expression}
                                                   \;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1396 ...ue, Accuracy value, Symbolic expression}
+l.1402 ...ue, Accuracy value, Symbolic expression}
                                                   \;
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1396 ..., Accuracy value, Symbolic expression}\;
+l.1402 ..., Accuracy value, Symbolic expression}\;
                                                   
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1397 S
+l.1403 S
         tore the input complexity, accuracy, and expression as attributes of...
 
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1399 ...tbf{Representation Method (`__repr__`):}
+l.1405 ...tbf{Representation Method (`__repr__`):}
                                                   \;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1399 ...tbf{Representation Method (`__repr__`):}
+l.1405 ...tbf{Representation Method (`__repr__`):}
                                                   \;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.1399 ...tbf{Representation Method (`__repr__`):}
+l.1405 ...tbf{Representation Method (`__repr__`):}
                                                   \;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.1399 ...tbf{Representation Method (`__repr__`):}
+l.1405 ...tbf{Representation Method (`__repr__`):}
                                                   \;
 ? 
 
@@ -2495,50 +2224,50 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1400 ...ring representation of the Point object}
+l.1406 ...ring representation of the Point object}
                                                   \;
 ? 
 ! Incompatible list can't be unboxed.
 \KwResult ...hangafter =1\unhbox \algocf@inputbox 
                                                   #1\par }\algocf@linesnumbe...
-l.1400 ...ring representation of the Point object}
+l.1406 ...ring representation of the Point object}
                                                   \;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1400 ...ring representation of the Point object}
+l.1406 ...ring representation of the Point object}
                                                   \;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1400 ...ring representation of the Point object}
+l.1406 ...ring representation of the Point object}
                                                   \;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1400 ...ring representation of the Point object}
+l.1406 ...ring representation of the Point object}
                                                   \;
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1400 ...ng representation of the Point object}\;
+l.1406 ...ng representation of the Point object}\;
                                                   
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1401 C
+l.1407 C
         onstruct a descriptive string including the complexity, accuracy, an...
 
 ? 
 ! Undefined control sequence.
 \algocf@everypar ...parnl \algocf@everyparhanging 
                                                   
-l.1402 R
+l.1408 R
         eturn the constructed string\;
 ? 
 
@@ -2548,113 +2277,113 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1405 
+l.1411 
        
 ? 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 1411--1412
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1417--1418
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1441 
+l.1447 
        
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1441 
+l.1447 
        
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1441 
+l.1447 
        
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...}\vtop {\algocf@addskiptotal #1}
                                                   }}\algocf@pop {\skiprule }...
-l.1441 
+l.1447 
        
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...\vtop {\algocf@addskiptotal #1}}
                                                   }\algocf@pop {\skiprule }\...
-l.1441 
+l.1447 
        
 ? 
 ! Extra }, or forgotten $.
 \algocf@Vsline ...vtop {\algocf@addskiptotal #1}}}
                                                   \algocf@pop {\skiprule }\a...
-l.1441 
+l.1447 
        
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1441 
+l.1447 
        
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1441 
+l.1447 
        
 ? 
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.1441 
+l.1447 
        
 ? 
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.1441 
+l.1447 
        
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1441 
+l.1447 
        
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1457 \end{algorithm}
+l.1463 \end{algorithm}
                       \\
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1457 \end{algorithm}
+l.1463 \end{algorithm}
                       \\
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1457 \end{algorithm}
+l.1463 \end{algorithm}
                       \\
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1457 \end{algorithm}
+l.1463 \end{algorithm}
                       \\
 ? 
 
-Underfull \hbox (badness 10000) detected at line 1457
+Underfull \hbox (badness 10000) detected at line 1463
 [][]
  []
 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.1457 \end{algorithm}
+l.1463 \end{algorithm}
                       \\
 ? 
 
@@ -2664,20 +2393,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1458 
+l.1464 
        
 ? 
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1464--1465
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1474--1475
-
- []
-
 [35]
+Underfull \hbox (badness 10000) in paragraph at lines 1470--1471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1480--1481
+
+ []
+
+[36]
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2685,22 +2414,22 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1502 
+l.1508 
        
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1521--1522
+Underfull \hbox (badness 10000) in paragraph at lines 1527--1528
 
  []
 
-[36]
+[37]
 
 pdfTeX warning: pdflatex (file ./SR_Flow.pdf): PDF inclusion: found PDF version
  <1.7>, but at most version <1.5> allowed
-<SR_Flow.pdf, id=443, 273.72264pt x 444.4605pt>
+<SR_Flow.pdf, id=448, 273.72264pt x 444.4605pt>
 File: SR_Flow.pdf Graphic file (type pdf)
 <use SR_Flow.pdf>
-Package pdftex.def Info: SR_Flow.pdf  used on input line 1526.
+Package pdftex.def Info: SR_Flow.pdf  used on input line 1532.
 (pdftex.def)             Requested size: 199.16928pt x 323.40227pt.
 
 ! LaTeX Error: There's no line here to end.
@@ -2709,27 +2438,27 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1530 
+l.1536 
        
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1533--1537
+Underfull \hbox (badness 10000) in paragraph at lines 1539--1543
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1540--1541
+Underfull \hbox (badness 10000) in paragraph at lines 1546--1547
 
  []
 
-[37 <./SR_Flow.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1544--1545
+[38 <./SR_Flow.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1550--1551
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1552.
+               Default added (so using `tbp') on input line 1558.
 
 
 ! LaTeX Error: There's no line here to end.
@@ -2738,16 +2467,11 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1566 
+l.1572 
        
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1572--1573
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1574--1575
+Underfull \hbox (badness 10000) in paragraph at lines 1577--1578
 
  []
 
@@ -2757,83 +2481,101 @@ Underfull \hbox (badness 10000) in paragraph at lines 1579--1580
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1581--1582
+Underfull \hbox (badness 10000) in paragraph at lines 1586--1587
 
  []
 
-[38]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1588--1589
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1590--1593
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1594--1595
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1601--1602
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1596--1597
+Underfull \hbox (badness 10000) in paragraph at lines 1603--1604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1598--1599
+Underfull \hbox (badness 10000) in paragraph at lines 1608--1610
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1600--1601
-
- []
-
-[39] (./FinalReport.bbl [40])
-Underfull \hbox (badness 10000) in paragraph at lines 1620--1621
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1613
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1670--1671
+Underfull \hbox (badness 10000) in paragraph at lines 1614--1615
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1616--1617
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1622--1623
+
+ []
+
+<Eval_2.png, id=477, 657.45625pt x 99.37125pt>
+File: Eval_2.png Graphic file (type png)
+<use Eval_2.png>
+Package pdftex.def Info: Eval_2.png  used on input line 1624.
+(pdftex.def)             Requested size: 284.52756pt x 43.00476pt.
+[40 <./Eval_2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1628--1630
 
  []
 
 [41]
-<Gantt_Chart.png, id=482, 1538.74875pt x 774.895pt>
+Underfull \hbox (badness 10000) in paragraph at lines 1643--1644
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1693--1694
+
+ []
+
+<Gantt_Chart.png, id=484, 1538.74875pt x 774.895pt>
 File: Gantt_Chart.png Graphic file (type png)
 <use Gantt_Chart.png>
-Package pdftex.def Info: Gantt_Chart.png  used on input line 1673.
+Package pdftex.def Info: Gantt_Chart.png  used on input line 1697.
 (pdftex.def)             Requested size: 426.79134pt x 214.92358pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1675--1676
+Underfull \hbox (badness 10000) in paragraph at lines 1699--1700
 
  []
 
-<Gantt_v3.png, id=483, 1804.7425pt x 860.21375pt>
+[42 <./Gantt_Chart.png>]
+<Gantt_v3.png, id=488, 1804.7425pt x 860.21375pt>
 File: Gantt_v3.png Graphic file (type png)
 <use Gantt_v3.png>
-Package pdftex.def Info: Gantt_v3.png  used on input line 1678.
+Package pdftex.def Info: Gantt_v3.png  used on input line 1702.
 (pdftex.def)             Requested size: 426.79134pt x 203.42345pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1682--1683
+Underfull \hbox (badness 10000) in paragraph at lines 1708--1709
 
  []
 
-[42 <./Gantt_Chart.png> <./Gantt_v3.png>]
-<double_pendulum_static.png, id=487, 602.25pt x 602.25pt>
+<double_pendulum_static.png, id=489, 602.25pt x 602.25pt>
 File: double_pendulum_static.png Graphic file (type png)
 <use double_pendulum_static.png>
-Package pdftex.def Info: double_pendulum_static.png  used on input line 1692.
+Package pdftex.def Info: double_pendulum_static.png  used on input line 1715.
 (pdftex.def)             Requested size: 199.60895pt x 199.60693pt.
-<double_pendulum_path.png, id=488, 702.625pt x 702.625pt>
+<double_pendulum_path.png, id=490, 702.625pt x 702.625pt>
 File: double_pendulum_path.png Graphic file (type png)
 <use double_pendulum_path.png>
-Package pdftex.def Info: double_pendulum_path.png  used on input line 1698.
+Package pdftex.def Info: double_pendulum_path.png  used on input line 1721.
 (pdftex.def)             Requested size: 199.60895pt x 199.60693pt.
-
 
 ! LaTeX Error: There's no line here to end.
 
@@ -2841,54 +2583,55 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1704 
+l.1727 
        
 ? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1709--1710
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1711--1712
+[43 <./Gantt_v3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1730--1731
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1713--1714
+Underfull \hbox (badness 10000) in paragraph at lines 1732--1733
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1718--1719
-
- []
-
-[43 <./double_pendulum_static.png> <./double_pendulum_path.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1720--1721
+Underfull \hbox (badness 10000) in paragraph at lines 1734--1735
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1723--1724
+Underfull \hbox (badness 10000) in paragraph at lines 1740--1741
+
+ []
+
+[44 <./double_pendulum_static.png> <./double_pendulum_path.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1742--1743
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1725--1726
+Underfull \hbox (badness 10000) in paragraph at lines 1744--1745
 
  []
 
-! Misplaced alignment tab character &.
-l.1734 ... functions , Crabbe et al. 2020), Alaa &
-                                                   van der Schaar 2019
-? 
-! Misplaced alignment tab character &.
-l.1735 ...en noted (see discussion in Abdellaoui &
-                                                   Mehrkanoon, 2021, citing ...
 
-? 
-[44] (./FinalReport.aux)
+Underfull \hbox (badness 10000) in paragraph at lines 1746--1747
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1748--1749
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1750--1751
+
+ []
+
+[45] (./FinalReport.bbl [46]) [47] (./FinalReport.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -2897,13 +2640,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17322 strings out of 476091
- 358022 string characters out of 5794081
+ 17372 strings out of 476091
+ 358731 string characters out of 5794081
  1867330 words of memory out of 5000000
- 37391 multiletter control sequences out of 15000+600000
- 533892 words of font info for 73 fonts, out of 8000000 for 9000
+ 37436 multiletter control sequences out of 15000+600000
+ 534407 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,23n,94p,1605b,678s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,23n,94p,1605b,517s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dis
@@ -2917,13 +2660,14 @@ cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
-utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on FinalReport.pdf (44 pages, 1088138 bytes).
+f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
+/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on FinalReport.pdf (47 pages, 1110427 bytes).
 PDF statistics:
- 572 PDF objects out of 1000 (max. 8388607)
- 384 compressed objects within 4 object streams
+ 587 PDF objects out of 1000 (max. 8388607)
+ 393 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 

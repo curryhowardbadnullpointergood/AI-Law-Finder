@@ -103,7 +103,7 @@ def test_pareto_methods():
     # so the has points method works as intended 
     print(p1.get_points())
 
-    print("Testing has point")
+print("Testing has point")
     print(p1.has_point(Point(Coordinate(1,1))))
     print(p1.has_point(Point(Coordinate(1,3))))
     

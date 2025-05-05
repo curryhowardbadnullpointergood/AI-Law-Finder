@@ -41,9 +41,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Dimensional Analysis: }{11}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.4}Genetic Programming:}{11}{}\protected@file@percent }
 \citation{Liddle2009}
-\citation{Alnuqaydan2023}
 \citation{cranmer2023}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.5}Broader Use Cases and Techniques: }{12}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}PySR}{12}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Momentum Laws: }{12}{}\protected@file@percent }
 \@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Symbolic Regression for \( F = M \cdot A \)}}{13}{}\protected@file@percent }
@@ -55,110 +53,125 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}How noise affects the model: }{14}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Plots showing how loss behaves as noise is increased randomly.}}{15}{}\protected@file@percent }
 \newlabel{fig:noise_plots}{{4}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Plots showing how loss behaves as noise is increased iteratively.}}{15}{}\protected@file@percent }
-\newlabel{fig:noise_iterative_plots}{{5}{15}}
 \citation{Wood2022}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Plots showing how loss behaves as noise is increased iteratively.}}{16}{}\protected@file@percent }
+\newlabel{fig:noise_iterative_plots}{{5}{16}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Denoise function: }{16}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Noise plots with dimensionless reduction for various physical systems.}}{16}{}\protected@file@percent }
-\newlabel{fig:noise_dimless_plots}{{6}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Noise plots with dimensionless reduction and iterative improvement for various physical systems.}}{17}{}\protected@file@percent }
-\newlabel{fig:noise_dimless_iterative_plots}{{7}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Symbolic Regression from First Principles: }{17}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}A Brute-Force Approach: }{17}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Generate Initial Symbolic Expressions}}{18}{}\protected@file@percent }
-\newlabel{alg:generate_expressions}{{2}{18}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {3}{\ignorespaces Recursive Generation of Symbolic Expressions}}{18}{}\protected@file@percent }
-\newlabel{alg:recursive_expressions}{{3}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1} Exploiting Physical Properties: }{18}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Dealing with constants:}{19}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Dealing with powers:}{19}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {4}{\ignorespaces Apply Powers Recursively to Expressions}}{19}{}\protected@file@percent }
-\newlabel{alg:apply_powers}{{4}{19}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {5}{\ignorespaces Filter Expressions by Presence of Target Powers}}{20}{}\protected@file@percent }
-\newlabel{alg:filter_powers}{{5}{20}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Chaining powers and constants:}{20}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Loading data:}{20}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Noise plots with dimensionless reduction for various physical systems.}}{17}{}\protected@file@percent }
+\newlabel{fig:noise_dimless_plots}{{6}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Noise plots with dimensionless reduction and iterative improvement for various physical systems.}}{18}{}\protected@file@percent }
+\newlabel{fig:noise_dimless_iterative_plots}{{7}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Symbolic Regression from First Principles: }{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}A Brute-Force Approach: }{18}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Generate Initial Symbolic Expressions}}{19}{}\protected@file@percent }
+\newlabel{alg:generate_expressions}{{2}{19}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {3}{\ignorespaces Recursive Generation of Symbolic Expressions}}{19}{}\protected@file@percent }
+\newlabel{alg:recursive_expressions}{{3}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1} Exploiting Physical Properties: }{19}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Dealing with constants:}{20}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Dealing with powers:}{20}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {4}{\ignorespaces Apply Powers Recursively to Expressions}}{20}{}\protected@file@percent }
+\newlabel{alg:apply_powers}{{4}{20}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {5}{\ignorespaces Filter Expressions by Presence of Target Powers}}{21}{}\protected@file@percent }
+\newlabel{alg:filter_powers}{{5}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Chaining powers and constants:}{21}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.5}Loading data:}{21}{}\protected@file@percent }
 \@writefile{loa}{\contentsline {algocf}{\numberline {6}{\ignorespaces Load and Validate Data}}{21}{}\protected@file@percent }
 \newlabel{alg:load_data}{{6}{21}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.6}How to mitigate noise in data: }{21}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.7}Evaluating expressions:}{21}{}\protected@file@percent }
+\citation{Liddle2009}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.6}How to mitigate noise in data: }{22}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.7}Evaluating expressions:}{22}{}\protected@file@percent }
 \@writefile{loa}{\contentsline {algocf}{\numberline {7}{\ignorespaces Evaluate Symbolic Expression Numerically}}{22}{}\protected@file@percent }
 \newlabel{alg:evaluate_expression}{{7}{22}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {8}{\ignorespaces Calculate Mean Log Squared Error}}{22}{}\protected@file@percent }
-\newlabel{alg:mean_log_squared_error}{{8}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Polynomial Fit Module: }{22}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {8}{\ignorespaces Calculate Mean Log Squared Error}}{23}{}\protected@file@percent }
+\newlabel{alg:mean_log_squared_error}{{8}{23}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Polynomial Fit Module: }{23}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Data Loading:}{23}{}\protected@file@percent }
 \@writefile{loa}{\contentsline {algocf}{\numberline {9}{\ignorespaces Load and Validate Data Array}}{23}{}\protected@file@percent }
 \newlabel{alg:load_data_array}{{9}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Generating polynomial expressions:}{23}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {10}{\ignorespaces Generate Expressions from Terms and Operators}}{23}{}\protected@file@percent }
-\newlabel{alg:generate_expressions_terms}{{10}{23}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Filtering the Polynomial expressions:}{23}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {11}{\ignorespaces Filter Expressions by Variables, Constants, and Power}}{24}{}\protected@file@percent }
-\newlabel{alg:filter_expressions}{{11}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Evaluating expressions:}{24}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {12}{\ignorespaces Evaluate Expressions and Calculate RMSE}}{25}{}\protected@file@percent }
-\newlabel{alg:evaluate_expressions}{{12}{25}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5}Best Polynomial Fit:}{25}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Dimensional Analysis: }{25}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Handling Units:}{25}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces SI base and derived units with their corresponding vectorised representations.}}{26}{}\protected@file@percent }
-\newlabel{tab:si_units_extended}{{1}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Construct Matrix and Target Vector:}{26}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {13}{\ignorespaces Construct Dimensional Matrix and Target Vector}}{26}{}\protected@file@percent }
-\newlabel{alg:get_matrix_target}{{13}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Solving Dimension and Basis Units:}{26}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {14}{\ignorespaces Solve Dimensional System and Find Null Space}}{27}{}\protected@file@percent }
-\newlabel{alg:solve_dimension}{{14}{27}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Data Transformation Function:}{27}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {15}{\ignorespaces Generate Dimensionless Data}}{28}{}\protected@file@percent }
-\newlabel{alg:generate_dimensionless_data}{{15}{28}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5}Symbolic Transformation Generator: }{28}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Generating polynomial expressions:}{24}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {10}{\ignorespaces Generate Expressions from Terms and Operators}}{24}{}\protected@file@percent }
+\newlabel{alg:generate_expressions_terms}{{10}{24}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Filtering the Polynomial expressions:}{24}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {11}{\ignorespaces Filter Expressions by Variables, Constants, and Power}}{25}{}\protected@file@percent }
+\newlabel{alg:filter_expressions}{{11}{25}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Evaluating expressions:}{25}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {12}{\ignorespaces Evaluate Expressions and Calculate RMSE}}{26}{}\protected@file@percent }
+\newlabel{alg:evaluate_expressions}{{12}{26}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5}Best Polynomial Fit:}{26}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {13}{\ignorespaces Find the Best Fit Expression with the Lowest RMSE}}{26}{}\protected@file@percent }
+\newlabel{alg:best_fit}{{13}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Dimensional Analysis: }{26}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Handling Units:}{27}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces SI base and derived units with their corresponding vectorised representations.}}{27}{}\protected@file@percent }
+\newlabel{tab:si_units_extended}{{1}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Construct Matrix and Target Vector:}{27}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {14}{\ignorespaces Construct Dimensional Matrix and Target Vector}}{27}{}\protected@file@percent }
+\newlabel{alg:get_matrix_target}{{14}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Solving Dimension and Basis Units:}{28}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {15}{\ignorespaces Solve Dimensional System and Find Null Space}}{28}{}\protected@file@percent }
+\newlabel{alg:solve_dimension}{{15}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Data Transformation Function:}{28}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {16}{\ignorespaces Generate Dimensionless Data}}{29}{}\protected@file@percent }
+\newlabel{alg:generate_dimensionless_data}{{16}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5}Symbolic Transformation Generator: }{29}{}\protected@file@percent }
 \citation{Alnuqaydan2023}
 \citation{abdellaoui2021}
 \citation{badirli2020}
-\@writefile{loa}{\contentsline {algocf}{\numberline {16}{\ignorespaces Symbolic Transformation using Dimensional Analysis Results}}{29}{}\protected@file@percent }
-\newlabel{alg:symbolic_transformation}{{16}{29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Neural Network Fitting: }{29}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Symbolic Network:}{29}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {17}{\ignorespaces Symbolic Regression Neural Network Architecture}}{30}{}\protected@file@percent }
-\newlabel{alg:symbolic_network}{{17}{30}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Preparing the data:}{30}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {18}{\ignorespaces Prepare Data for Neural Network Training}}{30}{}\protected@file@percent }
-\newlabel{alg:prepare_data}{{18}{30}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Training the Network:}{31}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {19}{\ignorespaces Train Neural Network Model}}{32}{}\protected@file@percent }
-\newlabel{alg:train_network}{{19}{32}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Predict Function:}{32}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {17}{\ignorespaces Symbolic Transformation using Dimensional Analysis Results}}{30}{}\protected@file@percent }
+\newlabel{alg:symbolic_transformation}{{17}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Neural Network Fitting: }{30}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Symbolic Network:}{30}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {18}{\ignorespaces Symbolic Regression Neural Network Architecture}}{31}{}\protected@file@percent }
+\newlabel{alg:symbolic_network}{{18}{31}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Preparing the data:}{31}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {19}{\ignorespaces Prepare Data for Neural Network Training}}{31}{}\protected@file@percent }
+\newlabel{alg:prepare_data}{{19}{31}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.3}Training the Network:}{32}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {20}{\ignorespaces Train Neural Network Model}}{33}{}\protected@file@percent }
+\newlabel{alg:train_network}{{20}{33}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.4}Predict Function:}{33}{}\protected@file@percent }
 \citation{cranmer2023}
 \citation{lacava2021}
-\@writefile{loa}{\contentsline {algocf}{\numberline {20}{\ignorespaces Generate Predictions using Trained Network}}{33}{}\protected@file@percent }
-\newlabel{alg:predict}{{20}{33}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Pareto Frontier Optimisation: }{33}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Points:}{33}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {21}{\ignorespaces Point Class for Pareto Front}}{34}{}\protected@file@percent }
-\newlabel{alg:point_class}{{21}{34}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Pareto Point Set:}{34}{}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {22}{\ignorespaces Update Pareto Front with New Candidate Solutions}}{35}{}\protected@file@percent }
-\newlabel{alg:update_pareto_points}{{22}{35}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Plotting: }{35}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Plot for Pareto front:}{35}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {21}{\ignorespaces Generate Predictions using Trained Network}}{34}{}\protected@file@percent }
+\newlabel{alg:predict}{{21}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Pareto Frontier Optimisation: }{34}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Points:}{34}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {22}{\ignorespaces Point Class for Pareto Front}}{35}{}\protected@file@percent }
+\newlabel{alg:point_class}{{22}{35}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Pareto Point Set:}{35}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {23}{\ignorespaces Update Pareto Front with New Candidate Solutions}}{36}{}\protected@file@percent }
+\newlabel{alg:update_pareto_points}{{23}{36}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Plotting: }{36}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Plot for Pareto front:}{36}{}\protected@file@percent }
 \citation{udrescu2020}
 \citation{udrescu2020}
-\@writefile{loa}{\contentsline {algocf}{\numberline {23}{\ignorespaces Plot Pareto Frontier using Plotly}}{36}{}\protected@file@percent }
-\newlabel{alg:plot_pareto_frontier}{{23}{36}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Main method bringing it together Regressor: }{36}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.1}main solver}{36}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The SR control flow for the solver, show in this diagram above.}}{37}{}\protected@file@percent }
-\newlabel{fig:sr_flow}{{8}{37}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Testing:}{37}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.1}Unit Testing: }{37}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {24}{\ignorespaces Plot Pareto Frontier using Plotly}}{37}{}\protected@file@percent }
+\newlabel{alg:plot_pareto_frontier}{{24}{37}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Main method bringing it together Regressor: }{37}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.1}main solver}{37}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The SR control flow for the solver, show in this diagram above.}}{38}{}\protected@file@percent }
+\newlabel{fig:sr_flow}{{8}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Testing:}{38}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.1}Unit Testing: }{38}{}\protected@file@percent }
 \citation{cranmer2023}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.2}Integration Testing: }{38}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.3}Performance Testing: }{38}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.2}Integration Testing: }{39}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.8.3}Performance Testing: }{39}{}\protected@file@percent }
 \citation{willard2022}
-\@writefile{toc}{\contentsline {section}{\numberline {5} Applying the model to Biological Data: }{39}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation:}{39}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5} Applying the model to Biological Data: }{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.1}Wallace Rule: }{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation:}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Appendix:}{42}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Project Management: }{42}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Risk Assessment: }{42}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Gantt Charts: }{42}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Project Reflection: }{43}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces (a) Static double pendulum}}{44}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces (b) Double pendulum path}}{44}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Side-by-side visualisation of a double pendulum's static setup and path.}}{44}{}\protected@file@percent }
+\newlabel{fig:double_pendulum_side_by_side}{{11}{44}}
+\citation{Alnuqaydan2023}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion: }{45}{}\protected@file@percent }
 \bibstyle{plain}
 \bibdata{FinalReport}
 \bibcite{abdellaoui2021}{1}
@@ -181,7 +194,7 @@
 \bibcite{Schmidt2009}{18}
 \bibcite{Schmidt22009}{19}
 \bibcite{Smith2012}{20}
-\@writefile{toc}{\contentsline {section}{References}{40}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{46}{}\protected@file@percent }
 \bibcite{Stewart2012}{21}
 \bibcite{Taber2009}{22}
 \bibcite{Tenachi2023}{23}
@@ -189,15 +202,4 @@
 \bibcite{willard2022}{25}
 \bibcite{Wood2022}{26}
 \bibcite{Worm2014}{27}
-\@writefile{toc}{\contentsline {section}{Appendix:}{41}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Project Management: }{41}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Risk Assessment: }{41}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Gantt Charts: }{42}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Project Reflection: }{42}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces (a) Static double pendulum}}{43}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces (b) Double pendulum path}}{43}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Side-by-side visualisation of a double pendulum's static setup and path.}}{43}{}\protected@file@percent }
-\newlabel{fig:double_pendulum_side_by_side}{{11}{43}}
-\citation{Alnuqaydan2023}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion: }{44}{}\protected@file@percent }
-\gdef \@abspage@last{44}
+\gdef \@abspage@last{47}
