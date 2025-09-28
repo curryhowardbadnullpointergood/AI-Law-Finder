@@ -1,16 +1,16 @@
 # AI Law Finder ⚖️🤖
 
 **AI Law Finder** is a symbolic regression system built from scratch to discover **mathematical laws from raw data**.  
-Given numerical datasets, the system uses **AI-inspired search + symbolic computation** to infer compact mathematical equations that describe the underlying relationships.  
+Given numerical datasets, the system uses **AI-inspired search + symbolic computation** to infer compact mathematical equations that describe the underlying mathematical relationships.  
 
-This approach successfully rediscovered several classical physical laws — including **Newton’s Laws, Kepler’s Laws, and Simple Harmonic Motion** — directly from data.  This is probably the world's most configurable SR framework for this niche area, where you can quickly experiment with new startergies as proof of concept without having to dig through large open source projects, or old fortran legacy code from academic papers. 
+This approach successfully rediscovered several classical physical laws — including **Newton’s Laws, Kepler’s Laws, and Simple Harmonic Motion** — directly from the generated datasets.  This is probably the world's most configurable SR framework for this niche area, where you can quickly experiment with new startergies as proof of concept without having to dig through large open source projects, or old fortran legacy code from academic papers. 
 
 ---
 
 ## Project Goals
-- Develop a system to **automatically discover physical or mathematical laws** from data.  
-- Implement symbolic regression and genetic algorithms with minimal external dependencies.  
-- Demonstrate extensibility: the method can be applied to **any domain with mathematically structured data**, not just physics.  
+- To develop a system to **automatically discover physical or mathematical laws** from data.  
+- Implementing symbolic regression and genetic algorithms with minimal external dependencies.  
+- Easy extensibility: the method can be applied to **any domain with mathematically structured data**, not just physics, for example I've applied one use case to biological equations.
 
 ---
 
