@@ -1,4 +1,4 @@
-# AI Law Finder ⚖️🤖
+# AI Law Finder 
 
 **AI Law Finder** is a symbolic regression system built from scratch to discover **mathematical laws from raw data**.  
 Given numerical datasets, the system uses **AI-inspired search + symbolic computation** to infer compact mathematical equations that describe the underlying mathematical relationships.  
