@@ -30,7 +30,7 @@ The system was able to:
 - Rediscover **Newton’s Second Law**: `F = ma`  
 - Rediscover **Kepler’s Laws of Planetary Motion**  
 - Rediscover the equation of **Simple Harmonic Motion**  
-- Achieve partial success with more complex systems (e.g. the pendulum)  
+- Achieve partial success with more complex systems (e.g. the double pendulum)  
 
 These results show the feasibility of **AI-driven scientific discovery**, even with a minimal implementation.  
 
